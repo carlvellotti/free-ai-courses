@@ -1,7 +1,15 @@
-Command to start Module 1 Lesson 1
+---
+description: "Module 1.1: Welcome to TaskFlow - Get started with the course"
+---
 
-DO NOT tell the user the step you're about to take.
+**Do this SILENTLY:**
 
-Do this SILENTLY: read `lesson-modules/1.1-welcome/SCRIPT.md`
+1. Read `lesson-modules/1.1-welcome/SCRIPT.md` - this is your teaching script
 
-Follow the script PRECISELY.
+2. Read `.cursor/SCRIPT_INSTRUCTIONS.md` for critical teaching rules
+
+3. Follow the teaching script precisely as instructed:
+   - Deliver no-prefix text naturally to students
+   - Stop at "STOP:" points and wait
+   - Execute "ACTION:" blocks as specified
+   - Start teaching immediately (no meta-commentary)
