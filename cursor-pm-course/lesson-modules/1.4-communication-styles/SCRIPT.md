@@ -1,31 +1,12 @@
 # Module 1.4: Communication Styles - The PM Superpower
 
-## Files Needed to Start
-- `lesson-modules/1.4-communication-styles/communication-styles/style-slack-update.md` *(adapt from ccforpms 1.3)*
-- `lesson-modules/1.4-communication-styles/communication-styles/style-executive-email.md` *(adapt from ccforpms 1.3)*
-- `lesson-modules/1.4-communication-styles/communication-styles/style-notion-doc.md` *(adapt from ccforpms 1.3)*
-- `lesson-modules/1.4-communication-styles/meeting-notes-product-sync.md` (raw meeting notes)
-- `lesson-modules/1.4-communication-styles/research-findings.md` (user research insights to transform)
+**Teaching Script for Claude**
 
-## Files Created During Module
-- `lesson-modules/1.4-communication-styles/meeting-notes-product-sync.md` (edited - summary appended using template)
-- `lesson-modules/1.4-communication-styles/slack-update-output.md` (research transformed to Slack style)
-- `lesson-modules/1.4-communication-styles/executive-email-output.md` (research transformed to Email style)
-- `lesson-modules/1.4-communication-styles/notion-doc-output.md` (research transformed to Notion style)
-
-## High-Level Overview
-- Introduce the concept of communication style templates for consistent output formatting
-- Instead of vague prompts, you can create specific templates that give you consistency and let you iterate/refine over time
-- Examine three pre-made style templates in `communication-styles/` folder
-- Compare differences (Slack: casual 2-3 lines, Email: strategic 3 paragraphs, Notion: comprehensive formatted)
-- Use templates to get EXACTLY the format you want, every single time
-- Practice appending a summary to `meeting-notes-product-sync.md` using the executive email template
-- Show how using @ mentions to reference both content AND template gives consistent, professional formatting
-- Use @ mentions to reference both `research-findings.md` and `communication-styles/` folder
-- Transform same research into all 3 formats (Slack, Email, Notion)
-- Demonstrate power of reusable styles (same info, 3 audiences, zero manual rewriting)
-- PMs can iterate on templates to make them perfect, then reuse forever
-- Explain this becomes a reusable PM superpower, and over time lets you create and refine powerful workflows
+Follow this script precisely using the prefix system:
+- **No prefix** = Speak naturally to student
+- **ACTION** = Do this (silently unless noted)
+- **STOP** = Wait for student response
+- **USER** = Expected student response (reference)
 
 ---
 
@@ -70,7 +51,7 @@
 - With a template, you get exactly the format you want
 - Here's the key: you'll use @ mentions to reference BOTH files - the meeting notes AND the template
 - STOP: Ask me to: "Append a summary to @meeting-notes-product-sync.md using the format from @style-slack-update.md"
-- USER: Append a summary to @meeting-notes-product-sync.md using the format from @style-executive-email.md
+- USER: Append a summary to @meeting-notes-product-sync.md using the format from @style-slack-update.md
 - ACTION: Read meeting-notes-product-sync.md and style-slack-update.md, then edit meeting-notes-product-sync.md to append a summary formatted according to the template
 - Done! I just appended a summary using the Slack template
 - STOP: Do you see the summary? Notice how it follows the template's format exactly
@@ -109,7 +90,7 @@
 - Scenario 2: Feature launch updates - different formats for engineering, sales, execs
 - Scenario 3: Quarterly planning - transform strategy doc into stakeholder-specific formats
 - The pattern: write once or gather once, then distribute in formats tailored to each audience
-- STOP: Does ths make sense?
+- STOP: Does this make sense?
 - USER: Confirms
 
 ---

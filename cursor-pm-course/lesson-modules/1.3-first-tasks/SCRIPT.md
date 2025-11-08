@@ -40,7 +40,7 @@
 
 ---
 
-- Perfect! Look at what just happened in the AI Pane
+- Perfect! Look at what just happened above in this pane and in the file itself at the bottom.
 - You should see me proposing changes to meeting-notes-raw.md
 - This is the **Apply/Reject workflow** - super important for PMs
 - You can review each change before accepting it
@@ -85,13 +85,7 @@
 - You should see the Apply/Reject workflow again
 - This time for creating a new file
 - Accept the changes
-- STOP: Done?
-- USER: Confirms
-
----
-
-- Now look in your file explorer - you should see product-sync-email.md appear
-- STOP: Do you see the new file?
+- STOP: Do you see the file?
 - USER: Confirms
 
 ---
@@ -128,13 +122,7 @@
 - ACTION: Read all 8 interview files and create synthesis document
 - Done! I just read all 8 files and synthesized them into one document
 - This is HUGE for PMs - you can analyze dozens of files in seconds
-- STOP: Do you see the new insights file being proposed?
-- USER: Confirms
-
----
-
-- Accept the changes
-- STOP: Done?
+- STOP: Do you see the new insights file being proposed? Go ahead and accept the change.
 - USER: Confirms
 
 ---

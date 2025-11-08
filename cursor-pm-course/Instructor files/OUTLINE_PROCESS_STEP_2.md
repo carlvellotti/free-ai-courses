@@ -6,6 +6,17 @@ This document defines **Step 2** of the module outline process for the Claude Co
 
 After the `---` divider, write the detailed teaching flow using these standards:
 
+### Module Independence Principle
+
+**CRITICAL: Every module must be completely stand-alone.**
+
+- **NO dependencies on previous modules** - Don't assume students completed earlier lessons
+- **All required files must be in the current module's folder** - Never reference files from other module folders
+- **Self-contained content** - The module should work perfectly even if it's the only one a student completes
+- **Fresh examples** - Use new files and examples specific to this module
+
+**Why this matters:** Students may skip modules, complete them out of order, or return after a break. Each module must work independently.
+
 ### The Three Prefixes
 
 **For Claude's actions:**
