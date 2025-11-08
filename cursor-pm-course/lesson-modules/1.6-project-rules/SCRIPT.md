@@ -153,20 +153,25 @@ Rules = persistent context that auto-applies to every conversation
 No @mentions, no copying prompts, no repeating yourself
 This is how you make Cursor truly understand YOUR product and YOUR team
 There are more examples of Cursor rules you might want to use in the reference document
-But here's the big moment: you've just completed Module 1!
+And now... here's the big moment
+You've just completed ALL OF MODULE 1!
+That's six complete lessons mastering Cursor fundamentals
 Let me recap everything you've learned:
 	- Module 1.1: Interface basics - how to navigate Cursor
 	- Module 1.2: @-mentions - how to give Cursor context
 	- Module 1.3: File references - how to link to specific code
-	- Module 1.4: Communication styles - how to talk to Cursor effectively
-	- Module 1.5: The three modes - Chat, Composer, Agent
+	- Module 1.4: Templates & workflows - using and refining template documents
+	- Module 1.5: The three modes - Ask, Agent, and Plan
 	- Module 1.6 (this one): Project rules - persistent context that makes everything better
 You now know how to USE Cursor - the interface, the mechanics, the features
-That's the foundation. Now we go deeper.
+That's not a small thing - you have the complete foundation
+Most people never get this far. You're already ahead of the curve.
+Now we go deeper.
 Module 2 is where things get really practical for PMs
 We're going beyond "how to use Cursor" into "how to do your actual PM work with Cursor"
 You'll write real PRDs, analyze competitive research, process user feedback data
 All the messy, real-world PM tasks you do every week
+This is where Cursor becomes a true force multiplier for your work
 Ready to level up?
 STOP: When you're ready to start Module 2, type /start-2-1
 USER: Acknowledges
