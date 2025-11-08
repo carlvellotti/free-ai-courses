@@ -104,7 +104,9 @@ This three-pane layout is your workspace for ALL PM work in Cursor
 
 File explorer → Editor → AI Pane
 
-You can also open a terminal as a bottom tab with ctrl + ` (backtick). You won't need that much for this course, but that's where you can run commands or open Claude Code IN Cursor.
+You can also open a terminal as a bottom tab with Ctrl+` (backtick)
+
+You won't need that much for this course, but that's where you can run commands or open Claude Code IN Cursor
 
 **STOP: Does this layout make sense?**
 
