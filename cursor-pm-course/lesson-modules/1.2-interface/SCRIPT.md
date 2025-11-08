@@ -63,9 +63,9 @@ The file explorer shows the course folder structure
 
 You should see folders like company-context/, lesson-modules/, and .cursor/
 
-**STOP: Ask user to describe what folders they see**
+**STOP: Do you see them?**
 
-**USER: Describes seeing folders**
+**USER: Confirms**
 
 Perfect! That's your file explorer - you'll use this constantly
 
@@ -79,9 +79,9 @@ You should see a file called interface-practice.md
 
 Click it to open it
 
-Now you should see the file contents in the middle of your screen
+Now you should see the file contents as raw markdown in the middle of your screen
 
-At the very top of the file, there should be a secret code
+At the very top of the file, find the secret code.
 
 **STOP: Ask: "What's the secret code at the top of the file?"**
 
@@ -128,7 +128,9 @@ Headers look like headers, bullets look like bullets
 
 Press Cmd+Shift+V again to toggle back to raw Markdown
 
-**STOP: Ask user to toggle it a few times to see the difference**
+If you drag the Preview window into the space next to the .md file, you can see both at once and they scroll together. See the reference doc for this module if you need help.
+
+**STOP: Does this all make sense??**
 
 **USER: User confirms**
 
@@ -146,13 +148,11 @@ We're going to install an extension called "Markdown Editor" for this
 
 If you need any help with this stuff, you can also view the reference doc for screenshots.
 
-Press Cmd/Ctrl+Shift+P to open the Command Palette, a quick way to run any Cursor command
+There's two ways to do this:
+1. Press Cmd/Ctrl+Shift+P to open the Command Palette (a quick way to run any Cursor command) > Type: "Extensions: Install Extensions". You should now see the Extensions panel on the left.
+2. Click the four squares icon at the top of the file editor area.
 
-Type: "Extensions: Install Extensions"
-
-You should now see the Extensions panel on the left
-
-In the search box, type: "Markdown Editor"
+Either way: In the search box, type: "Markdown Editor"
 
 Look for the one by "zaaack" - it has a blue icon with "M" and down arrows
 
@@ -166,7 +166,7 @@ Perfect! Click the Install button
 
 **USER: Confirms**
 
-Great! Open a .md file and use the command 'cmd/ctrl + shift + alt/opt + m' and you should see the direct editor.
+Great! Open a .md file and use the command 'cmd/ctrl + shift + alt/opt + m' and you should see the direct editor. This let's you edit docs directly, like Google Docs or Notion.
 
 **STOP: Ask use "Got it?"**
 
@@ -214,17 +214,17 @@ In the file explorer on the left, find company-context/COMPANY.md
 
 Click and drag it into the input box down here
 
-**STOP: Ask: "What happened?"**
+**STOP: Now ask me a question about this company"**
 
-**USER: Describes file pill appearing (same as @ mention)**
+**USER: Does action**
+
+**ACTION: Do what they asked**
 
 Exactly! Same result, different method
 
 This is great when you're already browsing files
 
-Remove the pill again
-
-**STOP: Done?**
+**STOP: Ready for the last way?**
 
 **USER: Yes**
 
@@ -236,7 +236,7 @@ This one is different - it's not for whole files
 
 It's for when you want to reference a specific quote or section
 
-Open COMPANY.md in the editor by clicking it in the file explorer. This method ONLY works when viewing the raw .md file unfortunately.
+Open COMPANY.md in the editor by clicking it in the file explorer. This method ONLY works when viewing the raw .md file unfortunately, not the WYSIWYG editors.
 
 **STOP: Ask: "Is the file open in the middle pane?"**
 
@@ -270,30 +270,6 @@ You'll use @ mentions most, but all three are valuable
 **STOP: Make sense?**
 
 **USER: Yes / questions**
-
----
-
-Finally, let's talk about the AI model selector
-
-Look at the very bottom of this AI Pane - where you're talking to me right now
-
-**STOP: Ask: "Do you see a dropdown that says 'Claude 4.5 Sonnet' or similar?"**
-
-**USER: Yes / describes what they see**
-
-That's the model selector
-
-Cursor allows you to choose basically any model, including new models as soon as they are released.
-
-Carl generally recommends using the latest Claude Sonnet model, but different people have different preferences, so you'll need to experiment. And sometimes it's helpful to switch between them to see different approaches.
-
-Cursor has usage limits and pricing, but PM work uses way fewer tokens than coding, so Carl's strong recommendation is just to use whatever top-tier model of your favorite provider is available. It's the best ROI.
-
-You'll likely never hit limits doing PRDs and docs.
-
-**STOP: Does that make sense?**
-
-**USER: Yes / questions about models**
 
 ---
 
@@ -331,6 +307,30 @@ You can open the AI Pane with Cmd+I anytime (or Cmd+L - they do the same thing)
 
 ---
 
+Finally, let's talk about the AI model selector
+
+Look at the very bottom of this AI Pane - where you're talking to me right now
+
+**STOP: Ask: "Do you see a dropdown that says 'Claude 4.5 Sonnet' or similar?"**
+
+**USER: Yes / describes what they see**
+
+That's the model selector
+
+Cursor allows you to choose basically any model, including new models as soon as they are released.
+
+Carl generally recommends using the latest Claude Sonnet model, but different people have different preferences, so you'll need to experiment. And sometimes it's helpful to switch between them to see different approaches.
+
+Cursor has usage limits and pricing, but PM work uses way fewer tokens than coding, so Carl's strong recommendation is just to use whatever top-tier model of your favorite provider is available. It's the best ROI.
+
+You'll likely never hit limits doing PRDs and docs.
+
+**STOP: Does that make sense?**
+
+**USER: Yes / questions about models**
+
+---
+
 Fantastic! You've learned the key parts of Cursor's interface
 
 Let's recap what you can do now:
@@ -355,9 +355,7 @@ In Module 1.3, you'll use these skills to do actual PM work
 
 Perfect! You're ready for Module 1.3
 
-Close this AI Pane
-
-When you're ready for the next module, open a new AI Pane (Cmd+I) and type: /start-1-3
+When you're ready for the next module, open a new tab in this AI Pane and type: /start-1-3
 
 See you there!
 
