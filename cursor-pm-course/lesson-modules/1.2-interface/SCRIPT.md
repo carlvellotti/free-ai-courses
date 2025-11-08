@@ -57,7 +57,7 @@ Great! Let's start by finding a file
 
 Look at the left side of your screen - see the file explorer?
 
-If not, press Cmd+B (or Ctrl+B on Windows) to toggle it
+If not, press Cmd/Ctrl+B to toggle it
 
 The file explorer shows the course folder structure
 
@@ -116,7 +116,7 @@ Now let's do something cool with that file you just opened
 
 In the editor (middle pane), you're seeing raw Markdown - all the # symbols and formatting codes
 
-Press Cmd+Shift+V (or Ctrl+Shift+V on Windows)
+Press Cmd/Ctrl+Shift+V
 
 **STOP: Ask: "What happened? Do you see a more nicely formatted doc?"**
 
@@ -146,7 +146,7 @@ We're going to install an extension called "Markdown Editor" for this
 
 If you need any help with this stuff, you can also view the reference doc for screenshots.
 
-Press Cmd+Shift+P (or Ctrl+Shift+P on Windows) to open the Command Palette, a quick way to run any Cursor command
+Press Cmd/Ctrl+Shift+P to open the Command Palette, a quick way to run any Cursor command
 
 Type: "Extensions: Install Extensions"
 
@@ -307,7 +307,7 @@ Again this only works in the raw mode.
 
 Click anywhere in that file to put your cursor on a line of text
 
-Now click "Quick Edit" or press Cmd+K (or Ctrl+K on Windows)
+Now click "Quick Edit" or press Cmd/Ctrl+K
 
 It's scoped to just the file you're editing, and appears right where your cursor is
 
