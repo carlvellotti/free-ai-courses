@@ -1,4 +1,4 @@
-# Module 1.4: Communication Styles - The PM Superpower
+# Module 1.4: Templates & Workflows - Teaching Script
 
 **Teaching Script for Claude**
 

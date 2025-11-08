@@ -1,10 +1,10 @@
 ---
-description: "Module 1.4: Communication Styles - Learn to use templates for consistent, professional output"
+description: "Module 1.4: Templates & Workflows - Learn to use and iterate on template documents"
 ---
 
 **Do this SILENTLY:**
 
-1. Read `lesson-modules/1.4-communication-styles/SCRIPT.md` - this is your teaching script
+1. Read `lesson-modules/1.4-templates-workflows/SCRIPT.md` - this is your teaching script
 
 2. Read `.cursor/SCRIPT_INSTRUCTIONS.md` for critical teaching rules
 
