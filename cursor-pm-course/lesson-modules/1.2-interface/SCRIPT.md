@@ -118,7 +118,7 @@ Now let's do something cool with that file you just opened
 
 In the editor (middle pane), you're seeing raw Markdown - all the # symbols and formatting codes
 
-Press Cmd/Ctrl+Shift+V
+Click anyway in that file and press Cmd/Ctrl+Shift+V
 
 **STOP: Ask: "What happened? Do you see a more nicely formatted doc?"**
 
@@ -212,11 +212,11 @@ You can do @Files, @Folders, @Web, @Code, @Git, and more
 
 Some people prefer a more visual approach
 
-In the file explorer on the left, find company-context/COMPANY.md
+In the file explorer on the left, find company-context/PERSONAS.md
 
 Click and drag it into the input box down here
 
-**STOP: Now ask me a question about this company"**
+**STOP: Now ask me a question about our personas"**
 
 **USER: Does action**
 
@@ -252,9 +252,11 @@ See "Add to Chat" floating nearby? Click it, and you will see it appear in the c
 
 **USER: Confirms and gives a command**
 
-**ACTION: Do what they asked (translate, summarize, etc.)**
+**ACTION: Do what they asked (translate, summarize, etc.) and actually edit the file, deleting and replacing the section**
 
 This is super useful for quoting user feedback, excerpts from docs, or specific sections
+
+This also shows you what editing files looks like. You can either Keep the changes and it will be saved, or Undo which will delete it and you can ask me to do something differnet.
 
 **STOP: Got it?**
 
@@ -279,7 +281,7 @@ Here's something important: You're already IN the AI Pane right now, talking to 
 
 But there's ANOTHER way to use Cursor's AI - for quick inline edits
 
-Make sure interface-practice.md is still open in the editor (middle pane)
+Open interface-practice.md again so it's in the editor (middle pane)
 
 Again this only works in the raw mode.
 
@@ -303,7 +305,7 @@ The AI Pane (where you are now) is for bigger work: creating files, analyzing mu
 
 You can open the AI Pane with Cmd+I anytime (or Cmd+L - they do the same thing)
 
-**STOP: Clear on the difference between Cmd+K and the AI Pane?**
+**STOP: Clear on the difference between making edits inline vs with the AI Pane?**
 
 **USER: Yes / needs clarification**
 

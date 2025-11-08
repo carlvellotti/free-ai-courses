@@ -68,6 +68,18 @@
 - 500 paying teams
 - Average deal size: $5k/year
 
+**Dutch Translation:**
+**Gebruikers:**
+- 50.000 totaal geregistreerde gebruikers
+- 10.000 actieve maandelijkse gebruikers
+- 2.500 dagelijkse actieve gebruikers
+
+**Omzet:**
+- $2,5M ARR (Jaarlijks terugkerende omzet)
+- $250k MRR (Maandelijks terugkerende omzet)
+- 500 betalende teams
+- Gemiddelde dealsize: $5k/jaar
+
 **Growth:**
 - 15% month-over-month user growth
 - 20% month-over-month revenue growth
