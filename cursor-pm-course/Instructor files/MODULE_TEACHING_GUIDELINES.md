@@ -73,6 +73,34 @@ You'll receive teaching flows with these prefixes:
 
 ---
 
+## 📁 Creating Module Files
+
+**CRITICAL:** Before writing the SCRIPT.md, create all files listed in "Files Needed to Start" from the Step 2 outline.
+
+### Process:
+
+1. **Read the module outline** - Check "Files Needed to Start" section
+2. **Create each file** in the appropriate lesson-modules folder
+3. **Include any special elements** mentioned in the description
+   - Secret codes for validation (e.g., "PANCAKE" at top of file)
+   - Specific content needed for exercises
+   - Realistic PM work examples
+
+### Example from Module 1.2:
+
+**Files Needed to Start:**
+- `lesson-modules/1.2-interface/interface-practice.md` (with secret codes scattered throughout)
+- `company-context/COMPANY.md` (already exists)
+
+**You must create:**
+- `interface-practice.md` with secret code "PANCAKE" at the top
+- Add realistic Markdown content (headers, bullets, paragraphs)
+- This file is what students will open and interact with
+
+**Why this matters:** Students can't complete the lesson if the referenced files don't exist. Create them BEFORE writing the SCRIPT.md.
+
+---
+
 ## 🎮 Interactive Flow Principles
 
 ### The Gate System
