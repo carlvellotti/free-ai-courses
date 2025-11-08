@@ -203,6 +203,34 @@ When Claude executes an ACTION, it completes BEFORE the next message appears to 
 5. **Continuous Flow:** Single list from beginning to end of module
 6. **Keyboard Shortcuts:** Use "Cmd/Ctrl+B" format, not "Cmd+B (or Ctrl+B on Windows)" - keeps it concise
 
+### Module Sign-Off
+
+Every module should end with an exciting bridge to the next module:
+
+**DO:**
+- ✅ Preview what's coming in the next module
+- ✅ Explain why it matters or builds on what they learned
+- ✅ Create excitement and momentum
+- ✅ Give clear next step instruction (e.g., "type /start-1-6 to begin")
+
+**DON'T:**
+- ❌ End abruptly without context for what's next
+- ❌ Generic "see you next time" endings
+- ❌ Assume they know what the next module covers
+
+**Example:**
+```
+- Excellent! You've now mastered the three modes
+- Here's the real power: knowing when to use each one
+- [Brief recap of key points]
+- Next up: Module 1.6 is all about Plan mode
+- You'll plan an entire feature launch from scratch - research, PRD, rollout strategy, the works
+- It's where everything you've learned comes together
+- This is the module where you'll really feel like you have a superpower
+- STOP: Ready to move on when you are - type /start-1-6 to begin the Plan mode deep dive
+- USER: Acknowledges
+```
+
 ---
 
 ## Summary
