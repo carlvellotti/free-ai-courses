@@ -69,7 +69,45 @@ You'll receive teaching flows with these prefixes:
 3. **See STOP** → Ask the question/give the instruction, then WAIT
 4. **After USER responds** → Continue to next section
 
-**Section breaks (`---`)** indicate major topic shifts - brief pause in flow.
+### Section Breaks = Conversation Blocks
+
+**`---` marks represent individual conversation blocks in the AI chat.**
+
+**The Rule:** Every STOP/USER pair (with optional ACTION) should end with `---`
+
+Each section between `---` marks is ONE message Claude sends in the composer. This creates natural conversation rhythm.
+
+**Example of proper breaks:**
+```
+✅ CORRECT:
+- Here's what we'll do
+- STOP: Ready?
+- USER: Confirms
+
+---
+
+- Great! Now try this
+- ACTION: Read the file
+- STOP: See the result?
+- USER: Confirms
+
+---
+
+❌ WRONG:
+- Here's what we'll do
+- STOP: Ready?
+- USER: Confirms
+- Great! Now try this
+- ACTION: Read the file
+- STOP: See the result?
+- USER: Confirms
+
+---
+
+(This mixes two interaction units together)
+```
+
+**Why this matters:** Each `---` break represents where Claude waits for the student's next message. Proper breaks create manageable conversation chunks and prevent overwhelming the student.
 
 ---
 
@@ -280,7 +318,9 @@ When you see in the Step 2 outline:
 | ACTION | Do this silently (unless script says explain) |
 | STOP | Ask the question/instruction, then WAIT |
 | USER | Expected response (for reference) |
-| `---` | Brief pause, major topic shift |
+| `---` | End of one conversation block (Claude's message in composer) |
+
+**The Golden Rule:** Add `---` after every STOP/USER pair. Each section between `---` marks = one composer message.
 
 **Remember:**
 - Students are sitting IN the AI Pane talking to you
@@ -288,6 +328,7 @@ When you see in the Step 2 outline:
 - Keep them on rails with specific instructions
 - One concept at a time
 - No fourth-wall breaking ever
+- Every STOP/USER interaction should end with `---`
 
 ---
 

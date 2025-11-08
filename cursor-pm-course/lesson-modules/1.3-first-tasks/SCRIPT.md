@@ -1,29 +1,4 @@
-# Module 1.3: Your First PM Tasks: @ Mentions & File Operations
-
-## Files Needed to Start
-- `lesson-modules/1.3-first-tasks/meeting-notes-raw.md` *(port from ccforpms 1.3)*
-- `lesson-modules/1.3-first-tasks/product-sync-notes.md` *(port from ccforpms 1.3)*
-- `lesson-modules/1.3-first-tasks/user-interviews/user-interview-01.md` through `08.md` *(port from ccforpms 1.3)*
-
-## Files Created During Module
-- `lesson-modules/1.3-first-tasks/meeting-notes-raw.md` (edited - summary appended to bottom of existing file)
-- `lesson-modules/1.3-first-tasks/product-sync-email.md` (product-sync-notes transformed into executive email format)
-- `lesson-modules/1.3-first-tasks/user-research-insights.md` (synthesis of 8 interviews in new file)
-
-## High-Level Overview
-- **Scenario 1: Append to Existing File** - Use @ mention or "Add to Chat" on `meeting-notes-raw.md`, ask Cursor to append a summary section to the bottom of the same file
-- Introduce Apply/Reject workflow (review changes before accepting – usually Accept All is fine)
-- Teaches: editing existing files in-place
-- **Scenario 2: Transform to New File** - Use @ mention on `product-sync-notes.md`, ask Cursor to create a separate executive email summary in new file `product-sync-email.md`
-- Practice Apply/Reject again (review before accepting)
-- Teaches: reading one file, creating new formatted output
-- **Scenario 3: Folder Analysis to New File** - Use @ mention on `user-interviews/` folder (8 files), create insights document synthesizing all interviews
-- Teaches: multi-file analysis, folder-level operations
-- Validate learning (what summary was appended? what's in the email? what's the #1 pain point from interviews?)
-
----
-
-## Teaching Flow
+# Module 1.3: Your First PM Tasks
 
 - Welcome to Module 1.3: Your First PM Tasks
 - In Module 1.2 you learned the Cursor interface - file explorer, AI Pane, @ mentions
@@ -172,6 +147,9 @@
 ---
 
 - Perfect! You just did multi-file analysis
+
+---
+
 - Let's recap what you learned
 - Scenario 1: Append to existing file (in-place editing)
 - Scenario 2: Transform to new file (read one, create another)
@@ -186,6 +164,12 @@
 - You can edit existing docs, create new formatted outputs, or analyze multiple files
 - The Apply/Reject workflow lets you review before accepting
 - In practice, you'll mostly Accept All for PM tasks
+- STOP: Any questions about these workflows?
+- USER: Questions or confirms
+
+---
+
+- Fantastic! You just did real PM work
 - You cleaned up meeting notes, created an executive email, and synthesized user research
 - In Module 1.4, you'll learn how to use templates for consistent formatting
 - STOP: Ready to move on?
