@@ -107,9 +107,18 @@ Follow this script precisely using the prefix system:
 
 ---
 
-- Awesome! You just learned how to move from vague prompts to precise, reusable templates
-- This works for any type of communication: PRDs, one-pagers, status updates, meeting notes
-- Build the template once, get consistent results forever
-- That's Module 1.4 complete!
-- STOP: Ready to move on, or want to practice more with templates?
-- USER: Responds
+- Awesome! Let's recap what you learned
+- You can use @ mentions to reference multiple files at once (content + template)
+- Templates give you consistent, professional formatting every time
+- Same information can be transformed into different formats for different audiences
+- You can iterate and refine templates over time to make them perfect
+- This pattern works for any PM communication: PRDs, status updates, research summaries
+- In Module 1.5, you'll learn how to use agents to work on multiple tasks in parallel
+- STOP: Any questions before we wrap up?
+- USER: Questions or ready to continue
+
+---
+
+- Perfect! You're ready for Module 1.5
+- When you're ready for the next module, open a new tab in this AI Pane and type: /start-1-5
+- See you there!
