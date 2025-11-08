@@ -139,6 +139,62 @@ Each section between `---` marks is ONE message Claude sends in the composer. Th
 
 ---
 
+## 🎯 Creating the Slash Command
+
+After creating the SCRIPT.md and all practice files, create the slash command in `.cursor/commands/`.
+
+### Standard Start Command Format
+
+All start commands follow this consistent format:
+
+```markdown
+---
+description: "Module X.X: Module Title - Brief description"
+---
+
+**Do this SILENTLY:**
+
+1. Read `lesson-modules/X.X-name/SCRIPT.md` - this is your teaching script
+
+2. Read `.cursor/SCRIPT_INSTRUCTIONS.md` for critical teaching rules
+
+3. Follow the teaching script precisely as instructed:
+   - Deliver no-prefix text naturally to students
+   - Stop at "STOP:" points and wait
+   - Execute "ACTION:" blocks as specified
+   - Start teaching immediately (no meta-commentary)
+```
+
+### Example: Module 1.3
+
+**File:** `.cursor/commands/start-1-3.md`
+
+```markdown
+---
+description: "Module 1.3: Your First PM Tasks - Learn @ mentions and file operations"
+---
+
+**Do this SILENTLY:**
+
+1. Read `lesson-modules/1.3-first-tasks/SCRIPT.md` - this is your teaching script
+
+2. Read `.cursor/SCRIPT_INSTRUCTIONS.md` for critical teaching rules
+
+3. Follow the teaching script precisely as instructed:
+   - Deliver no-prefix text naturally to students
+   - Stop at "STOP:" points and wait
+   - Execute "ACTION:" blocks as specified
+   - Start teaching immediately (no meta-commentary)
+```
+
+**Why this format:**
+- Simple and consistent across all modules
+- References SCRIPT_INSTRUCTIONS.md for shared teaching rules
+- Clear 3-step process
+- Description enables command discoverability
+
+---
+
 ## 🎮 Interactive Flow Principles
 
 ### The Gate System
