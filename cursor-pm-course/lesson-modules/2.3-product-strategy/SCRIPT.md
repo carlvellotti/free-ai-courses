@@ -28,11 +28,16 @@ graph TB
     D1[Strategy Document<br/>h1-2026-ai-product-strategy.md] -.-> D
     E1[Executive Slides<br/>strategy-review-slides.md] -.-> E
 
-    style A fill:#e1f5ff
-    style B fill:#e1f5ff
-    style C fill:#fff4e1
-    style D fill:#e8f5e9
-    style E fill:#f3e5f5
+    style A fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#000
+    style B fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#000
+    style C fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000
+    style D fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#000
+    style E fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
+    style A1 fill:#fff,stroke:#1976d2,stroke-width:1px,color:#000
+    style B1 fill:#fff,stroke:#1976d2,stroke-width:1px,color:#000
+    style C1 fill:#fff,stroke:#f57c00,stroke-width:1px,color:#000
+    style D1 fill:#fff,stroke:#388e3c,stroke-width:1px,color:#000
+    style E1 fill:#fff,stroke:#7b1fa2,stroke-width:1px,color:#000
 ```
 
 - Great strategy isn't fluffy vision - it's hard choices backed by rigorous thinking
@@ -324,13 +329,13 @@ graph TD
     C2 -.influences.-> C3
     C5 -.influences.-> CA
 
-    style GP fill:#fff4e1
-    style CA fill:#e8f5e9
-    style C1 fill:#e1f5ff
-    style C2 fill:#e1f5ff
-    style C3 fill:#f3e5f5
-    style C4 fill:#f3e5f5
-    style C5 fill:#f3e5f5
+    style GP fill:#fff3e0,stroke:#f57c00,stroke-width:3px,color:#000
+    style CA fill:#e8f5e9,stroke:#388e3c,stroke-width:3px,color:#000
+    style C1 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#000
+    style C2 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#000
+    style C3 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
+    style C4 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
+    style C5 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
 ```
 
 - This diagram shows how your choices reinforce each other
