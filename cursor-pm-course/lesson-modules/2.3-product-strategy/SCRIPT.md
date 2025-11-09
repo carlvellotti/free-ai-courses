@@ -1,13 +1,13 @@
 # Module 2.3: Product Strategy - Teaching Script
 
 Welcome to Module 2.3: Product Strategy!
-- This module teaches you how to use Cursor to develop product strategy 10x faster
-- What normally takes 2-3 weeks: competitive research, strategic frameworks, synthesis, exec slides - you'll do in 60 minutes with Cursor
+- This module teaches you how to use Cursor to develop rigorous product strategy more efficiently
+- You'll learn to leverage Cursor for competitive research, strategic frameworks, synthesis, and executive presentations
 - Here's your scenario: You're the Product Lead for Gen AI at TaskFlow
 - You have 2 engineers, $50k budget for H1 2026, and you need to develop an AI product strategy
 - The CEO is asking: What's our AI strategy? How do we compete with Notion, Linear, and Asana?
 - You'll use Cursor to research competitors, challenge your thinking, and create a complete strategy deck
-- STOP: Ready to see how Cursor accelerates strategy development?
+- STOP: Ready to see how Cursor strengthens strategy development?
 - USER: Confirms ready
 
 ---
@@ -151,8 +151,9 @@ ACTION: Web search for all three competitors and synthesize findings
 	- Linear: Engineering automation, included free, startup/scale-up eng teams
 	- Asana: Enterprise coordination, business tier only, large org PMOs
 - Key insight: They're all targeting different segments with different AI capabilities - none focused on SMBs (5-20 person teams)
-- See what just happened? Cursor researched 3 competitors and synthesized findings in under 2 minutes
-- Normally this competitive research would take 2-3 hours: searching, reading, note-taking, building comparison spreadsheets
+- See what just happened? Cursor researched 3 competitors and created a structured comparison
+- Without Cursor, this requires extensive manual work: searching, reading product docs, note-taking, building comparison spreadsheets
+- With Cursor, you get comprehensive competitive intelligence with proper synthesis
 - STOP: Do you see the competitive landscape comparison?
 - USER: Confirms
 
@@ -171,12 +172,12 @@ Excellent! Phase 2 Gather Intelligence is complete ✓
 
 ACTION: Read methods/devils-advocate-strategy.md
 - Done! I've loaded the devil's advocate method
-- Here's the power of Cursor: after you make a strategic choice, I'll instantly challenge it
-- Like having a strategy consultant on demand - rigorous pushback without the $500/hour fee
+- Here's the power of Cursor: after you make a strategic choice, I'll challenge it rigorously
+- Like having a strategy consultant on demand - you get structured pushback to stress-test your thinking
 - I'll argue the opposite position as strongly as possible, poke holes, surface risks
 - It's uncomfortable but it strengthens your thinking before you present to leadership
 - In traditional strategy work, you'd schedule meetings with colleagues to pressure-test ideas
-- With Cursor, you get instant strategic challenges on every decision
+- With Cursor, you can challenge every decision systematically before committing
 - Ready for Choice 1: Focus vs Breadth?
 - STOP: Confirm you're ready
 - USER: Confirms
@@ -302,9 +303,9 @@ Excellent! You've made all 5 strategic choices
 
 ACTION: Create h1-2026-ai-product-strategy.md using Rumelt's Strategy Kernel framework based on user's choices
 - Done! I've created your complete AI product strategy
-- Cursor just synthesized your 5 strategic choices into a coherent strategy document
-- Normally writing a strategy doc like this takes 3-4 hours: outlining, writing, editing, formatting
-- Cursor did it in seconds
+- Cursor synthesized your 5 strategic choices into a coherent strategy document
+- The document is properly structured with Diagnosis, Guiding Policy, and Coherent Actions
+- All your strategic choices are now organized into a framework executives can review
 - STOP: Open h1-2026-ai-product-strategy.md - this is your strategic direction for H1 2026. Do you see it?
 - USER: Confirms
 
@@ -362,9 +363,9 @@ Perfect! Phase 4 Synthesize Strategy is complete ✓
 
 ACTION: Create strategy-review-slides.md with 12-15 slides using action title format based on user's actual strategy
 - Done! I've created your complete strategy review slide deck with consulting-quality action titles
-- Cursor just created 15 executive-ready slides in seconds
-- Writing slide content like this normally takes 2-3 hours: outlining the story arc, crafting action titles, organizing bullet points
-- With Cursor: instant consulting-quality slides
+- Each slide uses McKinsey/BCG-style action titles that convey insights, not just topics
+- The narrative arc follows best practices: diagnosis, direction, tradeoffs, roadmap, metrics, risks
+- You now have executive-ready slide content that's properly structured and persuasive
 - Remember: These are slide CONTENTS (words) in markdown - you can copy them into PowerPoint, Google Slides, or Keynote
 - STOP: Open strategy-review-slides.md - these are the words for your slides. Do you see the action titles?
 - USER: Confirms
@@ -372,38 +373,38 @@ ACTION: Create strategy-review-slides.md with 12-15 slides using action title fo
 ---
 
 Excellent! Phase 5 Create Presentation is complete ✓
-- Let's recap what you just did with Cursor in under 60 minutes:
-	- ✅ Researched 3 competitors in 2 minutes (normally 2-3 hours of manual googling)
-	- ✅ Synthesized competitive landscape instantly (normally 30-60 minutes in spreadsheets)
-	- ✅ Got instant devil's advocate challenges on 5 strategic choices (like having a $500/hour strategy consultant on demand)
-	- ✅ Created comprehensive strategy doc in seconds (normally 3-4 hours of writing)
-	- ✅ Generated 15 consulting-quality slides in seconds (normally 2-3 hours)
-- Total time with Cursor: ~60 minutes
-- Total time traditionally: 2-3 weeks (research, thinking, writing, slide creation, revisions)
-- Here's the key: Cursor accelerated everything but YOU still made all the strategic decisions
-- Cursor researched, challenged, synthesized - but didn't choose for you
-- STOP: Do you see how Cursor compressed weeks of strategy work into 1 hour?
+- Let's recap what you just accomplished with Cursor:
+	- ✅ Comprehensive competitive research with structured synthesis across 3 competitors
+	- ✅ Rigorous devil's advocate challenges on every strategic choice
+	- ✅ Complete strategy document using Rumelt's framework with proper structure
+	- ✅ Executive slide deck with consulting-quality action titles and narrative arc
+	- ✅ All outputs grounded in frameworks and best practices, not generic templates
+- Here's the key: Cursor accelerated the mechanics, but YOU made all the strategic decisions
+- Cursor researched, challenged, and synthesized - but didn't choose for you
+- The strategy is stronger because you had access to frameworks, competitive intelligence, and structured challenges
+- STOP: Do you see how Cursor elevated the quality and rigor of your strategy work?
 - USER: Confirms
 
 ---
 
 This is what Cursor enables for PMs:
-	- Competitive research that used to take hours → 2 minutes
-	- Strategy synthesis that used to take days → seconds
-	- Executive slides that used to take hours → instant
-	- On-demand strategic challenges (devil's advocate) without scheduling meetings
+	- Comprehensive competitive research with proper synthesis
+	- Strategy frameworks applied correctly (Rumelt's Kernel, devil's advocate)
+	- Structured documents that follow best practices
+	- On-demand strategic challenges without scheduling meetings with colleagues
+	- Consulting-quality outputs (action titles, narrative arcs, proper structure)
 - But notice: Cursor didn't make the strategic choices for you - you did
 - Cursor researched competitors, challenged your thinking, synthesized documents
 - But YOU decided where to focus, how to compete, what to build, how to price
 - That's Cursor as strategic accelerator, not strategy replacement
-- Congratulations! You now know how to use Cursor to develop product strategy 10x faster
+- The result: higher quality strategy backed by rigorous frameworks and competitive intelligence
+- Congratulations! You now know how to use Cursor to develop stronger product strategy
 - You've completed Module 2.3: Product Strategy!
 - And with that, you've finished the entire Module 2 series!
-	- 2.1: Write a PRD - Cursor-powered PRD workflow (hours → 30 minutes)
-	- 2.2: Analyze Data - Cursor-powered analysis (4-6 hours → 30 minutes)
-	- 2.3: Product Strategy - Cursor-powered strategy (2-3 weeks → 60 minutes)
-- These are the most valuable real-world PM skills - you now have Cursor workflows that make them 10x faster
-- What used to take weeks of manual work: you can now do in hours with Cursor
+	- 2.1: Write a PRD - Cursor-powered PRD workflow with multi-perspective review
+	- 2.2: Analyze Data - Cursor-powered analysis with proper statistical rigor
+	- 2.3: Product Strategy - Cursor-powered strategy with frameworks and challenges
+- These are the most valuable real-world PM skills - you now have Cursor workflows that elevate your output quality
 - STOP: Congratulations on completing Module 2! How are you feeling about using Cursor for PM work?
 - USER: Responds
 
