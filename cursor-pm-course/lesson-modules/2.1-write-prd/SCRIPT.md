@@ -14,7 +14,7 @@
 ## Show Complete Workflow
 
 - Let me show you the complete workflow we'll follow today
-- ACTION: Display Mermaid diagram showing the 6-phase PRD writing workflow
+- ACTION: Display Mermaid diagram showing the PRD writing workflow from start to finish
 
 ```mermaid
 graph TD
@@ -23,13 +23,15 @@ graph TD
     C --> D[Phase 4: Generate Options]
     D --> E[Phase 5: Multi-Perspective Review]
     E --> F[Phase 6: Address Feedback]
+    F --> G[✅ Completed PRD]
 
-    style A fill:#e1f5ff
-    style B fill:#e1f5ff
-    style C fill:#e1f5ff
-    style D fill:#e1f5ff
-    style E fill:#e1f5ff
-    style F fill:#e1f5ff
+    style A fill:#4A90E2,stroke:#2E5C8A,stroke-width:2px,color:#fff
+    style B fill:#4A90E2,stroke:#2E5C8A,stroke-width:2px,color:#fff
+    style C fill:#4A90E2,stroke:#2E5C8A,stroke-width:2px,color:#fff
+    style D fill:#4A90E2,stroke:#2E5C8A,stroke-width:2px,color:#fff
+    style E fill:#4A90E2,stroke:#2E5C8A,stroke-width:2px,color:#fff
+    style F fill:#4A90E2,stroke:#2E5C8A,stroke-width:2px,color:#fff
+    style G fill:#50C878,stroke:#2D7A4A,stroke-width:3px,color:#fff
 ```
 
 - Here's what each phase does:
@@ -39,6 +41,7 @@ graph TD
 	- Phase 4: Generate Options (create 3 different PRD versions)
 	- Phase 5: Multi-Perspective Review (get feedback from 3 reviewer personas)
 	- Phase 6: Address Feedback (make strategic decisions and implement changes)
+	- Result: Completed PRD ready to share with stakeholders
 - This gives you a complete map of where we're going
 - STOP: Any questions before we begin?
 - USER: Confirms
