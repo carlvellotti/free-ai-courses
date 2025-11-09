@@ -1,46 +1,6 @@
-# Module 2.1: Write a PRD
+# Module 2.1: Write a PRD - Teaching Script
 
-**STATUS: ✅ COMPLETE** - All files created, SCRIPT.md written, slash command configured. Ready to teach!
-
-## Files Needed to Start
-- `lesson-modules/2.1-write-prd/prd-templates/Carls-PRD-Template.md` *(port from Claude Code course)*
-- `lesson-modules/2.1-write-prd/prd-templates/Lennys-PRD-Template.md` *(port from Claude Code course)*
-- `lesson-modules/2.1-write-prd/socratic-questioning.md` *(port from Claude Code course)*
-- `lesson-modules/2.1-write-prd/taskflow-company-context.md` *(port from Claude Code course)*
-- `lesson-modules/2.1-write-prd/user-research/pain-points.md` *(port from Claude Code course)*
-- `lesson-modules/2.1-write-prd/reviewers/engineer.md` *(create from Claude Code `.claude/agents/engineer.md`)*
-- `lesson-modules/2.1-write-prd/reviewers/executive.md` *(create from Claude Code `.claude/agents/executive.md`)*
-- `lesson-modules/2.1-write-prd/reviewers/user-researcher.md` *(create from Claude Code `.claude/agents/user-researcher.md`)*
-
-## Files Created During Module
-- `lesson-modules/2.1-write-prd/ai-chat-todo-prd-v1.md` (first draft PRD)
-- `lesson-modules/2.1-write-prd/ai-chat-todo-prd-v2.md` (second draft PRD)
-- `lesson-modules/2.1-write-prd/ai-chat-todo-prd-v3.md` (third draft PRD)
-- `lesson-modules/2.1-write-prd/ai-chat-todo-prd-review.md` (consolidated feedback from 3 reviewers)
-- Student's chosen PRD file (v1, v2, or v3) is edited with feedback incorporated
-
-## High-Level Overview
-- **Show overall workflow:** Display Mermaid diagram in chat showing the complete PRD writing flow (5 phases)
-- **File orientation:** Walk through each file they'll use (templates, context, research, reviewers, frameworks)
-- **Phase 1 - Choose Foundation:** Student chooses PRD template (Carl's detailed template, Lenny's 7-question template, or their own)
-- **Phase 2 - Build Context:** @ mention `taskflow-company-context.md` for company background + `pain-points.md` for user research insights
-- **Phase 3 - Sharpen Thinking:** @ mention `socratic-questioning.md` framework, work through 3-5 questions to refine feature idea (AI voice chat for to-do list)
-- **Phase 4 - Generate Options:** Create 3 PRD versions with different strategic approaches (chat-first, list-first, balanced), student chooses preferred version
-- **Phase 5 - Multi-Perspective Review:** Get feedback by @ mentioning reviewer personas sequentially:
-  - @ mention `reviewers/engineer.md` for technical feasibility review
-  - @ mention `reviewers/executive.md` for business value review
-  - @ mention `reviewers/user-researcher.md` for UX/user needs review
-  - Consolidate all three reviews into `ai-chat-todo-prd-review.md`
-- **Phase 6 - Address Feedback:** Work through feedback with multiple-choice questions (similar to Socratic method):
-  - Present each piece of major feedback as a choice: "How should we address [feedback]? A) [option 1], B) [option 2], C) [option 3]"
-  - Student chooses approach for each feedback item
-  - Cursor implements the changes by editing the PRD file
-- **Result:** Production-ready `ai-chat-todo-prd-final.md` incorporating all feedback
-- **Key teaching:** AI as thinking partner (not ghostwriter) - student makes all strategic decisions
-
----
-
-## Teaching Flow
+## Introduction & Overview
 
 - Welcome to Module 2.1: Write a PRD!
 - This module teaches you how to partner with AI to write better Product Requirements Documents faster
@@ -51,19 +11,41 @@
 
 ---
 
+## Show Complete Workflow
+
 - Let me show you the complete workflow we'll follow today
 - ACTION: Display Mermaid diagram showing the 6-phase PRD writing workflow
-	- Phase 1: Choose Foundation (template)
-	- Phase 2: Build Context (company + research)
-	- Phase 3: Sharpen Thinking (Socratic questions)
-	- Phase 4: Generate Options (3 PRD versions)
-	- Phase 5: Multi-Perspective Review (3 reviewers)
-	- Phase 6: Address Feedback (iterative improvements)
+
+```mermaid
+graph TD
+    A[Phase 1: Choose Foundation] --> B[Phase 2: Build Context]
+    B --> C[Phase 3: Sharpen Thinking]
+    C --> D[Phase 4: Generate Options]
+    D --> E[Phase 5: Multi-Perspective Review]
+    E --> F[Phase 6: Address Feedback]
+
+    style A fill:#e1f5ff
+    style B fill:#e1f5ff
+    style C fill:#e1f5ff
+    style D fill:#e1f5ff
+    style E fill:#e1f5ff
+    style F fill:#e1f5ff
+```
+
+- Here's what each phase does:
+	- Phase 1: Choose Foundation (select your PRD template)
+	- Phase 2: Build Context (company background + user research)
+	- Phase 3: Sharpen Thinking (Socratic questioning to refine your idea)
+	- Phase 4: Generate Options (create 3 different PRD versions)
+	- Phase 5: Multi-Perspective Review (get feedback from 3 reviewer personas)
+	- Phase 6: Address Feedback (make strategic decisions and implement changes)
 - This gives you a complete map of where we're going
 - STOP: Any questions before we begin?
 - USER: Confirms
 
 ---
+
+## File Orientation
 
 - Perfect! Now let me walk you through the files we'll be using today
 - ACTION: List files in lesson-modules/2.1-write-prd/ folder structure
@@ -78,6 +60,8 @@
 
 ---
 
+## Phase 1: Choose Your Foundation
+
 - Great! Let's start Phase 1: Choose Your Foundation
 - You need a PRD template to work from
 - I have two professional templates you can use, or you can bring your own
@@ -91,16 +75,20 @@
 
 ---
 
+## Introduce the Feature
+
 - Excellent choice!
 - For today's practice, we'll build a PRD for this feature: An AI voice chat interface for managing your to-do list
 - Think of it like talking to an assistant who helps you organize tasks
 - Now let's move to Phase 2: Build Context
 - Great PRDs are grounded in company strategy and user research
 - Before we write anything, I need context on TaskFlow and what users are asking for
-- STOP: Ask me to review the company context and user research files - say: "Review taskflow-company-context.md and pain-points.md before we begin"
+- STOP: Now say: "Review taskflow-company-context.md and pain-points.md before we begin"
 - USER: Review taskflow-company-context.md and pain-points.md before we begin
 
 ---
+
+## Phase 2: Build Context
 
 - ACTION: Read taskflow-company-context.md and user-research/pain-points.md
 - Perfect! I've read both files and now have full context on:
@@ -113,6 +101,8 @@
 
 ---
 
+## Phase 3: Sharpen Your Thinking
+
 - Now for Phase 3: Sharpen Your Thinking
 - Before we write anything, let's refine the feature idea through strategic questions
 - This is where AI partnership really shines - I can help you think more rigorously
@@ -121,34 +111,54 @@
 - For this demo, I'll give you multiple-choice options to keep things moving
 	- In real PM work, the AI could ask more open-ended questions and you'd type out your thinking
 	- But multiple choice makes this teaching module faster and easier
-- STOP: Ask me to start - say: "Use the Socratic questioning framework to sharpen my thinking on this feature"
+- STOP: Now say: "Use the Socratic questioning framework to sharpen my thinking on this feature"
 - USER: Use the Socratic questioning framework to sharpen my thinking on this feature
 
 ---
 
+## Socratic Question 1
+
 - ACTION: Read socratic-questioning.md
 - Great! I've loaded the framework - let's dive into the questions
 - Question 1: What's the core job-to-be-done that voice chat solves for TaskFlow users?
-- STOP: What's your thinking? A) Hands-free task capture while multitasking (meeting, driving, cooking), B) Faster than typing for quick tasks, C) More natural/conversational interface feels less intimidating, D) Accessibility for users who struggle with typing
+- STOP: What's your thinking?
+	- A) Hands-free task capture while multitasking (meeting, driving, cooking)
+	- B) Faster than typing for quick tasks
+	- C) More natural/conversational interface feels less intimidating
+	- D) Accessibility for users who struggle with typing
 - USER: Chooses A, B, C, or D
 
 ---
 
-- [Acknowledge choice] Great insight!
+## Socratic Question 2
+
+- Great insight! That's a solid foundation for the feature
 - Question 2: How does this fit TaskFlow's strategic focus on remote teams?
-- STOP: Your thoughts? A) Remote workers are often in meetings where typing is disruptive but voice notes work, B) Distributed teams need async communication - voice memos are async, C) Remote workers multitask more (kids, errands) - need hands-free tools, D) Doesn't really fit - this is just a cool feature
+- STOP: Your thoughts?
+	- A) Remote workers are often in meetings where typing is disruptive but voice notes work
+	- B) Distributed teams need async communication - voice memos are async
+	- C) Remote workers multitask more (kids, errands) - need hands-free tools
+	- D) Doesn't really fit - this is just a cool feature
 - USER: Chooses A, B, C, or D
 
 ---
 
-- [Acknowledge answer appropriately]
+## Socratic Question 3
+
+- Exactly! You're seeing the strategic connection to TaskFlow's positioning
 - Question 3: What's the main risk or concern with adding voice chat to a productivity tool?
-- STOP: What worries you? A) Privacy/security - users won't want voice data stored, B) Accuracy - voice recognition errors could frustrate users, C) Context mismatch - many users work in open offices or quiet spaces where they can't talk, D) Complexity - adds cognitive load to learn a new interaction mode
+- STOP: What worries you?
+	- A) Privacy/security - users won't want voice data stored
+	- B) Accuracy - voice recognition errors could frustrate users
+	- C) Context mismatch - many users work in open offices or quiet spaces where they can't talk
+	- D) Complexity - adds cognitive load to learn a new interaction mode
 - USER: Chooses A, B, C, or D
 
 ---
 
-- [Acknowledge answer appropriately]
+## Transition to Phase 4
+
+- That's an important consideration to address in the PRD!
 - Excellent thinking! Your feature idea is getting sharper
 - I can see this taking shape: Voice chat for quick task capture, especially valuable for remote workers who need hands-free interaction
 - Now we're ready for Phase 4: Generate Options
@@ -156,10 +166,12 @@
 - Different language, different emphasis, different structure - even with identical starting conditions
 - Let's generate 3 draft PRDs using identical inputs (your template + context + research + answers)
 - This gives you options to compare - pick whichever framing resonates most, or cherry-pick the best parts from each
-- STOP: Ask me to say: "Generate 3 draft PRDs"
+- STOP: Now say: "Generate 3 draft PRDs"
 - USER: Generate 3 draft PRDs
 
 ---
+
+## Phase 4: Generate Three PRD Versions
 
 - ACTION: Create ai-chat-todo-prd-v1.md
 	- Use chosen template structure
@@ -178,7 +190,8 @@
 
 ---
 
-- [Acknowledge their choice]
+## Phase 5: Multi-Perspective Review
+
 - Good eye! You picked the version that works best
 - Now let's get this PRD stress-tested from multiple perspectives
 - Now for Phase 5: Multi-Perspective Review
@@ -187,10 +200,12 @@
 - In real PM work, you could create your own reviewer personas - maybe a designer, data scientist, support lead - whatever perspectives matter for your product
 - These are reusable files you can refine over time, just like we talked about with templates and workflows earlier
 - I'll review your PRD from all three perspectives and consolidate the feedback into one document
-- STOP: @ mention the reviewers folder and your chosen PRD file, then ask me to review it from all three perspectives and consolidate the feedback
+- STOP: @ mention the reviewers folder and your chosen PRD file, then say: "Review this PRD from all three perspectives and consolidate the feedback"
 - USER: @ mentions reviewers/ folder and ai-chat-todo-prd-v[X].md, then asks for review and consolidation
 
 ---
+
+## Execute Multi-Perspective Review
 
 - ACTION: Read all files in reviewers/ folder (engineer.md, executive.md, user-researcher.md)
 - ACTION: Read the chosen PRD version
@@ -201,35 +216,52 @@
 	- Common Themes: Identify patterns across all three perspectives
 	- Priority Feedback Items: Rank by importance
 - Done! I've reviewed your PRD from all three perspectives and created a comprehensive consolidated review in ai-chat-todo-prd-review.md
-- STOP: Take a look at the review document, then ask me to: "Help me address the feedback here"
+- STOP: Take a look at the review document, then say: "Help me address the feedback here"
 - USER: Views document, then says: Help me address the feedback here
 
 ---
+
+## Phase 6: Address Feedback - Item 1
 
 - Perfect! Phase 6: Address the Feedback
 - Let's work through the major feedback items and improve your PRD
 - I'll present each key piece of feedback as a multiple-choice question - you choose the approach, I implement it
 - Looking at the engineering feedback: "Start with text-based version first, add voice in v2 - reduces risk"
-- STOP: How should we address this? A) Agree - phase the rollout with text first, B) Disagree - ship voice from day 1 since it's the core value prop, C) Hybrid - build both but make voice optional beta feature
+- STOP: How should we address this?
+	- A) Agree - phase the rollout with text first
+	- B) Disagree - ship voice from day 1 since it's the core value prop
+	- C) Hybrid - build both but make voice optional beta feature
 - USER: Chooses A, B, or C
 
 ---
 
-- [Acknowledge choice and reasoning]
+## Address Feedback - Item 2
+
+- Smart choice! That balances risk with impact
 - Next feedback from executive: "Add monetization angle - could this be a premium feature?"
-- STOP: How should we address this? A) Yes - make it Premium/Max tier only, B) No - free feature to drive engagement, C) Freemium - basic voice free, advanced features (transcripts, voice commands) premium
+- STOP: How should we address this?
+	- A) Yes - make it Premium/Max tier only
+	- B) No - free feature to drive engagement
+	- C) Freemium - basic voice free, advanced features (transcripts, voice commands) premium
 - USER: Chooses A, B, or C
 
 ---
 
-- [Acknowledge choice and reasoning]
+## Address Feedback - Item 3
+
+- Good thinking on the monetization strategy!
 - Final feedback from UX research: "Strong onboarding flow needed - users might not understand how to use voice"
-- STOP: How should we address this? A) Guided tutorial on first use with voice prompts, B) Subtle hints/tooltips that appear contextually, C) Video demo in product tour
+- STOP: How should we address this?
+	- A) Guided tutorial on first use with voice prompts
+	- B) Subtle hints/tooltips that appear contextually
+	- C) Video demo in product tour
 - USER: Chooses A, B, or C
 
 ---
 
-- [Acknowledge choice and reasoning]
+## Implement Feedback Changes
+
+- Excellent! That onboarding approach should help with adoption
 - Perfect! You've made strategic decisions on all the major feedback
 - Now let me implement these changes directly in your PRD
 - ACTION: Edit the chosen PRD version (v1, v2, or v3) to incorporate feedback decisions
@@ -246,6 +278,8 @@
 
 ---
 
+## Recap Accomplishments
+
 - Excellent work! Let's recap what you just accomplished:
 	- ✅ Chose a professional PRD template (or brought your own)
 	- ✅ Grounded your thinking in company context and user research
@@ -260,6 +294,8 @@
 - USER: Confirms understanding
 
 ---
+
+## Key Insights & Customization
 
 - This is what AI partnership looks like for PMs:
 	- AI helps you think more clearly (Socratic questions)
@@ -280,3 +316,7 @@
 - It's incredibly practical and you'll create real analysis documents you could present to leadership
 - STOP: When you're ready, type /start-2-2 to begin Module 2.2: Analyze Data
 - USER: Acknowledges
+
+---
+
+**END OF MODULE 2.1**
