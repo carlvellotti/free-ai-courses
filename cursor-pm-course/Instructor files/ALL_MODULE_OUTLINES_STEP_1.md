@@ -219,7 +219,7 @@ This document contains Step 1 outlines for all modules in Cursor for Product Man
 - **Step 5: Test the rules** - Ask Cursor the EXACT same prompt: "Write a product update announcing the new Workspace Sharing feature" → save as `product-update-with-rules.md`
 - **Step 6: Compare before/after** - Open both files side-by-side, see the dramatic difference
 - Validation: "What's different? Does it use 'Workspace'? Does it mention personas? Is the style better?"
-- **Magic moment:** Same prompt, completely different (better) output
+- **Magic moment:** Same prompt, completely different (**better**) output
 - Explain project rules (this folder only) vs global rules (all projects)
 - Explain when to use rules in real PM work (company terminology, product context, team style guides)
 

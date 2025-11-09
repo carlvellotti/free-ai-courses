@@ -63,8 +63,8 @@ graph TD
 - Great! Let's dive into Phase 1: Discovery
 - First question: WHERE are users getting stuck in the activation funnel?
 - Let's ask Cursor to analyze the funnel data to find the drop-off points
-- STOP: Ask me: "@ mention activation-funnel-q4.csv and analyze it to find where users are dropping off in the activation flow"
-- USER: @ mention activation-funnel-q4.csv and analyze it to find where users are dropping off in the activation flow
+- STOP: Ask me: "review @activation-funnel-q4.csv and analyze it to find where users are dropping off in the activation flow"
+- USER: review @activation-funnel-q4.csv and analyze it to find where users are dropping off in the activation flow
 
 ---
 
@@ -95,8 +95,8 @@ graph TD
 - [If D] Let's see if technical issues show up in the data
 - Now let's validate your hypothesis with user research
 - We have survey data from 800 recent signups who answered questions about onboarding confusion
-- STOP: Ask me: "@ mention user-survey-responses.csv and analyze it to extract the top themes explaining why users drop off at task completion"
-- USER: @ mention user-survey-responses.csv and analyze it to extract the top themes explaining why users drop off at task completion
+- STOP: Ask me: "review @user-survey-responses.csv and analyze it to extract the top themes explaining why users drop off at task completion"
+- USER: review @user-survey-responses.csv and analyze it to extract the top themes explaining why users drop off at task completion
 
 ---
 
@@ -154,8 +154,8 @@ graph TD
 - I have an impact estimation framework in impact-estimation-framework.md
 - It uses the formula: Impact = Users Affected × Current Rate × Expected Lift × Value per Action
 - The framework helps you build three scenarios (pessimistic, realistic, optimistic) to show the range of outcomes
-- STOP: Ask me: "@ mention impact-estimation-framework.md and explain how to use it for this guided onboarding feature"
-- USER: @ mention impact-estimation-framework.md and explain how to use it for this guided onboarding feature
+- STOP: Ask me: "use @impact-estimation-framework.md and explain how to use it for this guided onboarding feature"
+- USER: use @impact-estimation-framework.md and explain how to use it for this guided onboarding feature
 
 ---
 
@@ -168,8 +168,8 @@ graph TD
 - The key is modeling three scenarios to show the range of outcomes
 - Now let's build the impact model for guided onboarding using the framework
 - We'll ask Cursor to analyze your usage data and build the ROI projection with three scenarios
-- STOP: Ask me: "@ mention taskflow-usage-data-q4.csv and impact-estimation-framework.md and build three ROI scenarios (pessimistic, realistic, optimistic) for the guided onboarding feature"
-- USER: @ mention taskflow-usage-data-q4.csv and impact-estimation-framework.md and build three ROI scenarios (pessimistic, realistic, optimistic) for the guided onboarding feature
+- STOP: Ask me: "use @taskflow-usage-data-q4.csv and @impact-estimation-framework.md and build three ROI scenarios (pessimistic, realistic, optimistic) for the guided onboarding feature"
+- USER: use @taskflow-usage-data-q4.csv and @impact-estimation-framework.md and build three ROI scenarios (pessimistic, realistic, optimistic) for the guided onboarding feature
 
 ---
 
@@ -246,8 +246,8 @@ graph TD
 	- time_to_first_task_minutes, invited_teammate (TRUE/FALSE)
 	- days_active_week_1, tasks_completed_week_1
 - We'll look at primary metric first, then segment, then quality metrics
-- STOP: Ask me: "@ mention onboarding-experiment-results.csv and analyze it to compare control vs treatment activation rates with statistical significance"
-- USER: @ mention onboarding-experiment-results.csv and analyze it to compare control vs treatment activation rates with statistical significance
+- STOP: Ask me: "use @onboarding-experiment-results.csv and analyze it to compare control vs treatment activation rates with statistical significance"
+- USER: use @onboarding-experiment-results.csv and analyze it to compare control vs treatment activation rates with statistical significance
 
 ---
 
@@ -257,14 +257,14 @@ graph TD
 | Cohort | Activated | Total | Rate | Lift |
 |--------|-----------|-------|------|------|
 | Control | 1,808 | 4,000 | 45.2% | - |
-| Treatment | 1,912 | 4,000 | 47.8% | +2.6pp |
+| Treatment | 2,063 | 4,000 | 51.6% | +6.4pp |
 
-- Statistical significance: p = 0.04 (barely significant at p < 0.05)
-- 95% Confidence Interval: [0.1%, 5.1%]
+- Statistical significance: p = 0.02 (statistically significant at p < 0.05)
+- 95% Confidence Interval: [1.2%, 11.6%]
 - Hmm... this looks underwhelming
-- We projected 58% activation but only got 48%
-- The lift is statistically significant but barely, and the confidence interval is wide
-- This is pretty far from our realistic scenario estimate of 13 percentage points
+- We projected 58% activation but only got 52%
+- The lift is statistically significant, but we're still 6 percentage points short of our goal
+- This is half of our realistic scenario estimate of 13 percentage points
 - STOP: Based on these topline results, what's your call? A) Ship it anyway - any lift is good, B) Iterate more to improve the feature, C) Kill it - not worth the investment
 - USER: Chooses A, B, or C
 
@@ -302,14 +302,14 @@ graph TD
 - Lift: +1.6 percentage points (not significant)
 
 **Enterprise (100+ people):**
-- Control: 45.6% activation
+- Control: 46.1% activation
 - Treatment: 42.1% activation
-- Lift: -3.5 percentage points (actually HURT activation!)
+- Lift: -4.0 percentage points (actually HURT activation!)
 - p = 0.08 (borderline significant negative effect)
 
 - AHA! This completely changes the story!
 - For small teams, we saw +11.4pp lift (close to our 13pp estimate!) - highly significant
-- For enterprise, it actually hurt activation by -3.5pp
+- For enterprise, it actually hurt activation by -4.0pp
 - The modest topline was masking a huge win for our target market!
 - One command and Cursor segmented 8,000 rows by company size - that would take 20+ minutes in Excel
 - This is the power of Cursor: making it effortless to dig deeper when something looks off
