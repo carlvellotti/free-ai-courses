@@ -203,8 +203,8 @@ graph TD
 - In real PM work, you could create your own reviewer personas - maybe a designer, data scientist, support lead - whatever perspectives matter for your product
 - These are reusable files you can refine over time, just like we talked about with templates and workflows earlier
 - I'll review your PRD from all three perspectives and consolidate the feedback into one document
-- STOP: @ mention the reviewers folder and your chosen PRD file, then say: "Review this PRD from all three perspectives and consolidate the feedback"
-- USER: @ mentions reviewers/ folder and ai-chat-todo-prd-v[X].md, then asks for review and consolidation
+- STOP: Now ask me for a review from all the reviwers, say: "Review this PRD from all three perspectives in @reviewers/ and consolidate the feedback into a new doc"
+- USER: Review this PRD from all three perspectives in @reviewers/ and consolidate the feedback into a new doc
 
 ---
 
