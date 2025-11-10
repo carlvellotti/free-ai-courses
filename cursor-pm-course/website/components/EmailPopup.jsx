@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 export default function EmailPopup() {
   const [isVisible, setIsVisible] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
+  const [iframeUrl, setIframeUrl] = useState('')
 
   useEffect(() => {
     // Check if user has already seen the popup
@@ -11,6 +12,18 @@ export default function EmailPopup() {
     if (hasSeenPopup) {
       return // Don't show if already seen
     }
+
+    // Build iframe URL with attribution data
+    const baseUrl = 'https://subscribe-forms.beehiiv.com/792a1ed7-1dd0-4ffa-af11-b407d7efac14'
+    const params = new URLSearchParams({
+      utm_source: 'cursorforpms',
+      utm_medium: 'popup',
+      utm_campaign: 'course-popup',
+      ref_url: window.location.href,
+      referrer: document.referrer || 'direct'
+    })
+
+    setIframeUrl(`${baseUrl}?${params.toString()}`)
 
     // Show popup after 10 seconds
     const timer = setTimeout(() => {
@@ -59,7 +72,7 @@ export default function EmailPopup() {
 
         {/* Beehiiv Form */}
         <iframe
-          src="https://subscribe-forms.beehiiv.com/792a1ed7-1dd0-4ffa-af11-b407d7efac14"
+          src={iframeUrl}
           className="beehiiv-embed"
           data-test-id="beehiiv-embed"
           frameBorder="0"
