@@ -1,0 +1,200 @@
+---
+title: "1.2: Using Cursor's Interface"
+description: "Learn Cursor's three workflows: Chat, Composer, and Cmd K, plus file referencing with @ mentions"
+keywords: 'cursor interface, chat, composer, cmd k, inline editing, @ mentions, file referencing'
+---
+
+# Module 1.2: Using Cursor's Interface
+## Reference Guide
+
+**Last Updated:** November 9, 2024
+**Time to Complete:** 20-25 minutes
+**Prerequisites:** Cursor installed (Module 0.1)
+
+---
+
+## Overview
+
+Cursor has three main workflows for working with AI: **Chat** (quick questions), **Composer** (multi-file edits), and **Cmd K** (inline edits). Learn when to use each one and how to reference files with @ mentions.
+
+**Key takeaway:** Chat for exploration, Composer for creation, Cmd K for quick fixes.
+
+---
+
+## The Three-Pane Layout
+
+Cursor's workspace has three main areas:
+
+- **Left:** File explorer (Cmd/Ctrl+B to toggle)
+- **Middle:** Editor pane (where you write and view files)
+- **Right:** AI Pane (Chat or Composer - where you talk to Claude)
+
+You can also open a terminal at the bottom with Ctrl+` (backtick).
+
+---
+
+## The Three Workflows
+
+### Chat (Cmd+L)
+
+**What it does:** Opens a sidebar for quick questions and exploration. Think of it as asking a colleague for help.
+
+**When to use:**
+- Asking questions about code or files
+- Quick explanations
+- Exploring ideas before committing
+- Analyzing existing content
+
+**How it works:**
+- Opens in the right sidebar
+- Doesn't automatically edit files (you review suggestions first)
+- Best for one-off questions
+
+### Composer (Cmd+I)
+
+**What it does:** Opens a full panel for creating or editing multiple files at once. Think of it as collaborative document editing.
+
+**When to use:**
+- Writing PRDs, specs, or documentation
+- Creating new files from scratch
+- Editing multiple related files
+- Complex tasks requiring planning
+
+**How it works:**
+- Opens as a full panel (can be opened as a tab or sidebar)
+- Can edit multiple files in one session
+- Shows diffs before applying changes
+- Best for substantial work
+
+### Cmd K (Inline Editing)
+
+**What it does:** Quick inline edits right where your cursor is. Think of it as a smart find-and-replace.
+
+**When to use:**
+- Fixing typos
+- Rephrasing sentences
+- Quick tactical edits
+- Single-file changes
+
+**How it works:**
+- Press Cmd/Ctrl+K with cursor in a file
+- Type instruction (e.g., "fix this typo")
+- Shows diff inline
+- Scoped to current file only
+
+---
+
+## Quick Comparison Table
+
+| Workflow | Shortcut | Scope | Best For | Edits Files? |
+|----------|----------|-------|----------|--------------|
+| **Chat** | Cmd+L | Single/multiple files | Questions, analysis | No (suggests only) |
+| **Composer** | Cmd+I | Multiple files | Creating, planning, multi-file edits | Yes (with review) |
+| **Cmd K** | Cmd+K | Current file only | Quick fixes, rephrasing | Yes (inline) |
+
+---
+
+## Referencing Files with @ Mentions
+
+There are three ways to give Claude context about files:
+
+### 1. @ Mentions (Most Common)
+
+Type `@` in the chat input to bring up context options:
+
+- `@Files` - Reference specific files (e.g., `@PRD.md`)
+- `@Folders` - Reference entire folders (e.g., `@company-context`)
+- `@Web` - Search the web for context
+- `@Code` - Reference code symbols
+- `@Git` - Reference Git commits or branches
+
+**Example:** "Tell me about @COMPANY.md"
+
+### 2. Drag Files
+
+Click and drag files from the file explorer directly into the chat input box. Creates the same file reference as @ mentions.
+
+**When to use:** When you're already browsing files and prefer a visual approach.
+
+### 3. "Add to Chat" (Specific Text)
+
+Highlight text in the editor, then click "Add to Chat" button that appears. Use this for quoting specific sections, not entire files.
+
+**When to use:** Referencing user feedback quotes, specific excerpts, or particular paragraphs.
+
+---
+
+## Markdown Preview & Editing
+
+**Preview Mode:** Press Cmd/Ctrl+Shift+V to toggle between raw Markdown and formatted preview.
+
+**WYSIWYG Editor (Optional):**
+1. Press Cmd/Ctrl+Shift+P → "Extensions: Install Extensions"
+2. Search for "Markdown Editor" by zaaack
+3. Install it
+4. Use Cmd/Ctrl+Shift+Alt/Opt+M to edit Markdown like Google Docs
+
+**Note:** WYSIWYG editor is optional - preview mode works fine for most PM work.
+
+---
+
+## AI Model Selector
+
+Located at the bottom of the AI Pane (Chat or Composer). Click the dropdown to switch between models (Claude Sonnet, GPT-4, etc.).
+
+**Recommendation:** Use the latest Claude Sonnet model for PM work. It's the best balance of quality and speed. You'll rarely hit usage limits doing PRDs and documentation.
+
+---
+
+## Keyboard Shortcuts
+
+| Action | Mac | Windows |
+|--------|-----|---------|
+| Open Chat | Cmd+L | Ctrl+L |
+| Open Composer | Cmd+I | Ctrl+I |
+| Inline Edit | Cmd+K | Ctrl+K |
+| Toggle File Explorer | Cmd+B | Ctrl+B |
+| Markdown Preview | Cmd+Shift+V | Ctrl+Shift+V |
+| Command Palette | Cmd+Shift+P | Ctrl+Shift+P |
+| Open Terminal | Ctrl+` | Ctrl+` |
+
+---
+
+## Troubleshooting
+
+### "I can't see the AI Pane"
+**Fix:** Press Cmd/Ctrl+L to open Chat or Cmd/Ctrl+I to open Composer.
+
+### "@ mentions aren't showing up"
+**Fix:** Make sure you're typing in the chat input box (not the editor). Type `@` and wait a moment for the menu to appear.
+
+### "Markdown preview isn't working"
+**Fix:** Make sure you have a `.md` file open in the editor, then press Cmd/Ctrl+Shift+V. Only works with Markdown files.
+
+### "Cmd K does nothing"
+**Fix:** Make sure your cursor is actively in a file in the editor (click in the file first), then press Cmd/Ctrl+K.
+
+---
+
+## Resources
+
+**Official:**
+- [Cursor](https://cursor.com) - Official website
+- [Cursor Docs](https://cursor.com/docs) - Official documentation
+- [Cursor Forum](https://forum.cursor.com) - Community support and discussions
+
+---
+
+## What's Next?
+
+**Module 1.2 complete:**
+- ✅ Understand the three-pane layout
+- ✅ Know when to use Chat vs Composer vs Cmd K
+- ✅ Can reference files with @ mentions
+- ✅ Understand Markdown preview and editing
+
+**Next: Module 1.3 - First PM Task**
+
+You'll use these interface skills to complete your first real PM task at TaskFlow.
+
+**Ready?** Type `/start-1-3` in a new Composer tab.

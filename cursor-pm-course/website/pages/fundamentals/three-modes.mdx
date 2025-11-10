@@ -1,0 +1,206 @@
+---
+title: "1.5: Three Interaction Modes"
+description: "Master Cursor's three modes - Ask, Agent, and Plan - for different PM workflows"
+keywords: 'cursor modes, plan mode, agent mode, ask mode, cursor ai modes, cursor planning'
+---
+
+# Module 1.5: Three Interaction Modes
+## Reference Guide
+
+**Last Updated:** November 9, 2024
+**Time to Complete:** 25 minutes
+**Prerequisites:** Module 1.4 (Slash Commands)
+
+---
+
+## 📖 Overview
+
+Cursor has three AI modes: Ask (read-only analysis), Agent (autonomous execution), and Plan (research and structured planning). Switch between them to match your workflow.
+
+**Key takeaway:** Ask explores safely, Agent executes work, Plan structures complex projects.
+
+---
+
+## The Three Modes
+
+### Ask Mode (Read-Only)
+
+**What it does:**
+- Reads and analyzes files without making changes
+- Answers questions about codebase structure
+- Provides safe exploration of unfamiliar files
+
+**When to use it:**
+- Exploring new documentation or codebases
+- Need analysis without risk of accidental changes
+- Planning before committing to an approach
+
+**Example:** "Explain what PRODUCT.md contains" - Cursor reads and summarizes without creating files.
+
+### Agent Mode (Autonomous Execution)
+
+**What it does:**
+- Reads AND writes files
+- Runs terminal commands
+- Makes changes across multiple files
+- Iterates and fixes errors
+
+**When to use it:**
+- 80% of your daily PM work
+- Creating files and implementing features
+- Anything hands-on and tactical
+
+**Example:** "Create a PRD for dark mode feature" - Cursor writes the file, adds sections, formats it.
+
+This is the **default mode** and what you've been using in all previous modules.
+
+### Plan Mode (Structured Planning)
+
+**What it does:**
+- Researches context files automatically
+- Performs web searches for competitive/market data
+- Asks clarifying questions
+- Creates structured plan documents
+- Executes plan after your approval
+
+**When to use it:**
+- Complex multi-step projects
+- Coordinating across teams or channels
+- Need stakeholder buy-in before execution
+- "Measure twice, cut once" situations
+
+**Workflow:**
+1. You give complex request
+2. Cursor researches files and web
+3. Cursor asks clarifying questions
+4. Cursor generates structured PLAN document
+5. You review and iterate on plan
+6. Click "Build" to execute
+
+**Example:** "Plan a multi-channel product launch" - Cursor researches your company context, asks about priority segments and timeline, creates launch plan with messaging/timeline/metrics, waits for approval, then builds all documents.
+
+---
+
+## Mode Comparison
+
+| Feature | Ask | Agent | Plan |
+|---------|-----|-------|------|
+| **Read files** | ✅ | ✅ | ✅ |
+| **Write files** | ❌ | ✅ | ✅ (after approval) |
+| **Run commands** | ❌ | ✅ | ✅ (after approval) |
+| **Web search** | ❌ | ❌ | ✅ |
+| **Ask questions** | ❌ | ❌ | ✅ |
+| **Create structured plan** | ❌ | ❌ | ✅ |
+| **Best for** | Exploring | Executing | Planning |
+| **Usage %** | 5% | 80% | 15% |
+
+---
+
+## Switching Modes
+
+Three ways to switch:
+
+1. **Click the mode picker** (lower left of chat box)
+2. **Press Cmd/Ctrl + .** (Command/Control + period)
+3. **Press Shift + Tab**
+
+Current mode always displays in the chat interface.
+
+---
+
+## PM Use Cases
+
+### Ask Mode
+- "What does this competitive landscape file contain?"
+- "Explain the structure of these meeting notes"
+- "Summarize the personas without changing anything"
+
+### Agent Mode
+- "Write a PRD for the onboarding redesign"
+- "Process these 10 customer interview transcripts"
+- "Create a competitive matrix from these files"
+
+### Plan Mode
+- "Plan a multi-channel product launch campaign"
+- "Research competitors and create a positioning strategy"
+- "Build a complete go-to-market plan for enterprise customers"
+
+**Decision framework:**
+- Simple task, clear approach → **Agent**
+- Unfamiliar territory, need to look around → **Ask**
+- Complex project, multiple stakeholders, need structure → **Plan**
+
+---
+
+## Plan Mode Deep Dive
+
+### Key Capabilities
+
+**Web search:** Cursor can research competitors, pricing models, market trends - anything online.
+
+**Clarifying questions:** Cursor asks about:
+- Target audience priorities
+- Timeline constraints
+- Channel preferences
+- Success metrics
+
+**Iterative planning:** Edit the plan before execution:
+- "Add webinar to the campaign"
+- "Focus on enterprise first"
+- "Include social media channels"
+
+**Execution tracking:** Watch progress as Cursor builds each deliverable.
+
+### Typical Plan Mode Session
+
+1. **You:** "Plan a multi-channel launch for real-time collaboration feature. Research our positioning, competitors, and target customers."
+2. **Cursor researches:** Reads PRODUCT.md, PERSONAS.md, competitive-positioning.md, performs web searches
+3. **Cursor asks:** "Which customer segment first?" "Timeline?" "Email or in-app priority?"
+4. **You answer:** "Enterprise first, 2-week beta then 4-week launch, coordinated simultaneous"
+5. **Cursor creates PLAN:** Shows what it will build (campaign plan, timeline, messaging)
+6. **You review:** "Add sales enablement section"
+7. **Cursor updates plan**
+8. **You approve:** Click "Build"
+9. **Cursor executes:** Creates all documents following the plan
+
+---
+
+## 🐛 Troubleshooting
+
+### "Can't find mode picker"
+**Fix:** Look in the lower left of the chat input box. You'll see "Ask", "Agent", or "Plan" displayed.
+
+### "Plan mode not asking questions"
+**Fix:** Make your request more complex. Plan mode asks questions for multi-step projects, not simple tasks.
+
+### "Web search not working in Plan mode"
+**Fix:** Ensure you're on Cursor Pro trial or subscription. Web search requires Pro features.
+
+### "Plan created but Build button missing"
+**Fix:** Scroll down in the plan document. The Build button appears at the bottom after the full plan is generated.
+
+---
+
+## 📚 Resources
+
+**Official:**
+- [Cursor Documentation](https://docs.cursor.com) - Official docs and features
+- [Cursor Forum](https://forum.cursor.com) - Community discussions
+
+**Note:** Cursor's mode features are actively evolving. Check the forum for latest updates on Plan mode capabilities.
+
+---
+
+## 🚀 What's Next?
+
+**Module 1.5 complete:**
+- ✅ Understand three modes (Ask, Agent, Plan)
+- ✅ Know when to use each mode
+- ✅ Switch modes efficiently
+- ✅ Use Plan mode for complex projects
+
+**Next: Module 1.6 - Project Rules**
+
+Learn how to customize Cursor's behavior with project rules. Set up rules for writing PRDs, analyzing data, and other PM workflows to make Cursor work exactly how you work.
+
+**[Go to Module 1.6 →](/fundamentals/project-rules)**
