@@ -137,11 +137,11 @@ strong {
 }
 
 .dark .nextra-content ul > li::marker {
-  color: #FF5856;
+  color: #892137;
 }
 
 .dark .nextra-content ol > li::marker {
-  color: #FF5856;
+  color: #892137;
 }
 
 .dark .nextra-content a {
@@ -150,7 +150,7 @@ strong {
 }
 
 .dark .nextra-content a:hover {
-  color: #FF5856;
+  color: #892137;
 }
 
 /* Code block improvements */
@@ -159,9 +159,9 @@ strong {
   opacity: 1 !important;
 }
 
-/* Style copy button with theme red/orange color */
+/* Style copy button with theme burgundy color */
 .dark button[title="Copy code"] {
-  background-color: #FF5856 !important;
+  background-color: #892137 !important;
   color: white !important;
   border-radius: 6px !important;
   padding: 6px 8px !important;
@@ -169,7 +169,7 @@ strong {
 }
 
 .dark button[title="Copy code"]:hover {
-  background-color: #ff6e6c !important;
+  background-color: #a12a44 !important;
   transform: scale(1.05) !important;
 }
 
