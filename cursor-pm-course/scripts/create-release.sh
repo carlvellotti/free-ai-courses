@@ -13,23 +13,16 @@ echo "Creating release zip for $VERSION..."
 # Create releases directory
 mkdir -p releases
 
-# Create complete course zip
-# Include: .cursor, company-context, lesson-modules, README.md, LICENSE
-# Exclude: website, Instructor files, .git, .DS_Store, __pycache__, .env
-
-zip -r releases/complete-course.zip \
-  .cursor \
-  company-context \
-  lesson-modules \
-  README.md \
-  LICENSE \
-  CLAUDE.md \
+# Create complete course zip from course-materials folder
+cd course-materials
+zip -r ../releases/complete-course.zip . \
   -x "*.DS_Store" \
   -x "__pycache__/*" \
   -x "*.pyc" \
   -x ".env" \
   -x "lesson-modules/3-nano-banana/outputs/*" \
   -x "lesson-modules/3-nano-banana/outputs/.gitkeep"
+cd ..
 
 echo ""
 echo "✅ Release zip created:"
@@ -44,4 +37,3 @@ echo "Next steps:"
 echo "1. Test the zip by extracting and opening in Cursor"
 echo "2. Create GitHub release:"
 echo "   gh release create $VERSION releases/complete-course.zip --title \"Cursor for PMs $VERSION\" --notes-file RELEASE_NOTES.md"
-
