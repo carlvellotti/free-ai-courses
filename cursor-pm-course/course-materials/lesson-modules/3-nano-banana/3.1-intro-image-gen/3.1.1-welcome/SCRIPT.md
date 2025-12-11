@@ -87,7 +87,7 @@ Perfect! You're all set up.
 
 Now for the fun part - let's generate your first image.
 
-I have a reference photo of Carl, the course creator. You can find it at `lesson-modules/3.1-intro-image-gen/3.1.1-welcome/carl-reference.JPG` if you want to see what you're working with. We're going to put him in a banana suit to welcome you to the course.
+I have a reference photo of Carl, the course creator. You can find it at `lesson-modules/3-nano-banana/3.1-intro-image-gen/3.1.1-welcome/carl-reference.JPG` if you want to see what you're working with. We're going to put him in a banana suit to welcome you to the course.
 
 STOP: Say "Generate Carl in a banana suit welcoming me to Nano Banana"
 

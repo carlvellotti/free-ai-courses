@@ -42,14 +42,13 @@ First up: the App Store feature graphic.
 
 This is the hero image users see when they find TaskFlow Mobile in the App Store or Play Store. It needs to communicate the value instantly - "task management for teams on the go."
 
-I've got a reference image in this module folder called `app-store-hero.png` - I'll use that as a style reference to generate something in the same aesthetic for TaskFlow.
+Let me generate something polished and professional for the App Store.
 
 STOP: Ask me to create an App Store feature graphic for TaskFlow Mobile.
 
 USER: Create an App Store feature graphic / Generate the app store hero
 
 ACTION: Generate App Store feature graphic
-- Use `app-store-hero.png` in this module folder as a style reference
 - TaskFlow Mobile app displayed on a modern phone
 - Show the task management interface (can reference earlier wireframe aesthetic)
 - Clean, professional style suitable for app store listing

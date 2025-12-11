@@ -319,10 +319,10 @@ Great! Type `/start-3-2-1` to continue.
 ## Important Notes for the AI
 
 ### File Paths
-- `style-library.html` is in this module folder: `lesson-modules/3.1-intro-image-gen/3.1.4-style-database/`
+- `style-library.html` is in this module folder: `lesson-modules/3-nano-banana/3.1-intro-image-gen/3.1.4-style-database/`
 - `recursive-painter.jpg` is also in this module folder
-- `style_extract.py` and `image_gen.py` are in the course root
-- Output images go to the `outputs/` folder in the course root
+- `style_extract.py` and `image_gen.py` are in the `lesson-modules/3-nano-banana/` folder
+- Output images go to the `outputs/` folder in `lesson-modules/3-nano-banana/`
 - Thumbnails go to the `thumbnails/` folder in this module folder
 
 ### When Adding Styles to the Library
