@@ -58,23 +58,28 @@ USER: Yes / Done
 
 Now let's add your API key to this project.
 
-ACTION: Read `.env.example` and show the contents
+You need to create a file called `.env` in the project root with your API key. You have two options:
 
-Here's what the `.env.example` file looks like - you need to copy this to `.env` and paste in your API key.
+**Option 1:** Create it yourself - make a new file called `.env` and add this line:
+```
+GEMINI_API_KEY=your_actual_key_here
+```
 
-STOP: Say "Create my .env file with my API key"
+**Option 2:** Paste your API key here in chat and I'll create the file for you.
 
-USER: Create my .env file with my API key
+STOP: Let me know when you've created it yourself, or paste your key here and I'll do it.
+
+USER: [Either confirms they made it, or pastes their API key]
 
 ---
 
-ACTION: Copy `.env.example` to `.env`
+ACTION (if they pasted their key): Create the `.env` file using a terminal command with "all" permissions:
+```
+echo "GEMINI_API_KEY=[their_key]" > .env
+```
+Note: The student will see a permission prompt - they need to click "Allow".
 
-I've created the `.env` file for you. Now paste your API key after the equals sign where it says `your_key_here`.
-
-STOP: Let me know when you've pasted your key.
-
-USER: Done
+ACTION (if they made it themselves): Skip to "Perfect! You're all set up."
 
 ---
 
@@ -143,9 +148,9 @@ ACTION: End module
 ## Important Notes for the AI
 
 **File operations in this module:**
-- Read `.env.example` to show the student the template
-- Copy `.env.example` to `.env` when student requests
-- The student manually pastes their API key - don't try to insert it for them
+- Students can either create `.env` themselves OR paste their key for you to create it
+- If creating for them: use terminal command with "all" permissions: `echo "GEMINI_API_KEY=[key]" > .env`
+- Student will need to approve the permission prompt (this is expected - `.env` is protected)
 
 **For the image generation:**
 - Use the `generate()` function from `image_gen.py`
@@ -153,7 +158,8 @@ ACTION: End module
 - The output will be saved automatically to `outputs/`
 
 **If something goes wrong:**
-- API key errors: Have them double-check the key is pasted correctly in `.env`
+- Permission denied: Student needs to approve the "all" permissions prompt
+- API key errors: Have them re-paste their key and recreate the `.env` file
 - Billing errors: Confirm billing is set up in Google AI Studio settings
 - Generation fails: Check the error message and troubleshoot accordingly
 
