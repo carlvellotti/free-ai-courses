@@ -1,4 +1,6 @@
 import React from 'react'
+import { useConfig } from 'nextra-theme-docs'
+import { useRouter } from 'next/router'
 
 export default {
   logo: <span style={{ fontWeight: 600 }}>Cursor for Product Managers</span>,
@@ -28,18 +30,18 @@ export default {
     return { titleTemplate: '%s – Cursor for Product Managers' }
   },
   theme: 'dark',
-  head: function Head({ title, frontMatter }: { title?: string; frontMatter?: any }) {
+  head: function Head() {
+    const { frontMatter, title } = useConfig()
+    const { asPath } = useRouter()
+    
     const siteUrl = 'https://cursorforpms.com'
     const pageTitle = title ? `${title} – Cursor for Product Managers` : 'Learn Cursor IN Cursor!'
     const description = frontMatter?.description || 'Learn Cursor IN Cursor! An interactive course teaching AI-powered productivity, file operations, and product management workflows.'
     const ogImage = frontMatter?.ogImage || `${siteUrl}/images/cursorforpmsthumbnail.png`
-
-    // Get current page URL for canonical tag
-    const canonicalUrl = typeof window !== 'undefined' ? `${siteUrl}${window.location.pathname}` : siteUrl
+    const canonicalUrl = `${siteUrl}${asPath}`
 
     // Generate breadcrumb structured data
-    const pathname = typeof window !== 'undefined' ? window.location.pathname : '/'
-    const pathSegments = pathname.split('/').filter(segment => segment)
+    const pathSegments = asPath.split('/').filter(segment => segment && !segment.includes('#'))
 
     const breadcrumbList = {
       "@context": "https://schema.org",
@@ -144,4 +146,3 @@ export default {
     backToTop: true
   }
 }
-

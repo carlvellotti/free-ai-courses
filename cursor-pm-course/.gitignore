@@ -13,3 +13,12 @@
 # Temporary files
 tmp/
 temp/
+
+# Environment files
+.env
+.env.*
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
