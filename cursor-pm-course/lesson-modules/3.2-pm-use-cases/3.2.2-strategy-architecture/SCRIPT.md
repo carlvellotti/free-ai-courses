@@ -211,7 +211,7 @@ Type `/start-3-2-3` to continue.
 
 ---
 
-## Important Notes for Claude
+## Important Notes for the AI
 
 - **File paths:** Always provide absolute paths when telling users where to find files.
 - **Image generation:** Use the `image_gen.py` module via Python. Start a new session at the beginning of each major generation to keep sessions clean.

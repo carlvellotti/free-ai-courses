@@ -9,7 +9,7 @@ keywords: "style library, style extraction, prompt database, AI image styles, ge
 - **Time to Complete:** 20 minutes
 - **Prerequisites:** Consistency & Style (Module 3.1.3)
 
-> **Start this module in Claude Code:** Run `/start-3-1-4` to begin the interactive experience.
+> **Start this module in Cursor:** Run `/start-3-1-4` to begin the interactive experience.
 
 ## Overview
 
@@ -60,7 +60,7 @@ Each style entry contains:
 Generate [your subject] using style #5
 ```
 
-Claude looks up the style, retrieves the prompt, and applies it to your subject.
+The AI looks up the style, retrieves the prompt, and applies it to your subject.
 
 **To browse styles:**
 Open `style-library.html` in your browser. Use the filter buttons to explore categories.
@@ -88,19 +88,19 @@ The simplest approach - whenever you create something you like, save it.
 
 **Workflow:**
 1. Generate an image you're happy with
-2. Tell Claude: "Add this style to my library"
-3. Claude updates `style-library.html` with the new entry
+2. Tell the AI: "Add this style to my library"
+3. The AI updates `style-library.html` with the new entry
 4. The style is now available for future use
 
 **Example:**
 ```
 You: Generate a minimalist journey map with soft colors
 
-[Claude generates image]
+[The AI generates image]
 
 You: I love this style. Add it to my library.
 
-Claude: Done! Added as style #15 "Minimalist Journey Map"
+AI: Done! Added as style #15 "Minimalist Journey Map"
 in the Flow category.
 ```
 
@@ -114,7 +114,7 @@ Great prompts are everywhere - social media, tutorials, prompt databases. When y
 **Workflow:**
 1. Find a promising prompt online
 2. Test it: "Generate [subject] using this prompt: [paste prompt]"
-3. If it works well, tell Claude to save it
+3. If it works well, tell the AI to save it
 4. Now it's part of your permanent library
 
 **Example:**
@@ -123,11 +123,11 @@ You: I found this prompt online - test it with a coffee shop:
 "Make a photo that is perfectly isometric. It is not a miniature,
 it is a captured photo that just happened to be perfectly isometric."
 
-[Claude generates isometric coffee shop]
+[The AI generates isometric coffee shop]
 
 You: Great! Save this as "Perfect Isometric Photo"
 
-Claude: Added as style #16 in 3D/Isometric category.
+AI: Added as style #16 in 3D/Isometric category.
 ```
 
 **Best for:** Curating the best prompts from the community.
@@ -139,7 +139,7 @@ This is the power move. See an image you love? Extract its style as text, then r
 
 **How it works:**
 1. Provide an image (file path or URL)
-2. Claude runs the style extraction module
+2. The AI runs the style extraction module
 3. The module analyzes: colors, lighting, composition, textures, mood, effects
 4. Returns a detailed natural language description
 5. You can now recreate that style from pure text
@@ -148,7 +148,7 @@ This is the power move. See an image you love? Extract its style as text, then r
 ```
 You: Extract the style from this image: [path to image]
 
-Claude: [Runs style_extract.py]
+AI: [Runs style_extract.py]
 
 Here's the extracted style:
 "Warm analog photography aesthetic with slight film grain.
@@ -158,7 +158,7 @@ with slight motion blur suggesting authentic moments..."
 
 You: Generate a portrait using that extracted style
 
-[Claude applies the style to a new subject]
+[The AI applies the style to a new subject]
 
 You: Perfect. Save this to my library.
 ```
@@ -188,7 +188,7 @@ The `style_extract.py` module uses Gemini's image understanding to analyze any i
 
 ### Adding Styles
 
-When you tell Claude to save a style, it:
+When you tell the AI to save a style, it:
 1. Assigns the next available ID number
 2. Creates a descriptive name
 3. Chooses an appropriate category
@@ -200,7 +200,7 @@ When you tell Claude to save a style, it:
 
 The style library is just an HTML file - you can customize it:
 
-- **Add columns:** "Ask Claude to add a 'difficulty' column"
+- **Add columns:** "Ask the AI to add a 'difficulty' column"
 - **Change layout:** "Reorganize the library by category"
 - **Add search:** "Add a search bar to the library"
 - **Modify design:** "Make the library dark mode"
@@ -322,7 +322,7 @@ Save this as "Executive Diagram Style"
 ### New style doesn't appear
 
 - Refresh the browser (Cmd+R / Ctrl+R)
-- Check that Claude confirmed the save
+- Check that the AI confirmed the save
 
 ### Extracted style doesn't match original
 
@@ -334,7 +334,7 @@ Save this as "Executive Diagram Style"
 
 - Use the category filters
 - Try searching by tag
-- Ask Claude: "Which styles work for [your use case]?"
+- Ask the AI: "Which styles work for [your use case]?"
 
 
 ## Quick Reference

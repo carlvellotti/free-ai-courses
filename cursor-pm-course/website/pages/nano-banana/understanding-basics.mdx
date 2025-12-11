@@ -9,27 +9,27 @@ keywords: "gemini parameters, aspect ratio, image resolution, AI image iteration
 - **Time to Complete:** 15 minutes
 - **Prerequisites:** API key set up (Module 3.1.1)
 
-> **Start this module in Claude Code:** Run `/start-3-1-2` to begin the interactive experience.
+> **Start this module in Cursor:** Run `/start-3-1-2` to begin the interactive experience.
 
 ## Overview
 
 Module 3.1.2 teaches you the mechanics of image generation - how the system works and what you can control. You'll understand the `generate()` function, learn about aspect ratios and resolution, and master the art of iteration.
 
-**Key takeaway:** You don't need to memorize parameters or write code. Describe what you want naturally, and Claude picks smart defaults. But understanding what's possible helps you get better results.
+**Key takeaway:** You don't need to memorize parameters or write code. Describe what you want naturally, and the AI picks smart defaults. But understanding what's possible helps you get better results.
 
 
 ## How Generation Works
 
-When you ask Claude to generate an image:
+When you ask the AI to generate an image:
 
 1. **You describe** what you want in natural language
-2. **Claude translates** your request into API parameters
+2. **The AI translates** your request into API parameters
 3. **The `generate()` function** sends the request to Gemini
 4. **Gemini generates** the image (10-15 seconds)
 5. **The image saves** to your `outputs/` folder
-6. **Claude tells you** where to find it
+6. **The AI tells you** where to find it
 
-You never touch the API directly. Claude handles everything.
+You never touch the API directly. The AI handles everything.
 
 
 ## The `generate()` Function
@@ -45,17 +45,17 @@ All image generation flows through `image_gen.py`. Here are the key parameters:
 
 ### Two Ways to Work
 
-**Option 1: Let Claude decide**
+**Option 1: Let the AI decide**
 ```
 Generate a professional headshot of a product manager
 ```
-Claude picks sensible defaults (1:1 for headshots, 1K for drafts).
+The AI picks sensible defaults (1:1 for headshots, 1K for drafts).
 
 **Option 2: Specify what you want**
 ```
 Generate a professional headshot, 16:9 aspect ratio, 2K resolution
 ```
-Claude honors your explicit requests.
+The AI honors your explicit requests.
 
 Both approaches work great. Start with Option 1, get specific when needed.
 
@@ -122,7 +122,7 @@ Generate first draft → "Add more contrast" → "Move the text higher" → "Per
 
 ### How to Iterate
 
-After Claude generates an image, just ask for changes:
+After The AI generates an image, just ask for changes:
 
 - "Make the background darker"
 - "Add a subtle shadow"
@@ -130,7 +130,7 @@ After Claude generates an image, just ask for changes:
 - "Make it feel more professional"
 - "Try a warmer color palette"
 
-Claude continues the session with Gemini, and your changes build on the previous image.
+The AI continues the session with Gemini, and your changes build on the previous image.
 
 ### When to Start Fresh
 
@@ -140,7 +140,7 @@ Sometimes iteration isn't the right move:
 - **Completely different subject** → Start fresh
 - **Want to explore alternatives** → Generate variants (covered in 3.1.3)
 
-Tell Claude "start a new session" or "let's try something completely different" and it will begin fresh.
+Tell the AI "start a new session" or "let's try something completely different" and it will begin fresh.
 
 
 ## Sessions Explained
@@ -160,7 +160,7 @@ A **session** is a conversation with Gemini that maintains context. Here's how i
 
 ### Session Management
 
-Claude handles sessions automatically, but you can control them:
+The AI handles sessions automatically, but you can control them:
 
 | What you want | What to say |
 |---------------|-------------|
@@ -177,33 +177,33 @@ Claude handles sessions automatically, but you can control them:
 
 **You:** "Create a hero image for a presentation about AI productivity"
 
-**Claude generates** a 1:1 image at 1K resolution.
+**The AI generates** a 1:1 image at 1K resolution.
 
 **You:** "Make it 16:9 for my slides"
 
-**Claude regenerates** with correct aspect ratio.
+**The AI regenerates** with correct aspect ratio.
 
 **You:** "Add text that says 'AI for PMs'"
 
-**Claude adds** the text overlay.
+**The AI adds** the text overlay.
 
 **You:** "This is perfect, regenerate at 2K"
 
-**Claude produces** the final high-resolution version.
+**The AI produces** the final high-resolution version.
 
 ### Example 2: Quick Exploration
 
 **You:** "Generate a user persona portrait - corporate vibe"
 
-**Claude generates** first version.
+**The AI generates** first version.
 
 **You:** "Try a more casual look"
 
-**Claude refines** the style.
+**The AI refines** the style.
 
 **You:** "Actually let's start fresh - try illustrated style instead"
 
-**Claude starts new session** and generates illustrated version.
+**The AI starts new session** and generates illustrated version.
 
 
 ## Best Practices
@@ -211,13 +211,13 @@ Claude handles sessions automatically, but you can control them:
 ### Do:
 - **Start at 1K resolution** for faster iteration
 - **Be specific about changes** - "make the sky more orange" beats "improve it"
-- **Let Claude pick defaults** when you don't have strong preferences
+- **Let the AI pick defaults** when you don't have strong preferences
 - **Build incrementally** - small changes are more predictable
 
 ### Don't:
 - **Don't start at 4K** - you'll waste time on images you're going to change
 - **Don't make multiple changes at once** - iterate one thing at a time
-- **Don't be vague** - "make it better" gives Claude nothing to work with
+- **Don't be vague** - "make it better" gives the AI nothing to work with
 - **Don't abandon good images** - iterate instead of starting over
 
 
@@ -232,7 +232,7 @@ Claude handles sessions automatically, but you can control them:
 ### Aspect ratio looks wrong
 
 - Verify you asked for the right ratio (16:9 vs 9:16 is a common mix-up)
-- Some compositions work better in certain ratios - Claude may suggest alternatives
+- Some compositions work better in certain ratios - The AI may suggest alternatives
 
 ### Image quality seems low
 

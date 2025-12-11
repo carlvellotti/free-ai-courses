@@ -428,7 +428,7 @@ Run `/start-3-1-4` to continue.
 
 ---
 
-## Important Notes for Claude
+## Important Notes for the AI
 
 When running this module:
 

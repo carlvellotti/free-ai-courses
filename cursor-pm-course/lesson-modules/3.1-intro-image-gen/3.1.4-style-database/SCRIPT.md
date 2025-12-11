@@ -14,7 +14,7 @@ USER: Yes
 
 ---
 
-Here's where Claude Code becomes your perfect partner. I can manage your entire style database for you. Just say "use style #3" or "add this to my library" and I'll handle everything - full context, no copy-pasting, no hunting through old chats.
+Here's where Cursor becomes your perfect partner. I can manage your entire style database for you. Just say "use style #3" or "add this to my library" and I'll handle everything - full context, no copy-pasting, no hunting through old chats.
 
 There are three ways to grow your library:
 - **Save prompts as you go** - when you make something you like
@@ -316,7 +316,7 @@ Great! Type `/start-3-2-1` to continue.
 
 ---
 
-## Important Notes for Claude
+## Important Notes for the AI
 
 ### File Paths
 - `style-library.html` is in this module folder: `course-materials/lesson-modules/3-nano-banana/3.1-intro-to-image-gen/3.1.4-style-database/`

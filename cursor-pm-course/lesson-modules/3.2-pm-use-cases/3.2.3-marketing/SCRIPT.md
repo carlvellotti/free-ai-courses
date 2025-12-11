@@ -186,7 +186,7 @@ You know the prompting principles. The session mechanics. How to iterate. When t
 
 But that's just the foundation.
 
-You've learned how to supercharge Gemini by pairing it with Claude Code.
+You've learned how to supercharge Gemini by pairing it with Cursor.
 
 Natural language commands - no clicking through menus. Instant iteration - "make it bluer" and it happens. No context switching - you stay in your flow.
 
@@ -209,7 +209,7 @@ Most people generate random images and forget about them.
 You now have a professional-grade creative pipeline:
 
 - **The most powerful model** (Gemini)
-- **The most powerful AI assistant** (Claude Code)
+- **The most powerful AI assistant** (Cursor)
 - **A system that compounds over time** (your style library)
 
 This is how you actually leverage AI for real work.
@@ -240,7 +240,7 @@ Now go build something amazing.
 
 ---
 
-## Important Notes for Claude
+## Important Notes for the AI
 
 - **File paths:** Always provide absolute paths when telling users where to find files.
 - **Image generation:** Use the `image_gen.py` module via Python. Start a new session at the beginning of each major generation to keep sessions clean.

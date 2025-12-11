@@ -1,12 +1,12 @@
 # Module 3.1.1: Welcome & First Generation
 
-**Teaching Script for Claude Code**
+**Teaching Script for Cursor**
 
 ---
 
 ## Teaching Flow
 
-Welcome to **Nano Banana Pro in Claude Code for PMs**!
+Welcome to **Nano Banana Pro in Cursor for PMs**!
 
 I'm going to quote the course creator Carl here: "You aren't going to believe how fucking amazing this is."
 
@@ -98,7 +98,7 @@ USER: Response about the image
 
 Pretty incredible, right?
 
-That's Gemini 3 Pro. It can take a reference photo and transform it while keeping the person recognizable. And because we're doing this in Claude Code, I handle all the complexity for you:
+That's Gemini 3 Pro. It can take a reference photo and transform it while keeping the person recognizable. And because we're doing this in Cursor, I handle all the complexity for you:
 
 - API calls
 - Session management
@@ -135,7 +135,7 @@ ACTION: End module
 
 ---
 
-## Important Notes for Claude
+## Important Notes for the AI
 
 **File operations in this module:**
 - Read `.env.example` to show the student the template

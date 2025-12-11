@@ -9,13 +9,13 @@ keywords: "gemini api key, google ai studio, first image generation, nano banana
 - **Time to Complete:** 10 minutes
 - **Prerequisites:** Nano Banana files downloaded (Module 3.0)
 
-> **Start this module in Claude Code:** Run `/start-3-1-1` to begin the interactive experience.
+> **Start this module in Cursor:** Run `/start-3-1-1` to begin the interactive experience.
 
 ## Overview
 
-Module 3.1.1 gets you from zero to your first AI-generated image. You'll set up your Gemini API key, configure billing, and watch as Claude transforms a reference photo into something magical.
+Module 3.1.1 gets you from zero to your first AI-generated image. You'll set up your Gemini API key, configure billing, and watch as the AI transforms a reference photo into something magical.
 
-**Key takeaway:** The setup is a one-time process. Once your API key is configured, you can generate images with simple natural language requests - Claude handles all the technical complexity.
+**Key takeaway:** The setup is a one-time process. Once your API key is configured, you can generate images with simple natural language requests - The AI handles all the technical complexity.
 
 
 ## What is Gemini 3 Pro?
@@ -66,46 +66,46 @@ Gemini 3 Pro requires a billing account. Don't worry - it's pay-per-use and very
 
 ### Step 3: Configure Your API Key
 
-Just tell Claude your API key and it will set everything up:
+Just tell the AI your API key and it will set everything up:
 
 > "My Gemini API key is AIzaYourKeyHere - please add it to my .env file"
 
-Claude will create the `.env` file and store your key securely.
+The AI will create the `.env` file and store your key securely.
 
 **Prefer to do it manually?** Copy `.env.example` to `.env` and add your key: `GEMINI_API_KEY=YourKeyHere`
 
 
 ## Your First Generation
 
-Once setup is complete, you're ready to generate. In the interactive module, Claude uses a reference photo to create a fun welcome image - demonstrating the model's ability to transform real photos.
+Once setup is complete, you're ready to generate. In the interactive module, The AI uses a reference photo to create a fun welcome image - demonstrating the model's ability to transform real photos.
 
 **What happens behind the scenes:**
 1. You describe what you want
-2. Claude calls the `generate()` function from `image_gen.py`
+2. The AI calls the `generate()` function from `image_gen.py`
 3. The function sends your request to Gemini's API
 4. The generated image is saved to the `outputs/` folder
-5. Claude tells you where to find it
+5. The AI tells you where to find it
 
 **Generation time:** About 10-15 seconds per image.
 
 
-## What Claude Handles for You
+## What the AI Handles for You
 
-When you generate images through Claude Code, you don't need to worry about:
+When you generate images through Cursor, you don't need to worry about:
 
-| You handle | Claude handles |
+| You handle | The AI handles |
 |------------|----------------|
 | Describing what you want | API calls and authentication |
 | Choosing styles | Session management |
 | Providing feedback | File saving and naming |
 | Reviewing outputs | Parameter optimization |
 
-This is the power of combining Gemini with Claude Code. You focus on creative direction; Claude handles implementation.
+This is the power of combining Gemini with Cursor. You focus on creative direction; The AI handles implementation.
 
 
 ## The `image_gen.py` Module
 
-All image generation runs through a pre-built Python module called `image_gen.py`. You don't need to write any code - Claude uses it on your behalf.
+All image generation runs through a pre-built Python module called `image_gen.py`. You don't need to write any code - The AI uses it on your behalf.
 
 **Key functions:**
 - `generate()` - Create or refine an image
@@ -130,7 +130,7 @@ nano-banana/
 └── ...
 ```
 
-Images are numbered sequentially. Claude will tell you the exact path to each generated image so you can open it in Finder (Mac) or Explorer (Windows).
+Images are numbered sequentially. The AI will tell you the exact path to each generated image so you can open it in Finder (Mac) or Explorer (Windows).
 
 
 ## Troubleshooting
@@ -151,12 +151,12 @@ Images are numbered sequentially. Claude will tell you the exact path to each ge
 
 - Check your internet connection
 - Gemini may be experiencing high load - wait a minute and try again
-- If errors persist, try starting a new session: tell Claude "Start a new session"
+- If errors persist, try starting a new session: tell the AI "Start a new session"
 
 ### Can't find generated images
 
 - Images save to the `outputs/` folder
-- Claude will provide the exact path after each generation
+- The AI will provide the exact path after each generation
 - Open Finder (Mac) or Explorer (Windows) and navigate to the folder
 
 

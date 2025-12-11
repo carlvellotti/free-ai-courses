@@ -1,6 +1,6 @@
 # Module 3.1.2: Understanding the Basics
 
-**Teaching Script for Claude Code**
+**Teaching Script for Cursor**
 
 ---
 
@@ -138,7 +138,7 @@ ACTION: End module
 
 ---
 
-## Important Notes for Claude
+## Important Notes for the AI
 
 **For the image generation:**
 - Use the `generate()` function from `image_gen.py`
