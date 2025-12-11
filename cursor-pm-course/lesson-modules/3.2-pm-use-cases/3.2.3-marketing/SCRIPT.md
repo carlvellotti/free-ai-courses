@@ -42,13 +42,14 @@ First up: the App Store feature graphic.
 
 This is the hero image users see when they find TaskFlow Mobile in the App Store or Play Store. It needs to communicate the value instantly - "task management for teams on the go."
 
-Think: the app on a phone, maybe showing Marcus's workflow, clean and professional.
+I've got a reference image in this module folder called `app-store-hero.png` - I'll use that as a style reference to generate something in the same aesthetic for TaskFlow.
 
 STOP: Ask me to create an App Store feature graphic for TaskFlow Mobile.
 
 USER: Create an App Store feature graphic / Generate the app store hero
 
 ACTION: Generate App Store feature graphic
+- Use `app-store-hero.png` in this module folder as a style reference
 - TaskFlow Mobile app displayed on a modern phone
 - Show the task management interface (can reference earlier wireframe aesthetic)
 - Clean, professional style suitable for app store listing
@@ -99,6 +100,8 @@ ACTION: Provide the path to the output image so user can view it.
 
 Check the `outputs/` folder for your ad creative.
 
+Quick note: your output obviously depends on your inputs. This is a proof of concept - if you have ads or designs you love, you could use them as style references and generate in that aesthetic instead. Same process, your preferred style.
+
 STOP: Can you see the transformation story in a single image?
 
 USER: Response
@@ -145,19 +148,15 @@ ACTION: Provide the path to the output image so user can view it.
 
 Check the `outputs/` folder for your announcement graphic.
 
-STOP: Does this feel like a launch moment?
+STOP: Does this feel like a launch moment? Want to make any updates?
 
 USER: Response
 
 ACTION: If user wants changes, iterate on the graphic. If satisfied, continue.
 
-Perfect - you now have your launch announcement ready to go.
-
-STOP: One more thing before we wrap up.
-
-USER: Yes
-
 ---
+
+Perfect - you now have your launch announcement ready to go.
 
 ## Wrap-Up
 
@@ -181,25 +180,13 @@ Let's zoom out for a moment.
 
 Think about what you've actually built in this course.
 
-STOP: Ready for the thesis?
-
-USER: Yes
-
----
-
 You now understand how the most powerful image generation model ever made works - inside and out.
 
 You know the prompting principles. The session mechanics. How to iterate. When to use references.
 
 But that's just the foundation.
 
-STOP: Here's where it gets interesting.
-
-USER: Continue
-
----
-
-You've learned how to supercharge Gemini by pairing it with Cursor.
+You've learned how to supercharge Gemini by pairing it with Claude Code.
 
 Natural language commands - no clicking through menus. Instant iteration - "make it bluer" and it happens. No context switching - you stay in your flow.
 
@@ -217,18 +204,12 @@ Your style library in `style-library.html` grows more valuable with every projec
 
 Next time you need a journey map, you've got your go-to style ready. Next time you need an architecture diagram, same thing.
 
-STOP: See how this is different from using AI image tools as one-off novelties?
-
-USER: Yes
-
----
-
 Most people generate random images and forget about them.
 
 You now have a professional-grade creative pipeline:
 
 - **The most powerful model** (Gemini)
-- **The most powerful AI assistant** (Cursor)
+- **The most powerful AI assistant** (Claude Code)
 - **A system that compounds over time** (your style library)
 
 This is how you actually leverage AI for real work.
@@ -268,6 +249,7 @@ Now go build something amazing.
 - **Output naming:** Use descriptive names like `taskflow_app_store_hero.png`, `taskflow_social_ad_chaos_to_clarity.png`, `taskflow_launch_announcement.png`.
 - **Final module:** This is the last module of Nano Banana. There is no "next module" to navigate to - end with congratulations.
 - **Thesis delivery:** The "Big Picture" section should feel like a genuine moment of reflection, not a sales pitch. Let it land.
+- **Opening images:** If a user is having trouble finding an image, offer to open it for them using `open [path]` (Mac) or `start [path]` (Windows).
 
 ## Success Criteria
 

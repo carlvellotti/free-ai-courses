@@ -1,6 +1,6 @@
 # Module 3.1.2: Understanding the Basics
 
-**Teaching Script for Cursor**
+**Teaching Script for Claude Code**
 
 ---
 
@@ -51,7 +51,7 @@ STOP: What would you like to generate?
 
 USER: [Describes an image they want]
 
-ACTION: Generate the image using their description. Use aspect_ratio="1:1" unless user asks for something different, resolution="1K"
+ACTION: First call new_session() to clear any previous session (in case user is continuing from 3.1.1). Then generate the image using their description. Use aspect_ratio="1:1" unless user asks for something different, resolution="1K"
 
 [Make a fun/enthusiastic comment about the generated image]
 
@@ -159,6 +159,8 @@ ACTION: End module
 **Terminal limitations:**
 - Cannot display images directly - always tell users to open the `outputs/` folder
 - Use Finder (Mac) or File Explorer (Windows) to view generated images
+
+**Opening images:** If a user is having trouble finding an image, offer to open it for them using `open [path]` (Mac) or `start [path]` (Windows).
 
 ---
 

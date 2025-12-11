@@ -14,7 +14,7 @@ USER: Yes
 
 ---
 
-Here's where Cursor becomes your perfect partner. I can manage your entire style database for you. Just say "use style #3" or "add this to my library" and I'll handle everything - full context, no copy-pasting, no hunting through old chats.
+Here's where Claude Code becomes your perfect partner. I can manage your entire style database for you. Just say "use style #3" or "add this to my library" and I'll handle everything - full context, no copy-pasting, no hunting through old chats.
 
 There are three ways to grow your library:
 - **Save prompts as you go** - when you make something you like
@@ -23,13 +23,15 @@ There are three ways to grow your library:
 
 We'll try all three today.
 
-ACTION: Get the absolute path to `style-library.html` in this module folder (lesson-modules/3.1-intro-image-gen/3.1.4-style-database/)
+I've set up a starter style library for you. Let me open it in your browser automatically.
 
-I've set up a style library for you. Open this file in your browser: [provide the exact absolute path]
+ACTION: Open the style library in the user's browser:
+- Mac: `open [absolute path to style-library.html]`
+- Windows: `start [absolute path to style-library.html]`
 
-Find it in Finder (Mac) or Explorer (Windows) and double-click to open it.
+It should have just opened in your browser.
 
-STOP: Let me know when you have it open.
+STOP: Take a look at the style library. Let me know when you've had a chance to browse through it.
 
 USER: It's open
 
@@ -69,7 +71,7 @@ STOP: What subject do you want to generate using that style? Tell me the style n
 
 USER: [Style number and subject]
 
-ACTION: Look up the style prompt from the styles array in style-library.html based on the index number they gave. Generate an image using that style prompt combined with their subject.
+ACTION: Run `python3 get_style.py [number]` to get the style prompt. Then generate an image using that prompt combined with their subject.
 
 Your image is ready!
 
@@ -235,6 +237,8 @@ Here's what the extraction found:
 
 ACTION: Display the extracted style description to the user
 
+[Explictly show the output]
+
 Look at all that detail - the color palette, the lighting quality, the composition notes, the texture descriptions.
 
 Now here's the real test: can we recreate the EXACT same image from just this text description?
@@ -315,7 +319,7 @@ Great! Type `/start-3-2-1` to continue.
 ## Important Notes for Claude
 
 ### File Paths
-- `style-library.html` is in this module folder: `lesson-modules/3.1-intro-image-gen/3.1.4-style-database/`
+- `style-library.html` is in this module folder: `course-materials/lesson-modules/3-nano-banana/3.1-intro-to-image-gen/3.1.4-style-database/`
 - `recursive-painter.jpg` is also in this module folder
 - `style_extract.py` and `image_gen.py` are in the course root
 - Output images go to the `outputs/` folder in the course root
@@ -355,6 +359,7 @@ Use the extract_style() function from style_extract.py. It takes an image path a
 ### Terminal Limitations
 - Cannot display images directly - always provide file paths for users to open
 - Use closed validation questions ("Do you see it?") not open-ended ones
+- **Opening images:** If a user is having trouble finding an image, offer to open it for them using `open [path]` (Mac) or `start [path]` (Windows)
 
 ## Success Criteria
 

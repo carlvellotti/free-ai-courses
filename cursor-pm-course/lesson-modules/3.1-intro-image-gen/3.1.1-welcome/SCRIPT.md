@@ -1,12 +1,12 @@
 # Module 3.1.1: Welcome & First Generation
 
-**Teaching Script for Cursor**
+**Teaching Script for Claude Code**
 
 ---
 
 ## Teaching Flow
 
-Welcome to Nano Banana!
+Welcome to **Nano Banana Pro in Claude Code for PMs**!
 
 I'm going to quote the course creator Carl here: "You aren't going to believe how fucking amazing this is."
 
@@ -32,9 +32,12 @@ USER: I'm there
 
 If this is your first time, accept the Terms of Service.
 
-Then click **"Get API Key"** in the left sidebar. You'll see your projects - click **"Create API key"** to generate a new key.
-
-Copy the key that appears - it starts with "AIza..."
+Then:
+1. Click **"Get API Key"** in the left sidebar
+2. Click **"Create API key"** in the upper right
+3. Name your key whatever you want and select **"Default Gemini Project"**
+4. Click on the key in the dashboard to reveal it
+5. Copy the key - it starts with "AIza..."
 
 STOP: Do you have your API key copied?
 
@@ -46,9 +49,9 @@ Important: You also need to set up billing for Gemini 3 Pro to work.
 
 Don't worry about cost - it's about $0.10 per image, and this whole course will cost less than $5 total. (This goes to Google, not to Carl... unfortunately.)
 
-In Google AI Studio, go to **Settings** (bottom of the left sidebar) → **Plan information** → click **"Set up Billing"** next to your project.
-
-This will redirect you to Google Cloud Console to link a billing account. Follow the on-screen instructions to add a payment method.
+1. In Google AI Studio, go to **Get API key** (bottom of left sidebar)
+2. Under the **"Quota tier"** column, click **Set up billing**
+3. Follow the prompts to add a payment method
 
 STOP: Is your billing set up?
 
@@ -56,33 +59,25 @@ USER: Yes / Done
 
 ---
 
-Now let's add your API key to this project.
+Now let's add your API key to this project. You have two options:
 
-ACTION: Read `.env.example` and show the contents
+**Option 1:** Just paste your API key here and I'll create the `.env` file for you.
 
-Here's what the `.env.example` file looks like - you need to copy this to `.env` and paste in your API key.
+**Option 2:** Do it yourself - copy `.env.example` to `.env` and add your key: `GEMINI_API_KEY=YourKeyHere`
 
-STOP: Say "Create my .env file with my API key"
+STOP: Paste your API key here, or say "Done" if you set it up manually.
 
-USER: Create my .env file with my API key
-
----
-
-ACTION: Copy `.env.example` to `.env`
-
-I've created the `.env` file for you. Now paste your API key after the equals sign where it says `your_key_here`.
-
-STOP: Let me know when you've pasted your key.
-
-USER: Done
+USER: [Pastes API key] / Done
 
 ---
 
-Perfect! You're all set up.
+ACTION: If user provided an API key, create `.env` file with `GEMINI_API_KEY=[their key]`. If user said "Done", verify `.env` exists.
+
+Great, you're all set up!
 
 Now for the fun part - let's generate your first image.
 
-I have a reference photo of Carl, the course creator. You can find it at `lesson-modules/3.1-intro-image-gen/3.1.1-welcome/carl-reference.JPG` if you want to see what you're working with. We're going to put him in a banana suit to welcome you to the course.
+I have a reference photo of Carl, the course creator. You can find it at `lesson-modules/3-nano-banana/3.1-intro-to-image-gen/3.1.1-welcome/carl-reference.JPG` if you want to see what you're working with. We're going to put him in a banana suit to welcome you to the course.
 
 STOP: Say "Generate Carl in a banana suit welcoming me to Nano Banana"
 
@@ -103,7 +98,7 @@ USER: Response about the image
 
 Pretty incredible, right?
 
-That's Gemini 3 Pro. It can take a reference photo and transform it while keeping the person recognizable. And because we're doing this in Cursor, I handle all the complexity for you:
+That's Gemini 3 Pro. It can take a reference photo and transform it while keeping the person recognizable. And because we're doing this in Claude Code, I handle all the complexity for you:
 
 - API calls
 - Session management
@@ -156,6 +151,8 @@ ACTION: End module
 - API key errors: Have them double-check the key is pasted correctly in `.env`
 - Billing errors: Confirm billing is set up in Google AI Studio settings
 - Generation fails: Check the error message and troubleshoot accordingly
+
+**Opening images:** If a user is having trouble finding an image, offer to open it for them using `open [path]` (Mac) or `start [path]` (Windows).
 
 ---
 
