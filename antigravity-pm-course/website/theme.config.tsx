@@ -35,7 +35,10 @@ export default {
     const { asPath } = useRouter()
 
     const siteUrl = 'https://antigravityforpms.com'
-    const pageTitle = title ? `${title} – Antigravity for Product Managers` : 'Learn Antigravity IN Antigravity!'
+    const isHome = asPath === '/'
+    const pageTitle = isHome
+      ? 'Learn Antigravity IN Antigravity! – Antigravity for Product Managers'
+      : (title ? `${title} – Antigravity for Product Managers` : 'Antigravity for Product Managers')
     const description = frontMatter?.description || 'Learn Antigravity IN Antigravity!'
     const ogImage = frontMatter?.ogImage || `${siteUrl}/images/antigravityforpmsthumbnail.png`
     const canonicalUrl = `${siteUrl}${asPath}`
