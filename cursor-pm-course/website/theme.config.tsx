@@ -37,7 +37,7 @@ export default {
     const siteUrl = 'https://cursorforpms.com'
     const isHome = asPath === '/'
     const pageTitle = isHome
-      ? 'Learn Cursor IN Cursor!'
+      ? 'Learn Cursor IN Cursor! – Cursor for Product Managers'
       : (title ? `${title} – Cursor for Product Managers` : 'Cursor for Product Managers')
     const description = frontMatter?.description || 'Learn Cursor IN Cursor! An interactive course teaching AI-powered productivity, file operations, and product management workflows.'
     const ogImage = frontMatter?.ogImage || `${siteUrl}/images/cursorforpmsthumbnail.png`
