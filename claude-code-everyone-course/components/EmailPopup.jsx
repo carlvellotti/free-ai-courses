@@ -119,8 +119,8 @@ export default function EmailPopup() {
           <div className="popup-content">
             <div className="popup-success">
               <span className="popup-success-icon">&#10003;</span>
-              <h3>You're in!</h3>
-              <p>Check your inbox for a welcome email.</p>
+              <h3>Thank you!</h3>
+              <p>Be on the lookout for the next launch.</p>
             </div>
           </div>
         ) : (
