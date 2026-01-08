@@ -38,7 +38,7 @@ export default {
     const pageTitle = isHome
       ? 'Learn Claude Code IN Claude Code! – Claude Code for Everyone'
       : (title ? `${title} – Claude Code for Everyone` : 'Claude Code for Everyone')
-    const description = frontMatter?.description || 'Learn Claude Code for all kinds of work through interactive tutorials. Master AI agents, file operations, and automated workflows.'
+    const description = frontMatter?.description || 'Learn Claude Code IN Claude Code! Free course for non-technical people.'
     const ogImage = frontMatter?.ogImage || `${siteUrl}/images/better-graphic.png`
     const url = `${siteUrl}${asPath}`
 
@@ -69,7 +69,7 @@ export default {
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={url} />
-        <meta property="og:site_name" content="Learn Claude Code IN Claude Code!" />
+        <meta property="og:site_name" content="Claude Code for Everyone" />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={ogImage} />
