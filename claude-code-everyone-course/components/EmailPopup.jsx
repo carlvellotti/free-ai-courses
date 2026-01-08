@@ -38,11 +38,11 @@ export default function EmailPopup() {
     const hasSeenPopup = localStorage.getItem('cc4e-popup-seen')
     if (hasSeenPopup) return
 
-    // Show popup after 15 seconds
+    // Show popup after 10 seconds
     const timer = setTimeout(() => {
       setIsVisible(true)
       trackEvent('popup_shown', { popup_type: 'email_signup', source: 'cc4e' })
-    }, 15000)
+    }, 10000)
 
     return () => clearTimeout(timer)
   }, [])
