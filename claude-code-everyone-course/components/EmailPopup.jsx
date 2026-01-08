@@ -125,12 +125,18 @@ export default function EmailPopup() {
           </div>
         ) : (
           <div className="popup-content">
+            {/* Header */}
+            <div className="popup-header">
+              <h2>Join Claude Code for Everyone</h2>
+              <p className="popup-subhead">The <strong>complete guide</strong> to Claude Code for <span className="underline">non-technical</span> people</p>
+            </div>
+
             {/* Two column value props */}
             <div className="popup-columns">
               <div className="popup-column">
                 <h4>Coming Soon</h4>
                 <ul>
-                  <li><span className="bullet">&#8226;</span> Jan 15: Vibe Coding 101</li>
+                  <li><span className="bullet">&#8226;</span> <strong>Jan 15:</strong> Vibe Coding 101</li>
                   <li><span className="bullet">&#8226;</span> Connect AI to Everything</li>
                   <li><span className="bullet">&#8226;</span> Advanced Skill Use</li>
                 </ul>
@@ -144,11 +150,6 @@ export default function EmailPopup() {
                 </ul>
               </div>
             </div>
-
-            {/* Tagline */}
-            <p className="popup-tagline">
-              <strong>Complete guide</strong> to Claude Code for <span className="underline">non-technical</span> people
-            </p>
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="popup-form">
@@ -175,6 +176,10 @@ export default function EmailPopup() {
             <p className="popup-disclaimer">No spam. Unsubscribe anytime.</p>
           </div>
         )}
+
+        <div className="popup-footer">
+          Made with 🧡 and 🥞 by <a href="https://www.linkedin.com/in/carlvellotti/" target="_blank" rel="noopener noreferrer">Carl Vellotti</a>
+        </div>
       </div>
 
       <style jsx global>{`
@@ -234,6 +239,29 @@ export default function EmailPopup() {
           padding: 32px 24px;
           max-width: 700px;
           margin: 0 auto;
+        }
+
+        .popup-header {
+          text-align: center;
+          margin-bottom: 24px;
+        }
+
+        .popup-header h2 {
+          color: ${colors.white};
+          font-size: 24px;
+          font-weight: 700;
+          margin: 0 0 8px 0;
+        }
+
+        .popup-subhead {
+          color: ${colors.gray300};
+          font-size: 16px;
+          margin: 0;
+        }
+
+        .popup-subhead .underline,
+        .underline {
+          text-decoration: underline;
         }
 
         .popup-columns {
@@ -349,6 +377,22 @@ export default function EmailPopup() {
           font-size: 12px;
           color: ${colors.gray500};
           text-align: center;
+        }
+
+        .popup-footer {
+          padding: 12px 24px;
+          background: ${colors.bgLight};
+          border-top: 1px solid #333;
+          font-size: 13px;
+          color: ${colors.gray500};
+          text-align: center;
+        }
+        .popup-footer a {
+          color: ${colors.coral};
+          text-decoration: none;
+        }
+        .popup-footer a:hover {
+          text-decoration: underline;
         }
 
         .popup-success {
