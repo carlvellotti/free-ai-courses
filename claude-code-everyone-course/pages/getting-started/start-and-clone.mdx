@@ -32,21 +32,41 @@ This demonstrates Claude Code's core principle: describe what you want, Claude h
 2. Tell Claude: "Download the course materials from https://github.com/carlvellotti/claude-code-everyone-course/releases/latest/download/complete-course.zip and extract it to a folder called cc4e-course in my Documents folder"
 3. Exit and navigate: `exit`, then `cd ~/Documents/cc4e-course && claude`
 
-### Option 3: Manual Download
+### Option 3: Download Button
 
-1. Download from [GitHub Releases](https://github.com/carlvellotti/claude-code-everyone-course/releases/latest)
-2. Extract zip to your Documents folder
-3. Open terminal in the course folder and type `claude`
+<a href="https://github.com/carlvellotti/claude-code-everyone-course/releases/latest/download/complete-course.zip" download style={{ display: 'inline-block', padding: '12px 24px', backgroundColor: '#1DD3B0', color: '#1C1C1C', fontWeight: 'bold', borderRadius: '8px', textDecoration: 'none', marginBottom: '16px' }}>
+  Download Course Materials
+</a>
+
+1. Click the button above to download `complete-course.zip`
+2. Extract the zip to your Documents folder
+3. Follow the instructions below to open Claude Code from the course folder
 
 ## Open Claude Code from the Course Folder
 
 If you used Option 1, this happens automatically.
 
-If you used Option 2 or 3, open terminal in the course folder:
-- **Mac:** Right-click the folder in Finder → Services → New Terminal at Folder
-- **Windows:** Right-click the folder → Open in Terminal
+If you used Option 2 or 3, you need to open a terminal in the course folder:
 
-Then type `claude` and press Enter.
+### Find it in the File Explorer
+
+Navigate to your Documents folder and find the `cc4e-course` folder. Then right-click and select "New Terminal at Folder"
+
+It will look something like this:
+
+![Opening folder from file explorer](/images/folder-location.png)
+
+Then type `claude` and hit Enter
+
+### Or Open it from the Terminal
+
+Type these commands into your terminal:
+```bash
+cd ~/Documents/cc4e-course
+claude
+```
+
+This navigates to your course folder and opens Claude Code directly inside it.
 
 > **Important:** Claude only sees files in the folder where you launch it. Always start Claude Code from the course folder.
 

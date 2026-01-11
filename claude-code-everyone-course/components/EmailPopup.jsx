@@ -26,12 +26,32 @@ const trackEvent = (eventName, params = {}) => {
   }
 }
 
+// A/B Test: Get or assign variant
+const getVariant = () => {
+  if (typeof window === 'undefined') return 'control'
+
+  const stored = localStorage.getItem('cc4e-popup-variant')
+  if (stored) return stored
+
+  // Randomly assign 50/50
+  const variant = Math.random() < 0.5 ? 'control' : 'variant'
+  localStorage.setItem('cc4e-popup-variant', variant)
+  return variant
+}
+
 export default function EmailPopup() {
   const [isVisible, setIsVisible] = useState(false)
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle') // idle, loading, success, error
   const [errorMessage, setErrorMessage] = useState('')
+  const [alsoSubscribeFspm, setAlsoSubscribeFspm] = useState(true)
+  const [variant, setVariant] = useState('control')
   const inputRef = useRef(null)
+
+  useEffect(() => {
+    // Assign variant on mount
+    setVariant(getVariant())
+  }, [])
 
   useEffect(() => {
     // Check if user has already seen the popup
@@ -41,7 +61,8 @@ export default function EmailPopup() {
     // Show popup after 10 seconds
     const timer = setTimeout(() => {
       setIsVisible(true)
-      trackEvent('popup_shown', { popup_type: 'email_signup', source: 'cc4e' })
+      const v = getVariant()
+      trackEvent('popup_shown', { popup_type: 'email_signup', source: 'cc4e', variant: v })
     }, 10000)
 
     return () => clearTimeout(timer)
@@ -56,7 +77,7 @@ export default function EmailPopup() {
   const handleClose = () => {
     setIsVisible(false)
     localStorage.setItem('cc4e-popup-seen', 'true')
-    trackEvent('popup_closed', { popup_type: 'email_signup', source: 'cc4e' })
+    trackEvent('popup_closed', { popup_type: 'email_signup', source: 'cc4e', variant })
   }
 
   const handleSubmit = async (e) => {
@@ -85,9 +106,34 @@ export default function EmailPopup() {
       const data = await response.json()
 
       if (response.ok && data.success) {
+        // If variant AND checkbox is checked, also subscribe to FSPM
+        const shouldSubscribeFspm = variant === 'variant' && alsoSubscribeFspm
+        if (shouldSubscribeFspm) {
+          await fetch('https://fullstackpm.com/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email,
+              source: 'cc4e-popup-crossover',
+              publication: 'fspm',
+              tags: ['cc4e-crossover'],
+              utm_source: 'cc4e',
+              utm_medium: 'popup',
+              utm_campaign: 'cc4e-crossover',
+              landing_page: window.location.pathname,
+              referrer: document.referrer || 'direct',
+            }),
+          })
+        }
+
         setStatus('success')
         localStorage.setItem('cc4e-popup-seen', 'true')
-        trackEvent('popup_submitted', { popup_type: 'email_signup', source: 'cc4e' })
+        trackEvent('popup_submitted', {
+          popup_type: 'email_signup',
+          source: 'cc4e',
+          variant,
+          also_fspm: shouldSubscribeFspm
+        })
         setTimeout(() => {
           setIsVisible(false)
         }, 3000)
@@ -128,7 +174,12 @@ export default function EmailPopup() {
             {/* Header */}
             <div className="popup-header">
               <h2>Join Claude Code for Everyone</h2>
-              <p className="popup-subhead">The <strong>complete guide</strong> to Claude Code for <span className="underline">non-technical</span> people</p>
+              <p className="popup-subhead">
+                {variant === 'variant'
+                  ? <>Get launch and community updates to the <strong>complete guide</strong> to Claude Code for <span className="underline">non-technical</span> people</>
+                  : <>The <strong>complete guide</strong> to Claude Code for <span className="underline">non-technical</span> people</>
+                }
+              </p>
             </div>
 
             {/* Two column value props */}
@@ -170,6 +221,18 @@ export default function EmailPopup() {
                 )}
               </button>
             </form>
+            {variant === 'variant' && (
+              <label className="popup-checkbox">
+                <input
+                  type="checkbox"
+                  checked={alsoSubscribeFspm}
+                  onChange={(e) => setAlsoSubscribeFspm(e.target.checked)}
+                />
+                <span>
+                  Also join Carl's main newsletter <a href="https://fullstackpm.com" target="_blank" rel="noopener noreferrer"><strong>The Full Stack PM</strong></a>. Aimed at PMs but relevant to all AI builders.
+                </span>
+              </label>
+            )}
             {status === 'error' && (
               <p className="popup-error">{errorMessage}</p>
             )}
@@ -377,6 +440,35 @@ export default function EmailPopup() {
           font-size: 12px;
           color: ${colors.gray500};
           text-align: center;
+        }
+
+        .popup-checkbox {
+          display: flex;
+          align-items: flex-start;
+          gap: 8px;
+          max-width: 400px;
+          margin: 12px auto 0;
+          cursor: pointer;
+        }
+        .popup-checkbox input {
+          margin-top: 2px;
+          width: 16px;
+          height: 16px;
+          accent-color: ${colors.teal};
+          cursor: pointer;
+          flex-shrink: 0;
+        }
+        .popup-checkbox span {
+          font-size: 12px;
+          color: ${colors.gray500};
+          line-height: 1.4;
+        }
+        .popup-checkbox a {
+          color: ${colors.gray300};
+          text-decoration: none;
+        }
+        .popup-checkbox a:hover {
+          text-decoration: underline;
         }
 
         .popup-footer {
