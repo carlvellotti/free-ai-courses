@@ -116,8 +116,53 @@
       "id": "2",
       "name": "Vibe Coding",
       "description": "Build a real web app with Claude Code",
-      "comingSoon": true,
-      "modules": []
+      "modules": [
+        {
+          "id": "2.1",
+          "title": "Setup",
+          "slug": "setup",
+          "path": "lesson-modules/2.1-setup/CLAUDE.md",
+          "command": "start-2-1",
+          "description": "The vibecoding mindset and project folder setup",
+          "estimatedMinutes": 10
+        },
+        {
+          "id": "2.2",
+          "title": "Plan",
+          "slug": "plan",
+          "path": "lesson-modules/2.2-plan/CLAUDE.md",
+          "command": "start-2-2",
+          "description": "Interview process to define clear requirements",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "2.3",
+          "title": "Build & Iterate",
+          "slug": "build-iterate",
+          "path": "lesson-modules/2.3-build-iterate/CLAUDE.md",
+          "command": "start-2-3",
+          "description": "Scaffold, build, and refine with screenshots",
+          "estimatedMinutes": 40
+        },
+        {
+          "id": "2.4",
+          "title": "GitHub",
+          "slug": "github",
+          "path": "lesson-modules/2.4-github/CLAUDE.md",
+          "command": "start-2-4",
+          "description": "Version control and backup",
+          "estimatedMinutes": 15
+        },
+        {
+          "id": "2.5",
+          "title": "Go Live",
+          "slug": "go-live",
+          "path": "lesson-modules/2.5-go-live/CLAUDE.md",
+          "command": "start-2-5",
+          "description": "Deploy to Vercel with a real URL",
+          "estimatedMinutes": 15
+        }
+      ]
     }
   ]
 }

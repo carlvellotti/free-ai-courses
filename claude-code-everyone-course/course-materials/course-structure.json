@@ -65,9 +65,39 @@
     {
       "id": "2",
       "name": "Vibe Coding",
-      "description": "Build the Coffee Personality Quiz from scratch",
-      "status": "coming_soon",
-      "lessons": []
+      "description": "Build a real web app from scratch and deploy it",
+      "lessons": [
+        {
+          "id": "2.1",
+          "name": "Setup",
+          "path": "lesson-modules/2.1-setup/CLAUDE.md",
+          "description": "The vibecoding mindset and project folder setup"
+        },
+        {
+          "id": "2.2",
+          "name": "Plan",
+          "path": "lesson-modules/2.2-plan/CLAUDE.md",
+          "description": "Interview process to define clear requirements"
+        },
+        {
+          "id": "2.3",
+          "name": "Build & Iterate",
+          "path": "lesson-modules/2.3-build-iterate/CLAUDE.md",
+          "description": "Scaffold, build, and refine with screenshots"
+        },
+        {
+          "id": "2.4",
+          "name": "GitHub",
+          "path": "lesson-modules/2.4-github/CLAUDE.md",
+          "description": "Version control and backup"
+        },
+        {
+          "id": "2.5",
+          "name": "Go Live",
+          "path": "lesson-modules/2.5-go-live/CLAUDE.md",
+          "description": "Deploy to Vercel with a real URL"
+        }
+      ]
     }
   ],
   "scenario": {
