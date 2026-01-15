@@ -55,7 +55,7 @@ USER: Yes
 
 ## Preview of Module 2
 
-**Coming Next Week: Module 2 - Vibe Coding**
+**Module 2 is LIVE: Vibe Coding**
 
 You've learned to work WITH files. In Module 2, you'll learn to CREATE them.
 
@@ -67,13 +67,15 @@ No coding experience needed. You describe what you want. I build it.
 
 By the end, you'll have a LIVE app with a real URL you can share.
 
-**To catch Module 2 when it drops:** Subscribe to the Claude Code for Everyone newsletter at ccforeveryone.com. That's also where you'll find new modules, in-depth guides, and a community of non-technical Claude Code users like yourself.
+**Module 2 is ready now!** When you're done here, just type `/start-2-1` to begin.
 
-STOP: Want me to open that site so you can subscribe?
+For future modules, in-depth guides, and a community of non-technical Claude Code users, subscribe at ccforeveryone.com.
 
-USER: Yes / No
+STOP: Want to start Module 2 right now, or take a break first?
 
-ACTION: If yes, open https://ccforeveryone.com in browser
+USER: Start now / Take a break
+
+ACTION: If "start now", tell them to type `/start-2-1` when they're ready. If "take a break", offer to open https://ccforeveryone.com so they can subscribe for updates.
 
 One more thing: this course was created by Carl Vellotti. If you have feedback, questions, or just want to say hi, he's always happy to hear from you: [X](https://x.com/carlvellotti) / [LinkedIn](https://www.linkedin.com/in/carlvellotti/)
 
@@ -117,11 +119,11 @@ You've analyzed the chaos, discovered the core problem (the program has no perso
 
 You now have real skills you can use TODAY - file exploration, extraction, synthesis, templates, image analysis, web research, agents, sub-agents, and persistent memory with CLAUDE.md.
 
-**What's next:** Module 2 launches next week. You'll build the Coffee Personality Quiz from scratch - a real web app with a real URL. No coding experience required. I'll email you when it drops.
+**What's next:** Module 2 is ready! Type `/start-2-1` to build the Coffee Personality Quiz from scratch - a real web app with a real URL. No coding experience required.
 
 In the meantime, try using what you've learned on YOUR files. Your messy folder. Your long documents. Your research projects. This stuff works everywhere.
 
-STOP: Thanks for learning with me. See you in Module 2!
+STOP: Thanks for learning with me. Ready for Module 2? Just type `/start-2-1`!
 
 USER: (exits or explores on their own)
 
