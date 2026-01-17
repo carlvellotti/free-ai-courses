@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code for Everyone - Cheatsheet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @page { size: 8.5in 11in; margin: 0; }
+
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background: #fff;
+      color: #1a1a1a;
+      width: 8.5in;
+      height: 11in;
+      padding: 0.28in;
+      font-size: 11.5px;
+      line-height: 1.4;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 8px;
+      border-bottom: 3px solid #0d9488;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0d9488;
+    }
+
+    .header-right {
+      text-align: right;
+    }
+
+    .header-right .url {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0d9488;
+    }
+
+    .header-right .sub {
+      font-size: 10px;
+      color: #666;
+    }
+
+    /* Setup */
+    .setup {
+      background: #f0fdfa;
+      border: 2px solid #0d9488;
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+
+    .step h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0d9488;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step h3 .num {
+      background: #dc2626;
+      color: white;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    .step p {
+      font-size: 11px;
+      color: #333;
+      line-height: 1.5;
+      padding-left: 30px;
+    }
+
+    .step code {
+      background: #0d9488;
+      color: white;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+
+    /* Main area */
+    .main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .module {
+      border: 2px solid #e5e5e5;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mod1 { border-color: #0d9488; }
+    .mod2 { border-color: #dc2626; }
+
+    .module-header {
+      padding: 8px 12px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 6px 6px 0 0;
+    }
+
+    .mod1 .module-header { background: #0d9488; }
+    .mod2 .module-header { background: #dc2626; }
+
+    .module-header h2 {
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .module-header span {
+      font-size: 11px;
+      opacity: 0.9;
+    }
+
+    .lessons {
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .mod1 .lessons {
+      justify-content: space-between;
+    }
+
+    .lesson {
+      background: #f8f8f8;
+      border-radius: 5px;
+      padding: 7px 10px;
+      border-left: 3px solid #0d9488;
+    }
+
+    .mod2 .lesson { border-left-color: #dc2626; }
+
+    .lesson h4 {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 2px;
+    }
+
+    .lesson h4 .id {
+      color: #0d9488;
+      margin-right: 6px;
+    }
+
+    .mod2 .lesson h4 .id { color: #dc2626; }
+
+    .lesson p {
+      font-size: 10.5px;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    .lesson code {
+      background: rgba(13, 148, 136, 0.15);
+      color: #0d9488;
+      padding: 1px 4px;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+
+    .mod2 .lesson code {
+      background: rgba(220, 38, 38, 0.1);
+      color: #dc2626;
+    }
+
+    .lesson strong {
+      color: #0d9488;
+      font-weight: 700;
+    }
+
+    .mod2 .lesson strong { color: #dc2626; }
+
+    /* Build Loop */
+    .build-loop {
+      background: #fef2f2;
+      border: 2px dashed #dc2626;
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin: 4px 6px 6px 6px;
+    }
+
+    .build-loop h3 {
+      font-size: 11px;
+      font-weight: 700;
+      color: #dc2626;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .loop-steps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .loop-step {
+      background: white;
+      border: 1px solid #dc2626;
+      border-radius: 4px;
+      padding: 5px 8px;
+      font-size: 9.5px;
+      font-weight: 600;
+      color: #dc2626;
+    }
+
+    .loop-arrow {
+      color: #dc2626;
+      font-size: 12px;
+    }
+
+    /* Tips section */
+    .tips {
+      background: #fffbeb;
+      border: 1px solid #f59e0b;
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin: 0 6px 6px 6px;
+    }
+
+    .tips h3 {
+      font-size: 11px;
+      font-weight: 700;
+      color: #d97706;
+      margin-bottom: 6px;
+    }
+
+    .tips ul {
+      list-style: none;
+      font-size: 10.5px;
+      color: #92400e;
+    }
+
+    .tips li {
+      margin-bottom: 4px;
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.4;
+    }
+
+    .tips li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #f59e0b;
+      font-weight: bold;
+    }
+
+    .tips code {
+      background: rgba(245, 158, 11, 0.2);
+      color: #b45309;
+      padding: 1px 4px;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+
+    /* Commands */
+    .commands {
+      background: #1e293b;
+      border-radius: 6px;
+      padding: 12px 16px;
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 8px 12px;
+      margin-top: 8px;
+    }
+
+    .commands-title {
+      grid-column: 1 / -1;
+      font-size: 12px;
+      font-weight: 700;
+      color: #5eead4;
+      margin-bottom: 2px;
+    }
+
+    .cmd {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 11px;
+    }
+
+    .cmd code {
+      color: #5eead4;
+      font-weight: 700;
+      font-size: 11.5px;
+    }
+
+    .cmd span {
+      color: #94a3b8;
+      font-size: 9.5px;
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: #666;
+      padding-top: 8px;
+      margin-top: 8px;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    /* Print button */
+    .print-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #0d9488;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+      transition: all 0.2s;
+      z-index: 1000;
+    }
+
+    .print-btn:hover {
+      background: #0f766e;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(13, 148, 136, 0.4);
+    }
+
+    /* Hide button when printing */
+    @media print {
+      @page {
+        size: letter;
+        margin: 0.3in;
+      }
+
+      .print-btn {
+        display: none !important;
+      }
+
+      body {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .container {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="print-btn" onclick="window.print()">🖨️ Print Cheatsheet</button>
+  <div class="container">
+    <div class="header">
+      <h1>Claude Code for Everyone</h1>
+      <div class="header-right">
+        <div class="url">ccforeveryone.com</div>
+        <div class="sub">Free interactive course</div>
+      </div>
+    </div>
+
+    <div class="setup">
+      <div class="step">
+        <h3><span class="num">1</span> Install Claude Code</h3>
+        <p>Go to <code>claude.ai/download</code> and run the installer. Open any terminal and type <code>claude</code> to sign in.</p>
+      </div>
+      <div class="step">
+        <h3><span class="num">2</span> Download Course</h3>
+        <p>Go to <code>ccforeveryone.com</code> and click Download. Open the folder in Cursor or VS Code.</p>
+      </div>
+      <div class="step">
+        <h3><span class="num">3</span> Start Learning</h3>
+        <p>In your terminal, type <code>claude</code> then <code>/start-1-1</code> to begin. Claude guides you!</p>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="module mod1">
+        <div class="module-header">
+          <h2>Module 1: Fundamentals</h2>
+          <span>~3 hours</span>
+        </div>
+        <div class="lessons">
+          <div class="lesson">
+            <h4><span class="id">1.1</span> Course Introduction</h4>
+            <p>Meet Basecamp Coffee, a business with a problem you'll solve across 8 lessons.</p>
+          </div>
+          <div class="lesson">
+            <h4><span class="id">1.2</span> Visual Workspace</h4>
+            <p>Set up <strong>split-screen</strong> in Cursor: editor left, terminal right. Watch files update live.</p>
+          </div>
+          <div class="lesson">
+            <h4><span class="id">1.3</span> Working with Files</h4>
+            <p>Type <code>@</code> then a filename to reference it. Patterns: extract, synthesize, template, images, web.</p>
+          </div>
+          <div class="lesson">
+            <h4><span class="id">1.4</span> Commands & Shortcuts</h4>
+            <p><code>/model</code> switches AI. <code>/clear</code> resets. <code>/compact</code> summarizes. <strong>Esc</strong> stops, <strong>Esc×2</strong> undoes.</p>
+          </div>
+          <div class="lesson">
+            <h4><span class="id">1.5</span> Parallel Agents</h4>
+            <p>Ask Claude to analyze 10 files at once — it launches <strong>10 parallel workers</strong>. Hours → minutes.</p>
+          </div>
+          <div class="lesson">
+            <h4><span class="id">1.6</span> Custom Sub-agents</h4>
+            <p>Create advisors in <code>.claude/agents/</code>. Each reviews your work from a unique perspective.</p>
+          </div>
+          <div class="lesson">
+            <h4><span class="id">1.7</span> Project Memory</h4>
+            <p>Create <code>CLAUDE.md</code> with project context. Claude reads it every session — <strong>never re-explain again</strong>.</p>
+          </div>
+          <div class="lesson">
+            <h4><span class="id">1.8</span> What's Next</h4>
+            <p>Preview MCP and browser control. Ready to <strong>build a real app</strong> in Module 2!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="module mod2">
+        <div class="module-header">
+          <h2>Module 2: Vibe Coding</h2>
+          <span>~2 hours</span>
+        </div>
+        <div class="lessons">
+          <div class="lesson">
+            <h4><span class="id">2.1</span> Setup</h4>
+            <p>Create a new project folder. Key mindset: <strong>You're the PM, Claude is the engineer.</strong> Describe what you want in plain English.</p>
+          </div>
+          <div class="lesson">
+            <h4><span class="id">2.2</span> Plan Your App</h4>
+            <p>Answer Claude's interview questions: personalities, style, theme. Claude creates <code>REQUIREMENTS.md</code>. <strong>Clear specs = better code.</strong></p>
+          </div>
+          <div class="lesson">
+            <h4><span class="id">2.3</span> Build & Iterate</h4>
+            <p>Claude builds your quiz. Press <code>Shift+Tab</code> for <strong>Plan Mode</strong> to preview first. Test at <code>localhost:3000</code>.</p>
+          </div>
+          <div class="lesson">
+            <h4><span class="id">2.4</span> Save to GitHub</h4>
+            <p>GitHub = <strong>"Google Drive for code"</strong>. Claude walks you through account setup, repo creation, and pushing.</p>
+          </div>
+          <div class="lesson">
+            <h4><span class="id">2.5</span> Go Live!</h4>
+            <p>Deploy to Vercel (free). Claude guides you through it. <strong>Get a real public URL</strong> to share with anyone!</p>
+          </div>
+        </div>
+
+        <div class="build-loop">
+          <h3>The Build Loop</h3>
+          <div class="loop-steps">
+            <span class="loop-step">Screenshot</span>
+            <span class="loop-arrow">→</span>
+            <span class="loop-step">Describe Change</span>
+            <span class="loop-arrow">→</span>
+            <span class="loop-step">Claude Updates</span>
+            <span class="loop-arrow">→</span>
+            <span class="loop-step">Refresh</span>
+            <span class="loop-arrow">↻</span>
+          </div>
+        </div>
+
+        <div class="tips">
+          <h3>Pro Tips</h3>
+          <ul>
+            <li>Be specific: "Make the button bigger" → "Make the button 50% wider with rounded corners"</li>
+            <li>Press <code>Shift+Tab</code> to preview what Claude will do before it does it</li>
+            <li>If something breaks, just tell Claude what went wrong — it'll fix it</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="commands">
+      <div class="commands-title">Essential Commands & Shortcuts</div>
+      <div class="cmd"><code>/start-X-X</code> <span>Start any lesson</span></div>
+      <div class="cmd"><code>@ + filename</code> <span>Reference a file</span></div>
+      <div class="cmd"><code>/model</code> <span>Switch AI model</span></div>
+      <div class="cmd"><code>Shift + Tab</code> <span>Plan Mode</span></div>
+      <div class="cmd"><code>/clear</code> <span>Fresh conversation</span></div>
+      <div class="cmd"><code>Esc</code> <span>Stop current task</span></div>
+      <div class="cmd"><code>/compact</code> <span>Summarize context</span></div>
+      <div class="cmd"><code>Esc × 2</code> <span>Undo last action</span></div>
+    </div>
+
+    <div class="footer">
+      <span>Created by Carl Vellotti</span>
+      <span>Stuck? Just ask Claude for help!</span>
+    </div>
+  </div>
+</body>
+</html>
