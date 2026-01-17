@@ -1,0 +1,66 @@
+LOCATION BRAINSTORM - Second Basecamp Location
+=============================================
+
+Neighborhoods under consideration:
+- Eastside/Bellevue area
+- University District
+- Capitol Hill (risky - saturated?)
+- Ballard
+- West Seattle
+
+EASTSIDE PROS:
+- Tech workers $$$
+- Less competition than Seattle proper
+- Growing population
+- Partner lives out there, easier oversight
+- Parking!!!
+
+EASTSIDE CONS:
+- Higher rent (Bellevue downtown = $$$$)
+- Different vibe than our brand?
+- Would need to adjust hours for commuter crowd
+
+UNIVERSITY DISTRICT:
++ Students = steady traffic
++ Lower rent than downtown
++ Could do study-friendly vibe
+- Seasonal (summer dead?)
+- Students = lower ticket avg
+- Already 4 coffee shops within 3 blocks of campus
+
+BALLARD:
++ Hip neighborhood, fits brand
++ Growing residential
++ Mix of young professionals
+- Parking nightmare
+- Competition from Storyville, other specialty
+- Rent has gone crazy
+
+WEST SEATTLE:
++ Underserved for specialty coffee
++ Community feel
++ Junction area has good foot traffic
+- Bridge issues (will people come from other areas?)
+- Feels isolated from rest of city
+
+---
+
+CRITERIA TO RANK (need to score these):
+1. Monthly rent per sq ft
+2. Foot traffic count
+3. Parking availability
+4. Competitor density within 0.5 mi
+5. Median household income
+6. Population growth %
+7. Buildout requirements
+
+TODO: Get actual data for each neighborhood
+TODO: Visit each area on weekday AND weekend
+
+Random thoughts:
+- Do we want to be near other food/retail or standalone?
+- Corner locations = more visibility but more $$$
+- Need minimum 1,200 sq ft for seating + kitchen
+- 1,500 sq ft ideal
+
+Question: Should we prioritize "most like Location 1" or "complementary/different"?

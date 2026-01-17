@@ -1,0 +1,24 @@
+================================
+         INVOICE
+================================
+Pacific Northwest Dairy Co.
+5521 Farm Lane
+Olympia, WA 98501
+
+Invoice #: PND-44521
+Date: September 3, 2025
+
+Bill To:
+Basecamp Coffee Roasters
+
+Item                          Qty     Price         Total
+-----------------------------------------------------------
+Whole Milk (gallon)           24      $4.25         $102.00
+Oat Milk (half gallon)        36      $5.50         $198.00
+Heavy Cream (quart)           12      $6.00         $72.00
+-----------------------------------------------------------
+                              SUBTOTAL:             $372.00
+                              TAX (10.25%):         $38.13
+                              TOTAL:                $410.13
+
+Due upon receipt

@@ -1,0 +1,38 @@
+Mobile Ordering Adoption in Coffee Retail
+Square Payment Analytics Report 2025
+
+Data Source: 8,900 coffee shops using Square POS
+
+Overall Mobile Order Penetration:
+- 2023: 18% of transactions
+- 2024: 27% of transactions
+- 2025: 36% of transactions
+- Projected 2026: 44%
+
+Order Channel Distribution (2025):
+- In-store POS: 54%
+- Mobile app orders: 24%
+- Third-party delivery apps: 12%
+- Web ordering: 6%
+- Kiosk: 4%
+
+Mobile User Demographics:
+- Under 25: 52% use mobile ordering
+- 25-40: 44% use mobile ordering
+- 40-55: 28% use mobile ordering
+- Over 55: 11% use mobile ordering
+
+Operational Impacts:
+- Average transaction time reduction: 62%
+- Peak hour throughput increase: 28%
+- Order accuracy improvement: 34%
+- Average ticket size: +12% vs in-store
+
+Implementation Costs:
+- Basic integration: $200-500/month
+- Full-featured platform: $500-1,500/month
+- Custom app development: $25,000-75,000
+
+Abandonment Rates:
+- Cart abandonment: 23% (industry average for food)
+- Primary reasons: minimum order requirements (34%), delivery fees (29%), long wait times (21%)

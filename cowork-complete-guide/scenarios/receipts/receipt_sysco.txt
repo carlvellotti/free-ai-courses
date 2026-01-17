@@ -1,0 +1,54 @@
+================================================================================
+                                   SYSCO
+                        Good things come from Sysco
+================================================================================
+
+                              DELIVERY INVOICE
+
+================================================================================
+Invoice #: 4589234-001
+Invoice Date: December 8, 2025
+Delivery Date: December 8, 2025
+PO Number: BC-120825
+
+SOLD TO:                              SHIP TO:
+Basecamp Coffee Roasters              Basecamp Coffee Roasters
+2847 SE Division St                   2847 SE Division St
+Portland, OR 97202                    Portland, OR 97202
+
+Customer #: 782345                    Route: PDX-127
+Terms: Net 15                         Driver: Martinez
+
+================================================================================
+ITEM #        DESCRIPTION                    QTY    UNIT     PRICE      EXT
+================================================================================
+
+4521789       Imperial Sugar 50lb bag          2    EACH     $32.99    $65.98
+7823451       Sysco Classic Half & Half Qt    24    EACH      $3.49    $83.76
+3456782       Grade A Large Eggs 15dz          2    CASE     $45.99    $91.98
+8923456       Butter Unsalted 1lb             12    EACH      $4.99    $59.88
+2345678       Vanilla Extract Pure 32oz        2    EACH     $28.99    $57.98
+6789234       Cocoa Powder Dutch 5lb           2    EACH     $18.99    $37.98
+1234567       Honey Local 5lb jug              2    EACH     $24.99    $49.98
+
+================================================================================
+                                              Merchandise Total:      $447.54
+                                              Delivery Fee:            $25.00
+                                              Fuel Surcharge:           $8.50
+                                              --------------------------------
+                                              Subtotal:              $481.04
+                                              Tax:                    $42.41
+                                              ================================
+                                              INVOICE TOTAL:         $523.45
+
+================================================================================
+
+Payment Terms: Net 15 Days
+Amount Due By: December 23, 2025
+
+Pay online: sysco.com/pay
+Customer Service: 1-800-380-6348
+
+RECEIVED BY: ____________________  DATE: ___________
+
+================================================================================

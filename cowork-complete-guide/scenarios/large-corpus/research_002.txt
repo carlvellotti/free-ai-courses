@@ -1,0 +1,34 @@
+Coffee Shop Foot Traffic Patterns Research
+Placer.ai Industry Analysis - Q4 2025
+
+Methodology: Anonymized mobile location data from 12,400 US coffee shops
+
+Traffic Distribution by Hour (weekdays):
+7-8am: 14% of daily traffic
+8-9am: 18% (peak hour)
+9-10am: 12%
+10am-12pm: 16%
+12-2pm: 15%
+2-5pm: 14%
+5pm-close: 11%
+
+Weekday vs Weekend:
+- Weekday average: 287 visits/day
+- Weekend average: 224 visits/day (-22%)
+- Weekend peak shifts later (9-11am vs 7-9am)
+
+Remote Work Impact:
+- Shops in residential areas: +34% weekday traffic since 2020
+- CBD locations: -18% weekday traffic
+- Suburban locations: +12% overall
+
+Dwell Time Trends:
+- Average dwell time: 24 minutes (up from 18 min in 2020)
+- Morning rush: 8 minutes average
+- Midday: 38 minutes average
+- Weekend: 31 minutes average
+
+Correlation Findings:
+- Wifi quality correlates 0.67 with dwell time
+- Seating capacity correlates 0.54 with total daily visits
+- Parking availability correlates 0.48 with suburban traffic

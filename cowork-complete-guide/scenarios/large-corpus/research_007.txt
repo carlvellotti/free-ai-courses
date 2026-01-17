@@ -1,0 +1,42 @@
+Price Sensitivity Research: Coffee Retail Segment
+Nielsen Consumer Insights Panel - 2025
+
+Methodology: Conjoint analysis with 3,400 coffee purchasers
+
+Price Elasticity by Category:
+- Basic drip coffee: High elasticity (-2.1)
+- Standard latte: Moderate elasticity (-1.4)
+- Specialty drinks: Low elasticity (-0.8)
+- Cold brew/nitro: Low elasticity (-0.7)
+
+Acceptable Price Ranges:
+Drip coffee (12oz):
+- Floor: $2.50
+- Sweet spot: $3.25
+- Ceiling: $4.00
+
+Latte (16oz):
+- Floor: $4.50
+- Sweet spot: $5.75
+- Ceiling: $7.00
+
+Specialty drink:
+- Floor: $5.50
+- Sweet spot: $6.75
+- Ceiling: $8.50
+
+Price Increase Tolerance:
+- Annual 3-5% increase: 78% acceptance
+- Annual 6-10% increase: 52% acceptance
+- Annual 10%+ increase: 23% acceptance
+
+Framing Effects:
+- "Price increase due to quality ingredients": +18% acceptance
+- "Price increase due to fair wages": +22% acceptance
+- "Price increase due to costs": +4% acceptance
+
+Value Perception Drivers:
+1. Perceived quality (0.72 correlation with price acceptance)
+2. Experience/atmosphere (0.58)
+3. Convenience (0.44)
+4. Brand reputation (0.41)

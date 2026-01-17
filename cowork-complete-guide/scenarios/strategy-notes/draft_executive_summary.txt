@@ -1,0 +1,102 @@
+EXECUTIVE SUMMARY - DRAFT
+[INCOMPLETE - needs revision]
+
+---
+
+THE OPPORTUNITY
+
+Basecamp Coffee has successfully operated our flagship location in [neighborhood] for [X] years, establishing a loyal customer base and strong brand identity in Seattle's competitive specialty coffee market. We are now evaluating expansion to a second location to capture growing demand and strengthen our market position.
+
+The Eastside market presents a compelling opportunity:
+- Population growing 12.8% over 5 years (vs 8.2% Seattle proper)
+- Median household income $134,000 (vs $110,000 Seattle)
+- Specialty coffee segment growing 6.2% annually
+- Currently underserved for premium independent coffee
+
+[TODO: Add sentence about our competitive advantage]
+
+---
+
+THE RECOMMENDATION
+
+We recommend opening Basecamp Coffee Location 2 in [LOCATION TBD - Crossroads?] in [TIMEFRAME - Spring 2025?] with an initial investment of approximately $175,000.
+
+Key elements of the strategy:
+1. [TODO: Location rationale]
+2. [TODO: Differentiation approach]
+3. [TODO: Phased opening plan]
+
+---
+
+FINANCIAL PROJECTIONS
+
+Startup Investment: $150,000 - $200,000
+- Buildout and improvements: $60,000-80,000
+- Equipment: $45,000-55,000
+- Working capital: $25,000-35,000
+- [See detailed breakdown]
+
+Projected Performance:
+                    Year 1      Year 2      Year 3
+Revenue             $XXX        $XXX        $XXX
+Operating Expenses  $XXX        $XXX        $XXX
+Net Income          $XXX        $XXX        $XXX
+
+[TODO: Fill in projections - need to build model]
+
+Break-even: Approximately 8-12 months
+Return on Investment: [CALCULATE]
+
+---
+
+KEY SUCCESS FACTORS
+
+1. Location selection - [need to finalize]
+2. Manager hiring and training - Critical, must happen before opening
+3. Maintaining quality standards - Systems and oversight
+4. Community integration - Becoming a neighborhood staple
+5. Financial discipline - [TODO: elaborate]
+
+---
+
+RISKS AND MITIGATION
+
+[See risk section draft - summarize here]
+
+Primary risks:
+- Operational complexity
+- Economic downturn
+- [others]
+
+---
+
+FUNDING REQUEST
+
+We are seeking [AMOUNT] to fund this expansion through [MECHANISM - loan? investor?].
+
+Use of funds:
+- X% buildout
+- X% equipment
+- X% working capital
+- X% contingency
+
+[TODO: Be more specific based on funding approach]
+
+---
+
+CONCLUSION
+
+[TODO: Write compelling closing]
+
+Something about: track record, market opportunity, careful planning, positioned for success...
+
+Don't make it sound too salesy but need to be confident.
+
+---
+
+NOTES TO SELF:
+- This is rough, needs work
+- Get Sarah's input
+- Have Greg review numbers before finalizing
+- Add visuals/charts to support key points
+- Keep it under 2 pages for exec summary (details in appendix)

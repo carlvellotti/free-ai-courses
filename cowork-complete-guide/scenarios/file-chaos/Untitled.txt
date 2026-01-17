@@ -1,0 +1,21 @@
+================================
+         INVOICE
+================================
+FRESHBAKE WHOLESALE
+"Quality Pastries for Coffee Shops"
+
+Invoice #: FB-8827
+Date: December 2, 2025
+
+Ship To: Basecamp Coffee Roasters
+
+Daily Pastry Order (Week of 12/1):
+- Croissants (plain) x 48............. $96.00
+- Croissants (almond) x 24............ $72.00
+- Muffins (assorted) x 36............. $54.00
+- Scones (cranberry) x 24............. $48.00
+- Cinnamon rolls x 24................. $60.00
+
+WEEKLY TOTAL:                         $330.00
+
+Delivery included. Net 15.

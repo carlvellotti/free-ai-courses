@@ -1,0 +1,45 @@
+BASECAMP COFFEE ROASTERS - SUPPORT TICKET
+==========================================
+
+Ticket ID: TKT-2024-1923
+Created: November 17, 2024 11:47 AM
+Status: Resolved
+Priority: Medium
+Category: Redemption Issue
+Customer: Aisha J. (BC-3892)
+
+-------------------------------------------
+CUSTOMER MESSAGE:
+-------------------------------------------
+
+I tried to redeem a free drink today at the Alberta location and it didn't work.
+
+I had 162 points. I ordered a medium lavender latte (150 points). I showed the barista my app with the "Redeem" screen. She said she couldn't find where to enter it in her system. She tried for a few minutes while other customers waited, then just gave me the drink for free and said to contact support.
+
+So now I'm confused:
+1. Did my points get deducted or not? App still shows 162.
+2. How SHOULD redemption work? The barista seemed like she'd never done one before.
+3. Can I still redeem 150 points for another drink or did I "use" my redemption?
+
+This was awkward and I felt bad holding up the line. Please clarify.
+
+-------------------------------------------
+CUSTOMER HISTORY:
+-------------------------------------------
+- Member since: August 2024
+- Current balance: 162 points (unchanged)
+- Total earned: 287 points
+- Redemptions: 1 (previous - successful at different location)
+- Previous tickets: 0
+- Visit frequency: 2-3x/week
+
+-------------------------------------------
+AGENT NOTES:
+-------------------------------------------
+[11/17 3:15pm] Called customer. Explained redemption process (barista scans customer QR, selects "Redeem" on POS, chooses reward). Her points were NOT deducted - she got a free drink without losing points due to staff error.
+
+Told her she can redeem her 150 points anytime. She was happy about the "accidental bonus" drink.
+
+Flagged Alberta location for retraining on redemption process. This is 3rd ticket mentioning Alberta staff confusion this month.
+
+Status: RESOLVED

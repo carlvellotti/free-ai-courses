@@ -1,0 +1,42 @@
+*************************************
+*     RESTAURANT DEPOT              *
+*     Member #: 445892              *
+*************************************
+
+6750 NE Columbia Blvd
+Portland, OR 97218
+(503) 555-0934
+
+DATE: 12/20/2025   TIME: 07:45
+
+ITEM                          QTY    PRICE
+------------------------------------------
+HEAVY CREAM QT                12    $47.88
+WHOLE MILK GALLON             10    $39.90
+OAT MILK CASE                  4    $63.96
+ALMOND MILK CASE               2    $31.98
+VANILLA SYRUP 750ML            8    $55.92
+HAZELNUT SYRUP 750ML           4    $27.96
+CHOCOLATE SAUCE GAL            3    $35.97
+WHIPPED CREAM CANS            24    $47.76
+SUGAR 25LB BAG                 2    $35.98
+                          -----------
+SUBTOTAL                          $387.31
+TAX                                $57.92
+                          -----------
+TOTAL                            $445.23
+
+PAYMENT: AMEX ****3892
+AUTHORIZED
+
+Member Savings Today: $24.67
+
+*** HOLIDAY HOURS ***
+Dec 24: 6AM-4PM
+Dec 25: CLOSED
+Dec 31: 6AM-6PM
+Jan 1: CLOSED
+
+*************************************
+*   THANK YOU FOR YOUR BUSINESS    *
+*************************************

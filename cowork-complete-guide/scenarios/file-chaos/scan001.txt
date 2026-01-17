@@ -1,0 +1,23 @@
+================================
+         INVOICE
+================================
+SEATTLE COMMERCIAL ELECTRIC
+
+Invoice: SCE-2025-0453
+Date: July 28, 2025
+
+Basecamp Coffee Roasters
+412 Summit Ave, Seattle WA
+
+ELECTRICAL SERVICES:
+- Install dedicated 30A circuit for new grinder
+- Replace 3 faulty outlets (GFCI)
+- Labor: 4 hours
+
+Materials:              $156.00
+Labor:                  $420.00
+Permit fee:             $75.00
+---------------------------------
+TOTAL INVOICE:          $651.00
+
+Licensed & Bonded #SEATTEC892

@@ -1,0 +1,121 @@
+MARKET RESEARCH DATA - Seattle Coffee Market
+Sources: IBISWorld, Statista, local business journals, Census
+
+---
+
+INDUSTRY OVERVIEW:
+
+US Coffee Shop market size: $47.5 billion (2024)
+Annual growth rate: 4.2% (2019-2024)
+Projected growth: 3.8% through 2029
+
+Seattle Metro specifically:
+- ~2,500 coffee shops
+- Highest per-capita consumption in US
+- 3.4 coffee shops per 10,000 residents (national avg: 2.1)
+- Market considered "mature but still growing"
+
+---
+
+SEATTLE AREA POPULATION DATA:
+
+                    Population    5yr Growth    Med Income
+Seattle proper      749,000       +8.2%         $110,000
+Bellevue            151,000       +12.4%        $135,000
+Kirkland            93,000        +11.1%        $128,000
+Redmond             76,000        +15.3%        $142,000
+
+Eastside total:     ~400,000      +12.8%        $134,000
+
+University District (est): 35,000 permanent + 45,000 students
+
+Key insight: Eastside growing faster than Seattle proper
+
+---
+
+CONSUMER TRENDS:
+
+% of Americans who drink coffee daily: 66%
+% who visit coffee shop weekly: 41%
+Avg spend per visit: $5.50
+Specialty coffee share of market: 59% (up from 44% in 2015)
+
+What customers want (survey data):
+1. Quality of coffee - 78%
+2. Convenience/speed - 62%
+3. Atmosphere - 54%
+4. Food options - 48%
+5. WiFi/workspace - 43%
+6. Loyalty programs - 38%
+
+Willingness to pay premium for local/independent: 67%
+
+---
+
+COMPETITOR DENSITY BY NEIGHBORHOOD:
+
+(coffee shops within 0.5 mile radius of potential sites)
+
+                    Specialty    Chain    Total    Density*
+Main St, Bellevue   4            6        10       High
+Crossroads          2            4        6        Medium
+U District          5            8        13       Very High
+Ballard (FYI)       7            5        12       Very High
+West Seattle        2            3        5        Low
+
+*Density relative to foot traffic/population
+
+---
+
+EASTSIDE SPECIFIC DATA:
+
+Tech worker population: ~180,000
+Average tech worker coffee spend: $8.20/day
+Remote/hybrid workers: 52% (potential all-day customers)
+
+Eastside coffee market estimated: $85M annually
+Specialty share: 45% ($38M)
+Growth rate: 6.2% (faster than overall market)
+
+Top competitors on Eastside:
+- Starbucks Reserve (5 locations)
+- Peet's (3 locations)
+- Victrola (2 locations)
+- Various independent
+
+GAP: Premium independent with strong brand presence
+
+---
+
+DATA FOR CHARTS:
+
+1. Market Size Comparison ($ millions annual)
+   Seattle: $412M
+   Eastside: $85M
+   U District: $18M
+
+2. Growth Rates (5-year CAGR)
+   US Coffee Market: 4.2%
+   Seattle Metro: 4.8%
+   Eastside: 6.2%
+   Specialty segment: 7.1%
+
+3. Consumer Priorities (% ranking as top factor)
+   Quality: 78%
+   Speed: 62%
+   Atmosphere: 54%
+   Food: 48%
+   Workspace: 43%
+
+4. Eastside Demographics
+   Median Income: $134K
+   Population Growth: 12.8%
+   Tech Workers: 180K
+   Hybrid Workers: 52%
+
+---
+
+TODO:
+- Find more granular data by specific zip codes
+- Get foot traffic counts for specific streets
+- Survey our current customers about second location

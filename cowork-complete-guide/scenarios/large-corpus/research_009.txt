@@ -1,0 +1,41 @@
+Coffee Shop Failure Rate Analysis
+Restaurant Business Online Industry Study
+
+Survival Statistics:
+- Year 1 survival rate: 72%
+- Year 3 survival rate: 48%
+- Year 5 survival rate: 34%
+- Year 10 survival rate: 21%
+
+Note: Coffee shop survival exceeds general restaurant industry (60% fail year 1)
+
+Primary Failure Causes (ranked by frequency):
+
+1. Undercapitalization (34% of failures)
+   - Average shortfall: $45,000 in operating capital
+   - Critical period: months 4-8 when initial capital depleted
+
+2. Poor location selection (28%)
+   - Insufficient foot traffic: 67% of location failures
+   - Parking issues: 22%
+   - Competition density: 11%
+
+3. Operational inefficiency (18%)
+   - Labor cost overruns: 54% of operational failures
+   - Inventory waste: 31%
+   - Equipment issues: 15%
+
+4. Market misread (12%)
+   - Concept mismatch with area demographics
+   - Pricing misalignment
+   - Competition underestimation
+
+5. Owner burnout (8%)
+   - Average work week before failure: 72 hours
+   - Time to burnout indicators: 14 months
+
+Success Correlates:
+- Prior food service experience: +40% survival
+- Formal business plan: +28% survival
+- 12+ months operating capital: +52% survival
+- Location with 10k+ daily foot traffic: +35% survival

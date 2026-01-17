@@ -1,0 +1,24 @@
+================================
+         INVOICE
+================================
+Green Valley Coffee Suppliers
+1847 Harvest Road
+Portland, OR 97210
+
+Invoice #: GVC-2025-0892
+Date: August 12, 2025
+
+Bill To:
+Basecamp Coffee Roasters
+Seattle, WA
+
+Description                    Qty     Unit Price    Total
+-----------------------------------------------------------
+Ethiopian Yirgacheffe (5lb)    12      $47.50        $570.00
+Colombian Supremo (5lb)        8       $42.00        $336.00
+Shipping                       -       -             $45.00
+-----------------------------------------------------------
+                              TOTAL:                 $951.00
+
+Payment Due: September 12, 2025
+Terms: Net 30

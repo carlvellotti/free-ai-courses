@@ -1,0 +1,64 @@
++------------------------------------------------------------------------+
+|  [Browser Tab: amazon.com/gp/css/summary/print.html]                   |
++------------------------------------------------------------------------+
+|                                                                        |
+|  amazon                                       Your Account | Orders   |
+|  ________________________________________________________________     |
+|                                                                        |
+|  ORDER CONFIRMATION                                                    |
+|  ================================================================     |
+|                                                                        |
+|  Thanks for your order, Basecamp Coffee!                              |
+|                                                                        |
+|  Order #113-7823456-9012345                                           |
+|  Placed on December 5, 2025                                           |
+|                                                                        |
+|  ----------------------------------------------------------------     |
+|  SHIPPING TO:                                                         |
+|  Basecamp Coffee Roasters                                             |
+|  2847 SE Division St                                                  |
+|  Portland, OR 97202                                                   |
+|  ----------------------------------------------------------------     |
+|                                                                        |
+|  ITEMS ORDERED:                                                        |
+|                                                                        |
+|  [img] Paper Coffee Cups 12oz with Lids - 500 Count                   |
+|        Sold by: RestaurantSupplyCo                                    |
+|        Qty: 2                                                         |
+|        $89.98                                                         |
+|                                                                        |
+|  [img] Kraft Coffee Sleeves 12oz - 500 Pack                           |
+|        Sold by: RestaurantSupplyCo                                    |
+|        Qty: 2                                                         |
+|        $45.98                                                         |
+|                                                                        |
+|  [img] Wooden Coffee Stirrers 1000ct                                  |
+|        Sold by: CafeSupplyDirect                                      |
+|        Qty: 2                                                         |
+|        $19.98                                                         |
+|                                                                        |
+|  [img] Napkins White Dispenser 6000ct                                 |
+|        Sold by: CafeSupplyDirect                                      |
+|        Qty: 1                                                         |
+|        $54.99                                                         |
+|                                                                        |
+|  ----------------------------------------------------------------     |
+|                                                                        |
+|                                    Item(s) Subtotal:      $210.93     |
+|                                    Shipping & Handling:     $0.00     |
+|                                    Total Before Tax:      $210.93     |
+|                                    Estimated Tax:          $23.63     |
+|                                    ================================   |
+|                                    ORDER TOTAL:           $234.56     |
+|                                                                        |
+|  ----------------------------------------------------------------     |
+|  PAYMENT METHOD:                                                       |
+|  Visa ending in 4521                                                  |
+|                                                                        |
+|  ----------------------------------------------------------------     |
+|  DELIVERY ESTIMATE:                                                    |
+|  Arriving December 7-8, 2025                                          |
+|                                                                        |
+|  Track your package: [Track Package Button]                           |
+|                                                                        |
++------------------------------------------------------------------------+

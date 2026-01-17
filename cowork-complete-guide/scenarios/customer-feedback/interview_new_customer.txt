@@ -1,0 +1,50 @@
+BASECAMP REWARDS - CUSTOMER INTERVIEW
+Date: November 18, 2024
+Interviewer: Marcus (Basecamp Marketing)
+Customer: Tyler R., 26, Software Developer
+Visit Frequency: 2-3x per week
+Member Since: October 2024 (6 weeks)
+
+=========================================
+
+MARCUS: Hey Tyler, thanks for chatting with us. You're a relatively new member so we'd love to hear your fresh perspective.
+
+TYLER: Yeah, happy to help. I just moved to the neighborhood a couple months ago and Basecamp is my new spot.
+
+MARCUS: Great! So tell me about your first impression of the rewards program.
+
+TYLER: Honestly? I almost didn't sign up. The barista mentioned it when I was checking out and I was kind of in a rush, so I almost just said no. But she was like "it takes 30 seconds and you earn free drinks" and I was like okay fine. And yeah, it literally took 30 seconds. Downloaded the app, scanned a code, done.
+
+MARCUS: Nice. How's it been since then?
+
+TYLER: Pretty smooth actually. I've earned... let me check... 87 points so far. So I'm like halfway to a free drink. The app is decent - not amazing but it does the job.
+
+MARCUS: What do you mean "not amazing"?
+
+TYLER: Like, it's fine. It shows my points, I can scan it at checkout, it has a history of my purchases. But it's kind of slow to load sometimes and the UI feels a little dated. I'm a developer so I'm probably more critical than most people. For a coffee shop loyalty app, it's perfectly adequate.
+
+MARCUS: Have you experienced any issues?
+
+TYLER: Yeah, one thing. My points didn't show up after a purchase last week. The app still showed my old balance even though I'd bought a latte. I asked the barista and she was like "sometimes it takes a few hours to sync." And she was right, it showed up later that night. But that's kind of weird? Like, modern apps should sync in real-time. It makes me slightly nervous that I could lose points.
+
+MARCUS: That's helpful to know. What about the earning rate - does it feel fair?
+
+TYLER: [shrugs] I haven't really thought about it much. One point per dollar, right? Seems standard. I'll get a free drink after spending like $80? That's not life-changing but it's free stuff for doing nothing different, so whatever.
+
+MARCUS: What about the redemption options?
+
+TYLER: I haven't redeemed yet so I can't really say. Looking at the app... looks like mostly drinks and pastries? That works for me. Oh, one thing though - I wish I could see exactly how many points I need for each item without going like three screens deep. That's a UX thing.
+
+MARCUS: Noted. How about staff knowledge of the program?
+
+TYLER: Everyone I've talked to seems to know what they're doing. No complaints there. Actually, the person who signed me up - think her name was Devon? - explained everything really well. Even mentioned that points expire after 60 days which I appreciated. I probably would have been annoyed to find that out the hard way.
+
+MARCUS: Last question - any suggestions for improvement?
+
+TYLER: Make the app faster. Add real-time syncing. Maybe some gamification? Like a progress bar showing how close I am to my next reward? Oh, and send me a notification when I have enough points to redeem. I'm not going to remember to check.
+
+MARCUS: All great suggestions. Thanks Tyler!
+
+TYLER: No problem. Good luck with the program. It's got potential.
+
+[END OF INTERVIEW]

@@ -1,0 +1,21 @@
+RECEIPT
+========
+Office Depot
+456 Commerce Blvd
+
+Date: January 7, 2026
+Transaction #: 78234
+
+Items:
+- Printer Paper (2 reams)      $18.98
+- Pens (box of 12)              $6.49
+- Sticky Notes                  $4.29
+- Receipt Paper Rolls (6pk)    $24.99
+
+Subtotal:                      $54.75
+Tax:                            $4.38
+Total:                         $59.13
+
+Payment: Debit card
+
+Returns accepted within 30 days with receipt

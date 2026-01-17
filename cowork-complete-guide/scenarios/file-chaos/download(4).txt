@@ -1,0 +1,34 @@
+SQUARE PAYMENT PROCESSING
+2025 Fee Summary
+
+Merchant: Basecamp Coffee Roasters
+Merchant ID: SQ-88421-WAC
+
+ANNUAL SUMMARY (Jan-Dec 2025):
+
+Total Processed:        $487,224.50
+Total Transactions:     32,847
+
+FEES BREAKDOWN:
+Card Present (tap/chip): 2.6% + $0.10
+  Volume: $421,892.00
+  Fees: $11,398.19
+
+Card Not Present (online): 2.9% + $0.30
+  Volume: $65,332.50
+  Fees: $2,090.95
+
+TOTAL FEES:            $13,489.14
+Effective Rate:         2.77%
+
+MONTHLY AVERAGE:
+Transactions: 2,737
+Volume: $40,602
+Fees: $1,124
+
+Hardware:
+- Square Terminal (x1)
+- Square Reader (x2)
+- All equipment owned, no rental fees
+
+Next statement: February 1, 2026

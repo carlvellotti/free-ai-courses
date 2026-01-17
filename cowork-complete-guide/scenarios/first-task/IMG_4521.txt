@@ -1,0 +1,19 @@
+RECEIPT
+========
+Basecamp Coffee Roasters
+123 Main Street
+
+Date: January 10, 2026
+Order #: 4521
+
+Items:
+- Large Americano          $4.50
+- Blueberry Muffin         $3.25
+
+Subtotal:                  $7.75
+Tax:                       $0.62
+Total:                     $8.37
+
+Payment: Visa ending 4242
+
+Thank you for your visit!

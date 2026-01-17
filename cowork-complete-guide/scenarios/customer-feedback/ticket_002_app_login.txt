@@ -1,0 +1,49 @@
+BASECAMP COFFEE ROASTERS - SUPPORT TICKET
+==========================================
+
+Ticket ID: TKT-2024-1892
+Created: November 15, 2024 9:33 AM
+Status: Open
+Priority: High
+Category: App/Technical Issue
+Customer: Mark D. (BC-6103)
+
+-------------------------------------------
+CUSTOMER MESSAGE:
+-------------------------------------------
+
+I cannot log into the app anymore. Here's what's happening:
+
+1. I open the app
+2. I enter my email (markd_portland@gmail.com) and password
+3. I tap "Log In"
+4. The spinning wheel appears for about 30 seconds
+5. Then I get an error message: "Something went wrong. Please try again."
+
+I've tried:
+- Restarting my phone (iPhone 14)
+- Deleting and reinstalling the app
+- Resetting my password (got the email, set a new one, still can't log in)
+- Trying on my iPad (same issue)
+- Trying on wifi vs cellular (same issue)
+
+This has been going on for 3 DAYS. I've made purchases during this time and had baristas manually look up my account by phone number to add points, but this is ridiculous.
+
+I need to be able to log in. I have 178 points and I want to redeem soon.
+
+PLEASE FIX THIS.
+
+-------------------------------------------
+CUSTOMER HISTORY:
+-------------------------------------------
+- Member since: September 2024
+- Current balance: 178 points
+- Total earned: 178 points
+- Redemptions: 0
+- Previous tickets: 0
+- Visit frequency: Daily
+
+-------------------------------------------
+AGENT NOTES:
+-------------------------------------------
+[Escalated to dev team - appears to be account-specific authentication issue. Similar tickets: TKT-2024-1856, TKT-2024-1901. Possible pattern.]

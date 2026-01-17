@@ -1,0 +1,11 @@
+drink_name,category,units_sold_q4,units_sold_jan,units_sold_feb,avg_rating,cost_to_make,price
+House Drip,Coffee,2847,892,834,4.2,0.45,3.50
+Vanilla Latte,Espresso,1923,601,589,4.5,1.20,5.75
+Mocha,Espresso,1567,534,498,4.4,1.35,6.00
+Cold Brew,Coffee,892,198,245,4.6,0.85,4.50
+Chai Latte,Tea,1234,412,398,4.3,1.10,5.25
+Matcha Latte,Tea,678,234,267,4.1,1.45,6.25
+Hot Chocolate,Other,1456,567,423,4.0,0.95,4.25
+Seasonal Pumpkin,Seasonal,1823,0,0,4.7,1.40,6.50
+Iced Americano,Espresso,1102,278,312,4.3,0.75,4.25
+Cortado,Espresso,445,156,178,4.8,0.90,4.50

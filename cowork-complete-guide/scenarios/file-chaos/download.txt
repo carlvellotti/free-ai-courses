@@ -1,0 +1,22 @@
+================================
+         INVOICE
+================================
+Cascade Paper & Supply
+Invoice Number: CPS-2025-1147
+Invoice Date: October 18, 2025
+
+SOLD TO:
+Basecamp Coffee Roasters
+412 Summit Ave
+Seattle, WA 98102
+
+LINE ITEMS:
+- To-go cups 12oz (case of 500).... $89.00
+- To-go cups 16oz (case of 500).... $95.00
+- Napkins (bulk 5000).............. $42.00
+- Stir sticks (box of 1000)........ $12.00
+- Paper bags medium (500).......... $67.00
+
+TOTAL DUE: $305.00
+
+Please remit payment within 30 days.

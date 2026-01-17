@@ -1,0 +1,24 @@
+================================
+         INVOICE
+================================
+Artisan Syrups NW
+Portland, Oregon
+
+INV-2025-2234
+October 30, 2025
+
+BILL TO:
+Basecamp Coffee Roasters
+Seattle, WA
+
+Flavored Syrup Order:
+Vanilla (750ml) x 12 ............ $84.00
+Caramel (750ml) x 12 ............ $84.00
+Hazelnut (750ml) x 8 ............ $56.00
+Lavender (750ml) x 6 ............ $48.00
+Seasonal Pumpkin (750ml) x 12 ... $96.00
+
+Subtotal: $368.00
+Shipping: $28.00
+---------------------------------
+TOTAL: $396.00

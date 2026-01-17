@@ -1,0 +1,23 @@
+================================
+         INVOICE
+================================
+Emerald City Equipment Repair
+Phone: (206) 555-8832
+
+INVOICE #: ECE-9921
+DATE: November 5, 2025
+
+Customer: Basecamp Coffee Roasters
+
+Service Performed:
+- La Marzocco Linea PB diagnostic
+- Replaced steam wand valve
+- Descaling service
+- Labor (2.5 hours @ $85/hr)
+
+Parts:                         $127.00
+Labor:                         $212.50
+-----------------------------------
+INVOICE TOTAL:                 $339.50
+
+Thank you for your business!

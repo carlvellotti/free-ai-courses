@@ -1,0 +1,23 @@
+================================
+         INVOICE
+================================
+ROASTER'S CHOICE IMPORTS
+Specialty Green Coffee
+
+Invoice: RCI-7745
+Date: January 10, 2026
+
+TO: Basecamp Coffee Roasters
+
+GREEN COFFEE BEANS:
+- Guatemala Huehuetenango (25kg).... $287.50
+- Kenya AA Nyeri (15kg)............. $247.50
+- Brazil Santos (30kg).............. $195.00
+- Sumatra Mandheling (20kg)......... $230.00
+
+Subtotal:              $960.00
+Freight:               $85.00
+---------------------------------
+INVOICE TOTAL:         $1,045.00
+
+Terms: Net 30

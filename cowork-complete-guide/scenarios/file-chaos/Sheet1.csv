@@ -1,0 +1,11 @@
+Item,Current Stock,Reorder Point,Preferred Vendor,Last Order,Unit Cost
+Ethiopian Yirgacheffe (5lb),8,5,Green Valley Coffee,$47.50,2025-12-20
+Colombian Supremo (5lb),6,5,Green Valley Coffee,$42.00,2025-12-20
+House Blend (5lb),12,8,Green Valley Coffee,$38.00,2025-12-15
+Decaf (5lb),4,3,Green Valley Coffee,$44.00,2025-12-10
+Whole Milk (gal),18,12,Pacific NW Dairy,$4.25,2026-01-08
+Oat Milk (half gal),24,15,Smith Brothers,$5.50,2026-01-10
+Vanilla Syrup (750ml),8,6,Artisan Syrups NW,$7.00,2025-12-28
+Caramel Syrup (750ml),6,6,Artisan Syrups NW,$7.00,2025-12-28
+To-go cups 12oz,400,200,Cascade Paper,$0.18,2025-12-15
+To-go cups 16oz,350,200,Cascade Paper,$0.19,2025-12-15

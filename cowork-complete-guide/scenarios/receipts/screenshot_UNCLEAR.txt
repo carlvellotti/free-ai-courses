@@ -1,0 +1,47 @@
++------------------------------------------------------------------------+
+|  [Browser Tab: Partially loaded / Connection interrupted]              |
++------------------------------------------------------------------------+
+|                                                                        |
+|  [Logo area - not loaded]              My Acco[cut off]               |
+|                                                                        |
+|  ________________________________________________________________     |
+|                                                                        |
+|  ORDER CONF[cut off]                                                   |
+|  ========================================[page cut off]                |
+|                                                                        |
+|  Order #: [partially visible] ...56-2340[rest cut off]                |
+|  Date: January 5, 202[6?]                                             |
+|                                                                        |
+|  ----------------------------------------------------------------     |
+|                                                                        |
+|  ITEMS:                                                                |
+|                                                                        |
+|  [broken image] [Product name not loaded]                             |
+|                 Qty: [?]                                              |
+|                 $[??].99                                              |
+|                                                                        |
+|  [broken image] [Product name not loaded]                             |
+|                 Qty: 2                                                |
+|                 $4[?].[?]0                                            |
+|                                                                        |
+|  ----------------------------------------------------------------     |
+|                                                                        |
+|                                    Sub[cut off]        $[?][?].[??]   |
+|                                    Ship[cut off]          $[?].99     |
+|                                    ==================[cut off]        |
+|                                    TOTAL:            $1[??].[??]      |
+|                                                                        |
+|  ----------------------------------------------------------------     |
+|                                                                        |
+|  [Screenshot appears to be from a mobile device,                      |
+|   partially scrolled, with portion of page cut off]                   |
+|                                                                        |
+|  [Note: This appears to be an online supplies order,                  |
+|   total looks like it's in the $100-$200 range,                       |
+|   possibly from Staples or similar retailer based                     |
+|   on partial URL visible: sta...com]                                  |
+|                                                                        |
+|  ESTIMATED AMOUNT: ~$150 (uncertain)                                  |
+|  CATEGORY: Likely supplies (uncertain)                                |
+|                                                                        |
++------------------------------------------------------------------------+

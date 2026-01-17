@@ -1,0 +1,21 @@
+[SCREENSHOT - Square Dashboard]
+
+Captured: August 15, 2025 at 9:47 AM
+
+-----------------------------------------
+SQUARE DASHBOARD - Daily Sales Summary
+-----------------------------------------
+
+Today's Sales: $1,847.52
+Transactions: 127
+Average Sale: $14.55
+
+TOP SELLERS:
+1. Latte (12oz) - 43 sold
+2. Drip Coffee - 38 sold
+3. Cappuccino - 22 sold
+4. Cold Brew - 19 sold
+5. Croissant - 31 sold
+
+Peak Hour: 8:00 AM - 9:00 AM ($412.00)
+-----------------------------------------

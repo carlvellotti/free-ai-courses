@@ -1,0 +1,20 @@
+INVOICE #2026-0142
+
+From: Mountain View Supplies
+To: Basecamp Coffee Roasters
+
+Date: January 8, 2026
+Due: February 8, 2026
+
+Description                          Qty     Price      Total
+-----------------------------------------------------------------
+Espresso Beans (5lb bags)            10      $45.00     $450.00
+Paper Cups (16oz, 500ct)              2      $32.00      $64.00
+Napkins (bulk pack)                   3      $12.00      $36.00
+
+                                     Subtotal:          $550.00
+                                     Tax (8%):           $44.00
+                                     TOTAL DUE:         $594.00
+
+Payment Terms: Net 30
+Please remit to: accounts@mountainviewsupplies.com

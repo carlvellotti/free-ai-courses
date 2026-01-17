@@ -1,0 +1,63 @@
+================================================================================
+                                 QuickBooks
+                              by Intuit
+================================================================================
+
+                              PAYMENT RECEIPT
+
+--------------------------------------------------------------------------------
+
+Receipt Number: QB-78945612
+Date: December 1, 2025
+
+BILLED TO:
+Basecamp Coffee Roasters
+hello@basecampcoffee.com
+
+--------------------------------------------------------------------------------
+SUBSCRIPTION DETAILS
+--------------------------------------------------------------------------------
+
+QuickBooks Online Plus
+Billing Period: Dec 1, 2025 - Dec 31, 2025
+
+Plan Features Included:
+  - Track income & expenses
+  - Capture & organize receipts
+  - Invoice & accept payments
+  - Run reports
+  - Track sales tax
+  - Manage 1099 contractors
+  - Up to 5 users
+
+--------------------------------------------------------------------------------
+CHARGES
+--------------------------------------------------------------------------------
+
+QuickBooks Online Plus (Monthly)                           $30.00
+
+--------------------------------------------------------------------------------
+                                             Subtotal:     $30.00
+                                             Tax:           $0.00
+                                             ----------------------
+                                             TOTAL PAID:   $30.00
+
+--------------------------------------------------------------------------------
+PAYMENT METHOD
+--------------------------------------------------------------------------------
+
+Visa ending in 4521
+Transaction ID: qb_chrg_892345678
+Status: Successful
+
+--------------------------------------------------------------------------------
+
+Your next billing date: January 1, 2026
+
+Manage your subscription: quickbooks.intuit.com/account
+
+Need help? Call 1-800-4INTUIT or visit help.quickbooks.intuit.com
+
+================================================================================
+                         Thank you for your business!
+================================================================================

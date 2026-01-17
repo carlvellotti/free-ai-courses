@@ -1,0 +1,37 @@
+*************************************
+*     RESTAURANT DEPOT              *
+*     Member #: 445892              *
+*************************************
+
+6750 NE Columbia Blvd
+Portland, OR 97218
+(503) 555-0934
+
+DATE: 11/18/2025   TIME: 08:15
+
+ITEM                          QTY    PRICE
+------------------------------------------
+HALF & HALF 6/QT               2    $24.99
+WHOLE MILK GALLON              8    $31.92
+OAT MILK CASE                  3    $47.97
+VANILLA SYRUP 750ML            6    $41.94
+CARAMEL SYRUP 750ML            4    $27.96
+CHOCOLATE SAUCE GAL            2    $23.98
+SUGAR 25LB BAG                 2    $35.98
+PAPER CUPS 12OZ 1000          1    $45.99
+                          -----------
+SUBTOTAL                          $280.73
+TAX                                $31.94
+                          -----------
+TOTAL                            $312.67
+
+PAYMENT: AMEX ****3892
+AUTHORIZED
+
+Member Savings Today: $18.45
+
+*************************************
+*   THANK YOU FOR YOUR BUSINESS    *
+*     OPEN TO THE PUBLIC           *
+*       6AM - 7PM DAILY            *
+*************************************

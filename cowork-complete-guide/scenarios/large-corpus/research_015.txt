@@ -1,0 +1,42 @@
+Coffee Shop Real Estate Analysis
+CoStar Commercial Real Estate Research
+
+Location Performance Metrics:
+
+Foot Traffic Thresholds:
+- Minimum viable: 5,000 daily passers
+- Target: 10,000+ daily passers
+- Premium locations: 25,000+ daily passers
+
+Rent as % of Revenue:
+- Target maximum: 8-10%
+- Industry average: 11%
+- Distressed shops: 15%+
+
+Square Footage Guidelines:
+- Minimum viable: 400 sq ft (kiosk/counter only)
+- Small shop: 600-1,000 sq ft
+- Standard shop: 1,000-1,800 sq ft
+- Destination shop: 1,800-3,000 sq ft
+
+Revenue per Square Foot:
+- Industry average: $450/sq ft annually
+- High performers: $650+/sq ft
+- Struggling shops: <$300/sq ft
+
+Location Type Performance:
+- High street retail: $520/sq ft average
+- Shopping center: $410/sq ft average
+- Office building lobby: $680/sq ft average
+- Residential neighborhood: $390/sq ft average
+
+Lease Considerations:
+- Average term: 5 years
+- Rent escalation: 3% annually typical
+- Build-out allowance: $15-40/sq ft common
+- CAM/NNN adds: 15-25% above base rent
+
+Site Selection Correlates:
+- Parking availability: 0.52 correlation with suburban success
+- Neighboring businesses: Complementary retail +22% traffic
+- Visibility from street: 0.48 correlation with new customer acquisition

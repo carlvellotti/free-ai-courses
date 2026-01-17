@@ -1,0 +1,9 @@
+Employee,Role,Hourly Rate,Weekly Hours,Hire Date,Status
+Marcus Williams,Shift Lead,$25.00,38,2024-03-15,Active
+Jordan Chen,Shift Lead,$24.00,36,2025-08-15,Active
+Alex Rivera,Barista,$19.00,28,2025-02-01,Active
+Sam Park,Barista,$18.50,24,2025-06-10,Active
+Taylor Johnson,Barista,$18.00,20,2025-09-01,Active
+Casey Brown,Barista,$18.00,16,2025-10-15,Active - Probation
+Jamie Lee,Weekend Barista,$18.50,12,2024-11-01,Active
+Morgan Kim,Barista,$18.00,0,2025-04-20,Inactive - Left 11/30

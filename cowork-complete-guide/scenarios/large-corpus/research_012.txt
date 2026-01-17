@@ -1,0 +1,35 @@
+Barista Training Effectiveness Research
+Specialty Coffee Association Education Survey
+
+Training Investment Benchmarks:
+- Average new hire training: 24 hours
+- Top performers average: 48 hours
+- Cost per trainee: $800-1,500
+- Productivity timeline: Full productivity at 6-8 weeks
+
+Skills Assessment Results:
+
+Technical Skills:
+- Espresso extraction: 67% competent after basic training
+- Milk texturing: 54% competent after basic training
+- Pour-over methods: 41% competent after basic training
+- Equipment maintenance: 38% competent after basic training
+
+Recommendation: Additional 16-20 hours for specialty competence
+
+Customer Service Skills:
+- Transaction efficiency: 78% competent after basic training
+- Problem resolution: 52% competent after basic training
+- Upselling/recommendation: 34% competent after basic training
+- Regular customer engagement: 45% competent after basic training
+
+Retention Impact by Training Quality:
+- Minimal training: 62% turnover annually
+- Standard training: 48% turnover annually
+- Comprehensive training: 31% turnover annually
+- Training + career development: 22% turnover annually
+
+Customer Perception Correlation:
+- Staff technical skill rating correlates 0.71 with shop quality rating
+- Staff friendliness rating correlates 0.82 with return likelihood
+- Staff knowledge rating correlates 0.64 with willingness to pay premium

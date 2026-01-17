@@ -1,0 +1,171 @@
+RISK ANALYSIS - DRAFT
+[For investor presentation - needs work]
+
+---
+
+OPERATIONAL RISKS
+
+Risk: Quality dilution across two locations
+Probability: Medium
+Impact: High
+Mitigation:
+- Hire and train manager 3+ months before opening
+- Documented SOPs for all processes
+- Weekly quality audits
+- Mystery shopper program?
+[TODO: Research mystery shopper services]
+
+Risk: Key person dependency
+Probability: Medium
+Impact: High
+Current state: Too much relies on me and Sarah
+Mitigation:
+- Cross-train staff
+- Documented procedures
+- Build management layer
+- [Need more here]
+
+Risk: Supply chain issues
+Probability: Low-Medium
+Impact: Medium
+Mitigation:
+- Multiple supplier relationships
+- 2-week inventory buffer
+- Local backup options
+
+---
+
+FINANCIAL RISKS
+
+Risk: Cost overruns during buildout
+Probability: Medium-High (construction is unpredictable)
+Impact: Medium
+Mitigation:
+- 15% contingency in budget
+- Fixed-price contracts where possible
+- Phased buildout if needed
+
+Risk: Slower than projected ramp-up
+Probability: Medium
+Impact: Medium-High
+Mitigation:
+- Conservative projections (60-70% of L1 as baseline)
+- 6 months operating capital reserve
+- Sarah's condition: if not profitable in 18 months, close
+
+Risk: Economic recession
+Probability: ???
+Impact: Medium
+Mitigation:
+- Coffee is relatively recession-resistant
+- Diversified customer base (commuters + locals)
+- Lease flexibility (negotiate out clause?)
+
+[TODO: Add data about coffee consumption during 2008 recession]
+
+---
+
+MARKET RISKS
+
+Risk: New competitor enters market
+Probability: High (it's Seattle)
+Impact: Medium
+Mitigation:
+- Strong brand differentiation
+- Community relationships
+- First mover advantage in specific neighborhood
+
+Risk: Changing consumer preferences
+Probability: Low
+Impact: Medium
+Mitigation:
+- Monitor trends
+- Flexible menu
+- Customer feedback loops
+
+Risk: Remote work reversal (everyone back to office)
+Probability: Low-Medium
+Impact: Low
+Why low impact: Actually might help - more commuters
+[Actually need to think about this more]
+
+---
+
+LOCATION-SPECIFIC RISKS
+
+Crossroads location:
+- Strip mall perception
+- Anchor tenant could leave
+- Less walkability
+
+Main St Bellevue:
+- High rent = less margin for error
+- Competition density
+- Parking issues
+
+U District:
+- Seasonality (summer slow)
+- Student budget constraints
+- Neighborhood safety perception
+
+---
+
+PERSONAL/LIFESTYLE RISKS
+
+Risk: Burnout
+Probability: Medium-High
+Impact: High
+Mitigation:
+- Hire strong manager
+- Set boundaries
+- Sarah and I spelled out conditions
+- Build in personal time
+
+Risk: Partner disagreement
+Probability: Low
+Impact: High (we're married!)
+Mitigation:
+- Aligned on conditions before proceeding
+- Regular check-ins
+- Written agreement on exit conditions
+
+---
+
+RISK MATRIX (need to visualize this)
+
+High Impact / High Probability:
+- Quality dilution
+- Cost overruns
+
+High Impact / Low Probability:
+- Partner issues
+- Major recession
+
+Low Impact / High Probability:
+- New competitor
+- Minor delays
+
+Low Impact / Low Probability:
+- Supply chain
+- Preference shifts
+
+---
+
+OVERALL RISK ASSESSMENT:
+
+Manageable if we:
+1. Hire right manager
+2. Maintain financial reserves
+3. Stay disciplined on quality
+4. Keep communication open
+
+Unacceptable if:
+- We skip manager hiring
+- We drain reserves for buildout
+- We let timeline pressure compromise decisions
+
+---
+
+[TODO: Make this less listy and more narrative for presentation]
+[TODO: Add specific numbers where possible]
+[TODO: Have Greg review financial risk section]

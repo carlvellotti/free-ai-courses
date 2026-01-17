@@ -1,0 +1,46 @@
+Menu Engineering Analysis
+Review date: November 2025
+
+Current Menu Performance (by category):
+
+Stars (High popularity, High profit):
+- House Latte - 22% of sales, 78% margin
+- Cold Brew - 15% of sales, 82% margin
+- Oat Milk Latte - 12% of sales, 71% margin
+- Seasonal special - 8% of sales, 74% margin
+
+Workhorses (High popularity, Lower profit):
+- Drip Coffee - 18% of sales, 68% margin
+- Americano - 7% of sales, 65% margin
+- Tea - 5% of sales, 62% margin
+
+Puzzles (Low popularity, High profit):
+- Cortado - 3% of sales, 81% margin
+- Pour Over - 2% of sales, 76% margin
+- Affogato - 1% of sales, 79% margin
+
+Dogs (Low popularity, Lower profit):
+- Hot Chocolate - 2% of sales, 58% margin
+- Chai Latte - 3% of sales, 54% margin
+- Smoothies - 2% of sales, 48% margin
+
+Optimization recommendations:
+
+1. Promote puzzles:
+   - Feature cortado in staff recommendations
+   - Add pour-over bar visibility
+   - Upsell affogato with pastries
+
+2. Improve workhorses:
+   - Test slight price increase on drip (+$0.25)
+   - Reduce Americano water volume for cost
+
+3. Fix or remove dogs:
+   - Reformulate chai (cheaper base)
+   - Consider removing smoothies (equipment space)
+   - Hot chocolate: seasonal only
+
+4. Protect stars:
+   - Maintain quality consistency
+   - Monitor competitor pricing
+   - Keep featured menu position

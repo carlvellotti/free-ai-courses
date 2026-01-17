@@ -1,0 +1,53 @@
+Loyalty Program Strategy Session
+Date: October 22, 2025
+Attendees: Owner, POS Vendor Rep, Marketing Consultant
+
+Current state:
+- Paper punch cards in use
+- Low redemption tracking
+- No customer data capture
+- Estimated 30% of customers participate
+
+Proposed: Digital loyalty program via Square
+
+Program structure options discussed:
+
+Option 1: Simple stamp card (digital)
+- Buy 10, get 1 free
+- Easy to understand
+- Limited personalization
+
+Option 2: Points-based system
+- $1 = 10 points
+- 500 points = $5 reward
+- Enables tiered rewards
+- More complex
+
+Option 3: Subscription model
+- $75/month unlimited drip coffee
+- $125/month includes specialty drinks
+- Guaranteed recurring revenue
+- Higher commitment barrier
+
+Recommendation: Start with Option 1, add Option 3 later
+
+Implementation plan:
+- Staff training: 2 sessions
+- Soft launch: November 15
+- Full marketing push: December 1
+- Migration of existing punch cards
+
+Customer data goals:
+- Email capture at signup
+- Birthday tracking for rewards
+- Purchase history for personalization
+
+Technology cost:
+- Square Loyalty: $45/month
+- SMS add-on: $25/month (optional)
+- No hardware needed (existing setup)
+
+Success metrics:
+- Enrollment: 200 members by end of Q1
+- Repeat visit increase: 15% target
+- Email list growth: +300 subscribers

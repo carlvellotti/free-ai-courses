@@ -1,0 +1,100 @@
+MEETING NOTES: Greg Patterson, CPA
+Date: [Last Thursday]
+Re: Second location financial planning
+
+ATTENDEES: Me, Sarah, Greg
+
+---
+
+STARTUP COST ESTIMATES:
+
+Greg's range: $150,000 - $200,000 total
+
+Breakdown:
+- Leasehold improvements/buildout: $60,000-80,000
+  (depends heavily on condition of space)
+- Equipment (espresso, brewing, fridges): $45,000-55,000
+- Furniture and fixtures: $15,000-20,000
+- Initial inventory: $8,000-10,000
+- Permits and licenses: $3,000-5,000
+- Working capital (3 months): $25,000-35,000
+- Marketing/launch: $5,000-8,000
+- Contingency (10%): $15,000-20,000
+
+NOTE: Drive-thru would add $40-60K to buildout
+
+---
+
+BREAK-EVEN ANALYSIS:
+
+Assumptions Greg used:
+- Monthly rent: $6,500
+- Labor: 35% of revenue
+- COGS: 28% of revenue
+- Other operating: 15% of revenue
+
+Break-even monthly revenue: ~$42,000
+That's about $1,400/day
+
+Location 1 does ~$2,100/day currently
+New location would start slower - maybe 60-70% of L1?
+
+Timeline to break-even: 6-12 months (his estimate)
+Timeline to profitability: 12-18 months
+
+---
+
+FUNDING OPTIONS DISCUSSED:
+
+Option A: SBA Loan
+- Can get up to $250K
+- Interest rate: ~8-9% currently
+- Requires personal guarantee
+- Need to show L1 profitability (we can)
+- Approval time: 60-90 days
+
+Option B: Investor/Partner
+- Give up equity (10-25%?)
+- No debt service
+- Lose some control
+- They might have valuable expertise
+- Greg knows some people...
+
+Option C: Self-fund from L1 profits
+- Would take 18-24 months to save enough
+- No debt or equity dilution
+- Slower but safer
+- Could do combo (save + small loan)
+
+Option D: Combination
+- SBA loan for 60%
+- Our capital for 40%
+- Greg recommends this
+
+---
+
+TAX IMPLICATIONS:
+- Keep as LLC or create separate entity?
+- Greg says separate entity cleaner but more paperwork
+- Depreciation benefits for new equipment
+- Can deduct startup costs over time
+
+---
+
+WHAT GREG NEEDS FROM US:
+1. Last 2 years P&L statements
+2. Current year projections
+3. Personal financial statements
+4. Business plan with projections
+
+---
+
+ACTION ITEMS:
+[ ] Pull P&L statements for Greg
+[ ] Create 3-year projection model
+[ ] Research SBA loan requirements
+[ ] Make list of potential investors
+
+Greg's closing thought: "Numbers look good for expansion, but make sure you're ready operationally, not just financially."
+
+NEXT MEETING: 3 weeks, review projections together

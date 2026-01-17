@@ -1,0 +1,34 @@
+Loyalty Program Effectiveness Study
+Bond Brand Loyalty - Coffee Retail Segment Analysis
+
+Study Parameters:
+- 2,340 coffee shop loyalty program members surveyed
+- 45 programs analyzed across independent and chain operators
+- 18-month behavioral tracking period
+
+Program Participation Rates:
+- Digital app-based: 72% active monthly usage
+- Physical punch card: 34% active usage
+- Hybrid programs: 61% active usage
+
+Behavioral Impact:
+- Members visit 2.1x more frequently than non-members
+- Average ticket 18% higher for members
+- Attrition rate: 4.2% monthly for digital, 8.7% for physical
+
+Most Effective Reward Structures:
+1. Free drink after purchase threshold: 67% preference
+2. Percentage discount: 18% preference
+3. Points for merchandise: 9% preference
+4. Exclusive access/early releases: 6% preference
+
+ROI Analysis:
+- Average program cost: $0.42 per member per month
+- Average incremental revenue: $8.70 per member per month
+- ROI: 1,971% (varies significantly by execution)
+
+Key Success Factors:
+- Ease of enrollment (under 60 seconds critical)
+- Reward attainability (should feel achievable within 2-3 visits)
+- Personalization (40% lift with personalized offers)
+- Staff promotion (enrolled customers 3x more likely with staff ask)

@@ -1,0 +1,52 @@
+================================================================================
+                              SPOTIFY FOR BUSINESS
+================================================================================
+
+                                    INVOICE
+
+Invoice Number: SPB-2025-1201-78432
+Invoice Date: December 1, 2025
+Due Date: December 1, 2025 (Auto-pay)
+
+--------------------------------------------------------------------------------
+BILL TO:
+--------------------------------------------------------------------------------
+Basecamp Coffee Roasters
+2847 SE Division St
+Portland, OR 97202
+United States
+
+Account Email: hello@basecampcoffee.com
+
+--------------------------------------------------------------------------------
+SUBSCRIPTION DETAILS
+--------------------------------------------------------------------------------
+
+Plan: Spotify Premium for Business
+Billing Period: December 1, 2025 - December 31, 2025
+
+Description                                              Amount
+--------------------------------------------------------------
+Spotify Premium Business (1 location)                    $14.99
+
+--------------------------------------------------------------
+                                          Subtotal:      $14.99
+                                          Tax (0%):       $0.00
+                                          ----------------------
+                                          TOTAL:         $14.99
+
+--------------------------------------------------------------------------------
+PAYMENT INFORMATION
+--------------------------------------------------------------------------------
+Payment Method: Visa ending in 4521
+Payment Status: PAID
+Transaction ID: sp_txn_8923451234
+
+--------------------------------------------------------------------------------
+
+Thank you for choosing Spotify for Business.
+
+Questions? Visit business.spotify.com/support
+or email business-support@spotify.com
+
+================================================================================

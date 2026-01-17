@@ -1,0 +1,24 @@
+[SCREENSHOT - Error Message]
+
+Captured: October 3, 2025 at 2:14 PM
+
+-----------------------------------------
+TOAST POS ERROR
+-----------------------------------------
+
+! Connection Error
+
+Unable to process card payment.
+Error Code: NW-4421
+
+Possible causes:
+- Network connectivity issue
+- Card reader disconnected
+- Service temporarily unavailable
+
+[Retry] [Use Offline Mode] [Cancel]
+
+Note to self: Third time this week.
+Need to call Toast support about
+recurring network drops.
+-----------------------------------------

@@ -1,0 +1,31 @@
+Coffee Consumption Demographics Analysis
+Specialty Coffee Association Industry Report
+
+Population Segment Analysis (US market):
+
+By Age:
+- Gen Z (18-26): 48% daily drinkers, highest specialty preference (62%)
+- Millennials (27-42): 71% daily drinkers, highest spend per drink ($5.84)
+- Gen X (43-58): 74% daily drinkers, most brand loyal (68% single-shop)
+- Boomers (59-77): 68% daily drinkers, lowest mobile adoption (12%)
+
+By Income:
+- Under $50k: 2.1 cups/day, $4.12 average spend
+- $50-100k: 2.8 cups/day, $5.21 average spend
+- Over $100k: 3.4 cups/day, $6.47 average spend
+
+By Location:
+- Urban: 71% daily, highest cold coffee preference
+- Suburban: 68% daily, highest drive-through usage
+- Rural: 59% daily, highest home brewing
+
+By Occupation:
+- Remote workers: 4.2 cups/day, 34% consume at coffee shops
+- Office workers: 3.1 cups/day, 47% consume at coffee shops
+- Healthcare: 3.8 cups/day, highest early morning consumption
+- Education: 2.9 cups/day, strongest seasonal patterns
+
+Gender Differences:
+- Men: 3.2 cups/day, espresso preference 42%
+- Women: 2.8 cups/day, specialty drink preference 54%
+- Non-binary: 3.0 cups/day, highest independent shop preference

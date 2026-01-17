@@ -1,0 +1,28 @@
+WIFI SETUP INSTRUCTIONS
+
+Network Name: BasecampCoffee_Guest
+Password: CoffeeLovers2025!
+
+For Staff:
+Network: BasecampCoffee_Staff
+Password: [ask manager]
+
+ROUTER INFORMATION:
+Model: Netgear Nighthawk R7000
+Location: Back office, top shelf
+Admin login: 192.168.1.1
+Admin user: admin
+Admin pass: [see password manager]
+
+ISP: CenturyLink Business
+Account #: 7789-4421-882
+Support: 1-800-244-1111
+
+TROUBLESHOOTING:
+1. If slow: Check how many devices connected
+2. If down: Power cycle router (unplug 30 sec)
+3. If still down: Check modem in back closet
+4. Contact CenturyLink if modem lights not green
+
+Speed: 200 Mbps down / 20 Mbps up
+Last tested: November 2025
