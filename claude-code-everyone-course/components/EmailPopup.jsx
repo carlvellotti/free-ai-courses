@@ -26,31 +26,15 @@ const trackEvent = (eventName, params = {}) => {
   }
 }
 
-// A/B Test: Get or assign variant
-const getVariant = () => {
-  if (typeof window === 'undefined') return 'control'
-
-  const stored = localStorage.getItem('cc4e-popup-variant-v2')
-  if (stored) return stored
-
-  // Randomly assign 50/50
-  const variant = Math.random() < 0.5 ? 'control' : 'cheatsheet'
-  localStorage.setItem('cc4e-popup-variant-v2', variant)
-  return variant
-}
+// Shipped: Cheatsheet variant won A/B test (2.1x lift)
+const VARIANT = 'cheatsheet'
 
 export default function EmailPopup() {
   const [isVisible, setIsVisible] = useState(false)
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle') // idle, loading, success, error
   const [errorMessage, setErrorMessage] = useState('')
-  const [variant, setVariant] = useState('control')
   const inputRef = useRef(null)
-
-  useEffect(() => {
-    // Assign variant on mount
-    setVariant(getVariant())
-  }, [])
 
   useEffect(() => {
     // Check if user has already seen the popup
@@ -60,8 +44,7 @@ export default function EmailPopup() {
     // Show popup after 10 seconds
     const timer = setTimeout(() => {
       setIsVisible(true)
-      const v = getVariant()
-      trackEvent('popup_shown', { popup_type: 'email_signup', source: 'cc4e', variant: v })
+      trackEvent('popup_shown', { popup_type: 'email_signup', source: 'cc4e', variant: VARIANT })
     }, 10000)
 
     return () => clearTimeout(timer)
@@ -76,7 +59,7 @@ export default function EmailPopup() {
   const handleClose = () => {
     setIsVisible(false)
     localStorage.setItem('cc4e-popup-seen', 'true')
-    trackEvent('popup_closed', { popup_type: 'email_signup', source: 'cc4e', variant })
+    trackEvent('popup_closed', { popup_type: 'email_signup', source: 'cc4e', variant: VARIANT })
   }
 
   const handleSubmit = async (e) => {
@@ -96,7 +79,7 @@ export default function EmailPopup() {
           publication: 'cc4e',
           utm_source: 'ccforeveryone',
           utm_medium: 'popup',
-          utm_campaign: variant === 'cheatsheet' ? 'popup-cheatsheet' : 'popup-control',
+          utm_campaign: 'popup-cheatsheet',
           landing_page: window.location.pathname,
           referrer: document.referrer || 'direct',
         }),
@@ -107,7 +90,7 @@ export default function EmailPopup() {
       if (response.ok && data.success) {
         setStatus('success')
         localStorage.setItem('cc4e-popup-seen', 'true')
-        trackEvent('popup_submitted', { popup_type: 'email_signup', source: 'cc4e', variant })
+        trackEvent('popup_submitted', { popup_type: 'email_signup', source: 'cc4e', variant: VARIANT })
         setTimeout(() => {
           setIsVisible(false)
         }, 3000)
@@ -140,41 +123,18 @@ export default function EmailPopup() {
             <div className="popup-success">
               <span className="popup-success-icon">&#10003;</span>
               <h3>Thank you!</h3>
-              <p>{variant === 'cheatsheet' ? "Check your inbox for the cheat sheet!" : "Be on the lookout for the next launch."}</p>
+              <p>Check your inbox for the cheat sheet!</p>
             </div>
           </div>
         ) : (
           <div className="popup-content">
             {/* Header */}
             <div className="popup-header">
-              {variant === 'cheatsheet' ? (
-                <>
-                  <h2>Want the full course in your inbox?</h2>
-                  <p className="popup-subhead">
-                    I'll remind you to come back + send you a <span className="highlight">bonus cheat sheet</span>. <strong>100% free.</strong>
-                  </p>
-                </>
-              ) : (
-                <>
-                  <h2>Join Claude Code for Everyone</h2>
-                  <p className="popup-subhead">
-                    The <strong>complete guide</strong> to Claude Code for <span className="underline">non-technical</span> people
-                  </p>
-                </>
-              )}
+              <h2>Want the full course in your inbox?</h2>
+              <p className="popup-subhead">
+                I'll remind you to come back + send you a <span className="highlight">bonus cheat sheet</span>. <strong>100% free.</strong>
+              </p>
             </div>
-
-            {/* Value props - only show for control */}
-            {variant !== 'cheatsheet' && (
-              <div className="popup-column" style={{ textAlign: 'center', marginBottom: '24px' }}>
-                <h4>Coming Soon</h4>
-                <ul style={{ display: 'inline-block', textAlign: 'left' }}>
-                  <li><span className="bullet">&#8226;</span> <strong>Jan 15:</strong> Vibe Coding 101</li>
-                  <li><span className="bullet">&#8226;</span> Connect AI to Everything</li>
-                  <li><span className="bullet">&#8226;</span> Advanced Skill Use</li>
-                </ul>
-              </div>
-            )}
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="popup-form">
@@ -189,9 +149,9 @@ export default function EmailPopup() {
               />
               <button type="submit" disabled={status === 'loading'}>
                 {status === 'loading' ? (
-                  <><Spinner /> {variant === 'cheatsheet' ? 'Sending...' : 'Joining...'}</>
+                  <><Spinner /> Sending...</>
                 ) : (
-                  variant === 'cheatsheet' ? 'Send me the course' : 'Join'
+                  'Send me the course'
                 )}
               </button>
             </form>
