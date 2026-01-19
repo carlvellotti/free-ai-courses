@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      font-family: 'JetBrains Mono', 'SF Mono', monospace;
+      background: #111;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .thumbnail {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gradient-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        rgba(17, 17, 17, 1) 0%,
+        rgba(17, 17, 17, 1) 40%,
+        rgba(17, 17, 17, 0.95) 50%,
+        rgba(17, 17, 17, 0.8) 65%,
+        rgba(17, 17, 17, 0.4) 85%,
+        rgba(17, 17, 17, 0.2) 100%
+      );
+    }
+
+    .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 65%;
+      height: 100%;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #1DD3B0;
+      color: #111;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      width: fit-content;
+    }
+
+    .title {
+      color: #fff;
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.05;
+      margin-top: 16px;
+    }
+
+    .subtitle {
+      color: #888;
+      font-size: 18px;
+      margin-top: 12px;
+    }
+
+    .outline {
+      margin-top: 30px;
+    }
+
+    .outline-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      color: #ddd;
+      font-size: 17px;
+      line-height: 1.4;
+    }
+
+    .outline-item .bullet {
+      color: #FF5856;
+      margin-right: 14px;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .cta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #1DD3B0;
+      font-size: 18px;
+      font-weight: 700;
+      background: rgba(29, 211, 176, 0.1);
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(29, 211, 176, 0.3);
+      width: fit-content;
+    }
+
+    .cta-arrow {
+      font-size: 22px;
+    }
+
+    .logo {
+      position: absolute;
+      bottom: 50px;
+      right: 60px;
+      color: #555;
+      font-size: 14px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="thumbnail" src="ross-mike-thumbnail.jpg" alt="">
+    <div class="gradient-overlay"></div>
+
+    <div class="content">
+      <div class="top">
+        <div class="badge">Interactive Lesson</div>
+        <h1 class="title">Ross Mike<br>Workflows</h1>
+        <p class="subtitle">Based on Greg Isenberg's interview</p>
+
+        <div class="outline">
+          <div class="outline-item">
+            <span class="bullet">></span>
+            <span>The "Ask User Question" planning technique</span>
+          </div>
+          <div class="outline-item">
+            <span class="bullet">></span>
+            <span>Why your plan matters more than tools</span>
+          </div>
+          <div class="outline-item">
+            <span class="bullet">></span>
+            <span>The 50% context rule</span>
+          </div>
+          <div class="outline-item">
+            <span class="bullet">></span>
+            <span>Earning the right to automate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta">
+        <span class="cta-arrow">→</span>
+        <span>Download files to get started</span>
+      </div>
+    </div>
+
+    <div class="logo">ccforeveryone.com</div>
+  </div>
+</body>
+</html>
