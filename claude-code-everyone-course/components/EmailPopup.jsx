@@ -27,24 +27,14 @@ const trackEvent = (eventName, params = {}) => {
 }
 
 // Shipped: Cheatsheet variant won A/B test
+// Timing test concluded: 10s won (better conversion outweighs lower reach)
 const VARIANT = 'cheatsheet'
-
-// A/B Test: Popup delay timing (5s vs 10s)
-const getDelayVariant = () => {
-  if (typeof window === 'undefined') return '10s'
-  const stored = localStorage.getItem('cc4e-popup-delay-variant')
-  if (stored) return stored
-  const variant = Math.random() < 0.5 ? '5s' : '10s'
-  localStorage.setItem('cc4e-popup-delay-variant', variant)
-  return variant
-}
 
 export default function EmailPopup() {
   const [isVisible, setIsVisible] = useState(false)
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle') // idle, loading, success, error
   const [errorMessage, setErrorMessage] = useState('')
-  const [delayVariant, setDelayVariant] = useState('10s')
   const inputRef = useRef(null)
 
   useEffect(() => {
@@ -52,19 +42,11 @@ export default function EmailPopup() {
     const hasSeenPopup = localStorage.getItem('cc4e-popup-seen')
     if (hasSeenPopup) return
 
-    // Get delay variant for A/B test
-    const variant = getDelayVariant()
-    setDelayVariant(variant)
-    const delayMs = variant === '5s' ? 5000 : 10000
-
-    // Track that this user is eligible to see the popup (for measuring bounce rate)
-    trackEvent('popup_eligible', { source: 'cc4e', delay_variant: variant })
-
-    // Show popup after delay
+    // Show popup after 10 seconds
     const timer = setTimeout(() => {
       setIsVisible(true)
-      trackEvent('popup_shown', { popup_type: 'email_signup', source: 'cc4e', variant: VARIANT, delay_variant: variant })
-    }, delayMs)
+      trackEvent('popup_shown', { popup_type: 'email_signup', source: 'cc4e', variant: VARIANT })
+    }, 10000)
 
     return () => clearTimeout(timer)
   }, [])
@@ -78,7 +60,7 @@ export default function EmailPopup() {
   const handleClose = () => {
     setIsVisible(false)
     localStorage.setItem('cc4e-popup-seen', 'true')
-    trackEvent('popup_closed', { popup_type: 'email_signup', source: 'cc4e', variant: VARIANT, delay_variant: delayVariant })
+    trackEvent('popup_closed', { popup_type: 'email_signup', source: 'cc4e', variant: VARIANT })
   }
 
   const handleSubmit = async (e) => {
@@ -98,7 +80,7 @@ export default function EmailPopup() {
           publication: 'cc4e',
           utm_source: 'ccforeveryone',
           utm_medium: 'popup',
-          utm_campaign: `popup-${delayVariant}`,
+          utm_campaign: 'popup-cheatsheet',
           landing_page: window.location.pathname,
           referrer: document.referrer || 'direct',
         }),
@@ -109,7 +91,7 @@ export default function EmailPopup() {
       if (response.ok && data.success) {
         setStatus('success')
         localStorage.setItem('cc4e-popup-seen', 'true')
-        trackEvent('popup_submitted', { popup_type: 'email_signup', source: 'cc4e', variant: VARIANT, delay_variant: delayVariant })
+        trackEvent('popup_submitted', { popup_type: 'email_signup', source: 'cc4e', variant: VARIANT })
         setTimeout(() => {
           setIsVisible(false)
         }, 3000)
