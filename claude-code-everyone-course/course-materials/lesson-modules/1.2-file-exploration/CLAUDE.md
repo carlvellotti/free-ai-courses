@@ -82,8 +82,7 @@ To view files, you're going to need an editor. I have two recommendations:
 
 **Option 2: Cursor**
 - A code editor (but works great for any files)
-- Has its own AI features (you don't need them - you have me!)
-- Good choice if you plan to do Module 2's vibe coding later
+- Has its own AI features you can use alongside Claude Code
 - Free to download
 
 STOP: Which would you like to use? Say **'Nimbalyst'** or **'Cursor'**
@@ -167,7 +166,7 @@ USER: I'm in Nimbalyst!
 
 Let me introduce you to Cursor. It's a code editor that shows your files while you work. Of course, like Claude Code, it can be used for a lot more than code. It's just a way to view and work with all kinds of files.
 
-It's free, popular, and perfect for Module 2 when we build something.
+It's free and popular, and has its own AI features you can use alongside me.
 
 Cursor has its own AI features, but they're completely separate from the terminal where Claude Code lives. You do not need a Cursor membership.
 
