@@ -1,7 +1,7 @@
 ---
 title: '1.2: File Exploration & Visual Workspace'
-description: 'Set up Cursor alongside Claude Code for a dual-pane workflow. See your files while Claude works.'
-keywords: 'claude code cursor, claude code visual workspace, claude code setup, dual pane workflow'
+description: 'Set up Nimbalyst or Cursor alongside Claude Code for a dual-pane workflow. See your files while Claude works.'
+keywords: 'claude code nimbalyst, claude code cursor, claude code visual workspace, claude code setup, dual pane workflow'
 ---
 
 ## 1.2: File Exploration & Visual Workspace
@@ -14,35 +14,70 @@ keywords: 'claude code cursor, claude code visual workspace, claude code setup, 
 
 **Problem:** Terminal is great for talking to Claude, but you can't see your files.
 
-**Solution:** Use a code editor alongside Claude Code.
+**Solution:** Use a visual editor alongside Claude Code.
 
 | Pane | Purpose |
 |------|---------|
 | **Left side** | File explorer (see everything) |
 | **Bottom** | Claude Code terminal (work with everything) |
 
-## Setting Up Cursor (or VS Code)
+## Choose Your Tool
 
-[Cursor](https://cursor.com) is a free code editor that works perfectly alongside Claude Code:
+### Nimbalyst (Recommended)
+
+**Best for:** Non-technical Claude Code users who want the smoothest experience
+
+![Nimbalyst - Visual workspace for Claude Code](/images/nimbalyst-hero.webp)
+
+[Nimbalyst](https://nimbalyst.com?ref=carlvellotti&utm_source=carlvellotti&utm_medium=ccforeveryone&utm_campaign=partner) is a free, purpose-built workspace for Claude Code with:
+
+- **WYSIWYG markdown editing** - See formatted text, not raw markdown syntax
+- **File diffs** - See exactly what Claude changed when editing files
+- **Hidden folder visibility** - Can see the `.claude/` folder (unlike some editors)
+- **Claude Code built-in** - Work with Claude directly in Nimbalyst
+
+**[Download Nimbalyst →](https://nimbalyst.com?ref=carlvellotti&utm_source=carlvellotti&utm_medium=ccforeveryone&utm_campaign=partner)**
+
+### Cursor
+
+**Best for:** Users who want a code editor or plan to do Module 2's vibe coding
+
+[Cursor](https://cursor.com) is a free code editor that works alongside Claude Code:
 
 - Shows your files visually while you work with Claude
 - Has its own AI features (you don't need them - Claude Code is better)
+- Great for Module 2 when you build a real app
 - VS Code works too if you prefer it
 
-### Installation
+**[Download Cursor →](https://cursor.com)**
+
+## Tool Comparison
+
+| Feature | Nimbalyst | Cursor |
+|---------|-----------|--------|
+| **Best for** | Non-technical work | Code + vibe coding |
+| **Claude Code** | Built-in | Run in terminal |
+| **See .claude/ folder** | Yes | Yes |
+| **WYSIWYG markdown** | Yes | Preview mode |
+| **Price** | Free | Free |
+
+## Setup Guide
+
+### Nimbalyst Setup
+
+1. **[Download Nimbalyst](https://nimbalyst.com?ref=carlvellotti&utm_source=carlvellotti&utm_medium=ccforeveryone&utm_campaign=partner)** and run the installer
+2. Open Nimbalyst
+3. Open your course folder in Nimbalyst
+4. Claude Code is built-in - start working!
+
+### Cursor Setup
 
 1. Download from [cursor.com](https://cursor.com)
 2. Run the installer
-3. Open Cursor
-
-## Running Claude Code Inside Your Editor
-
-1. **Open terminal in Cursor:** `Ctrl+`` (backtick key, above Tab)
-   - Or: View → Terminal
-2. **Navigate to your folder:** `cd ~/Documents/your-folder`
-3. **Type `claude` and press Enter**
-
-Now you have files visible on the left, Claude in the terminal below.
+3. Open Cursor and open your course folder
+4. **Important:** Click "Editor" in the upper left (not "Agents")
+5. Open terminal: `Ctrl+`` (backtick key, above Tab)
+6. Type `claude` and press Enter
 
 ## Exploring Unfamiliar File Structures
 
@@ -66,8 +101,8 @@ Claude can map out any folder of documents for you.
 
 - `.md` extension = Markdown format
 - Common standard for documents - LLMs love it
-- **Preview mode:** `Cmd/Ctrl+Shift+V` shows formatted view
-- **Raw mode:** Shows the markup
+- **Preview mode:** `Cmd/Ctrl+Shift+V` shows formatted view (in Cursor)
+- **Nimbalyst:** Shows formatted by default
 
 ## Real-World Applications
 

@@ -71,17 +71,99 @@ USER: Yes
 
 So, obviously this is a terminal. You can work with me in here, but you can't browse files visually.
 
-To view files, you're going to need an editor. For this course, my recommendation is Cursor. You've probably heard of it.
+To view files, you're going to need an editor. I have two recommendations:
 
-STOP: Are you already using a code editor like Cursor or VS Code?
+**Option 1: Nimbalyst (Recommended)**
+- Purpose-built for non-technical Claude Code work
+- Beautiful editor for viewing and editing your files
+- Claude Code is built right in
+- Free to download
+- This is Carl's recommendation
 
-USER: Yes (already in Cursor) / No (need to set up)
+**Option 2: Cursor**
+- A code editor (but works great for any files)
+- Has its own AI features (you don't need them - you have me!)
+- Good choice if you plan to do Module 2's vibe coding later
+- Free to download
+
+STOP: Which would you like to use? Say **'Nimbalyst'** or **'Cursor'**
+
+USER: Nimbalyst / Cursor
 
 ---
 
-## Introducing Cursor
+## Setting Up Nimbalyst
 
-[If user said no or needs setup:]
+[If user chose Nimbalyst:]
+
+Great choice! Let's get Nimbalyst set up.
+
+**Step 1: Download Nimbalyst**
+
+Go to: **https://nimbalyst.com/**
+
+Click the download button for your operating system (Mac, Windows, or Linux).
+
+**Step 2: Install**
+
+- **Mac:** Open the .dmg file and drag Nimbalyst to Applications
+- **Windows:** Run the installer and follow the prompts
+- **Linux:** Follow the installation instructions on the download page
+
+**Step 3: Open Nimbalyst**
+
+Launch Nimbalyst. You'll see the main interface.
+
+STOP: Let me know when Nimbalyst is open. Say **'Nimbalyst is open'**
+
+USER: Nimbalyst is open
+
+---
+
+## Open the Course Folder in Nimbalyst
+
+Now we need to open your course folder.
+
+ACTION: Run `pwd` to get the current directory path
+
+Your course folder is located at:
+**[show the full path]**
+
+In Nimbalyst:
+1. Look for an option to open a folder or project
+2. Navigate to the path above
+3. Select it and open it
+
+You should see your files appear in the sidebar - folders like `company-context/`, `inherited-chaos/`, etc.
+
+STOP: Do you see the course files? Say **'I see the files'**
+
+USER: I see the files
+
+---
+
+## Continue the Lesson in Nimbalyst
+
+Perfect! Now here's the key part.
+
+Nimbalyst has Claude Code built right in. You should see a terminal or chat interface where you can talk to Claude.
+
+Find that interface, and type:
+```
+/start-1-2
+```
+
+This will pick up the lesson right where we left off, but now inside Nimbalyst where you can see your files!
+
+STOP: Type `/start-1-2` in Nimbalyst and then tell me **'I'm in Nimbalyst!'**
+
+USER: I'm in Nimbalyst!
+
+---
+
+## Setting Up Cursor
+
+[If user chose Cursor:]
 
 Let me introduce you to Cursor. It's a code editor that shows your files while you work. Of course, like Claude Code, it can be used for a lot more than code. It's just a way to view and work with all kinds of files.
 
