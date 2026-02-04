@@ -1,0 +1,222 @@
+---
+title: 'GSD Framework: Spec-Driven Development for Claude Code | Free Interactive Lesson'
+description: 'Learn the Get Shit Done (GSD) framework - fresh subagent contexts, atomic plans, wave-based execution, and goal-backward verification. Build a real app while learning production-grade AI development workflows.'
+keywords: 'gsd, get shit done, claude code, subagents, context rot, atomic plans, wave parallelism, spec-driven development, ai development workflow'
+ogImage: 'https://ccforeveryone.com/images/og-gsd-framework.png'
+---
+
+# GSD: Advanced Vibe Coding
+
+![GSD Framework - Advanced Vibe Coding with Claude Code](/images/og-gsd-framework.png)
+
+## Get Started
+
+1. **Download the lesson folder:** [DOWNLOAD](https://github.com/carlvellotti/claude-code-everyone-course/releases/download/gsd-framework-v1.0/gsd-framework.zip)
+2. **Open terminal in that folder**
+3. **Run `claude` then type `/start-3-1`**
+
+> **Prerequisites:** You should be comfortable with basic Claude Code usage (vibecoding). If not, complete [Module 2: Vibe Coding](/vibe-coding) first.
+
+## GSD Framework: Spec-Driven Development
+
+### What This Is
+
+An interactive lesson teaching the **GSD (Get Shit Done)** framework - a production-grade workflow for building complex projects with Claude Code. You'll build a real Expense Splitter app while learning how to prevent context rot, use fresh subagent contexts, and create atomic, verifiable builds.
+
+**Source:** [GSD by Lex Christopherson](https://github.com/glittercowboy/get-shit-done)
+
+### The Problem GSD Solves
+
+Ever had Claude start strong then get worse as the session goes on? Like it's rushing, cutting corners, forgetting things you told it earlier?
+
+That's **context rot**. It's not your imagination - Claude's quality actually drops as the context window fills up:
+
+- **0-30% context:** Peak quality. Thorough, comprehensive, remembers everything.
+- **50%+:** Starts rushing. "I'll be more concise." Cuts corners.
+- **70%+:** Hallucinations. Forgotten requirements. Drift.
+
+Basic vibecoding works for simple stuff, but it doesn't scale. Complex projects fall apart halfway through.
+
+### How GSD Solves It
+
+GSD uses **fresh subagent contexts**. Instead of one long session that gradually degrades, GSD spawns fresh Claude instances for each task. Each subagent gets a clean 200,000 token context window.
+
+Task 50 has the *same quality* as Task 1. No degradation.
+
+Meanwhile, your main session stays at 30-40% context while agents do the heavy lifting.
+
+### The GSD Workflow
+
+Four commands, one workflow:
+
+| Step | Command | What It Does |
+|------|---------|--------------|
+| 1 | `/gsd:new-project` | Interview → Research → Requirements → Roadmap |
+| 2 | `/gsd:plan-phase N` | Break phase into atomic task plans |
+| 3 | `/gsd:execute-phase N` | Fresh agents build, verify, commit |
+| 4 | `/gsd:verify-work N` | Goal-backward QA walkthrough |
+
+Each step builds on the previous. Requirements trace to phases. Phases trace to plans. Plans trace to commits. Everything is connected and verifiable.
+
+### Time Expectations
+
+**This is important.** GSD does real work, which takes real time.
+
+| Command | Time |
+|---------|------|
+| `/gsd:new-project` | 10-15 minutes |
+| `/gsd:plan-phase` | 5-10 minutes |
+| `/gsd:execute-phase` | 10-15 minutes |
+| `/gsd:verify-work` | 3-5 minutes |
+
+**Full lesson time: 45-60 minutes**, about 30 minutes of which is GSD working while you wait.
+
+That's intentional. That's how you build quality software. Grab a coffee during the long steps.
+
+### What You'll Learn
+
+- **Context engineering** - Fresh contexts beat one degrading session
+- **Aggressive atomicity** - Small plans, each fits in ~50% context
+- **Plans are prompts** - PLAN.md files ARE the executable instructions
+- **Wave-based parallelism** - Independent work runs in parallel
+- **State persistence** - Resume anytime with STATE.md
+- **Goal-backward verification** - Check what must be TRUE, not what tasks were done
+
+
+### The Five Lessons
+
+This module has 5 interactive lessons. You can run them in sequence, or jump to the section you want to learn about.
+
+
+#### Lesson 3.1: What is GSD?
+
+**Command:** `/start-3-1`
+
+**What You'll Learn:**
+- The context rot problem and why it happens
+- How fresh subagent contexts solve it
+- Installing GSD (`npx get-shit-done-cc`)
+- The full workflow sequence
+- What to expect from `/gsd:new-project`
+
+**Key Concept:** GSD spawns fresh Claude instances for each task. Each gets a clean 200k context. Your main session stays clean while agents do heavy lifting.
+
+**Time:** ~10 minutes (interactive, no waiting)
+
+
+#### Lesson 3.2: Start a Project
+
+**Command:** `/start-3-2`
+
+**What You'll Do:**
+- Run `/gsd:new-project` for the first time
+- Answer GSD's interview questions
+- Watch research agents investigate best practices
+- Tour the `.planning/` folder that gets created
+
+**Files Created:**
+- `PROJECT.md` - Vision and constraints
+- `REQUIREMENTS.md` - Features with traceable IDs
+- `ROADMAP.md` - Phases with success criteria
+- `STATE.md` - Persistent memory across sessions
+
+**Key Concept:** GSD interviews you, spawns parallel research agents, and creates a complete spec. Your context stays clean while agents do the research.
+
+**Time:** ~15 minutes (10-15 minutes is GSD working)
+
+
+#### Lesson 3.3: Plan the Build
+
+**Command:** `/start-3-3`
+
+**What You'll Do:**
+- Run `/gsd:plan-phase 1`
+- Watch GSD create atomic task plans
+- Understand the XML plan structure
+- Learn wave-based parallelism
+
+**Key Concepts:**
+
+**Aggressive atomicity:** Each plan is 2-3 tasks, designed to fit in ~50% of a fresh context window. No single task is big enough to degrade quality.
+
+**Plans are prompts:** The PLAN.md file isn't a document that becomes a prompt. It IS the executable instruction. Subagents read it directly.
+
+**Waves:** Independent tasks run in parallel. Dependent tasks wait. Wave 1 might run three plans simultaneously. Wave 2 waits for Wave 1, then runs.
+
+**Time:** ~10 minutes (5-10 minutes is GSD working)
+
+
+#### Lesson 3.4: Execute
+
+**Command:** `/start-3-4`
+
+**What You'll Do:**
+- Run `/gsd:execute-phase 1`
+- Watch fresh agents build your app
+- See atomic commits in git history
+- Run your app and see what got built
+
+**Key Concepts:**
+
+**Fresh contexts:** Each agent gets a full 200k context. No degradation from first task to last.
+
+**Atomic commits:** Each task gets its own commit. Git bisect works. You can revert individual tasks without losing other work.
+
+**Phase 1 is foundation:** You'll have a working app, but it's Phase 1 only. Full app needs Phases 2 and 3.
+
+**Time:** ~15 minutes (10-15 minutes is agents building)
+
+
+#### Lesson 3.5: Verify & Beyond
+
+**Command:** `/start-3-5`
+
+**What You'll Do:**
+- Run `/gsd:verify-work 1`
+- Walk through interactive QA testing
+- Learn about `/gsd:quick` for small changes
+- Understand when to use GSD vs plain Claude Code
+
+**Key Concepts:**
+
+**Goal-backward verification:** Instead of "what tasks did we do?" GSD asks "what must be TRUE for this to work?" You test observable behaviors, not implementation details.
+
+**Quick mode:** `/gsd:quick "Add dark mode"` - same fresh agent guarantees, skips heavy planning. Use for tweaks.
+
+**When to use GSD:**
+- ✅ Complex projects (multiple components, real logic)
+- ✅ Multi-session work
+- ✅ You care about clean git history
+- ❌ Quick one-off tasks (just use Claude directly)
+- ❌ Prototyping (basic vibecoding is fine)
+
+**Time:** ~10 minutes
+
+
+### Other GSD Commands
+
+Once you finish the module, here are more commands to explore:
+
+| Command | What It Does |
+|---------|--------------|
+| `/gsd:progress` | Where am I? What's next? |
+| `/gsd:quick "task"` | Ad-hoc task with GSD guarantees |
+| `/gsd:discuss-phase N` | Clarify preferences before planning |
+| `/gsd:debug` | Systematic debugging with agents |
+| `/gsd:map-codebase` | Add GSD to an existing project |
+| `/gsd:pause-work` | Clean handoff between sessions |
+| `/gsd:resume-work` | Pick up where you left off |
+| `/gsd:help` | See all commands |
+
+
+### By the End
+
+You'll have:
+- A working Expense Splitter app (Phase 1 - you can continue to Phases 2 and 3)
+- GSD installed and configured
+- Understanding of fresh subagent contexts and why they matter
+- Experience with the full GSD workflow
+- Clean git history with atomic commits
+- The ability to use GSD on your own projects
+
+**Download the lesson folder:** [DOWNLOAD](https://github.com/carlvellotti/claude-code-everyone-course/releases/download/gsd-framework-v1.0/gsd-framework.zip)
