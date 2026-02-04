@@ -6,5 +6,6 @@ export default
   "vibe-coding": "Module 2: Vibe Coding",
   "mini-lessons": "Mini Lessons",
   "cowork": "Complete Guide to Cowork",
+  "gsd": "GSD: Advanced Vibe Coding",
   "search": "Search"
 }

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      font-family: 'JetBrains Mono', 'SF Mono', monospace;
+      background: #0a0a0a;
+      overflow: hidden;
+      display: flex;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(rgba(29, 211, 176, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(29, 211, 176, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .content {
+      width: 50%;
+      height: 100%;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .terminal-side {
+      width: 50%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .terminal-side svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: auto;
+      height: 100%;
+    }
+
+    .label {
+      color: #1DD3B0;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 14px;
+    }
+
+    .title {
+      color: #fff;
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .title .accent {
+      color: #FF5856;
+    }
+
+    .title .title-emphasis {
+      text-decoration: underline;
+      text-decoration-color: #1DD3B0;
+      text-underline-offset: 8px;
+      text-decoration-thickness: 4px;
+    }
+
+    .subtitle {
+      color: #aaa;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .subtitle .accent {
+      color: #FF5856;
+      font-weight: 700;
+    }
+
+    .subtitle .underline {
+      text-decoration: underline;
+      text-decoration-color: #1DD3B0;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
+    }
+
+    .outline {
+      margin-bottom: 0;
+    }
+
+    .outline-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      color: #ddd;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .outline-item .bullet {
+      color: #1DD3B0;
+      margin-right: 12px;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .footer-text {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .footer-tagline {
+      color: #ccc;
+      font-size: 19px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .footer-tagline .emphasis {
+      color: #1DD3B0;
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-color: #1DD3B0;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
+    }
+
+    .footer-tagline .orange {
+      color: #FF5856;
+      font-weight: 700;
+    }
+
+    .footer-tagline .highlight {
+      color: #fff;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <div class="label">Complete Guide</div>
+    <h1 class="title"><span class="title-emphasis">Advanced Vibe Coding</span> with Claude Code</h1>
+    <p class="subtitle">Featuring <span class="accent">GSD</span>, the <span class="underline">most popular framework</span> for spec-driven development</p>
+
+    <div class="outline">
+      <div class="outline-item">
+        <span class="bullet">></span>
+        <span>Build production-grade apps, not demos</span>
+      </div>
+      <div class="outline-item">
+        <span class="bullet">></span>
+        <span>Keep AI quality consistent start to finish</span>
+      </div>
+      <div class="outline-item">
+        <span class="bullet">></span>
+        <span>Break huge projects into manageable pieces</span>
+      </div>
+    </div>
+
+    <div class="footer-text">
+      <div class="footer-tagline"><span class="orange">Interactive lesson:</span> Learn by <span class="emphasis">DOING</span> in <span class="highlight">Claude Code</span>, not reading or watching</div>
+    </div>
+  </div>
+
+  <div class="terminal-side">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
+      <defs>
+        <style>
+          .terminal-bg { fill: #1a1b26; }
+          .terminal-border { fill: #24283b; }
+          .title-bar { fill: #1f2335; }
+          .btn-red { fill: #f7768e; }
+          .btn-yellow { fill: #e0af68; }
+          .btn-green { fill: #9ece6a; }
+          .text { font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', Consolas, monospace; }
+          .prompt { fill: #7aa2f7; }
+          .command { fill: #c0caf5; }
+          .cyan { fill: #7dcfff; }
+          .green { fill: #9ece6a; }
+          .dim { fill: #565f89; }
+          .white { fill: #c0caf5; }
+        </style>
+      </defs>
+
+      <rect class="terminal-border" width="960" height="540" rx="12"/>
+      <rect class="terminal-bg" x="1" y="1" width="958" height="538" rx="11"/>
+      <rect class="title-bar" x="1" y="1" width="958" height="36" rx="11"/>
+      <rect class="terminal-bg" x="1" y="26" width="958" height="12"/>
+      <circle class="btn-red" cx="24" cy="19" r="7"/>
+      <circle class="btn-yellow" cx="48" cy="19" r="7"/>
+      <circle class="btn-green" cx="72" cy="19" r="7"/>
+      <text x="480" y="24" text-anchor="middle" class="text dim" font-size="13">Terminal</text>
+
+      <g transform="translate(32, 72)">
+        <text class="text prompt" font-size="15" y="0">~</text>
+        <text class="text dim" font-size="15" x="16" y="0">$</text>
+        <text class="text command" font-size="15" x="36" y="0">npx get-shit-done-cc</text>
+
+        <text class="text cyan" font-size="14" y="48" xml:space="preserve">   ██████╗ ███████╗██████╗</text>
+        <text class="text cyan" font-size="14" y="68" xml:space="preserve">  ██╔════╝ ██╔════╝██╔══██╗</text>
+        <text class="text cyan" font-size="14" y="88" xml:space="preserve">  ██║  ███╗███████╗██║  ██║</text>
+        <text class="text cyan" font-size="14" y="108" xml:space="preserve">  ██║   ██║╚════██║██║  ██║</text>
+        <text class="text cyan" font-size="14" y="128" xml:space="preserve">  ╚██████╔╝███████║██████╔╝</text>
+        <text class="text cyan" font-size="14" y="148" xml:space="preserve">   ╚═════╝ ╚══════╝╚═════╝</text>
+
+        <text class="text white" font-size="15" y="188">  Get Shit Done <tspan class="dim">v1.0.1</tspan></text>
+        <text class="text white" font-size="15" y="212">  A meta-prompting, context engineering and spec-driven</text>
+        <text class="text white" font-size="15" y="232">  development system for Claude Code by TÂCHES.</text>
+
+        <text class="text" font-size="15" y="280"><tspan class="green">  ✓</tspan><tspan class="white"> Installed commands/gsd</tspan></text>
+        <text class="text" font-size="15" y="304"><tspan class="green">  ✓</tspan><tspan class="white"> Installed get-shit-done</tspan></text>
+
+        <text class="text" font-size="15" y="352"><tspan class="green">  Done!</tspan><tspan class="white"> Run </tspan><tspan class="cyan">/gsd:help</tspan><tspan class="white"> to get started.</tspan></text>
+
+        <text class="text prompt" font-size="15" y="400">~</text>
+        <text class="text dim" font-size="15" x="16" y="400">$</text>
+        <text class="text white" font-size="15" x="36" y="400">▌</text>
+      </g>
+    </svg>
+  </div>
+
+</body>
+</html>
