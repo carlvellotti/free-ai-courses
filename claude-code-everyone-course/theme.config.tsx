@@ -36,9 +36,9 @@ export default {
     const siteUrl = 'https://ccforeveryone.com'
     const isHome = asPath === '/'
     const pageTitle = isHome
-      ? 'Free Claude Code Course | Learn AI for Non-Technical People'
+      ? 'Claude Code Course — Free, No Coding Required | Claude Code for Everyone'
       : (title ? `${title} – Claude Code for Everyone` : 'Claude Code for Everyone')
-    const description = frontMatter?.description || 'Learn Claude Code IN Claude Code! Free Claude Code course for beginners - no coding experience required. No videos, just doing.'
+    const description = frontMatter?.description || 'Learn Claude Code IN Claude Code! Free Claude Code course — no coding required. Master AI agents, file ops, and vibe coding. No videos, just doing.'
     const ogImage = frontMatter?.ogImage || `${siteUrl}/images/better-graphic.jpg`
     const url = `${siteUrl}${asPath}`
 

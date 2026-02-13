@@ -5,7 +5,7 @@ Disallow: /api/*
 Disallow: /_next/*
 
 # Host
-Host: https://ccforpms.com
+Host: https://ccforeveryone.com
 
 # Sitemaps
-Sitemap: https://ccforpms.com/sitemap.xml
+Sitemap: https://ccforeveryone.com/sitemap.xml
