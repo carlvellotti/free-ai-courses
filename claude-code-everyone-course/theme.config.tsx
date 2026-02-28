@@ -27,7 +27,7 @@ export default {
     )
   },
   useNextSeoProps() {
-    return { titleTemplate: '%s – Claude Code for Everyone' }
+    return { titleTemplate: '%s – CC for Everyone' }
   },
   theme: 'dark',
   head: function Head() {
@@ -36,9 +36,9 @@ export default {
     const siteUrl = 'https://ccforeveryone.com'
     const isHome = asPath === '/'
     const pageTitle = isHome
-      ? 'Claude Code Course — Free, No Coding Required | Claude Code for Everyone'
-      : (title ? `${title} – Claude Code for Everyone` : 'Claude Code for Everyone')
-    const description = frontMatter?.description || 'Learn Claude Code IN Claude Code! Free Claude Code course — no coding required. Master AI agents, file ops, and vibe coding. No videos, just doing.'
+      ? 'Claude Code Tutorial (Free Course) | No Coding Required – CC for Everyone'
+      : (title ? `${title} – CC for Everyone` : 'CC for Everyone')
+    const description = frontMatter?.description || 'Learn Claude Code IN Claude Code! Free Claude Code tutorial — no coding required. Master AI agents, file ops, and vibe coding. Hands-on, no videos.'
     const ogImage = frontMatter?.ogImage || `${siteUrl}/images/better-graphic.jpg`
     const url = `${siteUrl}${asPath}`
 
