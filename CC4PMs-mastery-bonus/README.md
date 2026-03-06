@@ -2,6 +2,8 @@
 
 Three power-ups for Claude Code that make it dramatically more useful.
 
+<img src="meme.webp" alt="Claude Code at the moment" width="400" />
+
 | Skill | What It Does | Type | Prerequisites |
 |-------|-------------|------|---------------|
 | `/consult-the-council` | Ask GPT, Gemini, and Grok the same question — get 3 perspectives at once | Command | API keys for OpenAI, Google, xAI |
