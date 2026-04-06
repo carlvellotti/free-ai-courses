@@ -1,7 +1,7 @@
 ---
 title: '1.2: File Exploration & Visual Workspace'
-description: 'Set up Cursor alongside Claude Code for a dual-pane workflow. See your files while Claude works.'
-keywords: 'claude code cursor, claude code visual workspace, claude code setup, dual pane workflow'
+description: 'Set up a visual workspace to see your files alongside Claude Code for a seamless split-screen workflow'
+keywords: 'claude code visual workspace, claude code setup, dual pane workflow, claude code obsidian, claude code cursor'
 ---
 
 ## 1.2: File Exploration & Visual Workspace
@@ -10,67 +10,171 @@ keywords: 'claude code cursor, claude code visual workspace, claude code setup, 
 
 > **Interactive lesson:** Run `/start-1-2` in Claude Code
 
-## The Dual-Pane Workflow
+## Overview
 
-**Problem:** Terminal is great for talking to Claude, but you can't see your files.
+Set up a visual workspace to see your project files in real-time alongside Claude Code for a seamless split-screen workflow.
 
-**Solution:** Use a visual editor alongside Claude Code.
+**Key takeaway:** A visual workspace lets you watch files appear and update as Claude works.
 
-| Pane | Purpose |
-|------|---------|
-| **Left side** | File explorer (see everything) |
-| **Bottom** | Claude Code terminal (work with everything) |
+
+## Why Visualization Matters
+
+Working with Claude Code in a terminal feels like working blind. You ask Claude to create documents, but you can't see what's happening.
+
+**The solution:** Open a visual editor alongside your terminal. Now you can:
+- Watch files appear as Claude creates them
+- Read documents while Claude is working
+- Verify everything is organized correctly
+- Always know exactly what's happening
+
+This transforms Claude Code from a mysterious black box into a transparent tool you can watch and verify in real-time.
+
 
 ## Choose Your Tool
 
-[Cursor](https://cursor.com) is a free code editor that works alongside Claude Code:
+### Obsidian
 
-- Shows your files visually while you work with Claude
-- Has its own AI features you can use alongside Claude Code
-- VS Code works too if you prefer it
+**Best for:** Users who want a standalone note-taking app
 
-**[Download Cursor →](https://cursor.com)**
+[Obsidian](https://obsidian.md/) is a free, popular markdown editor with:
+- Clean, distraction-free interface
+- Wikilinks (`[[filename]]`) for connecting notes
+- Graph view to visualize note connections
+- Large plugin ecosystem
+
+**Limitations:**
+- Cannot display hidden folders like `.claude/` - you'll use Finder/Explorer for those
+- Requires you work in 2 tools, Obsidian for markdown file editing and the terminal for Claude Code
+
+**Download:** https://obsidian.md/download
+
+### VS Code / Cursor
+
+**Best for:** Users who already use these tools or want code editing capabilities
+
+- Full-featured code editors
+- Can show hidden folders
+- Extensions for markdown preview
+- More complex than needed for pure document work
+
 
 ## Setup Guide
 
-1. Download from [cursor.com](https://cursor.com)
-2. Run the installer
-3. Open Cursor and open your course folder
-4. **Important:** Click "Editor" in the upper left (not "Agents")
-5. Open terminal: `Ctrl+`` (backtick key, above Tab)
-6. Type `claude` and press Enter
+### Obsidian Setup
 
-## Exploring Unfamiliar File Structures
+1. **Download:** Visit https://obsidian.md/download (free for personal use)
+2. **Open your project:** Select "Open folder as vault" and navigate to your course folder
+3. **Split-screen:** Position Claude Code terminal and Obsidian side-by-side
 
-Once Claude Code is running, you can ask:
+**Note:** Ask Claude for the exact path if needed: `What's the path to my course folder?`
 
-```
-Show me the file structure
-```
 
-```
-Summarize the contents of the docs/ folder
-```
+## The .claude/ Folder
 
-```
-What files are in this project?
-```
+The `.claude/` folder contains agents, commands, and settings. Access depends on your tool:
 
-Claude can map out any folder of documents for you.
+| Tool | Can see .claude/? | How to access |
+|------|-------------------|---------------|
+| **Obsidian** | No | Use Finder/Explorer |
+| **VS Code** | Yes | Enable hidden files |
 
-## Markdown Files
+**To view `.claude/` in Finder/Explorer:**
+- **Mac:** Press `Cmd + Shift + .` in Finder to show hidden folders
+- **Windows:** Enable "Hidden items" in File Explorer View tab
 
-- `.md` extension = Markdown format
-- Common standard for documents - LLMs love it
-- **Preview mode:** `Cmd/Ctrl+Shift+V` shows formatted view (in Cursor)
+**When you need it:** Module 1.6 (Custom Sub-Agents) and later. For now, focus on regular project files.
 
-## Real-World Applications
+**Note:** Claude Code can always access `.claude/` files regardless of your editor.
 
-- **Inherit a project from a coworker** - Claude maps it out
-- **Client sends messy brand assets** - get oriented in minutes
-- **Downloads folder chaos** - Claude helps clean up
-- **Starting a new job** - understand the team's shared drive
-- **Any unfamiliar file structure**
+
+## Real-Time Visualization Demo
+
+When Claude creates or edits files, you'll watch them appear in your editor instantly.
+
+**Try it:**
+
+1. Open your editor with your project folder
+2. In Claude Code, ask: *Create a file called test-visualization.md with some content*
+3. Watch your editor - the file appears immediately
+4. Click it to read what Claude wrote
+
+That's it! No refresh needed. Files update in real-time as Claude works.
+
+
+## Editor Tips
+
+### Obsidian Tips
+
+**Essential shortcuts:**
+- **`Cmd/Ctrl + O`** - Quick Switcher (jump to any file)
+- **`Cmd/Ctrl + Shift + F`** - Search across all files
+- **`Cmd/Ctrl + E`** - Toggle Reading/Editing view
+
+**Wikilinks:** Connect documents with `[[filename]]` syntax for easy navigation
+
+**Tags:** Organize with `#prd #user-research #q1-2025` for filtering
+
+**Stay in Reading view** for cleaner formatted display
+
+### VS Code Tips
+- **`Cmd/Ctrl + P`** - Quick open any file
+- Enable hidden files to see `.claude/`
+
+
+## Example: Real-Time Workflow
+
+**Without visualization:** Claude creates files, but you're unsure what happened or where they are.
+
+**With a visual workspace:** Watch files appear instantly, click to review content, verify organization - complete visibility and control.
+
+
+## Best Practices
+
+**Do:**
+- Use split-screen workflow constantly
+- Use quick-open shortcuts to navigate
+- Keep your editor focused on the project folder
+
+**Don't:**
+- Work full-screen terminal only (you're missing half the value)
+- Worry about mastering your editor right now (just use it as a file viewer)
+
+
+## Troubleshooting
+
+### I don't see any files
+
+**Likely cause:** Wrong folder opened
+
+**Fix:**
+1. Ask Claude: `What's the path to my course folder?`
+2. Re-open that exact folder in your editor
+3. Your files should now appear
+
+**Common mistake:** Opening a parent folder instead of the project folder itself
+
+**Example:**
+- Wrong: `/Users/yourname/Documents` (too high level)
+- Correct: `/Users/yourname/Documents/claude-code-everyone-course`
+
+### Files aren't updating
+
+**Likely cause:** Editor needs to detect the change
+
+**Fix:**
+1. Click outside and back into editor window (forces refresh)
+2. Or: Close and reopen the specific file
+3. Or: Restart the editor (rare, but works)
+
+### I see raw markdown instead of formatted text
+
+**For Obsidian:** Press `Cmd/Ctrl + E` to toggle to Reading view, or click the book icon
+
+### Where's the .claude/ folder?
+
+**Obsidian:** Hidden by design. Use Finder/Explorer:
+- **Mac:** Open Finder → Navigate to project → Press `Cmd + Shift + .`
+- **Windows:** Open File Explorer → Navigate to project → View tab → Check "Hidden items"
 
 ---
 
