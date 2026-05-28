@@ -3,9 +3,9 @@
 :root {
   --font-sans: 'SF Mono', 'Monaco', 'Courier New', monospace;
   --font-heading: 'SF Mono', 'Monaco', 'Courier New', monospace;
-  --nextra-primary-hue: 215deg;
-  --nextra-primary-saturation: 50%;
-  --nextra-primary-lightness: 45%;
+  --nextra-primary-hue: 209deg;
+  --nextra-primary-saturation: 95%;
+  --nextra-primary-lightness: 52%;
 }
 
 /* Apply fonts */
@@ -121,37 +121,36 @@ strong {
   margin-bottom: 0.25rem;
 }
 
-/* Color scheme - PLACEHOLDER accent (slate blue). Codex brand color is TBD (D1);
-   swap these values once the final palette is chosen. DARK MODE ONLY. */
+/* Color scheme - Codex brand: accent #339CFF, dark #1A1C1F. DARK MODE ONLY. */
 .dark {
-  --nextra-primary-hue: 215deg;
-  --nextra-primary-saturation: 50%;
-  --nextra-primary-lightness: 55%;
+  --nextra-primary-hue: 209deg;
+  --nextra-primary-saturation: 100%;
+  --nextra-primary-lightness: 60%;
 }
 
 .dark .nextra-content code:not(pre code) {
-  background-color: rgba(59, 109, 181, 0.1);
-  border: 1px solid rgba(59, 109, 181, 0.3);
-  color: #5b8fd6;
+  background-color: rgba(51, 156, 255, 0.1);
+  border: 1px solid rgba(51, 156, 255, 0.3);
+  color: #339CFF;
   padding: 0.2em 0.4em;
   border-radius: 4px;
 }
 
 .dark .nextra-content ul > li::marker {
-  color: #2c4a73;
+  color: #339CFF;
 }
 
 .dark .nextra-content ol > li::marker {
-  color: #2c4a73;
+  color: #339CFF;
 }
 
 .dark .nextra-content a {
-  color: #5b8fd6;
+  color: #339CFF;
   text-decoration: none;
 }
 
 .dark .nextra-content a:hover {
-  color: #8fb4e6;
+  color: #66B5FF;
 }
 
 /* Code block improvements */
@@ -160,23 +159,23 @@ strong {
   opacity: 1 !important;
 }
 
-/* Style copy button with theme accent color */
+/* Style copy button with brand accent */
 .dark button[title="Copy code"] {
-  background-color: #2c4a73 !important;
-  color: white !important;
+  background-color: #339CFF !important;
+  color: #1A1C1F !important;
   border-radius: 6px !important;
   padding: 6px 8px !important;
   transition: all 0.2s ease !important;
 }
 
 .dark button[title="Copy code"]:hover {
-  background-color: #3b6db5 !important;
+  background-color: #66B5FF !important;
   transform: scale(1.05) !important;
 }
 
 /* Copied state */
 .dark button[title="Copied"] {
-  background-color: #3b6db5 !important;
+  background-color: #1F86E6 !important;
 }
 
 /* Enable word-wrap for long lines in code blocks */
