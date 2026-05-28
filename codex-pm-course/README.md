@@ -2,6 +2,8 @@
 
 An interactive course that teaches product managers how to use Codex for practical PM work.
 
+**Course site:** https://codexforpms.com
+
 ## How To Start
 
 1. Open this repository in Codex.
