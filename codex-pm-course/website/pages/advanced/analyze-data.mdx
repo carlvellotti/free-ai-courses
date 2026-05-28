@@ -1,0 +1,90 @@
+---
+title: '2.2: Analyze Data'
+description: 'Use Codex for the full data-driven PM workflow — funnel analysis to discover problems, impact estimation with ROI scenarios, and A/B test analysis.'
+keywords: 'codex, openai codex, codex for product managers, funnel analysis, impact estimation, roi, ab test analysis, segmentation'
+---
+
+# Module 2.2: Analyze Data
+
+## Reference Guide
+
+- **Time to Complete:** 45-60 minutes
+- **Prerequisites:** Module 2.1 complete
+
+> **Start this lesson interactively:** Type `start-2-2-codex` in Codex to work through the full discovery-to-decision data workflow.
+
+## Overview
+
+This lesson teaches one of the most valuable PM skills: using data to make confident product decisions. You'll walk the complete workflow through a realistic scenario — TaskFlow's activation rate has been stuck at 45% for six months, and leadership wants answers.
+
+**Key takeaway:** Great PMs work in a loop — **discover with data, estimate impact, build, analyze results, iterate.** Codex can read CSVs directly, process thousands of rows, run statistical tests, and produce polished documents for leadership.
+
+The workflow has three phases.
+
+## Phase 1 — Discovery
+
+**Find where users get stuck.** Codex reads funnel data (e.g. `activation-funnel-q4.csv`) and calculates drop-off at each step:
+
+| Step | Completion Rate |
+|------|-----------------|
+| Signup | 100% |
+| First Task Created | 72% |
+| First Task Completed | 40% |
+| Invite Sent | 50% |
+
+The finding: **60% of users who create a task never complete it.** That's the problem.
+
+**Find out why.** Codex then analyzes survey responses, counting themes and segmenting by company size. The data reveals users feel overwhelmed by a blank canvas and need examples — and small teams (5-20 people) report this twice as often as enterprise users.
+
+**Document it.** Codex synthesizes the funnel data, survey evidence, segmentation insight, and a proposed solution (**Guided Onboarding** with a pre-populated sample project) into a problem analysis document you'd share with leadership.
+
+> **CSV note:** CSV files won't render nicely in Markdown editors like Obsidian, but Codex reads them, analyzes them, and presents formatted tables. Open the raw files in Excel, Google Sheets, or VS Code if you want to see them yourself.
+
+## Phase 2 — Impact Estimation
+
+Before committing engineering time, estimate the business impact. The framework:
+
+```
+Impact = Users Affected × Current Action Rate × Expected Lift × Value per Action
+```
+
+- **Users Affected** — how many see the feature (often not 100% — gradual rollout, specific segments)
+- **Current Action Rate** — today's rate from your analytics (45% activation)
+- **Expected Lift** — the hard part; estimate from similar features, competitor benchmarks, and research
+- **Value per Action** — what each incremental activation is worth (e.g. LTV × conversion rate)
+
+**Always model three scenarios** — pessimistic, realistic, and optimistic — to make uncertainty explicit. A realistic case might project +13 percentage points of activation and a 9.4x ROI over three years, while even the pessimistic case clears 2.6x. Single-point estimates hide risk; ranges help leadership decide.
+
+## Phase 3 — Experiment Analysis
+
+After shipping the feature as an A/B test, the decision is: ship to 100%, iterate, or kill? This is the most important lesson in the module.
+
+**Never stop at the topline.** A modest topline (45% → 48%, barely significant) can hide a huge win. Dig deeper:
+
+1. **Segment by your target customer.** Breaking results down by company size reveals the real story:
+   - Small teams (your target): **+11.4pp**, highly significant — a big win
+   - Enterprise: **-3.5pp** — it actually hurt them
+
+   The simple example tasks were perfect for small teams figuring out their workflows, but felt too basic for enterprise. The modest topline was masking a major win for the target market.
+
+2. **Check quality, not just quantity.** Among activated users, treatment saw +18.3pp week-1 retention (60% → 78%) and 2.3x more tasks completed. The new activations weren't just more numerous — they were higher quality, which means higher LTV.
+
+3. **Look at leading indicators.** Template usage was 3.2x higher and teammate invites 2.9x higher in treatment — signals that predict stickiness and viral growth.
+
+**The readout.** Codex synthesizes everything into an experiment readout with a clear recommendation: ship to small teams immediately, exclude enterprise, and start separate discovery for enterprise onboarding.
+
+## What Codex Does for You
+
+- Reads and analyzes CSVs from your analytics tools — no manual Excel work
+- Processes thousands of rows instantly
+- Calculates statistical significance, confidence intervals, and segment analyses
+- Builds ROI models and scenario analyses
+- Creates polished, leadership-ready documents
+
+## What's Next
+
+Next up is **Module 2.3: Product Strategy** — making hard strategic choices, pressure-testing them with a devil's advocate, and turning a strategy doc into an executive presentation.
+
+Start it by typing `start-2-3-codex` in Codex, or read the reference guide:
+
+**[Go to Module 2.3: Product Strategy →](./product-strategy)**

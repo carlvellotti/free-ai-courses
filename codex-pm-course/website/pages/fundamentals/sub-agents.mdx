@@ -1,0 +1,93 @@
+---
+title: '1.5: Custom Sub-Agents'
+description: 'Build permanent specialist sub-agents in Codex — like an Engineer, Executive, and User Researcher — to review your PM work from multiple perspectives.'
+keywords: 'codex, openai codex, codex for product managers, sub-agents, specialists, multi-perspective review, orchestration'
+---
+
+# Module 1.5: Custom Sub-Agents
+
+## Reference Guide
+
+- **Time to Complete:** 20-30 minutes
+- **Prerequisites:** Module 1.4 complete (understand temporary agents)
+
+> **Start this lesson interactively:** Type `start-1-5-codex` in Codex to meet your specialist team and see them review a feature spec.
+
+## Overview
+
+Where Module 1.4's agents were temporary clones for parallel work, **custom sub-agents** are permanent, specialized team members with distinct expertise, personalities, and even visual identities. You create them once and call on them anytime.
+
+**Key takeaway:** Sub-agents give you instant multi-perspective feedback. Think of yourself as a PM with a team — you delegate to specialists, they do their work, and Codex synthesizes the results.
+
+## Your Pre-Built Specialist Team
+
+The lesson ships with three sub-agents ready to use:
+
+- **Engineer** — technical feasibility, implementation challenges, performance considerations
+- **Executive** — business value, strategic framing, stakeholder communication, risk
+- **User Researcher** — user pain points, missing context, research validation, UX concerns
+
+Have all three review the same document and you get three expert lenses in one consolidated review. For example:
+
+```
+Have the Engineer, Executive, and User Researcher sub-agents review feature-spec-realtime-collab.md and create a consolidated review in feature-spec-review.md
+```
+
+The Engineer catches technical challenges, the Executive helps you frame it for leadership, and the User Researcher keeps you focused on real user problems.
+
+## The Orchestration Model
+
+Behind the scenes, the main Codex acts as the orchestrator:
+
+1. You give Codex a task (get feedback from three specialists).
+2. Codex calls each sub-agent with its specific instructions.
+3. Each sub-agent returns its specialized perspective.
+4. Codex combines them into one consolidated file.
+
+You don't manage the specialists individually — you delegate the goal, and Codex coordinates.
+
+## How to Invoke Sub-Agents
+
+There are two ways:
+
+- **Automatic** — Codex invokes the right sub-agent when its `description` matches the task.
+- **Explicit** — you name it: "Use the Engineer sub-agent to review this spec."
+
+You can speak naturally — no need to type any emoji or special syntax.
+
+## Anatomy of a Sub-Agent File
+
+A sub-agent is a Markdown file with two parts:
+
+**1. YAML frontmatter** (between `---` markers) tells Codex *when* to use it:
+
+- `name:` — the identifier (can include a text-face emoji for visual personality)
+- `description:` — when and how this sub-agent should be invoked
+- `tools:` *(optional)* — which tools it may use
+- `model:` *(optional)* — which model to use, or `inherit`
+- `color:` *(optional)* — a visual identity color
+
+**2. System prompt** (after the frontmatter) tells the sub-agent *how* to behave: who they are, what they provide, how they communicate, the value they give you, and the output structure they should follow.
+
+Once created, a sub-agent is available in that project forever.
+
+## Agents vs. Sub-Agents
+
+| | Agents (1.4) | Sub-Agents (1.5) |
+|---|--------------|------------------|
+| **Lifespan** | Temporary | Permanent |
+| **Best for** | Parallel batch work now | Specialized perspectives, repeatedly |
+| **Personality** | Generic | Distinct and consistent |
+| **Analogy** | Temp contractors | Permanent team |
+
+## Don't Start From Scratch
+
+You don't have to build every specialist yourself. Community libraries offer 100+ pre-built sub-agent personas — Engineer, QA Tester, Data Analyst, Technical Writer, and many more — that you can copy and adapt to your product.
+
+## What's Next
+
+Next up is **Module 1.6: Project Memory** — using **AGENTS.md** to give Codex permanent memory of your product, personas, terminology, and writing standards, so you never re-explain context again.
+
+Start it by typing `start-1-6-codex` in Codex, or read the reference guide:
+
+**[Go to Module 1.6: Project Memory →](./project-memory)**

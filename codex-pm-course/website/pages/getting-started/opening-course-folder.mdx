@@ -1,0 +1,86 @@
+---
+title: '0.3: Opening the Course in Codex'
+description: 'Download the Codex for PMs course files, open them in Codex, and run your first interactive lesson.'
+keywords: 'codex course, codex skills, open folder codex, run codex lesson, codex agents.md, codex pm course setup'
+---
+
+# Module 0.3: Opening the Course in Codex
+## Reference Guide
+
+- **Time to Complete:** 5 minutes
+- **Prerequisites:** Codex installed and signed in (Module 0.2)
+
+## 📖 Overview
+
+You'll download the course files, open them with Codex, and start your first lesson. The course lessons are packaged as **Codex skills** that Codex discovers automatically when you run it inside the course folder.
+
+**Key takeaway:** Download the files → `cd` into the folder → run `codex` → start Lesson 1.1.
+
+## Step 1: Download the Course Files
+
+**[📥 Download Course Files](https://github.com/carlvellotti/codex-pm-course/releases/latest/download/complete-course.zip)**
+
+The ZIP downloads to your Downloads folder. Unzip it and move the `complete-course` folder somewhere easy to find (like your Documents folder).
+
+> Comfortable with git? You can clone instead:
+> ```bash
+> git clone https://github.com/carlvellotti/codex-pm-course.git
+> ```
+
+## Step 2: Open the Folder in Codex
+
+In your terminal, move into the course folder and start Codex:
+
+```bash
+cd ~/Documents/complete-course
+codex
+```
+
+(Replace the path with wherever you put the folder.) Codex opens an interactive session **in that folder**.
+
+When Codex asks about permissions, **Auto mode** (the default) is exactly right — it can work with the course files but will ask before doing anything outside the folder.
+
+## Step 3: See the Lessons
+
+The course lessons live in a `.agents/skills/` folder, and Codex finds them automatically. To see the full list, type:
+
+```text
+/skills
+```
+
+You'll see the course lessons — `start-1-1-codex`, `start-1-2-codex`, and so on.
+
+## Step 4: Start Your First Lesson
+
+Begin the course by starting Lesson 1.1:
+
+```text
+start-1-1-codex
+```
+
+Codex loads the lesson and becomes your instructor from there. Just follow along.
+
+> If it doesn't kick off automatically, type `/skills`, pick **start-1-1-codex**, or enter `$start-1-1-codex` to trigger it directly.
+
+## About AGENTS.md
+
+Codex can keep "project memory" in a file called **`AGENTS.md`** — it tells Codex about your project so it behaves consistently across sessions. You'll create and use your own `AGENTS.md` in **Module 1.6: Project Memory**. (You can also scaffold one anytime with the `/init` command.)
+
+## 🐛 Troubleshooting
+
+**`/skills` shows nothing**
+- Make sure you ran `codex` from **inside** the `complete-course` folder (not your home directory). Quit Codex, `cd` into the folder, and run `codex` again.
+
+**"command not found: codex"**
+- Codex isn't installed or your terminal needs a restart — see [Module 0.2](/getting-started/installation).
+
+**The lesson won't start**
+- Type `/skills` to confirm the lesson is listed, then select it. Or enter `$start-1-1-codex`.
+
+## 🚀 What's Next?
+
+**Module 0.3 complete** — the course is open in Codex and you've started Lesson 1.1.
+
+**Next: Module 1.1 — Welcome to TaskFlow**, where you'll meet your fictional company and get your bearings.
+
+**[Go to Module 1.1 →](/fundamentals/welcome)**

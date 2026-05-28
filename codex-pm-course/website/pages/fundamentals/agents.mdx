@@ -1,0 +1,97 @@
+---
+title: '1.4: Agents'
+description: 'Learn how Codex agents work — independent instances running in parallel to process batches of PM work and research many sources at once.'
+keywords: 'codex, openai codex, codex for product managers, parallel agents, batch processing, competitive research'
+---
+
+# Module 1.4: Agents
+
+## Reference Guide
+
+- **Time to Complete:** 25-35 minutes
+- **Prerequisites:** Module 1.3 complete
+
+> **Start this lesson interactively:** Type `start-1-4-codex` in Codex to watch agents process work in parallel.
+
+## Overview
+
+This is the breakthrough lesson. **Agents** are independent instances of Codex that work simultaneously — like cloning yourself to do many things at once. This is what makes Codex a force multiplier rather than just a chatbot.
+
+**Key takeaway:** When you have multiple independent tasks, you don't have to do them one at a time. Spin up an agent for each and run them in parallel.
+
+## What Agents Are
+
+| | Regular Codex | Agents |
+|---|---------------|--------|
+| **Tasks** | One at a time | Many at once |
+| **Mode** | Sequential | Parallel |
+| **Capability** | Full | Full (each agent is a complete Codex instance) |
+
+Each agent can read files, search the web, analyze, and write — they're complete clones, not limited tools.
+
+**The math:** 10 tasks × 5 minutes each is 50 minutes sequentially. With 10 agents working in parallel, it's about 5 minutes — roughly 10x faster.
+
+## When to Use Agents (and When Not To)
+
+**Use agents when:**
+- Batch processing many similar items (10 meeting notes, 20 interviews, 15 tickets)
+- Researching multiple sources (5 competitors at once)
+- Analyzing different data types together (interviews + surveys + tickets + sales notes)
+
+**Don't use agents when:**
+- It's a single task — just ask Codex directly
+- Work is sequential — task 2 needs task 1's output, so it can't be parallelized
+- It's a quick, simple task — agents would be overkill
+
+## Example 1 — Batch Processing Meeting Notes
+
+Ten meeting notes that each need action items, decisions, and next steps extracted. Instead of processing them one by one, Codex spins up ten agents — one per file — and they all work at the same time, appending a summary to each note.
+
+```
+Process all 10 meeting notes in parallel using individual agents — each agent extracts action items, decisions, and next steps, then appends a summary to its file
+```
+
+## Example 2 — Parallel Competitive Research
+
+Your CEO wants a competitive landscape update on five competitors (Asana, Linear, Monday.com, ClickUp, Jira). Codex launches five agents that each research one competitor via web search, write an individual report, and then Codex synthesizes everything into one landscape matrix covering features, pricing, positioning, strengths/weaknesses, and gaps.
+
+This is the same type of task, parallelized.
+
+## Example 3 — Specialized Agents for Different Data
+
+Sometimes you need *different* kinds of analysis at once. Deciding whether to build a mobile app might require synthesizing four very different sources:
+
+- **Interview Analyst** — reads interview transcripts, extracts mobile pain points and quotes
+- **Survey Analyst** — analyzes survey CSV data, calculates percentages, segments by role
+- **Support Analyst** — reviews support tickets, categorizes mobile requests by use case
+- **Sales Analyst** — reads sales notes, identifies lost deals and revenue impact
+
+Four specialized agents run simultaneously, then Codex combines their findings into one recommendation. This is advanced orchestration: different agents, different specializations, different data formats, unified output.
+
+## How to Think About Agents
+
+Ask yourself:
+
+1. **Can this be broken into independent parallel tasks?** If yes, agents fit.
+2. **How many independent tasks are there?** That's how many agents you need.
+3. **Are the tasks similar or different?** Similar → generic agents. Different → specialized agents.
+4. **Will the outputs need combining?** If yes, plan a synthesis step at the end.
+
+Once you build these patterns, they become repeatable weekly superpowers: weekly meeting processing, multi-source research, competitive intelligence, and sprint-planning breakdowns.
+
+> **Cost note:** Each agent uses API calls, so be strategic. For most PM work, 5-20 agents is the sweet spot. The time savings usually far outweigh the cost for substantial tasks.
+
+## Agents vs. Sub-Agents
+
+This distinction sets up the next lesson:
+
+- **Agents (this lesson):** temporary clones created on the fly for parallel batch work — like temp contractors.
+- **Custom sub-agents (next lesson):** permanent, pre-configured specialists with consistent personalities — like your permanent team.
+
+## What's Next
+
+Next up is **Module 1.5: Custom Sub-Agents** — building permanent specialists (Engineer, Executive, User Researcher) you can call on anytime for multi-perspective review.
+
+Start it by typing `start-1-5-codex` in Codex, or read the reference guide:
+
+**[Go to Module 1.5: Custom Sub-Agents →](./sub-agents)**

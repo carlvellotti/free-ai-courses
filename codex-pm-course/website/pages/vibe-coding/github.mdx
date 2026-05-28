@@ -1,0 +1,61 @@
+---
+title: '3.4: GitHub'
+description: 'Save your quiz project to GitHub so it''s backed up in the cloud and ready to deploy — Codex handles the setup so you never type scary commands.'
+keywords: 'codex, openai codex, codex for product managers, github, repository, version control, backup, vibe coding'
+---
+
+# Module 3.4: GitHub
+
+## Reference Guide
+
+- **Time to Complete:** 15-20 minutes
+- **Prerequisites:** Module 3.3 complete; quiz built and working locally
+- **You'll need:** A free GitHub account ([github.com](https://github.com))
+
+> **Start this lesson interactively:** Type `start-4-4-codex` in Codex to save your code to GitHub.
+
+## Overview
+
+Right now your quiz exists only on your computer. If your laptop fails or the files get deleted, it's gone — and you can't put it on the internet yet. This lesson backs it up to **GitHub**, the cloud home for your code.
+
+**Key takeaway:** GitHub is like Google Drive, but for code. It stores your project in the cloud, keeps a history of every change, and is how the deployment service will grab your code in the next lesson.
+
+## What GitHub Is
+
+GitHub saves your code to the cloud, keeps a full history of every change, and lets you undo mistakes. Your project on GitHub is called a **repository** (or **repo** for short) — a word you'll hear developers use constantly.
+
+## The Steps (Codex Does the Heavy Lifting)
+
+You don't type any scary commands — Codex handles everything. Here's what happens:
+
+1. **Create a GitHub account** if you don't have one. Codex can open the signup page for you.
+
+2. **Connect Codex to GitHub.** Codex installs the GitHub CLI (`gh`) — the official command-line tool — and authenticates it. This opens your browser to log in: you enter a one-time code, click Authorize, and come back. Codex then verifies the connection.
+
+3. **Save your code.** Codex initializes version control in your `quiz-project` folder, records your files in an initial commit, and creates a GitHub repository. It makes the repo **private by default**, so only you can see it.
+
+4. **Push it up.** Sending your code to GitHub is called **pushing**. Codex pushes your project and then opens the repo in your browser so you can see it live on github.com.
+
+## Going Forward
+
+From now on, whenever you want to save your work, just ask:
+
+```
+Push to GitHub
+```
+
+Codex saves your latest changes. There's much more to GitHub — collaboration, version history, branching — but for now the important thing is that your code lives somewhere it can be accessed and put on the internet. That's exactly what the next lesson does.
+
+## Where This Applies Beyond the Course
+
+- Backing up any code project safely in the cloud
+- Keeping a history of changes you can roll back
+- Collaborating with engineers, who live in GitHub day to day
+
+## What's Next
+
+Next up is **Module 3.5: Go Live** — connecting GitHub to a hosting service and getting a real URL you can share with anyone. This is the finish line.
+
+Start it by typing `start-4-5-codex` in Codex, or read the reference guide:
+
+**[Go to Module 3.5: Go Live →](./go-live)**

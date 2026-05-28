@@ -1,0 +1,72 @@
+---
+title: '3.3: Build & Iterate'
+description: 'Codex builds your quiz app from the requirements, runs it locally, and you iterate with screenshots and feedback until it''s exactly right.'
+keywords: 'codex, openai codex, codex for product managers, build, iterate, plan-first, localhost, vibe coding'
+---
+
+# Module 3.3: Build & Iterate
+
+## Reference Guide
+
+- **Time to Complete:** 30-45 minutes
+- **Prerequisites:** Module 3.2 complete; `REQUIREMENTS.md` exists in `quiz-project`
+
+> **Start this lesson interactively:** Type `start-4-3-codex` in Codex to build and refine your quiz.
+
+## Overview
+
+This is where the quiz comes to life. Codex handles all the technical setup and writes the code from your requirements; you watch it happen, run it locally, and iterate until it's exactly what you want.
+
+**Key takeaway:** First versions are never perfect — and that's fine. The iteration loop (**screenshot → describe → change → refresh → repeat**) is how real product development works, except with AI each round takes seconds instead of days.
+
+## Step 1 — Scaffold the Project
+
+Codex sets up the project structure by creating a Next.js starter inside your folder. You'll see a batch of new files appear; the `app/` folder is where your quiz lives, and everything else is configuration you don't need to worry about.
+
+## Step 2 — Plan First, Then Build
+
+For big tasks, it helps to see the plan before any code is written. The **plan-first workflow** lets you ask Codex to propose its approach, review it, and approve before it executes.
+
+```
+Build my quiz based on REQUIREMENTS.md
+```
+
+Codex reads the requirements and presents a plan — the components it'll create (quiz page, question component, results page), the styling approach, how the quiz logic maps answers to results, and any images or icons. You approve it (or ask questions), then Codex builds.
+
+## Step 3 — Run It Locally
+
+Codex starts your quiz running and opens it in your browser at a **localhost** address (typically `http://localhost:3000`).
+
+> **What "localhost" means:** This link only works on *your* computer — it's a temporary local version for testing. You'll make it public when you deploy in Module 3.5.
+
+Take the quiz for a spin — answer the questions and confirm you get a result at the end. If something's off (no result, wrong mapping, a style glitch), that's normal for a first version. Get it working first, then polish.
+
+## Step 4 — Iterate with Screenshots
+
+The fastest way to request changes is visual. Take a screenshot, paste it into Codex with **Ctrl+V** (not `Cmd+V`, even on Mac), and describe what you want different. This also works great for showing bugs — if something looks wrong, screenshot it and paste it.
+
+After each change, refresh your browser to see the update. Two or three rounds is typical. Common requests:
+
+- Add confetti or an animation when you get a result
+- Change colors or fonts
+- Tweak question or result wording
+- Add images for each result
+- Adjust layout, spacing, or add a progress bar
+
+## The Iteration Loop
+
+**Screenshot → describe → change → refresh → repeat.** Keep going until it's yours. This is exactly how real product development works, just dramatically faster.
+
+## Where This Applies Beyond the Course
+
+- Building any web project — landing pages, tools, prototypes
+- Testing ideas quickly before investing in "real" development
+- Working with designers and developers — clear visual feedback speeds everything up
+
+## What's Next
+
+Next up is **Module 3.4: GitHub** — your quiz currently exists only on your computer. You'll save it to the cloud so it's backed up and ready to deploy.
+
+Start it by typing `start-4-4-codex` in Codex, or read the reference guide:
+
+**[Go to Module 3.4: GitHub →](./github)**

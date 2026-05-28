@@ -1,0 +1,90 @@
+---
+title: '3.2: Plan'
+description: 'Define clear requirements before building — Codex interviews you about your quiz and captures the spec in a REQUIREMENTS.md file.'
+keywords: 'codex, openai codex, codex for product managers, requirements, product spec, vibe coding, planning'
+---
+
+# Module 3.2: Plan
+
+## Reference Guide
+
+- **Time to Complete:** 20-30 minutes
+- **Prerequisites:** Module 3.1 complete; `quiz-project` folder created
+
+> **Start this lesson interactively:** Type `start-4-2-codex` in Codex to define your quiz through a guided interview.
+
+## Overview
+
+Before building, you need to get clear on *what* you're building. This is **requirements** — a description of how your quiz should work and look. The clearer the brief, the better the result. By the end, Codex saves everything to a `REQUIREMENTS.md` file that becomes the spec for the build.
+
+**Key takeaway:** Vague instructions produce something you didn't expect. Specific requirements produce what you actually want — whether you're briefing Codex, a designer, or a developer.
+
+## How the Interview Works
+
+Codex interviews you to nail down the design of your coffee personality quiz. Along the way it uses a **structured multiple-choice** tool that gives you buttons to pick from instead of typing — you can ask for this anytime by saying "ask me" or "give me options."
+
+The interview covers the decisions below.
+
+### 1. Number of results
+
+How many personality-to-coffee pairings should the quiz have — 3 (simple), 4 (good variety, recommended), 5, or 6 (maximum variety)?
+
+### 2. Question vibe
+
+What style of questions? Fun pop culture, lifestyle & preferences, abstract & quirky, or a mix.
+
+### 3. Personality-to-coffee pairings
+
+Pick your pairings from a menu, each with a tagline. For example:
+
+- **Bold Adventurer** → Double Espresso — "You live for intensity"
+- **Cozy Classic** → Medium Roast Drip — "Comfort in every cup"
+- **Zen Minimalist** → Black Coffee, Single Origin — "Simple. Clean. Perfect."
+- **Social Butterfly** → Cappuccino — "Coffee is better with company"
+
+### 4. The logic
+
+**Logic** is the behind-the-scenes "if this, then that" rules of how something works. Every app, website, or tool has logic, and planning means thinking through how it should behave. Here, each answer maps to a personality, and the quiz tallies which personality wins. You choose how to show the result:
+
+- **Option A — Single recommendation:** "You're a Bold Adventurer! Try our Double Espresso."
+- **Option B — All percentages:** "You're 50% Bold Adventurer, 30% Cozy Classic, 20% Sweet Enthusiast," with each coffee recommendation.
+
+### 5. Visual style
+
+Codex generates a few HTML style preview pages and opens them in your browser so you can see real options — for example, playful/colorful, minimal/clean, bold/dramatic, and warm/cozy. You pick one, or mix elements ("the colors from #2 with the layout from #3").
+
+### 6. Images and icons
+
+- **Images:** Codex can search the web and download a photo for each result (takes a bit longer), or you can skip images for now and add them later.
+- **Icons:** small icons next to each answer make the quiz feel more polished, or you can keep it text-only.
+
+### 7. The questions
+
+Based on your chosen vibe, Codex generates 5-7 questions, each with answers that map to your personalities. You can approve them, request changes, or write your own.
+
+## The Output: REQUIREMENTS.md
+
+Codex saves all your decisions to `REQUIREMENTS.md` in the `quiz-project` folder:
+
+- Personality-to-coffee pairings with taglines
+- Result display style (single or percentages)
+- Visual style description
+- Image/icon decisions
+- All quiz questions with answer-to-personality mappings
+
+This file is the spec the build lesson works from, so it's worth reviewing carefully and correcting anything that's off.
+
+## Where This Applies Beyond the Course
+
+- Briefing a designer or developer on any project
+- Writing a product spec or PRD
+- Planning any creative project — the clearer the vision, the better the result
+- Working with any AI tool — the more specific you are, the better the output
+
+## What's Next
+
+Next up is **Module 3.3: Build & Iterate** — Codex builds your quiz from the requirements, and you refine it until you love it.
+
+Start it by typing `start-4-3-codex` in Codex, or read the reference guide:
+
+**[Go to Module 3.3: Build & Iterate →](./build-and-iterate)**

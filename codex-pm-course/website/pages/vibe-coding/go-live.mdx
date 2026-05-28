@@ -1,0 +1,80 @@
+---
+title: '3.5: Go Live'
+description: 'Deploy your quiz to the internet with Vercel — get a real URL that works on any device, and learn how to auto-update by pushing to GitHub.'
+keywords: 'codex, openai codex, codex for product managers, deploy, vercel, go live, hosting, vibe coding'
+---
+
+# Module 3.5: Go Live
+
+## Reference Guide
+
+- **Time to Complete:** 15-20 minutes
+- **Prerequisites:** Module 3.4 complete; code pushed to GitHub
+- **You'll need:** A free Vercel account ([vercel.com](https://vercel.com)) — sign up with GitHub
+
+> **Start this lesson interactively:** Type `start-4-5-codex` in Codex to put your quiz on the internet.
+
+## Overview
+
+This is the final step. Your quiz is built, polished, and saved to GitHub. Now you put it on the internet so anyone can visit it. Developers call this **deploying** — you're deploying your app to the web.
+
+**Key takeaway:** With **Vercel**, your project becomes a real website with a real URL that works on any device — and from then on, every time you push to GitHub, your live site updates automatically.
+
+## What Vercel Is
+
+Vercel is a free service that puts your code on the internet — the home base of vibe coding. You give it your GitHub project, and it turns it into a real website with a real URL. It's made by the same team behind Next.js (the framework your quiz uses), so they work together perfectly.
+
+## The Steps (Codex Does the Heavy Lifting)
+
+1. **Create a Vercel account.** Sign up with your **GitHub account** — this makes everything connect automatically, including auto-deploys later.
+
+2. **Connect Codex to Vercel.** Codex installs the Vercel CLI and authenticates it. This opens your browser to authorize — follow the prompts and come back. Codex verifies the connection.
+
+3. **Deploy.** Codex deploys your `quiz-project` straight to production. It takes about a minute, and the output includes your live URL — something like `quiz-project-abc123.vercel.app`.
+
+4. **Open it.** Codex opens your live URL. That's your website, on the real internet, visitable by anyone.
+
+## Test It for Real
+
+- **On your phone:** open the URL — same quiz, any device.
+- **Send it to a friend:** text the link to someone. When they react, that's the feeling of shipping something real.
+
+You built a real web application, put it on the internet, and got a URL that works anywhere — without writing a single line of code yourself. That's vibe coding.
+
+## Updating Your Live Site
+
+Want to change your quiz later? The flow is simple:
+
+```
+Push to GitHub
+```
+
+Make your changes, ask Codex to push to GitHub, and Vercel automatically updates your live website. Vercel watches your GitHub repo and re-deploys whenever you push.
+
+## What You Now Know
+
+The full build loop, end to end:
+
+| Step | What it means |
+|------|---------------|
+| **Plan** | Get clear on what you're building |
+| **Build** | Let Codex create it |
+| **Iterate** | Refine until it's right |
+| **Save** | Back it up to GitHub |
+| **Go Live** | Deploy it to the internet |
+
+You can build anything with this loop. To start a new project, create a new folder and follow the same process — just tell Codex you want to deploy on Vercel and that it has Vercel CLI access, and it'll know what to do.
+
+## Where to Go From Here
+
+You now have the foundation. Future capabilities build on it:
+
+- **Collect data** (like emails from quiz-takers) — you'd add a database
+- **Make sure it doesn't break** — you'd add testing
+- **A custom domain** like `yourquiz.com` — Vercel makes this easy
+
+## What's Next
+
+That completes Module 3 and the core course. The best way to keep learning is to build something you actually want.
+
+To catch future modules, in-depth guides, and a community of PMs using Codex, subscribe to the newsletter at [ccforpms.com](https://ccforpms.com). If you'd like to keep building your skills, [explore the full program](https://fullstackpm.com/subscribe?utm_source=codexforpms&utm_medium=course&utm_campaign=go-live).

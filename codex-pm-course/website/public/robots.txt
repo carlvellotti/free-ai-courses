@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/*
+Disallow: /_next/*
+
+# Host
+Host: https://codexforpms.com
+
+# Sitemaps
+Sitemap: https://codexforpms.com/sitemap.xml

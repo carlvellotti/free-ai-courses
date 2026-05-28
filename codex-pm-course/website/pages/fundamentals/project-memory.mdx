@@ -1,0 +1,96 @@
+---
+title: '1.6: Project Memory'
+description: 'Use AGENTS.md to give Codex permanent project memory — your product context, personas, terminology, and writing standards applied automatically in every session.'
+keywords: 'codex, openai codex, codex for product managers, agents.md, project memory, context, writing standards'
+---
+
+# Module 1.6: Project Memory
+
+## Reference Guide
+
+- **Time to Complete:** 20-30 minutes
+- **Prerequisites:** Module 1.5 complete
+
+> **Start this lesson interactively:** Type `start-1-6-codex` in Codex to see how AGENTS.md shapes everything Codex produces.
+
+## Overview
+
+With most AI tools, every new conversation starts from scratch — you re-explain your product, users, terminology, and writing preferences. **AGENTS.md** solves this. It's a file that gives Codex permanent memory of your project, loaded automatically in every conversation.
+
+**Key takeaway:** Set up AGENTS.md once, and Codex knows your product forever. This is the capstone of Module 1.
+
+## The Core Concept: Constitution vs. Legislation
+
+Think of it as a hierarchy:
+
+- **AGENTS.md = the constitution** — immutable system rules
+- **Your prompts = legislation** — flexible, specific requests
+
+**AGENTS.md always wins.** If a prompt conflicts with AGENTS.md, AGENTS.md overrides it — every time.
+
+**Example.** Suppose AGENTS.md says *"TaskFlow uses 'Workspace,' not 'Project,' for our main container concept."* You then ask: *"Create a PRD for the new Project feature."* Codex writes the PRD using the term **Workspace**, because AGENTS.md overrides your casual prompt wording.
+
+This is the point: your core product rules, terminology, and writing standards stay consistent no matter how you phrase a single request.
+
+## What Goes in AGENTS.md
+
+A complete project memory file for TaskFlow would include:
+
+- **Product context** — what TaskFlow is, company stage, key metrics
+- **User personas** — Sarah, Mike, and Alex, with their needs and pain points
+- **Writing style** — active voice, Oxford commas, concise paragraphs, "we" not "I"
+- **Product terminology** — "Workspace" (not Project), "Task" (not Todo), "Epic" (not Initiative)
+- **Team reference** — who's who and what tools the company uses
+- **Immutable rules** — always include acceptance criteria, always reference user research, always consider accessibility and mobile
+
+## Seeing It in Action
+
+Once these rules exist, ask Codex to write a user story for dark mode. Without being told to, it will:
+
+- Use the correct terminology (Workspace, Task, Epic)
+- Write for the relevant persona
+- Include detailed acceptance criteria
+- Use Oxford commas and active voice
+- Consider accessibility (WCAG standards, screen readers) and mobile
+- Add a "Why This Matters" section
+
+You never asked for any of that explicitly — AGENTS.md applied it automatically.
+
+## Where AGENTS.md Lives
+
+In a real project, `AGENTS.md` sits in your **project root**, at the same level as your folders. You can also layer multiple files:
+
+```
+~/.codex/AGENTS.md          # Global — applies to all your projects
+project/AGENTS.md           # Project — specific to this product
+project/frontend/AGENTS.md  # Directory — folder-specific rules
+project/AGENTS.local.md     # Local — personal, not committed to git
+```
+
+**Priority:** Directory > Project > Global. All applicable files stack together and load.
+
+**When to use each:**
+
+- **Global** — preferences across all your projects ("I prefer concise explanations")
+- **Project** — product-specific context (the TaskFlow example)
+- **Directory** — folder-specific rules (e.g., frontend standards)
+- **Local** — personal preferences you don't want to share
+
+## Adding Rules Over Time
+
+You build AGENTS.md up as you go. When you discover a preference worth keeping, decide where it belongs:
+
+- **Global/personal** if it applies across all your work
+- **Project memory (`./AGENTS.md`)** if it's specific to this product
+
+It's just a Markdown file — edit it anytime, and changes apply to new sessions.
+
+## What's Next
+
+That completes Module 1: Fundamentals. You can now do file operations, visualize your work, run parallel agents, call on specialist sub-agents, and give Codex permanent project memory.
+
+Next up is **Module 2.1: Write a PRD** — partnering with Codex to write better product requirements documents faster.
+
+Start it by typing `start-2-1-codex` in Codex, or read the reference guide:
+
+**[Go to Module 2.1: Write a PRD →](../advanced/write-prd)**

@@ -1,0 +1,115 @@
+---
+title: '0.2: Installing Codex'
+description: 'Install the OpenAI Codex CLI on Mac or Windows, sign in with your ChatGPT account, and choose the right plan for PM work.'
+keywords: 'install codex, codex cli, openai codex setup, download codex, codex sign in, codex pricing, codex plans'
+---
+
+# Module 0.2: Installing Codex
+## Reference Guide
+
+- **Time to Complete:** 15 minutes
+- **Prerequisites:** Mac, Windows, or Linux + a ChatGPT account
+
+## 📖 Overview
+
+You'll install the **Codex CLI** (the version of Codex that runs in your terminal) and sign in with your ChatGPT account. That's it — once Codex is installed and signed in, you're ready to open the course.
+
+**Key takeaway:** Install Codex, run `codex`, choose **Sign in with ChatGPT**.
+
+## Step 1: Install the Codex CLI
+
+Pick whichever matches your setup. (A "terminal" is the Terminal app on Mac, or PowerShell on Windows — you'll only need to paste one line.)
+
+### Mac
+
+**Option A — Homebrew (recommended if you have it):**
+```bash
+brew install --cask codex
+```
+
+**Option B — install script:**
+```bash
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+
+**Option C — npm** (requires [Node.js](https://nodejs.org) 20+):
+```bash
+npm install -g @openai/codex
+```
+
+### Windows
+
+**PowerShell one-liner:**
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"
+```
+
+Or, with [Node.js](https://nodejs.org) 20+ installed:
+```powershell
+npm install -g @openai/codex
+```
+
+**Verify it installed** by running:
+```bash
+codex --version
+```
+
+## Step 2: Sign In
+
+1. In your terminal, run:
+   ```bash
+   codex
+   ```
+2. Choose **"Sign in with ChatGPT"** (recommended) and complete the login in your browser.
+3. That's it — Codex now uses your ChatGPT subscription.
+
+> Prefer pay-as-you-go? You can sign in with an OpenAI **API key** instead (billed per use). For this course, signing in with ChatGPT is simpler.
+
+## Step 3: Pick a Plan
+
+Codex is included across ChatGPT plans. You can start free; most PMs are comfortable on **Plus**.
+
+| Plan | Price | Good for |
+|------|-------|----------|
+| **Free** | $0 | Trying Codex on light tasks |
+| **Go** | $8/mo | Occasional, lightweight use |
+| **Plus** | $20/mo | **Recommended** — daily PM work |
+| **Pro** | $100+/mo | Heavy use, much higher limits |
+
+Usage limits and model availability change often — check the **[current pricing page](https://developers.openai.com/codex/pricing)** for the latest. If you hit a limit, Codex lets you top up with credits without upgrading.
+
+## A Note on Permissions
+
+The first time Codex makes changes, it asks for permission. Codex has three modes (switch anytime with `/permissions`):
+
+- **Auto** *(default)* — reads, edits, and runs commands **inside your current folder**; asks before touching anything outside it. This is the right mode for the course.
+- **Read Only** — looks but doesn't change anything until you approve.
+- **Full Access** — works without asking. Use sparingly.
+
+Codex always shows a transcript of what it did, so nothing happens silently.
+
+## 🐛 Troubleshooting
+
+**`codex: command not found` after install**
+- Close and reopen your terminal so it picks up the new command.
+- If you used npm, make sure Node 20+ is installed (`node --version`).
+
+**npm install fails**
+- Update Node.js to version 20 or later, then retry. Or use the Homebrew / install-script option instead (those don't need Node).
+
+**Sign-in browser window doesn't open**
+- Copy the URL Codex prints in the terminal and paste it into your browser manually.
+
+## 🚀 What's Next?
+
+**Module 0.2 complete** — Codex is installed and you're signed in.
+
+**Next: Module 0.3 — Opening the Course.** You'll download the course files, open them in Codex, and run your first lesson.
+
+**[Go to Module 0.3: Opening the Course →](/getting-started/opening-course-folder)**
+
+## 📚 Resources
+
+- [Codex CLI docs](https://developers.openai.com/codex/cli/) — official install + sign-in guide
+- [Codex pricing](https://developers.openai.com/codex/pricing) — current plans and limits
+- [Codex CLI features](https://developers.openai.com/codex/cli/features) — permission modes and first run
