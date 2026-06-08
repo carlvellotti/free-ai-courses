@@ -156,7 +156,7 @@ export default function EmailPopup() {
                   <div>
                     <h3>Join the Stack</h3>
                     <p className="popup-subhead">
-                      Join <strong>12,000+</strong> PMs building with AI
+                      Join <strong>50,000+</strong> PMs building with AI
                     </p>
                   </div>
                 </div>
@@ -173,7 +173,7 @@ export default function EmailPopup() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@company.com"
+                    placeholder="you@example.com"
                     required
                     disabled={status === 'loading'}
                   />
