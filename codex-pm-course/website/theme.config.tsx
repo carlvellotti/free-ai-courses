@@ -40,7 +40,7 @@ export default {
       ? 'Codex for Product Managers | Free PM Tutorial & Course'
       : (title ? `${title} – Codex for Product Managers` : 'Codex for Product Managers')
     const description = frontMatter?.description || 'Learn Codex IN Codex! Free OpenAI Codex tutorial for Product Managers — master AI agents, file operations, and PM workflows. Hands-on, no videos.'
-    const ogImage = frontMatter?.ogImage || `${siteUrl}/images/codexforpms-thumbnail.png`
+    const ogImage = frontMatter?.ogImage || `${siteUrl}/images/og-image.png`
     const canonicalUrl = `${siteUrl}${asPath}`
 
     // Generate breadcrumb structured data
