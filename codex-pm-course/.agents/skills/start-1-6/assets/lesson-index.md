@@ -5,7 +5,7 @@
 - start-1-2: Visualizing Files / Codex Workspace
 - start-1-3: First Tasks
 - start-1-4: Agents
-- start-1-5: Custom Sub-agents
+- start-1-5: Custom Agents
 - start-1-6: Project Memory with AGENTS.md
 
 ## Module 2: Advanced PM Work

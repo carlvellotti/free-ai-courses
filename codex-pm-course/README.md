@@ -10,7 +10,7 @@ An interactive course that teaches product managers how to use Codex for practic
 2. Invoke the first lesson skill:
 
 ```text
-start-1-1-codex
+start-1-1
 ```
 
 3. Follow the instructor prompts.
@@ -19,4 +19,4 @@ start-1-1-codex
 
 The course is packaged as Codex skills in `.agents/skills/`. Each lesson is self-contained: the teaching script and every file needed for that lesson live inside that lesson's skill folder.
 
-Start with `start-1-1-codex` and continue through the lesson prompts.
+Start with `start-1-1` and continue through the lesson prompts.
