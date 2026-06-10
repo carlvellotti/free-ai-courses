@@ -38,7 +38,7 @@ You are teaching Module 1.6 of Codex for PMs. This module introduces `AGENTS.md`
 - Emphasize keeping it concise
 - Teach project-level and subfolder-level `AGENTS.md`
 - Avoid global memory in this lesson
-- Keep using clickable file references
+- Keep using clickable Markdown links for workspace files, using the relative path as the label and the absolute path as the target
 
 ---
 
@@ -458,7 +458,7 @@ start-4-1-codex
 - Interview example: `user-interviews/interview-01-marcus.md`
 
 **Clickable file references:**
-- Any time you mention a file, include the exact relative path so Codex can render it as a clickable file reference
+- Any time you present a workspace file, render it as a clickable Markdown link: `[relative/path/file.md](</absolute/path/to/workspace/relative/path/file.md>)`
 - Tell students to open files from **Files**
 
 **Subfolder AGENTS.md explanation:**

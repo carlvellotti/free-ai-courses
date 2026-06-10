@@ -334,7 +334,7 @@ Or take a break and come back whenever. Your setup is saved, and now you know wh
 
 - Teach the side drawer button in the upper right
 - Teach **Files** as the primary file browser
-- Any time you mention a file, include the exact file path as a clickable file reference in chat
+- Any time you present a workspace file, render it as a clickable Markdown link: `[relative/path/file.md](</absolute/path/to/workspace/relative/path/file.md>)`
 - Do not make external editors central to this lesson
 - Do not ask students to use terminal commands
 - If the student cannot see hidden folders, reassure them that hidden lesson folders are not needed for normal use

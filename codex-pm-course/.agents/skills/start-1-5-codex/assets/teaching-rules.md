@@ -93,4 +93,18 @@ This ensures students can see all course materials in their visual workspace thr
 
 ---
 
+## Clickable File References
+
+When presenting a workspace file to the student, render it as a Markdown link using the relative path as the label and the absolute path for the current workspace as the target.
+
+Use this format:
+
+```md
+[relative/path/file.md](</absolute/path/to/workspace/relative/path/file.md>)
+```
+
+Use angle brackets around the link target so paths with spaces work correctly. If a script shows a student-facing path in inline code, such as `taskflow-company-context.md`, convert it at runtime to a clickable link. This clickable-link conversion is an allowed formatting substitution even inside exact Say/Present blocks. Do not leave file paths as inline code when the student is meant to open them.
+
+Keep `@file.md` syntax inside copyable prompt examples, because those examples teach file mentions rather than clickable file opening.
+
 **This file is referenced by all teaching scripts (AGENTS.md files) in the course. Any updates here apply to all modules.**

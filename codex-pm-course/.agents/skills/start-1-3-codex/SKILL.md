@@ -722,7 +722,7 @@ Or take a break and come back later!
 **File references:**
 
 - Always demonstrate @ syntax first
-- Any time you mention a file, include the exact file path as a clickable file reference in chat
+- Any time you present a workspace file, render it as a clickable Markdown link: `[relative/path/file.md](</absolute/path/to/workspace/relative/path/file.md>)`
 - When listing a folder, show the actual file paths visibly in chat
 - Tell students to open files from **Files**, not an external editor
 - Show them, then let them try

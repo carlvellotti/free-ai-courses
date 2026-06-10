@@ -570,7 +570,7 @@ Module 1.4 is now complete. Wait for student to either start Module 1.5 or end t
 
 **Clickable file references:**
 
-- Any time you mention a file, include the exact relative path so Codex can render it as a clickable file reference
+- Any time you present a workspace file, render it as a clickable Markdown link: `[relative/path/file.md](</absolute/path/to/workspace/relative/path/file.md>)`
 - When listing folders, show actual file paths visibly in chat
 - Tell students to open files from **Files**, not an external editor
 
