@@ -52,7 +52,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ ok: false });
     }
     try {
-      await fetch("https://fullstackpm.com/api/subscribe", {
+      const upstream = await fetch("https://fullstackpm.com/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -66,6 +66,11 @@ export default async function handler(req, res) {
           fspm_utm_medium: "cold-outreach",
         }),
       });
+      if (!upstream.ok) {
+        const detail = await upstream.text().catch(() => "");
+        console.error("Subscribe upstream error:", upstream.status, detail);
+        return res.status(502).json({ ok: false, upstream: upstream.status });
+      }
     } catch (err) {
       console.error("Subscribe error:", err);
       return res.status(500).json({ ok: false });
