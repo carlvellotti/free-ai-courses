@@ -82,11 +82,11 @@ write-proposal/                write-proposal/
 
 On the left, everything is crammed into one file. On the right, the SKILL.md orchestrates, and reference material lives alongside it in the folder.
 
-**Take a look at the `/write proposal` skill folder:**
+**Take a look at the `/write proposal` skill:**
 
-`.agents/skills/write-proposal/`
+`.agents/skills/write-proposal/SKILL.md`
 
-Present the folder as a clickable link and let them open it from the Files drawer — the side drawer in the upper right. Never suggest commands for exploring files — just give the path. Ask them what they see in there.
+Present the SKILL.md as a clickable link (never link the folder itself — folder links open in Finder, and dot-folders are hidden in the Files drawer until a file inside them is opened). Tell them: once it opens, the whole write-proposal folder appears in the side panel next to it. Never suggest commands for exploring files — just give the link. Ask them what they see in the folder.
 
 React to their answer. Walk through what's in the folder:
 - **SKILL.md** — instructions (how to write a proposal, what tone, what structure)
@@ -139,7 +139,7 @@ HTML      ─┤──→ [ pandoc ] ──→ PDF, Word, HTML, etc.
 LaTeX     ─┘
 ```
 
-**Take a look at the `/convert doc` skill folder:**
+**Take a look at the `/convert doc` skill** — present `.agents/skills/convert-doc/SKILL.md` as a clickable link (not the folder), so the folder shows up in the side panel:
 
 ```
 convert-doc/
@@ -254,7 +254,7 @@ Ask if they're ready for the next technique.
 
 Most skills are static — same output every time. A self-improving skill stores data in its folder and reads it on the next run. The folder becomes its memory.
 
-**Take a look at the `/writing voice` skill folder:**
+**Take a look at the `/writing voice` skill** — present `.agents/skills/writing-voice/SKILL.md` as a clickable link (not the folder), so the corrections/ folder is visible in the side panel:
 
 ```
 writing-voice/

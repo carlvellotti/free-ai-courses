@@ -82,7 +82,7 @@ React to their answer, then point out the limitation: that worked, but next time
 
 Create the skill at `.agents/skills/process-meetings/SKILL.md` with simple frontmatter (just `name` and `description`) and the basic instructions.
 
-Tell the student where the file lives, present it as a clickable link, and **tell them to go take a look at it** — they can click the link or find it in the Files drawer (the side drawer in the upper right). Ask them what they notice.
+Tell the student where the file lives, present it as a clickable link, and **tell them to go take a look at it**. Mention one quirk worth knowing: folders that start with a dot, like `.agents/`, are hidden in the Files drawer — but clicking a link to a file inside one makes the folder show up in the side panel. So the link does two things: opens the file, and reveals the folder it lives in. Ask them what they notice about the file.
 
 ---
 

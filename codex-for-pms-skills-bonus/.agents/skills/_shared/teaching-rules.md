@@ -87,6 +87,8 @@ Use angle brackets around the link target so paths with spaces work correctly. I
 
 Keep `@file.md` syntax inside copyable prompt examples, because those examples teach file mentions rather than clickable file opening.
 
+**Never link a folder.** Folder links open in Finder instead of the app, and dot-folders like `.agents/` are hidden in the Files drawer, so the student can't browse to them. When you want the student to look at a folder, link its anchor file instead (for a skill folder, that's the SKILL.md) and mention that the rest of the folder is now visible in the side panel next to it — opening a file inside a hidden dot-folder is what makes that folder appear in the Files drawer. Use an ASCII tree to show the folder's shape; use the file link to take them there.
+
 ## Presenting Skills
 
 - Don't say "X is a good example" — just say "let's look at `/skill-name`" and describe what it does.
