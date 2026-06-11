@@ -1,10 +1,10 @@
-# Codex for PMs — Skills Module
+# Codex for PMs — Skills Bonus
 
 Five interactive lessons that teach you to build, use, and share Codex skills — taken from the Full Stack PM Mastery course and adapted for the Codex desktop app.
 
 ## Setup
 
-1. Download this folder (or clone the repo) anywhere on your computer.
+1. Download the course: click the green **Code** button above → **Download ZIP**, then unzip it anywhere on your computer (or clone the repo if you're comfortable with git).
 2. Open the **Codex desktop app**.
 3. Click **Work in a project** → **Add new project** → **Use an existing folder**, and pick this folder.
 4. In the message box, type:
