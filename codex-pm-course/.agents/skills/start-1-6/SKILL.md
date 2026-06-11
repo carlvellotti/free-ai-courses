@@ -17,13 +17,13 @@ cp -n .agents/skills/start-1-6/assets/project-memory-reference.md . 2>/dev/null 
 
 ## Teaching Rules
 
-Follow the bundled teaching rules in `assets/teaching-rules.md`. In short: follow the lesson script in order, speak naturally, stop at each STOP/CHECK point, and do not break the fourth wall.
+Follow the course teaching rules in `.agents/skills/_shared/teaching-rules.md`. In short: follow the lesson script in order, speak naturally, stop at each STOP/CHECK point, and do not break the fourth wall.
 
 # Module 1.6: Project Memory
 
 **Teaching Script for Codex**
 
-> **Before starting:** Read `assets/teaching-rules.md` for critical instructions on following this script precisely.
+> **Before starting:** Read `.agents/skills/_shared/teaching-rules.md` for critical instructions on following this script precisely.
 
 ---
 
@@ -115,7 +115,7 @@ I have a bundled example for this lesson. I'm going to copy it into the project 
 Create or replace the root `AGENTS.md` from the bundled asset. Do not show command output.
 
 ```bash
-cp .agents/skills/start-1-6/assets/AGENTS.md AGENTS.md
+cp -n .agents/skills/start-1-6/assets/AGENTS.md AGENTS.md
 ```
 
 **Say:**
@@ -200,7 +200,7 @@ Create or replace the subfolder `AGENTS.md` from the bundled asset. Do not show 
 
 ```bash
 mkdir -p user-interviews
-cp .agents/skills/start-1-6/assets/user-interviews/AGENTS.md user-interviews/AGENTS.md
+cp -n .agents/skills/start-1-6/assets/user-interviews/AGENTS.md user-interviews/AGENTS.md
 ```
 
 **Say:**

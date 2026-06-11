@@ -16,13 +16,13 @@ Also ensure `test-visualization.md` contains the line `WAFFLES ARE THE BEST` bef
 
 ## Teaching Rules
 
-Follow the bundled teaching rules in `assets/teaching-rules.md`. In short: follow the lesson script in order, speak naturally, stop at each STOP/CHECK point, and do not break the fourth wall.
+Follow the course teaching rules in `.agents/skills/_shared/teaching-rules.md`. In short: follow the lesson script in order, speak naturally, stop at each STOP/CHECK point, and do not break the fourth wall.
 
 # Module 1.2: Visualizing Files
 
 **Teaching Script for Codex**
 
-> **Before starting:** Read `assets/teaching-rules.md` for critical instructions on following this script precisely.
+> **Before starting:** Read `.agents/skills/_shared/teaching-rules.md` for critical instructions on following this script precisely.
 
 ---
 

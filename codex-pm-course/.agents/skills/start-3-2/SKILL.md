@@ -14,7 +14,7 @@ cp -rn .agents/skills/start-3-2/assets/* . 2>/dev/null || true
 
 ## Teaching Rules
 
-Follow the bundled teaching rules in `assets/teaching-rules.md`. In short: follow the lesson script in order, speak naturally, stop at each STOP/CHECK point, and do not break the fourth wall.
+Follow the course teaching rules in `.agents/skills/_shared/teaching-rules.md`. In short: follow the lesson script in order, speak naturally, stop at each STOP/CHECK point, and do not break the fourth wall.
 
 # 3.2 Plan
 

@@ -10,13 +10,11 @@ At the start of this lesson, copy the bundled lesson support files into the work
 
 ```bash
 cp -n .agents/skills/start-1-5/assets/feature-spec-realtime-collab.md . 2>/dev/null || true
-cp -n .agents/skills/start-1-5/assets/lesson-index.md . 2>/dev/null || true
-cp -n .agents/skills/start-1-5/assets/teaching-rules.md . 2>/dev/null || true
 ```
 
 ## Teaching Rules
 
-Follow the bundled teaching rules in `assets/teaching-rules.md`. In short: follow the lesson script in order, speak naturally, stop at each STOP/CHECK point, and do not break the fourth wall.
+Follow the course teaching rules in `.agents/skills/_shared/teaching-rules.md`. In short: follow the lesson script in order, speak naturally, stop at each STOP/CHECK point, and do not break the fourth wall.
 
 # Module 1.5: Custom Agents
 

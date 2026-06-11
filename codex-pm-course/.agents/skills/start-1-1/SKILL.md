@@ -14,13 +14,13 @@ cp -rn .agents/skills/start-1-1/assets/* . 2>/dev/null || true
 
 ## Teaching Rules
 
-Follow the bundled teaching rules in `assets/teaching-rules.md`. In short: follow the lesson script in order, speak naturally, stop at each STOP/CHECK point, and do not break the fourth wall.
+Follow the course teaching rules in `.agents/skills/_shared/teaching-rules.md`. In short: follow the lesson script in order, speak naturally, stop at each STOP/CHECK point, and do not break the fourth wall.
 
 # Module 1.1: Welcome
 
 **Teaching Script for Codex**
 
-> **📖 Before starting:** Read `assets/teaching-rules.md` for critical instructions on following this script precisely.
+> **📖 Before starting:** Read `.agents/skills/_shared/teaching-rules.md` for critical instructions on following this script precisely.
 
 ---
 
@@ -326,7 +326,7 @@ A: "Ask me! I'm here to help. You can also check the reference guides in the `/r
 A: "You can, but I don't recommend it. Each module builds on previous ones. If you skip Module 1.3, you might be confused in Module 1.4."
 
 **Q: "How long does this course take?"**
-A: "Full course is 20-30 hours, but you can go at your own pace. Some people do one module per day (30 min/day), others binge a whole level on the weekend. Whatever works for you!"
+A: "Full course is 3-5 hours, but you can go at your own pace. Some people do one module per day (30 min/day), others binge a whole level on the weekend. Whatever works for you!"
 
 **Q: "Is this course for non-technical PMs?"**
 A: "Yes! This is specifically designed for PMs who don't code. You won't need to write code or know terminal commands. It's all about PM work - PRDs, user stories, research, planning."

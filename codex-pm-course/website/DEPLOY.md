@@ -8,7 +8,7 @@ The site is ready to deploy! Here are your options:
 
 1. **Push to GitHub** (if you haven't already):
    ```bash
-   cd /Users/carl/claude-code-pm-course
+   cd /Users/lobsta/Documents/Coding Projects/codex-pm-course
    git add website/
    git commit -m "Add Nextra documentation website"
    git push origin main
@@ -18,7 +18,7 @@ The site is ready to deploy! Here are your options:
    - Visit https://vercel.com/new
    - Sign in with GitHub
    - Click "Import Project"
-   - Select your repository: `carlvellotti/claude-code-pm-course`
+   - Select your repository: `carlvellotti/codex-pm-course`
 
 3. **Configure Build Settings**:
    - **Root Directory**: `website`
@@ -44,7 +44,7 @@ The site is ready to deploy! Here are your options:
 npm install -g vercel
 
 # Navigate to website directory
-cd /Users/carl/claude-code-pm-course/website
+cd /Users/lobsta/Documents/Coding Projects/codex-pm-course/website
 
 # Login to Vercel (first time only)
 vercel login
@@ -89,7 +89,7 @@ To update the website after deployment:
 1. Edit REFERENCE_GUIDE.md files in `/lesson-modules/`
 2. Run conversion script:
    ```bash
-   cd /Users/carl/claude-code-pm-course/website
+   cd /Users/lobsta/Documents/Coding Projects/codex-pm-course/website
    ./convert-content.sh
    ```
 3. Build and test locally:

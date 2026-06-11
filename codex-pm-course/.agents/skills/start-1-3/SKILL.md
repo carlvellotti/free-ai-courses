@@ -14,13 +14,13 @@ cp -rn .agents/skills/start-1-3/assets/* . 2>/dev/null || true
 
 ## Teaching Rules
 
-Follow the bundled teaching rules in `assets/teaching-rules.md`. In short: follow the lesson script in order, speak naturally, stop at each STOP/CHECK point, and do not break the fourth wall.
+Follow the course teaching rules in `.agents/skills/_shared/teaching-rules.md`. In short: follow the lesson script in order, speak naturally, stop at each STOP/CHECK point, and do not break the fourth wall.
 
 # Module 1.3: First Tasks
 
 **Teaching Script for Codex**
 
-> **📖 Before starting:** Read `assets/teaching-rules.md` for critical instructions on following this script precisely.
+> **📖 Before starting:** Read `.agents/skills/_shared/teaching-rules.md` for critical instructions on following this script precisely.
 
 ---
 

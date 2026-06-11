@@ -78,12 +78,12 @@ When creating modules with example files (meeting notes, user research, rough no
 ✅ **DO:**
 - Use .md file extension for all example files
 - Examples: `meeting-notes-1.md`, `rough-feature-notes.md`, `user-interview.md`
-- Reason: Markdown editors (Obsidian, VS Code) can display .md files but may not display .txt files properly
+- Reason: Markdown files display cleanly in the Codex Desktop App's Files drawer and in optional external editors
 
 ❌ **DON'T:**
 - Use .txt file extension for example files
 - Examples: `meeting-notes-1.txt`, `rough-feature-notes.txt`
-- This makes files invisible or improperly formatted in markdown editors, breaking the visualization workflow taught in Module 1.2
+- This can make files harder to inspect or format, weakening the visualization workflow taught in Module 1.2
 
 **When referencing files in teaching scripts:**
 - All file references should use .md extension
@@ -107,4 +107,14 @@ Use angle brackets around the link target so paths with spaces work correctly. I
 
 Keep `@file.md` syntax inside copyable prompt examples, because those examples teach file mentions rather than clickable file opening.
 
-**This file is referenced by all teaching scripts (AGENTS.md files) in the course. Any updates here apply to all modules.**
+---
+
+## No Simulated Agent Output
+
+When a lesson calls for invoking custom agents (the project-level agents in `.codex/agents/`), actually invoke the named agents so the student sees them running. Do NOT simulate or fabricate their output from the agent config files.
+
+If a named custom agent is not available in the runtime, stop and explain that the project-level custom agents in `.codex/agents/` may need Codex to reload before continuing. Never paper over a missing agent by playing its part yourself.
+
+---
+
+**This file is referenced by all teaching scripts (SKILL.md files) in the course. Any updates here apply to all modules.**
