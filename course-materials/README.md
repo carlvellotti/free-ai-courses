@@ -8,7 +8,7 @@ Welcome to the interactive Claude Code course for Product Managers!
 
 ### What's Included
 
-- **`lesson-modules/`** - Interactive modules taught by Claude (Modules 0-2)
+- **`lesson-modules/`** - Interactive modules taught by Claude (Modules 0-3)
 - **`company-context/`** - TaskFlow company reference materials for exercises
 - **`.claude/`** - Slash commands that power the course experience
 
@@ -53,6 +53,11 @@ This kicks off Module 1.1 - Welcome to Claude Code!
 - 2.1: Write a PRD
 - 2.2: Analyze Data
 - 2.3: Product Strategy
+
+**Module 3: Visual Generation**
+- 3.1: Image generation fundamentals
+- 3.2: PM visual use cases
+- 3.3.1: Video generation
 
 ### Slash Commands
 
