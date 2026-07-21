@@ -80,7 +80,7 @@ vercel login
 open "https://vercel.com/oauth/device?user_code=[CODE FROM OUTPUT]"
 ```
 
-5. Tell user: "I just opened Vercel in your browser. Click Authorize, then let me know when you're done."
+5. Tell user: "I just opened Vercel in your browser. Check that the code on the page matches [CODE FROM OUTPUT], click Authorize, then let me know when you're done." Always state the code in prose in case the page asks for it.
 
 STOP: Let me know when you've authorized it.
 
