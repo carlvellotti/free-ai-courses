@@ -42,7 +42,10 @@ An interactive lesson from Claire Vo's interview with John Lindquist (egghead.io
 
 This lesson runs in the Claude Desktop app. Open Claude, start a new project, and paste this prompt:
 
-<CopyPromptBlock prompt="Install the FSPM CLI from fullstackpm.com/cli and get advanced-claude-workflows, then tell me how to begin." />
+<CopyPromptBlock prompt={`Install the FSPM CLI by running: curl -fsSL https://fullstackpm.com/cli/install.sh | sh
+(on Windows: irm https://fullstackpm.com/cli/install.ps1 | iex)
+Then run: fspm get advanced-claude-workflows
+Then tell me how to begin.`} />
 
 Claude installs the lesson into your project; type `/start-advanced-claude-workflows` to begin.
 

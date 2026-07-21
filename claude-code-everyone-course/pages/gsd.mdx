@@ -16,7 +16,10 @@ import CopyPromptBlock from '../components/CopyPromptBlock'
 
 This module runs in the Claude Desktop app. Open Claude, start a new project, and paste this prompt:
 
-<CopyPromptBlock prompt="Install the FSPM CLI from fullstackpm.com/cli and get gsd-framework, then tell me how to begin." />
+<CopyPromptBlock prompt={`Install the FSPM CLI by running: curl -fsSL https://fullstackpm.com/cli/install.sh | sh
+(on Windows: irm https://fullstackpm.com/cli/install.ps1 | iex)
+Then run: fspm get gsd-framework
+Then tell me how to begin.`} />
 
 Claude installs the five GSD lessons into your project; type `/start-gsd-1` to begin.
 

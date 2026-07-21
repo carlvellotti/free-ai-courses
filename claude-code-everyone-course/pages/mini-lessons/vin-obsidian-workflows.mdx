@@ -44,7 +44,10 @@ An interactive version of Greg Isenberg's interview with Internet Vin, where Vin
 
 This lesson runs in the Claude Desktop app. Open Claude, start a new project, and paste this prompt:
 
-<CopyPromptBlock prompt="Install the FSPM CLI from fullstackpm.com/cli and get vin-obsidian-workflows, then tell me how to begin." />
+<CopyPromptBlock prompt={`Install the FSPM CLI by running: curl -fsSL https://fullstackpm.com/cli/install.sh | sh
+(on Windows: irm https://fullstackpm.com/cli/install.ps1 | iex)
+Then run: fspm get vin-obsidian-workflows
+Then tell me how to begin.`} />
 
 Claude installs the lesson into your project; type `/start-vin-obsidian-workflows` to begin.
 

@@ -1,5 +1,8 @@
 export const COURSE_PROMPT =
-  "Install the FSPM CLI from fullstackpm.com/cli and get claude-code-for-everyone, then tell me how to begin."
+  `Install the FSPM CLI by running: curl -fsSL https://fullstackpm.com/cli/install.sh | sh
+(on Windows: irm https://fullstackpm.com/cli/install.ps1 | iex)
+Then run: fspm get claude-code-for-everyone
+Then tell me how to begin.`
 
 export default function CopyPromptBlock({ prompt = COURSE_PROMPT }) {
   return (
@@ -14,6 +17,7 @@ export default function CopyPromptBlock({ prompt = COURSE_PROMPT }) {
           fontSize: '14px',
           lineHeight: 1.5,
           color: '#1a1612',
+          whiteSpace: 'pre-wrap',
         }}
       >
         {prompt}
