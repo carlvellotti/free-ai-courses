@@ -1,0 +1,270 @@
+---
+title: "Claude Code for Data Analysis: Excel-Free Answers From CSVs"
+description: "Claude Code for data analysis in plain English: dedupe, join, and pivot CSVs, check A/B test significance, and save reports you can rerun next month."
+keywords: 'claude code for data analysis, claude code csv analysis, claude code excel alternative, ai data analysis, claude code data cleaning, analyze csv with ai'
+schema:
+  "@context": "https://schema.org"
+  "@graph":
+    - "@type": "Article"
+      headline: "Claude Code for Data Analysis: Excel-Free Answers From Your CSVs"
+      description: "Claude Code for data analysis in plain English: dedupe, join, and pivot CSVs, check A/B test significance, and save reports you can rerun next month."
+      author:
+        "@type": "Person"
+        name: "Carl Vellotti"
+        url: "https://fullstackpm.com"
+      datePublished: "2026-06-10"
+      dateModified: "2026-06-10"
+      publisher:
+        "@type": "Organization"
+        name: "Claude Code for Everyone"
+        url: "https://ccforeveryone.com"
+    - "@type": "FAQPage"
+      mainEntity:
+        - "@type": "Question"
+          name: "Do I need to know Python to use Claude Code for data analysis?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "No. Claude writes, runs, and debugs the scripts itself, and you read plain-English summaries of the results. Keep the saved scripts anyway: they are your rerun button next month, and any colleague who knows Python can audit them in minutes."
+        - "@type": "Question"
+          name: "Can Claude Code read Excel files, or only CSVs?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "CSV, TSV, and JSON files are read directly. For .xlsx files, Claude writes a small script with a library like pandas or openpyxl to pull the data out, or converts the file to CSV first. It works fine; it is one extra step you will barely notice."
+        - "@type": "Question"
+          name: "How is this different from uploading a CSV to claude.ai or ChatGPT?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Chat uploads cap out at about 20 files per conversation, 30MB each, on claude.ai, and nothing reusable is left behind when the conversation ends. Claude Code works on local files of any size, joins many files at once, and saves the analysis as a script you can rerun on next month's export."
+        - "@type": "Question"
+          name: "Does my data get uploaded anywhere when Claude Code analyzes it?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Scripts execute locally, so the heavy computation happens on your machine. Whatever Claude reads to reason about your data, such as column names, sample rows, and printed results, is sent to the model like any Claude conversation. For sensitive data, check your company's policy; Team and Enterprise plans exclude your content from model training by default."
+        - "@type": "Question"
+          name: "How much does Claude Code cost for data analysis?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Claude Code is included in Claude Pro at $20 per month, or $17 per month billed annually, and in the Max and Team plans. The free Claude plan does not include it. The same subscription covers everything else Claude Code does, so the analysis work rides along at no extra cost."
+---
+
+import { StepFlow, VersusTable } from '../../components/charts'
+
+# Claude Code for Data Analysis: Excel-Free Answers From Your CSVs
+
+*Last updated: June 10, 2026*
+
+It's 4:50 on a Thursday, your VLOOKUP is returning `#N/A` again, and the cause turns out to be someone in sales typing emails with a trailing space. You have two exports that refuse to join, a dedupe you don't fully trust, and a report due in the morning.
+
+Claude Code for data analysis exists for exactly this afternoon. You describe what you want in plain English. Claude writes a small Python script, runs it on your machine, and reports back. **You never have to read the code**, but it gets saved as a file, which means next month's version of the same report takes two minutes instead of two hours.
+
+I spent years as a PM doing these jobs in Excel, slowly. This guide is for the person doing them now, like the RevOps manager reconciling a Salesforce export against billing, who has no interest in learning Python and a real interest in leaving at five. It covers the plain-English recipes (dedupe, join, filter, pivot), A/B significance testing done properly, funnel analysis from a raw events export, and the verification habits that keep a wrong number out of your board deck.
+
+## What Claude Code for Data Analysis Actually Does
+
+Claude Code is Claude running in a terminal, with permission to read files, write files, and run code on your machine. If the word "terminal" makes you want to close this tab, the [non-developers guide](/guides/claude-code-for-non-developers) explains what it is and why it stops being scary after about a day.
+
+The mechanic that matters: **the AI never does the arithmetic.** Language models are unreliable at math across thousands of rows, and that gap is where most AI data analysis disasters start. Claude Code sidesteps it by writing a small pandas script and executing it. The script does the math, deterministically, on every row.
+
+If you remember one thing about how to analyze a CSV with AI, make it that. The model writes the code; the code computes the numbers.
+
+The scripts run locally on your own computer ([Yale economist Paul Goldsmith-Pinkham traced this end to end](https://paulgp.substack.com/p/from-an-empty-folder-to-a-figure) in his walkthrough), usually in Python with pandas, though in his case Claude reached for R because it fit the job. That kills the size anxiety too: [one published walkthrough](https://velvetshark.com/data-analysis-with-claude-code) analyzed 541,909 rows of sales data without the author reading a single line of code. CSV, TSV, and JSON files are read directly; for `.xlsx` files, Claude writes a quick script to extract the data first.
+
+And nothing runs behind your back. Reading files never triggers a prompt, but [running commands and editing files requires your approval](https://code.claude.com/docs/en/permissions), so you stay in control while you build trust.
+
+## Dedupe, Join, Filter, Pivot: Claude Code CSV Analysis in Plain English
+
+Every recipe here follows the same shape: point Claude at a file (typing `@` lets you tab-complete file names, which [the file-handling lesson](/fundamentals/working-with-files) covers), say what you want, and demand counts.
+
+**Dedupe a customer list:**
+
+```text
+Read customers.csv. Dedupe on email, keeping the row with the most
+recent signup_date. Write the result to customers_deduped.csv. Tell me
+how many rows you started with, how many you removed, and show me five
+examples of rows you removed.
+```
+
+**Join two files:**
+
+```text
+Join salesforce_export.csv and billing_export.csv on email. Treat
+emails as case-insensitive and strip whitespace before matching. Save
+the merged file as accounts_merged.csv, plus a separate file of the
+rows from each side that didn't match.
+```
+
+The whitespace clause retires the trailing-space saboteur from the intro, permanently. And that unmatched-rows file is the move Excel makes painful: a VLOOKUP quietly returns `#N/A` and you squint at it, while this hands you every exception as its own CSV.
+
+**Filter, then pivot:**
+
+```text
+From accounts_merged.csv, keep only customers who signed up in 2026,
+then build a pivot of total revenue by month and region. Save it as
+revenue_pivot.csv and print the row count after the filter step.
+```
+
+Two rules keep data cleaning with Claude Code safe. First, **the raw export is read-only.** Every transform writes a new file, so if something goes sideways you rerun from the original. Second, **never let Claude edit a CSV by hand as text.** One developer documented Claude [miscounting trailing commas on wide, sparse rows](https://zenn.dev/trust_delta/articles/claude-code-habit-001?locale=en) when editing a CSV directly, which silently corrupts the file. If Claude offers to "just fix" a cell, ask it to write a script instead.
+
+Scripts only. Always a new output file.
+
+## Excel vs Claude Code: Where Each One Wins
+
+People search for a Claude Code Excel alternative, and the framing is half right. Here is how the two compare on the chores that fill an analyst's week.
+
+<VersusTable
+  title="Six everyday analysis tasks: Excel vs Claude Code"
+  left="Excel"
+  right="Claude Code"
+  source="Workflow comparisons are typical patterns, not benchmarks. Row-count anchor: velvetshark.com walkthrough, January 2026."
+  rows={[
+    { label: "Dedupe a messy customer list", left: "Remove Duplicates, hope you picked the right columns", right: "One sentence, plus a count and examples of removed rows" },
+    { label: "Join two exports on email", left: "VLOOKUP breaks on casing and stray spaces", right: "Cleans keys first, saves non-matches to their own file" },
+    { label: "Pivot revenue by month and region", left: "Rebuild the PivotTable by hand each month", right: "Saved script reruns on next month's export" },
+    { label: "A/B test significance", left: "Retype your numbers into an online calculator", right: "Two-proportion z-test via scipy, with p-value and CI" },
+    { label: "Funnel from a huge events export", left: "File may not open, and COUNTIFS crawls if it does", right: "Routine work: one walkthrough processed 541,909 rows" },
+    { label: "Audit trail", left: "Logic hidden in cells, breaks silently", right: "A saved script you can reread, diff, and rerun" }
+  ]}
+/>
+
+The last row is the quiet winner. Excel buries its logic in cells where one mis-dragged fill handle breaks everything in silence; a script is a visible, rerunnable record of what was done. Audits surveyed by researcher Ray Panko found errors in [94% of the spreadsheets examined](https://arxiv.org/pdf/0802.3457), so "I did it carefully in Excel" was never the safe baseline it felt like.
+
+(I still open Excel for anything under a hundred rows. Old habits.)
+
+## Is My A/B Test Significant? Make Claude Run the Real Math
+
+Asking a chatbot for a p-value and accepting whatever it types from memory gets you a confident-sounding wrong answer. The README of an [open-source A/B testing copilot](https://github.com/JipingWang20/ab-testing-copilot) makes exactly this point, and its architecture is the pattern to copy: the model chooses the statistical test, and scipy computes it. In its worked example, a two-proportion z-test on real retention data returned p = 0.0016 with a confidence interval, every digit from executed code.
+
+You can get the same rigor with one prompt:
+
+```text
+variant_a.csv and variant_b.csv have one row per user with a
+"converted" column. Run a two-proportion z-test on conversion rate.
+Report the p-value and 95% confidence interval, and say in one sentence
+whether the difference is significant at the 0.05 level. All numbers
+must come from executed code.
+```
+
+The phrase "from executed code" is doing real work there. Without it the model may estimate; with it you get scipy's answer, the same one a statistician's laptop would produce.
+
+One honest caveat. Claude picks the test for you, and test selection involves judgment. For a landing-page experiment, that's fine. For anything with legal, medical, or regulatory consequences, have a statistician confirm the setup before you act on the result.
+
+## Funnel Analysis From a Raw Events Export
+
+Funnels are where chat windows give up, because events exports are long. A few hundred thousand rows is a normal Tuesday for a mid-size product, and Claude Code handles them the boring way, with groupbys. (If your exports live in a shared drive, the [Google Drive guide](/guides/connect-claude-code-to-google-drive) shows how to pull files without the download-rename-move shuffle.)
+
+```text
+events.csv has columns user_id, event_name, timestamp. Build this
+funnel: visited_pricing, started_signup, completed_signup,
+first_payment. Count unique users at each stage and the conversion
+rate between stages. First print the total row count and the min and
+max timestamp so I can confirm the export is complete.
+```
+
+A confession: the first funnel I built this way counted events instead of unique users, and the conversion numbers flattered us by roughly a third before I caught it. The "unique users" phrasing and the date-range check in that prompt are scar tissue. Include them every time.
+
+## Charts and Clean Exports Your Boss Can Open
+
+Brief Claude the way you'd brief a junior analyst: name the audience and the format.
+
+```text
+From revenue_pivot.csv, make a bar chart of revenue by region and a
+line chart of revenue by month, saved as PNGs in an output folder.
+Then write a summary CSV with month, region, revenue, and percent
+change versus the prior month, formatted to open cleanly in Excel.
+```
+
+Charts arrive as PNG files you can drop straight into a slide. Exports arrive as fresh CSVs, so the people who live in Excel keep living there happily; you've simply done the hard part before the file reaches them. If campaign reporting is part of your job, the [marketers guide](/guides/claude-code-for-marketers) goes deeper on turning raw exports into stakeholder-ready summaries.
+
+## The Monthly Report You Build Once and Rerun Forever
+
+Rebuilding the same pivot by hand every month is the single biggest waste of analyst time I know of. The saved script ends it.
+
+One nuance matters here. Reproducibility lives in the script file, never in re-asking. Ask Claude the same question twice and you may get two slightly different approaches; rerun `monthly_report.py` and you get identical logic on new data, every time.
+
+<StepFlow
+  title="The monthly report, after you build it once"
+  steps={[
+    { title: "Drop in the new export", desc: "Save this month's CSV into the project folder using the same naming pattern as last month." },
+    { title: "Ask for a rerun", desc: "Tell Claude to run monthly_report.py on the new file. The saved script is your rerun button." },
+    { title: "Read the QA printout", desc: "The script prints row counts at each stage and totals that should reconcile with the source file." },
+    { title: "Spot-check two numbers", desc: "Open the drill-down CSV and verify one product and one region against the raw data by hand." },
+    { title: "Send it", desc: "Charts land in the output folder as PNGs, next to a clean summary CSV for whoever asks." }
+  ]}
+/>
+
+To make this stick, put your definitions in the project's memory file: how your team defines "active customer," which time zone the timestamps use, when your fiscal months start. That lives in a plain-text file called CLAUDE.md, and [the project memory lesson](/fundamentals/project-memory) shows how to set one up in five minutes. After that, every analysis in the folder inherits your definitions without you repeating them.
+
+## How to Trust the Numbers Before They Reach a Board Deck
+
+This is the section that earns its keep, because Claude Code can be confidently, specifically wrong, and the failures look like findings.
+
+The documented worst case: a user's dashboard reported [$155.62 in revenue per email recipient when the true figure was $0.14](https://github.com/anthropics/claude-code/issues/33873), an 1,100x error from a denominator mix-up, and business decisions were made on it before anyone noticed. In [another documented case](https://github.com/anthropics/claude-code/issues/46902), Claude wrote an analysis script that simulated a constraint that didn't exist in the data, then presented "71 signals blocked" as a real finding. Specific numbers, coherent narrative, fabricated logic.
+
+So here is my rule, stated as plainly as I can: **never paste a number into a board deck that you haven't verified yourself.** Verification takes five minutes. The conversation after someone catches a fabricated metric takes considerably longer.
+
+Start every serious analysis with a guardrail prompt, adapted from [VelvetShark's walkthrough](https://velvetshark.com/data-analysis-with-claude-code):
+
+```text
+Don't guess and don't estimate. Write Python code that loads the file,
+run it, and only then summarize. Every number in your answer must come
+from code execution. Start by printing: column names, data types, row
+count, and the min and max date.
+```
+
+Then, for anything you plan to share:
+
+1. **Demand row counts at every stage.** Started with 48,210 rows, removed 1,432 duplicates, 46,778 remain (illustrative numbers, but that's the shape). If the chain doesn't reconcile, stop and ask why.
+2. **Spot-check one aggregate by hand.** Ask for a drill-down CSV behind your biggest number, then verify a few of its rows against the raw file yourself.
+3. **Run the smell test.** Ask whether $155 of revenue per email recipient is even possible for your business. That single question would have killed the 1,100x error on sight.
+
+This sounds like overhead. It's less checking than your spreadsheets deserved all along; Panko's 94% says as much.
+
+## When Excel, Claude for Excel, or a Real BI Tool Is the Right Call
+
+Claude Code is the wrong tool for some jobs, and pretending otherwise would waste your afternoon.
+
+**Stay in Excel** when the workbook itself is the product: shared financial models, files coworkers edit live, anything with formulas other people depend on. Since [May 7, 2026, Claude for Excel has been generally available](https://claude.com/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook) on all paid plans as an add-in for Excel on web, Windows, and Mac. If your whole world is one workbook, that is the better fit.
+
+**Use claude.ai's chat analysis** for quick one-offs on small files. It caps at [about 20 files per conversation, 30MB each](https://www.howtogeek.com/claudes-no-code-canvas-replaces-hours-of-python-debugging-in-minutes/), and nothing reusable survives the conversation, but for "summarize this one CSV" it is the lowest-friction option there is.
+
+**Use a real BI tool** (Looker, Tableau, Power BI) when you need live dashboards that many people watch, governed company-wide metric definitions, or real-time data. Claude Code produces point-in-time analysis; it is not a dashboard.
+
+**Use Claude Code** for ad-hoc questions, joins across many files, exports too big for a chat upload, and repeatable monthly jobs where the saved script becomes the asset.
+
+## What It Costs and How to Get Set Up
+
+Claude Code is included in [Claude Pro at $20 a month, or $17 a month billed annually](https://claude.com/pricing/); the free plan doesn't include it. For how the usage limits behave in practice, the [limits and pricing guide](/guides/claude-code-limits-and-pricing) covers it in plain English.
+
+Installing takes one command on Mac (the [15-minute install guide](/getting-started/installation) has Windows instructions too):
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+Then type `claude` in the folder where your CSVs live and start asking questions. If Python isn't on your machine yet, say so in your first message; Claude sets up the environment itself, which is the standard opening move in [published walkthroughs](https://velvetshark.com/data-analysis-with-claude-code).
+
+## Learn It Hands-On, Free
+
+I built a free course that teaches all of this inside Claude Code itself. You [download the course materials](/getting-started/start-and-clone), type `/start-1-1`, and Claude walks you through real exercises with real files. No videos, about three hours, and the file-handling lessons cover most of what this page describes. If you can have a conversation, you can do this.
+
+## FAQ
+
+### Do I need to know Python to use Claude Code for data analysis?
+
+No. Claude writes, runs, and debugs the scripts itself, and you read plain-English summaries of the results. Keep the saved scripts anyway: they are your rerun button next month, and any colleague who knows Python can audit them in minutes.
+
+### Can Claude Code read Excel files, or only CSVs?
+
+CSV, TSV, and JSON files are read directly. For .xlsx files, Claude writes a small script with a library like pandas or openpyxl to pull the data out, or converts the file to CSV first. It works fine; it is one extra step you will barely notice.
+
+### How is this different from uploading a CSV to claude.ai or ChatGPT?
+
+Chat uploads cap out at [about 20 files per conversation, 30MB each](https://www.howtogeek.com/claudes-no-code-canvas-replaces-hours-of-python-debugging-in-minutes/), on claude.ai, and nothing reusable is left behind when the conversation ends. Claude Code works on local files of any size, joins many files at once, and saves the analysis as a script you can rerun on next month's export.
+
+### Does my data get uploaded anywhere when Claude Code analyzes it?
+
+Scripts execute locally, so the heavy computation happens on your machine. Whatever Claude reads to reason about your data, such as column names, sample rows, and printed results, is sent to the model like any Claude conversation. For sensitive data, check your company's policy; Team and Enterprise plans exclude your content from model training by default.
+
+### How much does Claude Code cost for data analysis?
+
+Claude Code is included in [Claude Pro at $20 per month, or $17 per month billed annually](https://claude.com/pricing/), and in the Max and Team plans. The free Claude plan does not include it. The same subscription covers everything else Claude Code does, so the analysis work rides along at no extra cost.

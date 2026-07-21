@@ -1,0 +1,221 @@
+---
+title: 'Claude Code for Marketers: Repurpose, Report, Ship Pages'
+description: 'Claude Code for marketers in plain English: turn one webinar into five assets, run campaign post-mortems from CSVs, and ship the landing page yourself.'
+keywords: 'claude code for marketers, claude code for marketing, claude code content repurposing, ai marketing workflow, claude code campaign analysis, claude code marketing guide'
+schema:
+  "@context": "https://schema.org"
+  "@graph":
+    - "@type": "Article"
+      headline: "Claude Code for Marketers: Repurposing, Reporting, and Landing Pages"
+      description: "Claude Code for marketers in plain English: turn one webinar into five assets, run campaign post-mortems from CSVs, and ship the landing page yourself."
+      author:
+        "@type": "Person"
+        name: "Carl Vellotti"
+        url: "https://fullstackpm.com"
+      datePublished: "2026-06-10"
+      dateModified: "2026-06-10"
+      publisher:
+        "@type": "Organization"
+        name: "Claude Code for Everyone"
+        url: "https://ccforeveryone.com"
+    - "@type": "FAQPage"
+      mainEntity:
+        - "@type": "Question"
+          name: "Do I need to know how to code to use Claude Code for marketing?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "No. You type instructions in plain English, the same way you would brief a freelancer, and Claude Code handles the technical parts itself. The install takes about 15 minutes, and the free course at ccforeveryone.com was built for people who have never opened a terminal."
+        - "@type": "Question"
+          name: "How is Claude Code different from ChatGPT or Claude chat for marketing?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Chat tools start from zero each conversation and hand you one block of text to copy out. Claude Code works in your folders: it reads a transcript, writes five separate files, keeps your brand voice in CLAUDE.md across sessions, and can run a script to compute real numbers from a CSV."
+        - "@type": "Question"
+          name: "Can Claude Code see my Google Analytics or ad accounts?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Increasingly, yes. Google publishes official read-only MCP connectors for Google Analytics and, since late April 2026, Google Ads, so reporting questions can skip the CSV step. Meta launched an official Meta Ads MCP server in open beta the same week, and that one can create and edit campaigns. Google's connectors cannot change anything in your account, so new ad sets still go in by hand there. The zero-setup path remains exporting a CSV and dropping it into your project folder."
+        - "@type": "Question"
+          name: "Can I trust the numbers Claude Code pulls from my CSV?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Trust them when Claude computes them with a script, which Claude Code can write and run. If it merely reads the file and states a total, treat that number as a guess. Ask to see the code and spot-check one or two figures against the source before anything reaches a stakeholder."
+        - "@type": "Question"
+          name: "What does Claude Code cost for a marketer?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "The Pro plan at $20 per month covers light daily use, which fits repurposing batches and weekly reporting comfortably. Heavy all-day use fits the Max plans at $100 or $200 per month. There is no marketer-specific tier; you are paying for capacity, not features."
+---
+
+import { BarChart, StepFlow } from '../../components/charts'
+
+# Claude Code for Marketers: Repurposing, Reporting, and Landing Pages
+
+*Last updated: June 10, 2026*
+
+Most AI marketing advice is a stack of prompts for a chat window. Claude Code for marketers is a different proposition, because it **works on your files instead of your clipboard**. Drop a webinar transcript into a folder and get back a blog post, an email, three LinkedIn posts, and a one-pager as separate finished files. Drop in the CSV export from your ad platform and ask, in plain English, what happened to CPA last Thursday. Then write the landing page copy and build the actual page in the same session.
+
+I'm Carl. I run [a free course](/getting-started/start-and-clone) that teaches Claude Code to people who don't code, and marketers are some of its happiest graduates. This guide covers the workflows where Claude Code beats every chat tool you've tried, plus an honest list of where it falls down.
+
+## Why Claude Code for Marketers Beats Another Chat Window
+
+Adoption is settled: [75% of content marketers already use AI](https://www.conductor.com/academy/clutch-content-marketing-report/) somewhere in their process, per a January 2026 Clutch and Conductor survey of 459 marketers, and HubSpot's AI Trends research puts the average time saved at [6.1 hours a week](https://www.digitalapplied.com/blog/ai-marketing-statistics-2026-adoption-data-points). But most AI marketing workflow advice still assumes a chat window, which means a clipboard, which means you are the integration layer.
+
+Chat takes one input and hands back one block of text. You paste the transcript in, copy the blog post out, paste again for the email version, lose the thread, start over. Claude Code skips all of that. It is a terminal app (and a desktop app, and a web app) where Claude can read every file in a folder, write new files, and run real code. You type instructions the way you'd brief a contractor.
+
+Three structural advantages matter for marketing specifically:
+
+1. **Batch output.** One instruction can produce ten files.
+2. **Real math.** It can write and run a script against your CSV, so numbers get computed instead of guessed.
+3. **Persistent brand context.** A `CLAUDE.md` file in your project folder loads at the start of every session, per [Anthropic's docs](https://code.claude.com/docs/en/overview), so your voice rules ride along automatically, forever, without re-pasting.
+
+Marketers who try it keep [describing the terminal](https://www.getmasset.com/resources/blog/first-hour-in-claude-code-for-marketers) as "the black screen hackers use in movies." It looks that way for about an hour. Then it looks like a text box.
+
+Marketers using Claude Code became common enough that Anthropic built [Claude Cowork](https://claude.com/product/cowork), a simplified desktop version of the same engine, partly because of them; my [Cowork guide](/cowork) covers it. This page sticks with Claude Code proper, which gives you more control. If you want the broader beginner's case first, start with [Claude Code for Non-Developers](/guides/claude-code-for-non-developers).
+
+## One Webinar In, Five Assets Out: Claude Code Content Repurposing
+
+HubSpot's State of Marketing 2026 found that [49.4% of teams reuse identical content across every platform, while only 39.5% adapt it per platform](https://streambox.be/en/state-of-marketing-2026-data-from-1500-global-marketers/). Everyone knows adapting wins. Nobody has the hours.
+
+Content repurposing with Claude Code makes adaptation roughly as cheap as duplication. Put the transcript in a folder, add your voice rules to `CLAUDE.md` (more on that below), and ask for everything at once:
+
+```text
+Read @webinar-transcript.md and create an outputs folder containing:
+1. blog-post.md: 1,200 words in our voice, one H2 per major point
+2. email.md: 150-word newsletter version with a single CTA
+3. linkedin-posts.md: three posts with different hooks, no hashtags
+4. twitter-thread.md: 8 tweets, lead with the counterintuitive stat
+5. one-pager.md: sales-ready summary, three bullets per section
+```
+
+The `@` symbol points Claude at a specific file; the course covers it in [Working with Files](/fundamentals/working-with-files). A few minutes later you have five drafts sitting in a folder, each shaped for its channel instead of pasted identically across all of them.
+
+This compounds.
+
+One agency owner with no technical background built herself a webinar-repurposing tool in [about two to three hours](https://twogirlsoneclaude.substack.com/p/episode-1-linkedin-lunatics-technical); it now turns a transcript into LinkedIn posts, a newsletter recap, video scripts, and email sequences in about two minutes. Anthropic's own growth marketing team reports that [ad copy creation from CSVs dropped from 2 hours to roughly 15 minutes](https://www-cdn.anthropic.com/58284b19e702b49db9302d5b6f135ad8871e7658.pdf), per its published case-study PDF, with [sub-agents generating hundreds of ad variations in one batch](https://claude.com/blog/how-anthropic-teams-use-claude-code). Claude Code can run several [agents in parallel](/fundamentals/agents), which is how "hundreds" stops sounding like vendor copy.
+
+<BarChart
+  title="Time per repurposing task, manual vs. with Claude Code (draft stage)"
+  source="First two pairs are illustrative of typical workflows. Ad copy creation pair is from Anthropic's growth marketing case study, July 2025. Editing time excluded."
+  data={[
+    { label: "Webinar to blog post (manual)", value: 180, display: "3 hrs", muted: true },
+    { label: "Webinar to blog post (Claude Code)", value: 25, display: "25 min" },
+    { label: "Five social posts (manual)", value: 90, display: "90 min", muted: true },
+    { label: "Five social posts (Claude Code)", value: 10, display: "10 min" },
+    { label: "Ad copy creation from CSV (manual)", value: 120, display: "2 hrs", muted: true },
+    { label: "Ad copy creation from CSV (Claude Code)", value: 15, display: "15 min" }
+  ]}
+/>
+
+The caveat on every row: editing time is still yours. Claude gets you strong drafts in minutes; it does not get you out of reading them.
+
+## Campaign Post-Mortems Without a Data Team
+
+You do not need an analyst to answer "what happened last week." You need the CSV export from your ad platform and about fifteen minutes.
+
+Campaign analysis with Claude Code works because it can **write and run code against your data**. That distinction sounds technical and is actually the entire ballgame. A chat model reading your CSV will eyeball totals and sometimes invent them: in one widely shared cautionary tale, [an analyst presented a customer lifetime value of $12,847 to executives when the real figure was $4,291](https://docs.bswen.com/blog/2026-03-05-ai-hallucinations-data-analysis/), because the model produced a plausible number instead of computing one. Claude Code can instead write a small Python script, run it, and report what the script returned.
+
+My own scare was smaller. Early on, I asked regular Claude chat to summarize a results CSV and it handed me a click-through rate that appeared nowhere in the file. I only caught it because the number was suspiciously round. Every workflow in this section is built on that lesson: **make it do the math in code, and ask to see the code.**
+
+<StepFlow
+  title="The fifteen-minute campaign post-mortem"
+  steps={[
+    { title: "Export two weeks of data", desc: "One week cannot show a trend. Pull a campaign-level CSV from Meta or Google Ads covering at least 14 days." },
+    { title: "Drop it in a project folder", desc: "Make a folder like campaign-reports/june, put the CSV inside, open a terminal there, and type claude." },
+    { title: "Ask your real questions in plain English", desc: "Why CPA rose after Tuesday, which audience fatigued first, which creative carried the account." },
+    { title: "Make it do the math in code", desc: "Say: write and run a Python script to compute these numbers, and show me the script." },
+    { title: "Spot-check two totals", desc: "Compare total spend and total conversions against the platform UI before you share anything." },
+    { title: "Ask for the stakeholder version", desc: "One page, three findings, one recommendation, saved as report.md and ready to paste into Slack." }
+  ]}
+/>
+
+Step four is the one people skip, and step four is the whole point. The two-weeks rule in step one is the setup gotcha that [trips up most first-timers](https://www.stackandscale.ai/p/the-claude-code-playbook-for-marketers): export a single week and Claude has nothing to compare against, so "why did CPA spike" has no answer in the data.
+
+Once the file is in the folder, your questions stay plain: "Which three ad sets ate budget without converting?" or "Did the creative refresh on the 12th change anything measurable?" For heavier work, like joining exports from two platforms or cutting cohorts, the [data analysis guide](/guides/claude-code-for-data-analysts) goes deeper.
+
+## A Competitor Teardown From a Folder of Saved Pages
+
+Competitor research usually dies in fourteen open tabs. The file-based version survives, and you can rerun it every quarter.
+
+Make a folder called `competitors` with a subfolder per company. Into each, paste the text of their homepage, pricing page, and one or two key landing pages as plain `.md` files. That is ten minutes of copying, once. Then ask for structure:
+
+```text
+Read everything in @competitors/ and create teardown.md comparing:
+- the positioning claim in each homepage hero, quoted exactly
+- pricing model and how each page frames it
+- the three objections each pricing page tries to defuse
+- the CTA verbs used above the fold
+End with two lists: what every competitor says, and what nobody says.
+```
+
+The last line is the valuable one. The "what nobody says" list is where your next campaign angle lives, and it is exactly the kind of cross-document pattern a human misses at tab fourteen. Next quarter, update the files and ask Claude to diff the new teardown against the old one.
+
+## Put Your Brand Voice in CLAUDE.md So Everything Sounds Like You
+
+The most common complaint about AI marketing copy, that it sounds like AI, is usually a missing-context problem. Claude Code's fix is `CLAUDE.md`: per [the official docs](https://code.claude.com/docs/en/overview), it is a markdown file in your project root that Claude reads at the start of every session. Whatever lives there shapes every output without re-prompting.
+
+(At least one competing guide claims Claude Code forgets your brand voice between sessions. It does not. Persisting that context is the literal job of this file.)
+
+Mine for this site includes voice rules ("short sentences, bold the key phrase, no hype"), a banned-phrases list, and two sample paragraphs I am genuinely happy with. Marketers doing client work keep one `CLAUDE.md` per client folder: voice rules, audience notes, product naming conventions, and the words the founder hates. The course teaches the full setup in [Project Memory](/fundamentals/project-memory), and the [writers guide](/guides/claude-code-for-writers) covers voice-preserving edit passes in more depth.
+
+[Marketers who use this daily](https://newsletter.mkt1.co/p/real-marketers-claude-code-builds) keep `CLAUDE.md` current, adding whatever they catch themselves repeating. My own addition to that habit: after each batch, ask Claude what it learned about your voice from your edits, and have it update `CLAUDE.md` accordingly. The gap between draft and final shrinks every week.
+
+## Write the Landing Page Copy, Then Build the Actual Page
+
+Every chat tool can write landing page copy. Claude Code can also build the page: real HTML, real CSS, deployed at a real URL, without waiting two sprints for a developer.
+
+The workflow is shorter than the approval email for it. Write the copy in your project folder the way you'd write any asset, then say "turn this into a single-page site, mobile-first, with the CTA repeated after each section." Claude writes the code, you open the result in a browser, and you revise in plain English: "make the testimonial section feel less cramped." Module 2 of the course, [Vibe Coding](/vibe-coding), walks through building and deploying a real page even if you have never seen HTML, and [GSD](/gsd) covers the advanced version for bigger builds. For pages that must live in your existing CMS, official MCP connectors exist for [Webflow](https://developers.webflow.com/data/docs/ai-tools.md) and [WordPress](https://github.com/WordPress/mcp-adapter).
+
+An honest expectation: the first version will need your design taste applied, and that taste is still your job. But iterating on a live page beats writing a brief and waiting.
+
+## SEO Briefs From Real Keyword Data
+
+A good SEO brief is synthesis: target keyword, intent, what currently ranks, the gap, an outline. Claude Code handles the synthesis well when you feed it inputs. Reuse the competitor-teardown move: paste the top five ranking pages for your keyword into a folder, then ask for a brief with an outline, FAQ candidates, internal link suggestions, and the angle nobody is taking.
+
+If your team pays for Semrush, the official MCP connects live keyword data directly:
+
+```bash
+claude mcp add semrush https://mcp.semrush.com/v1/mcp -t http
+```
+
+Then type `/mcp` inside Claude Code and authenticate, per [Semrush's developer docs](https://developer.semrush.com/api/introduction/semrush-mcp/). [Ahrefs runs an official remote MCP server](https://docs.ahrefs.com/docs/mcp/reference/introduction) as well, available on its Lite plan and up. With either connected, "build a brief for this keyword with volume and difficulty for every suggested subtopic" becomes one instruction. If "MCP" is a new word, my [concepts guide](/guides/claude-code-concepts-explained) defines it in two sentences.
+
+## Where Claude Code Falls Down for Marketing Work
+
+**Ad account access is brand new and uneven.** For most of Claude Code's life there was no first-party MCP for Meta Ads or Google Ads, which is why every workflow above starts from a CSV export. That changed in late April 2026: Google's Ads API team shipped an [official read-only MCP server](https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server), and Meta launched its [Meta Ads MCP server in open beta](https://www.facebook.com/business/news/meta-ads-ai-connectors), which can read performance data and create campaigns. The fine print matters. Google's connector cannot modify anything, so new ad sets still go in by manual upload there, and Meta's is a beta I would point at a test campaign before trusting it with budget. When a reel about Anthropic's marketing team went viral, [the sharpest comment underneath](https://www.instagram.com/reel/DVvF_JaIS8C/) noted that generating hundreds of ad variations is fast while loading them into the platforms is still hours of clicking. Meta's connector is the first real answer to that complaint, and the CSV export remains the zero-setup path that works everywhere.
+
+**Numbers need spot-checking, every time.** Script-computed numbers are reliable; eyeballed ones are guesses, and Claude will not always announce which kind it gave you. Ask to see the code, then check two totals against the platform UI. [Other practitioners report the same pattern](https://www.qwe.edu.pl/tutorial/claude-csv-data-analysis/), and it matches my experience.
+
+**It does not post or schedule for you.** Output is files. People pipe them into scheduling tools or paste by hand, and I have come to like the pause: the file stage is where you catch the draft that almost went out sounding like a robot.
+
+**Google Analytics is the gentlest connector to start with.** Google publishes an [official read-only MCP](https://github.com/googleanalytics/google-analytics-mcp/), so traffic questions can skip the CSV step entirely. Read-only also means it cannot break anything, which is the right setting for your first connector.
+
+A note on cost: everything in this guide runs comfortably on the $20-per-month Pro plan ([current pricing](https://claude.com/pricing)), and my [limits and pricing guide](/guides/claude-code-limits-and-pricing) has the honest math on heavier use.
+
+## Learn All of This Free, Inside Claude Code
+
+I built a free course that teaches everything above, and the format is the unusual part: the lessons run inside Claude Code itself. You [install Claude Code](/getting-started/installation) in about 15 minutes, [download the course materials](/getting-started/start-and-clone), type `/start-1-1`, and Claude walks you through real exercises with real files. No videos, no signup gauntlet, roughly three hours start to finish.
+
+If you can have a conversation, you can use Claude Code. Marketers have conversations for a living.
+
+## FAQ
+
+### Do I need to know how to code to use Claude Code for marketing?
+
+No. You type instructions in plain English, the same way you would brief a freelancer, and Claude Code handles the technical parts itself. The install takes about 15 minutes, and the free course at ccforeveryone.com was built for people who have never opened a terminal.
+
+### How is Claude Code different from ChatGPT or Claude chat for marketing?
+
+Chat tools start from zero each conversation and hand you one block of text to copy out. Claude Code works in your folders: it reads a transcript, writes five separate files, keeps your brand voice in CLAUDE.md across sessions, and can run a script to compute real numbers from a CSV.
+
+### Can Claude Code see my Google Analytics or ad accounts?
+
+Increasingly, yes. Google publishes official read-only MCP connectors for Google Analytics and, since late April 2026, Google Ads, so reporting questions can skip the CSV step. Meta launched an official Meta Ads MCP server in open beta the same week, and that one can create and edit campaigns. Google's connectors cannot change anything in your account, so new ad sets still go in by hand there. The zero-setup path remains exporting a CSV and dropping it into your project folder.
+
+### Can I trust the numbers Claude Code pulls from my CSV?
+
+Trust them when Claude computes them with a script, which Claude Code can write and run. If it merely reads the file and states a total, treat that number as a guess. Ask to see the code and spot-check one or two figures against the source before anything reaches a stakeholder.
+
+### What does Claude Code cost for a marketer?
+
+The Pro plan at $20 per month covers light daily use, which fits repurposing batches and weekly reporting comfortably. Heavy all-day use fits the Max plans at $100 or $200 per month. There is no marketer-specific tier; you are paying for capacity, not features.

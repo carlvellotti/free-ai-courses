@@ -1,0 +1,215 @@
+---
+title: 'Claude Code for Writers: Drafts, Edits, and Your Voice'
+description: 'Claude Code for writers in plain English: drafts as files, a style guide that loads every session, visible diffs, and rules that keep your voice yours.'
+keywords: 'claude code for writers, claude code for writing, ai writing workflow, claude code editing, claude code for authors, claude code for content writers'
+schema:
+  "@context": "https://schema.org"
+  "@graph":
+    - "@type": "Article"
+      headline: "Claude Code for Writers: Drafts, Edits, and Your Voice"
+      description: "Claude Code for writers in plain English: drafts as files, a style guide that loads every session, visible diffs, and rules that keep your voice yours."
+      author:
+        "@type": "Person"
+        name: "Carl Vellotti"
+        url: "https://fullstackpm.com"
+      datePublished: "2026-06-10"
+      dateModified: "2026-06-10"
+      publisher:
+        "@type": "Organization"
+        name: "Claude Code for Everyone"
+        url: "https://ccforeveryone.com"
+    - "@type": "FAQPage"
+      mainEntity:
+        - "@type": "Question"
+          name: "Do I need to know how to code to use Claude Code as a writer?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "No. You type instructions in plain English and Claude Code handles the technical parts itself. The terminal is the only unfamiliar piece, and there is now a desktop app and a web version at claude.ai/code. The free course at ccforeveryone.com assumes you have never opened a terminal in your life."
+        - "@type": "Question"
+          name: "How is Claude Code different from ChatGPT for writing?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Chat tools hold your work inside a conversation that decays and eventually dies; Claude Code works on files that persist. Your drafts stay on your computer, your style guide in CLAUDE.md loads automatically every session, and edits appear as visible diffs you approve line by line instead of wholesale rewrites."
+        - "@type": "Question"
+          name: "Can Claude Code handle a whole book manuscript?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Yes. The standard context window holds roughly 150,000 words, and as of March 2026 the top Claude models support 1 million tokens (about 750,000 words), which Claude Code users on Max plans get by default on Opus 4.6. Authors mostly use it for continuity tracking, scene cards, and revision maps rather than generation."
+        - "@type": "Question"
+          name: "How do I stop Claude Code from flattening my writing voice?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Put binary, checkable rules in CLAUDE.md: a banned-words list, sentence rhythm rules, and the instruction to edit rather than rewrite. Keep the file under 200 lines, have Claude extract the rules from a folder of your published work, and reject any diff change that does not sound like you."
+        - "@type": "Question"
+          name: "Does Claude Code work with Obsidian, Scrivener, or Word?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Obsidian, yes, natively: a vault is a folder of markdown files, which is exactly what Claude Code reads and writes. Scrivener and Word store work in formats it cannot edit cleanly, so export to plain text or markdown first and treat that export as your working copy."
+---
+
+import { StepFlow, VersusTable } from '../../components/charts'
+
+# Claude Code for Writers: Drafts, Edits, and Your Voice
+
+*Last updated: June 10, 2026*
+
+Somewhere in your ChatGPT history is a paragraph you loved, buried under four hundred messages and a scroll bar. That experience is the whole argument for Claude Code for writers: your drafts become **files on your computer**, your style guide becomes a file the AI reads automatically at the start of every session, and edits arrive as **visible diffs** you approve line by line. The chat never has to remember anything, because the folder does.
+
+I'm Carl. I run a [free course](/getting-started/start-and-clone) that teaches Claude Code to people who do not code, and the writers who finish it (essayists, novelists, journalists, newsletter people) are its most surprised graduates. Most guides to Claude Code for writing were written by developers, for developers. This one assumes you write for a living and code not at all.
+
+## Why Claude Code for Writers Starts With Files, Not Chat
+
+A file survives; a chat thread decays. Writers who co-write in chat windows all hit the same wall, the one novelist Marilise de Villiers describes: ["when conversations got too long, Claude would lose context and I'd have to start fresh... re-establish the voice"](https://www.marilise-de-villiers.com/blog/why-I-am-co-writing-MOAR!-with-Claude). Every long chat session ends with you re-teaching the AI who you are.
+
+Claude Code skips the re-teaching. It is Anthropic's AI agent that runs in a terminal (also a desktop app, also on the web at claude.ai/code), reads and writes the actual files in a folder, and takes instructions in plain English. Point it at `drafts/essay.md` and it edits that file, on your disk, where any editor can open it. Close the laptop Tuesday, come back Thursday, and everything is exactly where you left it, because none of it ever lived inside a conversation.
+
+Writers doing this are no fringe case. Anthropic's own usage research found that arts and media work, mostly copyediting and the refinement of fiction, is [the third-largest category of Claude usage](https://www.anthropic.com/research/anthropic-economic-index-january-2026-report), and it grew through late 2025 while coding's share shrank.
+
+<VersusTable
+  title="Writing tasks: Claude Code vs a chat window"
+  left="Claude Code"
+  right="Chat (ChatGPT, Claude app)"
+  source="Structural differences as of June 2026"
+  rows={[
+    { label: 'Where the draft lives', left: 'A file on your computer, open in any editor', right: 'Scroll history; gone when the thread dies' },
+    { label: 'Your style guide', left: 'CLAUDE.md loads automatically every session', right: 'Pasted in fresh, every single time' },
+    { label: 'How edits arrive', left: 'A visible diff you accept or reject line by line', right: 'A full rewrite you re-read end to end' },
+    { label: 'A 90,000-word manuscript', left: 'Read straight from the folder; fits in context', right: 'Pasted in chunks until the window runs out' },
+    { label: 'Output of one instruction', left: 'Several finished files, saved where they belong', right: 'One block of text to copy out by hand' }
+  ]}
+/>
+
+Tech writer Robert Matsuoka, who moved his entire article pipeline over, estimates that killing copy-paste alone [saves him about 30 minutes per article](https://hyperdev.matsuoka.com/p/why-i-switched-to-claude-code-for). His framing is the cleanest I've seen: generate with AI, edit with editors, stop forcing one tool to do both. Claude Code handles the files; he polishes in Obsidian.
+
+If the word "terminal" makes you want to close this tab, the [non-developers guide](/guides/claude-code-for-non-developers) builds the mental model gently, and the [install takes about 15 minutes](/getting-started/installation).
+
+## The Edit Pass: Claude Code Editing With a Style Guide in CLAUDE.md
+
+One file changes everything about AI editing: `CLAUDE.md`. It sits in your project folder, and Claude Code [reads it automatically at the start of every session](https://code.claude.com/docs/en/memory). Write your style rules there once and they ride along forever, no re-pasting, no "as I mentioned earlier." Type `/init` and Claude drafts the file for you; the course covers the details in [project memory](/fundamentals/project-memory).
+
+Two specifics from Anthropic's docs are worth respecting. Keep the file under 200 lines, because long files reduce adherence. And remember it is context rather than law: strong steering, never enforcement, which is exactly why the diff review step below exists.
+
+<StepFlow
+  title="The edit pass, start to finish"
+  steps={[
+    { title: 'Draft it yourself, ugly', desc: 'Write the messy first version in any editor. The thinking stays yours.' },
+    { title: 'Drop the file in your project folder', desc: 'Claude Code reads it directly with @filename. Nothing gets pasted.' },
+    { title: 'Critique in plan mode', desc: 'Press Shift+Tab to cycle to plan mode, which makes Claude read-only. Ask for the five biggest problems, ranked, before anything changes.' },
+    { title: 'Run one bounded edit pass', desc: 'Edit, do not rewrite: one pass for clarity only, with your CLAUDE.md rules steering every change.' },
+    { title: 'Review the diff line by line', desc: 'Reject anything that does not sound like you. Rejections are the system working.' },
+    { title: 'Read it aloud and ship', desc: 'Final wording is a human decision, and no amount of tooling changes that.' }
+  ]}
+/>
+
+The diff is the feature. When Claude Code edits a file, it shows precisely which lines changed, old version next to new, and you accept or reject each one. A chat rewrite forces you to re-read the whole passage hunting for what moved; a diff makes drift visible at a glance. The prompt that drives a good pass is short:
+
+```text
+Read @essay-draft.md. You are an editor, not a ghostwriter.
+One pass for clarity only: cut filler, fix grammar, tighten verbs.
+Do not restructure. Do not touch the opening or the final line.
+```
+
+The `@` syntax points Claude at a specific file, and it is the single most useful habit to build first; [working with files](/fundamentals/working-with-files) is the course lesson on it. Separating critique from editing matters too. Plan mode gives you a reader who can find every problem and change nothing, which is rarer in real life than it should be.
+
+## AI Will Flatten Your Voice If You Let It
+
+Left unsupervised, an AI editor sands your writing into the same smooth, confident, faintly plastic register as everyone else's. I learned this on my own homepage. I asked Claude to "tighten" one paragraph and it returned a version where every sentence was the same length and my one good joke had been replaced with a summary of the joke. Smoother, and worse.
+
+The fix is specific, checkable rules in `CLAUDE.md`. Vague instructions fail: writers consistently report that ["be concise" gets ignored while binary rules stick](https://dev.to/peterverse180/writing-a-claudemd-that-claude-actually-follows-4llo), and one widely shared breakdown of working CLAUDE.md files concluded that [the banned-phrases list does more work than any other 30 lines in the file](https://500k.io/journal/how-to-write-a-claude-md-file). Mine, compressed:
+
+```markdown
+## Voice rules: you are an editor, not a ghostwriter
+
+- Edit, do not rewrite. Change the minimum number of words.
+- Never merge or split my paragraphs without asking first.
+- Banned words: utilize, furthermore, moreover, additionally, foster
+- Banned moves: rhetorical questions, three-item lists ending in a fragment
+- Rhythm: if three sentences in a row are within five words of the same
+  length, flag it. Do not fix it.
+- Keep my sentence fragments. They are on purpose.
+
+## My voice, by example
+@published/voice-examples.md
+```
+
+The first line is the load-bearing one. "Editor, not a ghostwriter" comes from [Shay Stibelman's much-shared essay](https://blog.stibelman.com/2026/04/stop-using-claude-to-write-for-you/), and it is the difference between getting your draft back with 40 changed words and getting back someone else's essay wearing your byline. The last line is an import: Claude loads annotated samples of your best writing at launch without spending your 200-line budget. (My own file bans em dashes by name. I used them constantly until 2025, and habits outlive decisions.)
+
+The payoff is real. Content writer Nuno Roberto says building voice boundary files [dramatically cut the time he spent de-AI-ifying each article](https://medium.com/@nuno.roberto/claude-should-sound-like-you-heres-how-5ec79e6ac3dc). And you do not have to write the spec by hand: fiction writer jessa had Claude Code [extract a style guide from 1,470 of her old blog posts in one pass](https://jessa.blog/2026/04/27/co-writing-fiction-with-an-ai/). Point it at a folder of your published work and ask what your sentences have in common. Watching your own tics get cataloged is mildly unsettling, and worth every minute of the discomfort.
+
+## Four Writer Workflows Worth Stealing
+
+An AI writing workflow built on files has the same shape every time: files in, files out, you in the middle reviewing. None of these requires anything beyond a folder and plain English.
+
+### From a research folder to an outline
+
+Make a folder called `research`, drop in everything (PDFs, saved articles, interview notes, half-formed ideas), and ask for the shape of the piece before you write a word:
+
+```text
+Read everything in @research/ and give me:
+1. The five strongest themes, with the filenames that support each one
+2. Three points where my sources disagree
+3. An outline for a 2,000-word essay, sources mapped to sections
+Do not write any prose yet.
+```
+
+Because the answers cite filenames, every claim is checkable against its source in seconds, and the disagreements are usually where the essay actually lives. For synthesis across dozens of sources, the [researchers guide](/guides/claude-code-for-researchers) goes much deeper.
+
+### One essay into a newsletter, a thread, and a summary
+
+For content writers, repurposing is where the file advantage lands hardest: one instruction, several finished files, each saved under its own name. Ask for `newsletter.md` at 400 words with one CTA, `thread.md` as eight posts leading with the strongest stat, and `summary.md` at 120 words for the archive page, all matching the voice rules already in `CLAUDE.md`. Dheeraj Sharma runs his whole content operation this way and went from [4 or 5 articles a month to 8, at roughly 45 minutes per article](https://genaiunplugged.substack.com/p/claude-code-content-system-full-ai-pipeline), on the $20 Pro plan. Those are one writer's numbers, a case study rather than a promise. If repurposing is most of your job, the [marketers guide](/guides/claude-code-for-marketers) treats it as a full production line.
+
+### Interview transcript to profile draft
+
+Drop the raw transcript in the folder and work in stages: pull the ten strongest quotes, group them into themes, then draft sections around them while you write the opening and the kicker yourself. Researchers and journalists already run serious projects this way; one synthesis project [queried 50 interview transcripts three different ways](https://elsevanderberg.substack.com/p/claude-code-for-interview-synthesis) without re-pasting a single one. One hard rule: verify every quote against the transcript, word for word, before publishing. Claude is excellent at finding quotes and occasionally confident about misremembered ones.
+
+### Organizing years of notes (Obsidian works great)
+
+An Obsidian vault is a folder of markdown files, which means Claude Code reads it natively, no plugin required. Blogger Darren Rowse, a self-described non-coder, ran an audit of [about 1,000 sermon and research notes](https://darrenrowse.com/posts/how-i-connected-claude-code-to-my-obsidian-vault-a-guide-for-non-coders) and says the vault stopped being an archive and became part of how he creates. Casey Newton of Platformer [indexed 818 newsletter editions into a searchable archive in under 30 minutes](https://www.platformer.news/claude-code-for-writers-tips-ideas/).
+
+Start bounded. Ask for an inventory and a proposed structure before letting it move anything; writers who open with "clean up my whole vault" [report invented tags and general chaos](https://claudecode-lab.com/en/blog/claude-code-obsidian-integration/). The writers who go folder by folder, approving each move, are the ones who still recognize their vaults afterward.
+
+## Claude Code for Authors: It Can Hold a Whole Book Now
+
+This was not true a year ago. As of March 2026, [a 1-million-token context window (about 750,000 words) is generally available](https://www.claude.com/blog/1m-context-ga) on Claude's top models, and Claude Code users on Max plans get it by default with Opus 4.6. Even the standard window holds roughly 150,000 words, a complete manuscript in most genres. Recall has caught up too: on Anthropic's hardest long-document benchmark, [Opus 4.6 scores 76% versus 18.5% for Sonnet 4.5](https://www.anthropic.com/news/claude-opus-4-6), which is the difference between remembering chapter 3 and guessing about it.
+
+What authors actually do with all that context is manuscript management, far more than generation. One novelist documented using Claude Code across [an 8-month, 113-chapter, 301,000-word novel](https://docs.bswen.com/blog/2026-02-23-claude-long-form-writing/), mostly for continuity. The frame I trust most comes from a developmental editor at Crash Draft: [Claude Code is not here to write your novel](https://crashdraft.substack.com/p/claude-code-is-not-here-to-write); it turns a giant manuscript into scene cards, continuity notes, and a revision map you can actually work from.
+
+Two limits, stated plainly. Claude cannot reliably count, so do not trust it to flag [every repeated phrase across a document](https://daringnext.substack.com/p/ai-editing-process-duplication-tool); writers keep rediscovering this one the hard way. And long generation sessions degrade: criminologist Andrew Wheeler, drafting technical material, [works in small sections from a detailed outline and expects to keep about half](https://andrewpwheeler.com/2026/03/20/using-claude-code-to-help-me-write/) of what comes back.
+
+## What to Never Outsource
+
+The thinking is the job; everything else is logistics. Claude Code can organize your research, hold your style rules, propose edits, and repackage finished work into five formats before lunch. It cannot decide what you believe, notice the one detail in an interview that everyone else would walk past, or feel that a sentence is technically fine and still wrong. Prose has no automated tests; as essayist Javier Aguilar puts it after long experiments with AI drafting, [every paragraph needs a human read](https://www.javieraguilar.ai/en/blog/writing-an-essay-with-ai-codex-vs-claude-code/), because nothing else catches a wrong idea expressed cleanly.
+
+So here is my stake in the ground: if the first draft is the machine's, the piece is the machine's, no matter how much you fix it afterward. Draft ugly and human. Then let Claude Code do what it is genuinely great at, which is the moving, the checking, the formatting, and the fourth editing pass at midnight when your judgment is gone but the rules in `CLAUDE.md` are not.
+
+## Try One Edit Pass This Week (Free Course)
+
+The fastest way to feel the difference is to run the pipeline above on a real draft, today, with stakes. Setup is one command:
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+My [15-minute install guide](/getting-started/installation) walks through it click by click, and then you can [download the free course](/getting-started/start-and-clone). The lessons run inside Claude Code itself: you type `/start-1-1` and Claude teaches you, hands-on, with your own files. Everything this guide leans on lives in Module 1, especially [working with files](/fundamentals/working-with-files) and [project memory](/fundamentals/project-memory). If you want one page to keep beside the keyboard first, the [cheat sheet](/guides/claude-code-cheat-sheet) covers the ten commands that matter. Cost: Claude Code is included in the regular [$20-per-month Claude Pro plan](https://claude.com/pricing), no separate purchase, and the [limits and pricing guide](/guides/claude-code-limits-and-pricing) covers when heavy use justifies more.
+
+## FAQ
+
+### Do I need to know how to code to use Claude Code as a writer?
+
+No. You type instructions in plain English and Claude Code handles the technical parts itself. The terminal is the only unfamiliar piece, and there is now a desktop app and a web version at claude.ai/code. The free course at ccforeveryone.com assumes you have never opened a terminal in your life.
+
+### How is Claude Code different from ChatGPT for writing?
+
+Chat tools hold your work inside a conversation that decays and eventually dies; Claude Code works on files that persist. Your drafts stay on your computer, your style guide in CLAUDE.md loads automatically every session, and edits appear as visible diffs you approve line by line instead of wholesale rewrites.
+
+### Can Claude Code handle a whole book manuscript?
+
+Yes. The standard context window holds roughly 150,000 words, and as of March 2026 the top Claude models support 1 million tokens (about 750,000 words), which Claude Code users on Max plans get by default on Opus 4.6. Authors mostly use it for continuity tracking, scene cards, and revision maps rather than generation.
+
+### How do I stop Claude Code from flattening my writing voice?
+
+Put binary, checkable rules in CLAUDE.md: a banned-words list, sentence rhythm rules, and the instruction to edit rather than rewrite. Keep the file under 200 lines, have Claude extract the rules from a folder of your published work, and reject any diff change that does not sound like you.
+
+### Does Claude Code work with Obsidian, Scrivener, or Word?
+
+Obsidian, yes, natively: a vault is a folder of markdown files, which is exactly what Claude Code reads and writes. Scrivener and Word store work in formats it cannot edit cleanly, so export to plain text or markdown first and treat that export as your working copy.

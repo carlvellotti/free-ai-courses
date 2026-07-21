@@ -1,0 +1,109 @@
+---
+title: '1.6: Custom Sub-agents'
+description: 'Create permanent AI advisors with different perspectives. Build your own advisory board.'
+keywords: 'claude code sub-agents, claude code personas, custom ai agents, claude code advisors'
+---
+
+## 1.6: Custom Sub-agents
+
+- **Time to Complete:** 15 minutes
+
+> **Interactive lesson:** Run `/start-1-6` in Claude Code
+
+## Additional Resources
+
+- [Awesome Claude Code Sub-Agents](https://github.com/VoltAgent/awesome-claude-code-subagents) - Community templates
+- [Sub-Agent Examples](https://github.com/wshobson/agents) - Real-world configurations
+- [SubAgents.cc](https://www.subagents.cc/) - Template generator and browser
+- [Official Docs: Sub-agents](https://docs.anthropic.com/en/docs/claude-code/sub-agents) - Anthropic documentation
+
+## Agents vs Sub-agents
+
+| Aspect | Agents (1.5) | Sub-agents (1.6) |
+|--------|--------------|------------------|
+| **Lifespan** | Temporary - spin up, process, gone | Permanent - always available |
+| **Purpose** | Volume, batch processing | Wisdom, perspectives, feedback |
+| **Analogy** | "10 interns processing files" | "Advisory board reviewing strategy" |
+
+## The Advisory Team Concept
+
+Like building your own board of advisors:
+- Each has a different perspective
+- Call on them for feedback from different angles
+- Update and improve them over time
+
+## How Sub-agents Work
+
+Sub-agents are defined in `.claude/agents/` folder.
+
+Each file has:
+- **YAML frontmatter** (name, description)
+- **System prompt** (personality and perspective)
+
+They're just text files - you can view and edit them directly.
+
+## Sub-agent File Structure
+
+```yaml
+---
+name: Agent Name
+description: One-line description
+---
+
+# System prompt
+
+You are... [personality and perspective]
+```
+
+## Using Sub-agents
+
+Reference them by name in your prompts:
+
+```
+Have the Skeptic review this proposal
+```
+
+```
+Get feedback from all three sub-agents on this plan
+```
+
+They respond in character with their perspective.
+
+## Creating Your Own Sub-agents
+
+Use the `/agents` command:
+1. Choose **Project** (this project only) or **Personal** (all projects)
+2. Claude helps you create the agent
+
+### Ideas for Useful Sub-agents
+
+| Sub-agent | Perspective |
+|-----------|-------------|
+| **Skeptical Investor** | Pressure-tests ideas and ROI |
+| **Confused Beginner** | Checks if instructions are clear |
+| **Legal Reviewer** | Spots risks and compliance issues |
+| **Busy Executive** | Wants bottom line, no fluff |
+
+## When to Use Sub-agents
+
+- Need thoughtful feedback from different viewpoints
+- Stress-testing proposals or plans
+- Getting diverse perspectives on a document
+- Simulating stakeholder reactions
+- Review from specific personas
+
+## Advisory Team Examples
+
+| Scenario | Sub-agents |
+|----------|------------|
+| **Resume review** | Recruiter + Hiring Manager + Career Coach |
+| **Business idea** | Skeptical Investor + Target Customer + Realist |
+| **Presentation** | Busy Exec + Detail-Oriented Analyst + Skeptic |
+| **Writing** | Editor + Target Reader + Harsh Critic |
+| **Big decision** | Risk-Averse + Opportunity-Focused + Practical |
+
+---
+
+## What's Next
+
+**[1.7: Project Memory (CLAUDE.md) →](/fundamentals/project-memory)** - Persistent context that survives sessions

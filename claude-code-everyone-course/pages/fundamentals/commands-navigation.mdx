@@ -1,0 +1,127 @@
+---
+title: '1.4: Commands & Navigation'
+description: 'Master slash commands, keyboard shortcuts, input modes, and power user features in Claude Code.'
+keywords: 'claude code commands, claude code shortcuts, claude code slash commands, claude code navigation'
+---
+
+## 1.4: Commands & Navigation
+
+- **Time to Complete:** 20 minutes
+
+> **Interactive lesson:** Run `/start-1-4` in Claude Code
+
+## Slash Commands Reference
+
+### Session Management
+| Command | Description |
+|---------|-------------|
+| `/clear` | Start fresh conversation (keeps files, clears chat) |
+| `/compact` | Compress conversation to save context when running long |
+| `/resume` | Pick up where you left off after closing Claude Code |
+
+### Models & Usage
+| Command | Description |
+|---------|-------------|
+| `/model` | Switch between Claude models (Sonnet = fast, Opus = smart) |
+| `/usage` | See how much of your quota you've used |
+| `/cost` | See cost breakdown for current session |
+
+### Context & Files
+| Command | Description |
+|---------|-------------|
+| `/context` | See what files Claude is currently aware of |
+| `/add-dir` | Add a directory to Claude's context |
+| `/init` | Initialize CLAUDE.md for a new project |
+| `/memory` | View or edit Claude's memory for this project |
+
+### Agents & Permissions
+| Command | Description |
+|---------|-------------|
+| `/agents` | Create and manage custom sub-agents |
+| `/permissions` | View and manage tool permissions |
+
+### Configuration
+| Command | Description |
+|---------|-------------|
+| `/config` | Open configuration settings |
+| `/doctor` | Run health check and diagnostics |
+| `/terminal-setup` | Configure terminal integration |
+| `/vim` | Toggle vim keybindings |
+
+### Other
+| Command | Description |
+|---------|-------------|
+| `/help` | See all available commands |
+| `/bug` | Report a bug to Anthropic |
+| `/quit` or `/exit` | Exit Claude Code |
+
+Type `/` to see the full menu with descriptions.
+
+## Custom Slash Commands
+
+- They're files in `.claude/commands/`
+- Shortcuts for things you do repeatedly
+- You can create your own (just ask Claude to make one)
+- **Important:** Restart Claude Code after adding new commands
+
+## Escape to Interrupt
+
+Press **Escape** to stop Claude mid-response.
+- Useful when you see Claude going the wrong direction
+- You're always in control
+
+## Rewind Feature (Esc×2)
+
+Press **Escape twice** to see rewind options:
+- Reset conversation only (keep files Claude created)
+- Reset conversation AND undo file changes
+
+Like time travel for AI work - great for experimenting.
+
+## Think Keywords
+
+| Keyword | Effect |
+|---------|--------|
+| `think` | Normal thinking |
+| `think harder` | Deeper analysis |
+| `ultrathink` | Maximum thinking power (rainbow indicator!) |
+
+Use for complex analysis and strategic decisions.
+
+> **Warning:** Uses more of your usage quota.
+
+## The Three Input Modes
+
+Cycle with **Shift+Tab**:
+
+| Mode | Behavior | Best For |
+|------|----------|----------|
+| **Edit** (default) | Claude asks permission before changes | Safe, learning |
+| **Auto-accept** | Claude just does it | Faster, trusted workflows |
+| **Plan** | Claude creates plan first, you review, then it executes | Complex multi-step tasks |
+
+## The Power Mode
+
+```bash
+claude --dangerously-skip-permissions
+```
+
+Launches Claude with NO permission prompts. Maximum speed - Claude just does everything.
+
+Called "dangerously" for a reason - use when you trust the workflow.
+
+## Keyboard Shortcuts Summary
+
+| Shortcut | Action |
+|----------|--------|
+| `Escape` | Interrupt Claude |
+| `Escape × 2` | Rewind options |
+| `Shift+Tab` | Cycle input modes |
+| `Ctrl+`` | Open terminal in editor |
+| `Ctrl+V` | Paste images (not Cmd+V on Mac!) |
+
+---
+
+## What's Next
+
+**[1.5: Agents →](/fundamentals/agents)** - Parallel processing with multiple Claude instances

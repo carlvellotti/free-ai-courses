@@ -1,0 +1,168 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-01-07",
+  "levels": [
+    {
+      "id": "0",
+      "name": "Getting Started",
+      "description": "Install Claude Code and download course materials",
+      "modules": [
+        {
+          "id": "0.0",
+          "title": "Intro to Claude Code",
+          "slug": "introduction",
+          "command": null,
+          "description": "What Claude Code is and who this course is for",
+          "estimatedMinutes": 5
+        },
+        {
+          "id": "0.1",
+          "title": "Installation",
+          "slug": "installation",
+          "command": null,
+          "description": "Get Claude Code installed and authenticated",
+          "estimatedMinutes": 15
+        },
+        {
+          "id": "0.2",
+          "title": "Download & Start",
+          "slug": "start-and-clone",
+          "command": null,
+          "description": "Get course materials and launch your first lesson",
+          "estimatedMinutes": 5
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "name": "Fundamentals",
+      "description": "Core Claude Code capabilities",
+      "modules": [
+        {
+          "id": "1.1",
+          "title": "Course Introduction",
+          "slug": "course-intro",
+          "path": "lesson-modules/1-fundamentals/1.1-intro/CLAUDE.md",
+          "command": "start-1-1",
+          "description": "Course approach and community",
+          "estimatedMinutes": 5
+        },
+        {
+          "id": "1.2",
+          "title": "File Exploration & Visual Workspace",
+          "slug": "visual-workspace",
+          "path": "lesson-modules/1-fundamentals/1.2-visual-workspace/CLAUDE.md",
+          "command": "start-1-2",
+          "description": "Set up Cursor and the dual-pane workflow",
+          "estimatedMinutes": 15
+        },
+        {
+          "id": "1.3",
+          "title": "Working with Files",
+          "slug": "working-with-files",
+          "path": "lesson-modules/1-fundamentals/1.3-working-with-files/CLAUDE.md",
+          "command": "start-1-3",
+          "description": "Master the @ symbol and file operation patterns",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "1.4",
+          "title": "Commands & Navigation",
+          "slug": "commands-navigation",
+          "path": "lesson-modules/1-fundamentals/1.4-commands-navigation/CLAUDE.md",
+          "command": "start-1-4",
+          "description": "Slash commands, shortcuts, and power user features",
+          "estimatedMinutes": 20
+        },
+        {
+          "id": "1.5",
+          "title": "Agents",
+          "slug": "agents",
+          "path": "lesson-modules/1-fundamentals/1.5-agents/CLAUDE.md",
+          "command": "start-1-5",
+          "description": "Parallel processing with multiple Claude instances",
+          "estimatedMinutes": 20
+        },
+        {
+          "id": "1.6",
+          "title": "Custom Sub-agents",
+          "slug": "custom-subagents",
+          "path": "lesson-modules/1-fundamentals/1.6-custom-subagents/CLAUDE.md",
+          "command": "start-1-6",
+          "description": "Create permanent specialized advisors",
+          "estimatedMinutes": 15
+        },
+        {
+          "id": "1.7",
+          "title": "Project Memory (CLAUDE.md)",
+          "slug": "project-memory",
+          "path": "lesson-modules/1-fundamentals/1.7-project-memory/CLAUDE.md",
+          "command": "start-1-7",
+          "description": "Persistent context that survives sessions",
+          "estimatedMinutes": 15
+        },
+        {
+          "id": "1.8",
+          "title": "What's Next",
+          "slug": "whats-next",
+          "path": "lesson-modules/1-fundamentals/1.8-whats-next/CLAUDE.md",
+          "command": "start-1-8",
+          "description": "Preview of advanced features and Module 2",
+          "estimatedMinutes": 10
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Vibe Coding",
+      "description": "Build a real web app with Claude Code",
+      "modules": [
+        {
+          "id": "2.1",
+          "title": "Setup",
+          "slug": "setup",
+          "path": "lesson-modules/2.1-setup/CLAUDE.md",
+          "command": "start-2-1",
+          "description": "The vibecoding mindset and project folder setup",
+          "estimatedMinutes": 10
+        },
+        {
+          "id": "2.2",
+          "title": "Plan",
+          "slug": "plan",
+          "path": "lesson-modules/2.2-plan/CLAUDE.md",
+          "command": "start-2-2",
+          "description": "Interview process to define clear requirements",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "2.3",
+          "title": "Build & Iterate",
+          "slug": "build-iterate",
+          "path": "lesson-modules/2.3-build-iterate/CLAUDE.md",
+          "command": "start-2-3",
+          "description": "Scaffold, build, and refine with screenshots",
+          "estimatedMinutes": 40
+        },
+        {
+          "id": "2.4",
+          "title": "GitHub",
+          "slug": "github",
+          "path": "lesson-modules/2.4-github/CLAUDE.md",
+          "command": "start-2-4",
+          "description": "Version control and backup",
+          "estimatedMinutes": 15
+        },
+        {
+          "id": "2.5",
+          "title": "Go Live",
+          "slug": "go-live",
+          "path": "lesson-modules/2.5-go-live/CLAUDE.md",
+          "command": "start-2-5",
+          "description": "Deploy to Vercel with a real URL",
+          "estimatedMinutes": 15
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+---
+title: 'Claude Code for Non-Developers: The Complete Guide'
+description: 'Claude Code for non-developers in plain English: what it is, a seven-day starter plan with real task recipes, safety basics, and what it honestly costs.'
+keywords: 'claude code for non developers, claude code without coding, claude code for non-technical people, claude code no programming, can I use claude code without coding, claude code beginners guide'
+schema:
+  "@context": "https://schema.org"
+  "@graph":
+    - "@type": "Article"
+      headline: "Claude Code for Non-Developers: The Complete Guide"
+      description: "Claude Code for non-developers in plain English: what it is, a seven-day starter plan with real task recipes, safety basics, and what it honestly costs."
+      author:
+        "@type": "Person"
+        name: "Carl Vellotti"
+        url: "https://fullstackpm.com"
+      datePublished: "2026-06-10"
+      dateModified: "2026-06-10"
+      publisher:
+        "@type": "Organization"
+        name: "Claude Code for Everyone"
+        url: "https://ccforeveryone.com"
+    - "@type": "FAQPage"
+      mainEntity:
+        - "@type": "Question"
+          name: "Can I use Claude Code without knowing how to code?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Yes. You type plain English, and Claude reads, writes, and organizes the files on your computer, asking before it changes anything. Anthropic publishes a terminal guide written for people who have never opened one. The skill that matters is describing what you want clearly, and the seven-day plan in this guide involves no programming at all."
+        - "@type": "Question"
+          name: "Do I have to use the terminal to use Claude Code?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "No. The Claude desktop app for Mac and Windows has a Code tab that runs the full tool with folder pickers and buttons, and there is a web version at claude.ai/code. The terminal version is worth learning eventually because the official guide makes it genuinely gentle, but you can skip it entirely and lose very little."
+        - "@type": "Question"
+          name: "Is Claude Code free?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "No. It requires a paid Claude plan. Pro at $20 per month, or $17 per month billed annually, includes both Claude Code and Claude Cowork. The free Claude plan does not include it, and there is no separate per-use fee on subscription plans."
+        - "@type": "Question"
+          name: "What's the difference between Claude Code and Claude Cowork?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "They run on the same engine. Cowork lives inside the desktop app with no terminal anywhere, runs in a sandboxed virtual machine, and is built for documents, connected apps, and tasks you walk away from. Claude Code gives you more control and more power. Anthropic's own matrix: chat for drafting, Code for coding, Cowork for cross-app knowledge work."
+        - "@type": "Question"
+          name: "Can Claude Code delete my files?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "By default it asks before any edit or deletion, and read-only actions never need approval. But a vague instruction like clean up this folder, approved without reading, can go badly: one Reddit user lost 11GB that way. Work in a dedicated folder, keep backups, and say delete nothing when you mean it."
+---
+
+import { StatGrid, StepFlow, VersusTable } from '../../components/charts'
+
+# Claude Code for Non-Developers: The Complete Guide
+
+*Last updated: June 10, 2026*
+
+Somewhere on your computer there is a folder you are afraid of. Maybe it is 4,000 unsorted screenshots, or eight years of receipts, or the meeting notes you swore you would organize in January.
+
+Claude Code can fix that folder this week, and **you will type sentences the entire time**. This is Claude Code for non-developers, written as an actual plan: what the tool is in plain English, a seven-day path with copy-paste recipes, the safety settings that matter, and what it honestly costs. The essays already written on this topic are good at convincing you. This page tells you what to do on Tuesday.
+
+I'm Carl. I teach a free course on exactly this, built around one sentence: if you can have a conversation, you can use Claude Code. What follows is the standalone version of week one.
+
+## What Claude Code Actually Is, in Plain English
+
+**Claude Code is a chat that can read, write, and organize the files on your computer.** That is the whole definition. Everything else is detail.
+
+A regular AI chat works on text you paste into a window, and the work evaporates when the conversation ends. Claude Code works on an actual folder you point it at. It opens the PDFs, reads the spreadsheets, renames the screenshots, writes the brief, and saves everything back as ordinary files. Close the app and your work is still sitting there, in formats any program can open. There is no export button because there is nothing to export.
+
+Anthropic built it for programmers. Within six months of its May 2025 public launch it [passed $1 billion in annual revenue](https://www.mindstudio.ai/blog/claude-code-2-5-billion-annualized-revenue-terminal-tool), by February 2026 the run rate was [past $2.5 billion](https://www.saastr.com/anthropic-just-hit-14-billion-in-arr-up-from-1-billion-just-14-months-ago/), and weekly users had [doubled since January 1](https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation), per Anthropic's own February announcement. Then people started noticing something the marketing never said out loud: "read, write, and organize files" describes most office work. Anthropic's own [Economic Index report from March 2026](https://www.anthropic.com/research/economic-index-march-2026-report) found that coding is only about 35% of what people do with Claude, and roughly 49% of occupations now use it for at least a quarter of their tasks.
+
+<StatGrid
+  source="Sources: SaaStr (Feb 2026), Anthropic Economic Index (Mar 2026), Anthropic software development research (2025)"
+  stats={[
+    { value: '$2.5B+', label: 'Claude Code annual revenue run rate', sub: 'February 2026' },
+    { value: '~35%', label: 'share of Claude conversations that are coding', sub: 'the rest is everything else' },
+    { value: '49%', label: 'of occupations use Claude for a quarter or more of their tasks' },
+    { value: '79%', label: 'of Claude Code requests are full task delegation', sub: 'vs 49% in the chat app' }
+  ]}
+/>
+
+That last number deserves a sentence. In the chat app, people mostly collaborate with the AI; in Claude Code, [79% of conversations are "do the task for me"](https://www.anthropic.com/research/impact-software-development). You describe the outcome, it does the work, you check the result. That mode is exactly what a non-programmer wants from a computer.
+
+Anthropic has never published what share of Claude Code users can't code. I wish it would, because my inbox suggests the answer is "a lot, and growing."
+
+## The Terminal Is Optional
+
+The terminal (the black window) is the single biggest reason non-technical people never try this tool, and the fear is probably two years out of date. The vocabulary on Reddit is remarkably consistent: daunting, intimidating, terminal wizardry. One r/ClaudeAI user [put it plainly](https://docs.bswen.com/blog/2026-03-13-who-should-use-claude-cowork/): "as a non-coder... claude code seemed daunting given very minimal technical knowledge."
+
+Two things have changed, and both are good news.
+
+**First, you can skip the terminal completely.** The [Claude desktop app](https://code.claude.com/docs/en/desktop) for Mac and Windows has three tabs: Chat, Cowork, and Code. The Code tab is full Claude Code with a folder picker, a permission selector, and buttons instead of commands. There is also a web version at claude.ai/code. No black window anywhere in sight.
+
+**Second, the terminal asks far less of you than you think.** Anthropic now publishes an official [terminal guide for new users](https://code.claude.com/docs/en/terminal-guide) that opens with "You can use Claude Code even if you've never used a terminal before," written specifically for non-technical people, down to the step where you find the app with Spotlight. Once Claude Code is running, you type sentences. The only command-like things you will ever use are a handful of shortcuts that start with a slash, like `/usage`, and there are [about ten worth knowing](/guides/claude-code-cheat-sheet).
+
+I delayed the terminal lessons in my course for weeks because I assumed beginners would bounce off them. The opposite happened. The email I now get most often is some version of "that was easier than installing a printer," and the question I get most often is some version of *can I use Claude Code without coding?* Yes. The terminal turned out to be the easy part. The real skill is writing instructions a very fast, very literal assistant can follow, and the week plan below is designed to build exactly that.
+
+## What Developers Use It For vs What You Will Use It For
+
+The tool does not care what kind of files it is reading. Code, contracts, receipts, transcripts: all just text to organize and transform. No programming appears anywhere in the right-hand column.
+
+<VersusTable
+  title="Same Tool, Different Lives"
+  left="What developers use it for"
+  right="What you will use it for"
+  source="Right column: tasks from Anthropic's terminal guide for new users plus the week plan below"
+  rows={[
+    { label: "Raw material", left: "A code repository", right: "PDFs, screenshots, receipts, meeting notes, CSVs" },
+    { label: "A typical request", left: "Fix the failing test and refactor the login flow", right: "Turn this folder of receipts into a spreadsheet" },
+    { label: "The output", left: "Code, shipped", right: "A brief, a budget, a folder that finally makes sense" },
+    { label: "Success looks like", left: "The build passes", right: "You never do that task by hand again" },
+    { label: "Skill required", left: "Years of programming", right: "Clear sentences about what you want" }
+  ]}
+/>
+
+Take the last row seriously. Your bottleneck will never be syntax; it will be vague verbs, and later in this guide you will meet an 11GB lesson in why.
+
+The right column is not hypothetical. Boris Cherny, who created Claude Code, [listed what people actually use it for](https://aicentral.substack.com/p/cowork-claude-code-for-everyone-else): "vacation research, building slide decks, cleaning up your email, cancelling subscriptions, recovering wedding photos from a hard drive, monitoring plant growth, controlling your oven." An HR leader [archived 10 Trello boards and 3,000 cards into a 1,000-page Google Doc in 19 minutes](https://hrai.substack.com/p/claude-cowork). Mike Futia runs a weekly Meta Ads performance brief through it, and JJ Englert does his bookkeeping and tax prep with a briefing file the AI reads first ([both documented with receipts](https://findskill.ai/blog/how-to-use-claude-cowork/)). One commenter [summarized the whole shift in seven words](https://docs.bswen.com/blog/2026-03-13-who-should-use-claude-cowork/): "It is CC for non-coders. Agentic work automation."
+
+My favorite data point is smaller. A user named John Wittle [reported](https://thezvi.substack.com/p/claude-coworks) that his mom, "sharp old woman," took to it with enthusiasm. The audience for this tool was never developers only. It just looked that way for a year.
+
+## Claude Code for Non-Developers: Your First Week, Day by Day
+
+One task a day, twenty to forty minutes each, no programming anywhere. Each day teaches a skill the next day uses. By Sunday you will have a tool that knows your preferences and a small app you made yourself.
+
+<StepFlow
+  title="The 7-Day Plan"
+  steps={[
+    { title: "Day 1: Install it and rename your screenshots", desc: "One command, one login, one small miracle." },
+    { title: "Day 2: Clean up one messy folder", desc: "Plan first, deletions off. This is where trust gets built." },
+    { title: "Day 3: Turn a folder of notes into one brief", desc: "PDFs and meeting notes become a one-pager with quotes." },
+    { title: "Day 4: Receipts into a spreadsheet", desc: "A clean CSV, plus a column for things it was unsure about." },
+    { title: "Day 5: Research synthesis across documents", desc: "Every source read, every claim cited by filename." },
+    { title: "Day 6: Set up CLAUDE.md", desc: "Your preferences load automatically, every session, forever." },
+    { title: "Day 7: Build a tiny personal tool", desc: "A one-page app that fixes one personal annoyance." }
+  ]}
+/>
+
+### Day 1: Install It and Rename Your Screenshots
+
+You need a paid Claude plan ([Pro is $20 a month, or $17 billed annually](https://claude.com/pricing)) and a computer running macOS 13+ or Windows 10 (version 1809 or later), per [Anthropic's setup docs](https://code.claude.com/docs/en/setup). The free Claude plan does not include Claude Code.
+
+If you want zero terminal, install the Claude desktop app and click the Code tab. If you are willing to try the terminal (worth it), the official install is one line. Mac:
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+Windows, in PowerShell:
+
+```powershell
+irm https://claude.ai/install.ps1 | iex
+```
+
+Then type `claude`, press enter, and log in through the browser window that opens. If anything goes sideways, `claude doctor` diagnoses most problems, my [15-minute install walkthrough](/getting-started/installation) covers every step with screenshots, and the [installation problems guide](/guides/claude-code-installation-problems) covers the eight most common errors.
+
+Your first task comes straight from [Anthropic's own new-user docs](https://code.claude.com/docs/en/terminal-guide), and it is a great one:
+
+```text
+Look at the screenshots on my Desktop and rename them based on what's in each image.
+```
+
+Watch closely. Before it touches a single file, it asks. `Screenshot 2026-04-03 at 9.12.41 AM.png` becomes `stripe-invoice-march.png`, one approval at a time. That moment, the asking, is when most people stop being scared of this thing.
+
+### Day 2: Clean Up One Messy Folder
+
+Today you learn the two habits that prevent every horror story: **make a copy first, and demand a plan before any action.**
+
+Copy your messy folder (Downloads is the classic) somewhere safe, then start Claude Code inside the copy and press Shift+Tab until you see plan mode. In [plan mode](https://code.claude.com/docs/en/permissions), Claude is read-only: it can look but it cannot touch. Then:
+
+```text
+This folder is a mess. Propose a way to organize it into subfolders
+by type and year. Show me the full plan before doing anything.
+Do not delete anything, ever. If something looks like junk,
+move it to a folder called _review instead.
+```
+
+Read the plan. Argue with it. When you like it, switch out of plan mode and say go. You can point at specific files by typing `@` and the filename, the same way you would tag a person; the course covers this in [working with files](/fundamentals/working-with-files), and it is the closest thing to a power move a beginner has.
+
+The sentence "do not delete anything, ever" is doing real work in that recipe. Remember it. It comes back in the safety section with a price tag attached.
+
+### Day 3: Turn a Folder of Notes Into One Brief
+
+This is the day most people get hooked, because it collapses an afternoon of reading into a coffee break. Gather any pile of related documents into one folder: meeting notes, PDFs, exported docs, interview transcripts. Then:
+
+```text
+Read every file in this folder. Write a one-page brief saved as
+brief.md with: the five themes that come up most, three direct
+quotes that capture them, and anything two documents disagree on.
+Cite the filename for every claim.
+```
+
+The filename citations matter. They turn "trust me" into "check me," and they make hallucinated claims easy to spot. For scale, Lenny Rachitsky [fed 320 podcast transcripts](https://thezvi.substack.com/p/claude-coworks) into Claude's agentic tooling and got ten themes plus ten counterintuitive findings in about 15 minutes. Your twelve files of meeting notes are a warm-up lap. If synthesis is your actual job, the [researchers guide](/guides/claude-code-for-researchers) goes much deeper, including how to run [parallel agents](/fundamentals/agents) that each read a different source at the same time.
+
+### Day 4: Receipts Into a Spreadsheet
+
+Find the folder of receipts, invoices, or bank statement PDFs you have been ignoring. Then:
+
+```text
+Read every receipt in this folder, including PDFs and photos.
+Build expenses.csv with columns: date, vendor, amount, category.
+If you cannot read something confidently, list it in a section
+at the bottom instead of guessing.
+```
+
+That last sentence is the most important one in this entire guide. **Always give Claude a place to put its uncertainty.** Without one, it guesses, because finishing the task is what it is built to do. With one, you get a clean spreadsheet plus a short list of receipts to squint at yourself.
+
+This pattern (pile of documents in, structured data out) covers expense reports, donation records, subscription audits, and tax prep, and the [data analysis guide](/guides/claude-code-for-data-analysts) picks up where today's recipe stops. Once expenses.csv exists, you can interrogate it directly and skip the pivot-table stage of grief.
+
+### Day 5: Research Synthesis Across Documents
+
+Day 3 summarized one pile. Today you make two piles argue. Pick a real decision you are facing: a software purchase, a vendor choice, a school comparison, a contractor bid. Save everything you have collected into a `research` folder and run:
+
+```text
+I am deciding between option A and option B. Read everything in
+the research folder and write compare.md: a table of the
+differences that actually matter, what each source says about
+each one, and which way the evidence leans. Cite filenames.
+Tell me what information is missing before I could decide well.
+```
+
+The missing-information request is the sleeper feature. A good assistant tells you what it found; a great one tells you what it could not find. If your output is prose rather than decisions, the [writers guide](/guides/claude-code-for-writers) covers drafting and editing workflows where your voice survives contact with the machine.
+
+### Day 6: Set Up CLAUDE.md So It Remembers You
+
+By now you have typed "do not delete anything" and "explain in plain English" five times. Today you stop repeating yourself.
+
+CLAUDE.md is a plain text file that [loads automatically at the start of every session](https://code.claude.com/docs/en/memory). Put one in a project folder and it applies there; put one at `~/.claude/CLAUDE.md` and it applies everywhere. Type `/init` and Claude will draft one for you, or write it yourself:
+
+```markdown
+# About me
+- I am not a developer. Explain everything in plain English.
+- Show me a plan before changing more than one file.
+- Never delete files. Move them to a folder called _archive instead.
+- Dates as YYYY-MM-DD. Spreadsheets as CSV unless I say otherwise.
+```
+
+Newer versions also keep [auto memory](https://code.claude.com/docs/en/memory): Claude writes its own notes when you correct it, and loads the first 200 lines at the start of each session. Between the two, the tool starts feeling less like a stranger every morning and more like an assistant on day forty of the job. The course has a [full lesson on project memory](/fundamentals/project-memory), because this one file is the difference between using Claude Code and having it work for you.
+
+### Day 7: Build a Tiny Personal Tool
+
+Today you become someone who no longer waits for a developer.
+
+Pick one tiny personal annoyance: tracking a habit, splitting utilities with roommates, a packing checklist that resets. Then:
+
+```text
+Build me a single HTML file that tracks my reading list: title,
+status, and a note. It should save my data in the browser so it
+is still there tomorrow. No accounts, no internet required.
+I want to double-click the file and have it just work.
+```
+
+Two minutes later you will have a file you can open in any browser. It will be ugly. It will also be yours, shaped exactly to your one annoyance, which no app store product ever is. This works because Claude writes the code and you write the sentences; Anthropic's own Cowork product was [built in about a week and a half, largely by Claude Code itself](https://www.axios.com/2026/01/13/anthropic-claude-code-cowork-vibe-coding). When the bug bites, [Module 2 of the course](/vibe-coding) takes you from one HTML file to real apps on the actual internet, and [GSD](/gsd) is the advanced version for projects too big to hold in your head.
+
+## Permissions and Safety: It Asks First, but Verbs Matter
+
+Claude Code's [permission system](https://code.claude.com/docs/en/permissions) is tiered. Reading files never needs approval. Editing files and running commands ask first, by default, every time. Shift+Tab cycles between modes, from plan mode (read-only) up through auto-accept modes, and `/permissions` lets you set standing rules like "never touch anything outside this folder."
+
+Used with defaults, it is hard to get hurt. And yet.
+
+In January 2026, a Reddit user asked Claude's agentic mode to "clean up" a folder. It [deleted 11GB of files, including ones that mattered](https://www.infoq.com/news/2026/01/claude-cowork/). The story went around the world because it is everyone's exact nightmare, and the lesson is sharper than "AI bad": **"clean up" is a vague verb, and vague verbs plus broad access plus fast approvals equals losses.** To a literal-minded assistant, "clean up" can mean organize, or it can mean remove. The user found out which.
+
+Day 2's "do not delete anything, ever" turns out to be load-bearing. The full safety kit is three habits:
+
+1. **Work in a dedicated folder.** Give Claude a sandbox, never your whole home directory.
+2. **Keep backups of anything you would cry about.** This was true before AI and is truer now.
+3. **Say "delete nothing" explicitly,** and make Claude propose a plan before bulk operations. Day 6 taught you how to make that rule permanent.
+
+I will give you the opinion version too: anyone who tells you this tool is perfectly safe is selling something, and anyone who tells you it is dangerous has not read the permission docs. It is a power tool with a guard. Keep the guard on.
+
+## When Claude Cowork Is the Better Fit
+
+Claude Cowork is Claude Code's sibling for people who never want to see a terminal at all. It [launched in January 2026](https://simonwillison.net/2026/jan/12/claude-cowork/) with the tagline "Claude Code for the rest of your work," and as of the [June 2026 product guide](https://claude.com/blog/the-claude-cowork-product-guide) it is generally available on every paid plan, on Mac and Windows, with scheduled tasks, app connectors, and a beta called Dispatch for sending it tasks from your phone. It runs inside a sandboxed virtual machine, which contains exactly the kind of accident the 11GB story describes.
+
+Anthropic's own sorting logic, [from that product guide](https://claude.com/blog/the-claude-cowork-product-guide): chat for conversational drafting, Claude Code for coding, Cowork for knowledge work across documents and apps. One Cowork user [described their setup](https://docs.bswen.com/blog/2026-03-13-who-should-use-claude-cowork/) as: "checks my mail, prioritises my to do list and schedules reminders for things I'll be forgetting." Boris Cherny had it [book 8 flights and 5 hotels](https://findskill.ai/blog/how-to-use-claude-cowork/).
+
+My honest read for beginners. Choose **Cowork** if your work lives in connected apps and you want to delegate and walk away. Choose **Claude Code** (terminal or the desktop Code tab) if you want to see each step, approve each change, and actually understand what is happening, which is what this guide and my course teach, and which makes you better at Cowork later anyway. Early reviews of Cowork were mixed on polish ([Every's verdict](https://every.to/vibe-check/vibe-check-claude-cowork-is-claude-code-for-the-rest-of-us): "the UI is janky, but the concept excites me"), and it has matured fast since. I wrote a [complete guide to Cowork](/cowork) that covers the decision in detail, and once you pick either tool, the [Notion](/guides/connect-claude-code-to-notion), [Gmail](/guides/connect-claude-code-to-gmail), and [Google Drive](/guides/connect-claude-code-to-google-drive) connector guides show how to plug your real life into it.
+
+If the vocabulary around all this (agents, skills, MCP, plugins) is making your eyes cross, [every concept is explained in plain English here](/guides/claude-code-concepts-explained).
+
+## What It Costs, Honestly
+
+As of June 2026: there is no free tier for Claude Code. The [Pro plan at $20 a month ($17 billed annually) includes both Claude Code and Cowork](https://claude.com/pricing), with no extra per-use charges. The Max plan starts at $100 for people who run it hard all day.
+
+The honest caveat is usage limits. Agentic work consumes far more than chat, because Claude is reading whole folders and working in long stretches; Anthropic's [own usage-limit docs say directly that Cowork consumes limits faster than chat](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work). The trend is at least pointed the right way: in May 2026 Anthropic [doubled Claude Code's five-hour rate limits](https://www.anthropic.com/news/higher-limits-spacex) on every paid plan and removed peak-hour reductions for Pro and Max accounts. For everything in this guide's week plan, Pro is plenty. Type `/usage` anytime to see what you are consuming, and read the [limits and pricing guide](/guides/claude-code-limits-and-pricing) before you decide whether Max is worth it (for most non-developers, it is not, at least not in month one).
+
+## Learn It With a Guide Sitting Next to You
+
+This page gives you the map. The free course gives you a teacher, and the teacher is Claude Code itself: you [install it](/getting-started/installation), [download the course](/getting-started/start-and-clone), type `/start-1-1`, and Claude walks you through every lesson interactively, inside the real tool, checking your work as you go. It is free, it takes about a weekend, and I built it for exactly the person this page is written for. The course version of this week plan comes with a hand on your shoulder, from [slash commands](/fundamentals/commands-navigation) all the way to [shipping your first app](/vibe-coding).
+
+## FAQ
+
+### Can I use Claude Code without knowing how to code?
+
+Yes. You type plain English, and Claude reads, writes, and organizes the files on your computer, asking before it changes anything. Anthropic publishes a [terminal guide](https://code.claude.com/docs/en/terminal-guide) written for people who have never opened one. The skill that matters is describing what you want clearly, and the seven-day plan in this guide involves no programming at all.
+
+### Do I have to use the terminal to use Claude Code?
+
+No. The [Claude desktop app](https://code.claude.com/docs/en/desktop) for Mac and Windows has a Code tab that runs the full tool with folder pickers and buttons, and there is a web version at claude.ai/code. The terminal version is worth learning eventually because the official guide makes it genuinely gentle, but you can skip it entirely and lose very little.
+
+### Is Claude Code free?
+
+No. It requires a paid Claude plan. [Pro at $20 per month, or $17 per month billed annually](https://claude.com/pricing), includes both Claude Code and Claude Cowork. The free Claude plan does not include it, and there is no separate per-use fee on subscription plans.
+
+### What's the difference between Claude Code and Claude Cowork?
+
+They run on the same engine. Cowork lives inside the desktop app with no terminal anywhere, runs in a sandboxed virtual machine, and is built for documents, connected apps, and tasks you walk away from. Claude Code gives you more control and more power. [Anthropic's own matrix](https://claude.com/blog/the-claude-cowork-product-guide): chat for drafting, Code for coding, Cowork for cross-app knowledge work.
+
+### Can Claude Code delete my files?
+
+By default it asks before any edit or deletion, and read-only actions never need approval. But a vague instruction like "clean up this folder," approved without reading, can go badly: [one Reddit user lost 11GB that way](https://www.infoq.com/news/2026/01/claude-cowork/). Work in a dedicated folder, keep backups, and say "delete nothing" when you mean it.

@@ -1,0 +1,274 @@
+---
+title: 'Claude Code Not Working: Fixes for the 8 Most Common Errors'
+description: 'Claude Code not working: plain-English fixes for command not found, Windows PATH errors, npm install failures, and login loops. Copy, paste, fixed.'
+keywords: 'claude code not working, claude command not found, claude is not recognized, claude code installation failed, claude code windows install, claude code path error, claude code npm error'
+schema:
+  "@context": "https://schema.org"
+  "@graph":
+    - "@type": "Article"
+      headline: "Claude Code Not Working: Fixes for the 8 Most Common Errors"
+      description: "Claude Code not working: plain-English fixes for command not found, Windows PATH errors, npm install failures, and login loops. Copy, paste, fixed."
+      author:
+        "@type": "Person"
+        name: "Carl Vellotti"
+        url: "https://fullstackpm.com"
+      datePublished: "2026-06-10"
+      dateModified: "2026-06-10"
+      publisher:
+        "@type": "Organization"
+        name: "Claude Code for Everyone"
+        url: "https://ccforeveryone.com"
+    - "@type": "FAQPage"
+      mainEntity:
+        - "@type": "Question"
+          name: "Should I install Claude Code with npm or the native installer?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Use the native installer. It needs no Node.js, updates itself automatically, and is what Anthropic recommends as of June 2026. The npm package still works and now installs the same native binary, but it adds Node version, PATH, and permission failures you do not need."
+        - "@type": "Question"
+          name: "Why does it say command not found right after a successful install?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Your terminal does not know which folder the claude program lives in, because the installer did not add that folder to your PATH. Close and reopen the terminal first, since PATH changes only reach new windows. If the error persists, add ~/.local/bin to your PATH and restart the terminal again."
+        - "@type": "Question"
+          name: "Do I need WSL to run Claude Code on Windows?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "No. Claude Code runs natively on Windows 10 version 1809 and later, so most people should skip WSL entirely. WSL2 is an option for people who need Linux tools, and WSL1 actively breaks Claude Code with an Exec format error."
+        - "@type": "Question"
+          name: "Can I use Claude Code on the free Claude plan?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "No. Claude Code requires a Pro plan at $20 per month ($17 per month on annual billing), a Max, Team, or Enterprise plan, or a Console API account. If you are on the free plan and login keeps failing, the plan is the problem and the install is fine."
+        - "@type": "Question"
+          name: "Is there a way to use Claude Code without the terminal at all?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Yes. Anthropic ships an official Claude Code Desktop app for macOS and Windows, listed on the same setup page as the installers. If the terminal itself is the obstacle, the app skips it entirely."
+---
+
+import { BarChart, StepFlow } from '../../components/charts'
+
+# Claude Code Not Working: Fixes for the 8 Most Common Errors
+
+*Last updated: June 10, 2026*
+
+The installer said "Installation complete!" You typed `claude`. Your computer said `command not found`.
+
+That gap between a successful install and **Claude Code not working at all** is where most non-coders give up, and it is almost never your fault. The [Claude Code GitHub repo](https://github.com/anthropics/claude-code) has 131,595 stars and about 9,000 open issues and pull requests as of June 10, 2026, and the same eight failures cycle through those issues on repeat. Every fix on this page comes from Anthropic's [official troubleshooting docs](https://code.claude.com/docs/en/troubleshoot-install) or a confirmed GitHub thread, translated into plain English.
+
+Each section below is a literal error message, **what it means in one sentence**, the exact commands to paste, and how to confirm the fix took.
+
+<BarChart title="The same failures, over and over: GitHub issues (open and closed) with each phrase in the title" unit="issues" source="Source: GitHub search API, anthropics/claude-code, June 10, 2026. Titles only, open and closed issues combined, so these undercount." data={[{ label: 'WSL', value: 194, display: '194' }, { label: 'proxy', value: 189, display: '189' }, { label: 'OAuth error', value: 111, display: '111' }, { label: 'command not found', value: 94, display: '94' }, { label: 'login loop', value: 19, display: '19' }, { label: 'EACCES', value: 17, display: '17' }]} />
+
+## Before anything else: restart your terminal and run claude doctor
+
+Two free checks resolve a surprising share of "broken" installs. First, **close every terminal window and open a new one**, because PATH changes only reach new windows and no installer on Earth reminds you of this loudly enough. Second, run the built-in diagnostic:
+
+```bash
+claude doctor
+```
+
+If `claude` itself won't run, that's what the rest of this page is for. If it runs but misbehaves, `claude doctor` (or [`/doctor` inside Claude Code](https://code.claude.com/docs/en/troubleshooting)) will usually name the problem for you.
+
+One more pre-check: **Claude Code is not included in the free Claude plan**. You need Pro at [$20 per month, or $17 on annual billing](https://claude.com/pricing), or a Max, Team, Enterprise, or Console account. If you never bought a plan, nothing below will help, and my [limits and pricing guide](/guides/claude-code-limits-and-pricing) explains what each tier actually gets you.
+
+## "zsh: command not found: claude" (the Mac PATH fix)
+
+On Linux it reads `bash: claude: command not found`. Same disease, different shell.
+
+**What it means:** the install worked, but your terminal has no idea which folder the `claude` program lives in.
+
+This is the classic Claude Code PATH error, and it has a two-line fix. Claude Code installs to `~/.local/bin`, per the [setup docs](https://code.claude.com/docs/en/setup). Check whether your terminal knows about that folder:
+
+```bash
+echo $PATH | tr ':' '\n' | grep -Fx "$HOME/.local/bin"
+```
+
+If nothing prints, paste this (Mac; swap `~/.zshrc` for `~/.bashrc` on Linux):
+
+```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
+```
+
+Watch for the tilde trap. Older guides, and one old version of the installer itself ([issue #6090](https://github.com/anthropics/claude-code/issues/6090)), suggest `export PATH="~/.local/bin:$PATH"`. The `~` never expands inside quotes, so that line fails silently and you stare at the same claude command not found error wondering what you did to deserve it. Always use `$HOME`.
+
+**How to know it worked:** `claude --version` prints a version number instead of an insult.
+
+## "'claude' is not recognized as an internal or external command" (the Windows fix)
+
+In PowerShell the wording is `claude : The term 'claude' is not recognized as the name of a cmdlet`.
+
+**What it means:** the same PATH problem, Windows flavor, and the installer that printed "Installation complete!" forgot to mention it.
+
+I'll plant a flag here: an installer that finishes successfully and leaves you with a broken PATH is an unfinished installer, and the people who filed [issue #42337](https://github.com/anthropics/claude-code/issues/42337) and [issue #18064](https://github.com/anthropics/claude-code/issues/18064) agreed (both are closed now, though the symptom still appears in the [official troubleshooting docs](https://code.claude.com/docs/en/troubleshoot-install)). If it happens to you, paste this in PowerShell:
+
+```powershell
+$currentPath = [Environment]::GetEnvironmentVariable('PATH', 'User')
+[Environment]::SetEnvironmentVariable('PATH', "$currentPath;$env:USERPROFILE\.local\bin", 'User')
+```
+
+Then **close the terminal and open a new one**. Windows never pushes PATH changes to open windows, and it will keep that secret indefinitely.
+
+While you're here, three wrong-shell errors that look like a broken claude code windows install but are really just the wrong app, per the [troubleshooting docs](https://code.claude.com/docs/en/troubleshoot-install):
+
+- `'irm' is not recognized` means you pasted the PowerShell command into CMD.
+- `The token '&&' is not valid` means you pasted the CMD command into PowerShell.
+- `'bash' is not recognized` means you ran the Mac command on Windows.
+
+Your prompt tells you where you are: `PS C:\` is PowerShell, plain `C:\` is CMD. One community-reported quirk worth knowing: running Claude Code interactively inside Git Bash can throw `Raw mode is not supported`. Launch from PowerShell instead, and let Claude use Git Bash internally.
+
+**How to know it worked:** open a brand-new PowerShell window and run `claude --version`.
+
+## Claude Code installation failed with npm: switch to the native installer
+
+**What it means:** you followed a 2025-era guide, and the npm route carries failure modes the current method doesn't have.
+
+This one is personal. The first version of my [install lesson](/getting-started/installation) taught `npm install -g` because every guide did back then, and the support emails I got were almost entirely PATH and permission problems. I rewrote the lesson around the native installer and that category of email nearly disappeared.
+
+As of June 2026, the [recommended install](https://code.claude.com/docs/en/setup) is one line, no Node.js required:
+
+```bash
+# macOS, Linux, WSL
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+```powershell
+# Windows PowerShell
+irm https://claude.ai/install.ps1 | iex
+```
+
+To be fair to npm: it is **not deprecated**, whatever some blogs claim, and the package now installs the same native binary. But it requires Node, it inherits npm's permission mess, and the classic Claude Code npm error, `ENOTEMPTY: directory not empty` ([issue #1682](https://github.com/anthropics/claude-code/issues/1682)), can block reinstalling entirely. The cure in that thread was switching to the native installer. Native installs also auto-update; Homebrew and WinGet installs don't by default.
+
+**How to know it worked:** `claude --version` runs, and `which -a claude` (Mac/Linux) or `where.exe claude` (Windows) returns exactly one path.
+
+## Node version too old (only matters if you insisted on npm)
+
+**What it means:** the npm installer needs Node.js, and yours is too old, or absent.
+
+The docs say Node 18 or newer, but [issue #26942](https://github.com/anthropics/claude-code/issues/26942) shows Node 18 crashing with `TypeError: Object not disposable`, because a feature Claude Code uses needs Node 20. So treat 20 as the real floor. Check with:
+
+```bash
+node --version
+```
+
+The better fix is to stop needing Node at all: run the native installer from the previous section. The installed `claude` doesn't invoke Node either way.
+
+**Proof it worked:** `claude doctor` reports a healthy install, and nothing in the output mentions Node.
+
+## Permission denied and EACCES errors
+
+**What it means:** npm tried to write into a folder your user account doesn't own.
+
+The reflex fix you'll find on Stack Overflow is `sudo npm install -g`. Don't. Anthropic's docs [warn against it explicitly](https://code.claude.com/docs/en/setup), because it creates the exact ownership tangle it appears to solve, and you'll be paying that debt at every update. The supported escape is, again, the native installer, which writes only to your own home folder.
+
+If the native installer itself hits a permission wall on `~/.local`, repair ownership once:
+
+```bash
+sudo mkdir -p ~/.local/bin && sudo chown -R $(whoami) ~/.local
+```
+
+**How to know it worked:** the installer finishes without a single `sudo`, and `claude --version` answers.
+
+## "unable to get local issuer certificate" (proxy, VPN, and office networks)
+
+**What it means:** something between you and Anthropic's servers, usually a corporate proxy or security tool, is inspecting your traffic, and the installer refuses to trust it.
+
+You'll see this as `unable to get local issuer certificate` or `SELF_SIGNED_CERT_IN_CHAIN`, and 189 issue titles (counting open and closed) mention proxies. First, test whether you can reach the download server at all:
+
+```bash
+curl -sI https://downloads.claude.ai/claude-code-releases/latest
+```
+
+If your company routes traffic through a proxy, set it before installing:
+
+```bash
+export HTTPS_PROXY=http://proxy.example.com:8080
+```
+
+If your company does TLS inspection, you need its certificate file from IT (ask for "our corporate CA certificate", they'll know). Then, per the [troubleshooting docs](https://code.claude.com/docs/en/troubleshoot-install), pass it to the installer with `curl --cacert /path/to/corporate-ca.pem` and set `export NODE_EXTRA_CA_CERTS=/path/to/corporate-ca.pem` for runtime. On a personal machine, the cheap test is simpler: disconnect the VPN and try again.
+
+**How to know it worked:** the `curl -sI` test returns an HTTP response, and the install completes without certificate complaints.
+
+## Do you need WSL on Windows, and why "Exec format error" happens
+
+**What it means:** you don't need WSL, and if you're seeing `cannot execute binary file: Exec format error`, you're on WSL version 1.
+
+WSL leads my GitHub chart at 194 issue titles, open and closed, and a chunk of that pain is archaeological: before mid-2025, Claude Code on Windows genuinely required WSL, and old tutorials still say so. Today **native Windows is fully supported** on Windows 10 version 1809 and later, per the [setup docs](https://code.claude.com/docs/en/setup). WSL2 is for people who specifically want Linux tooling or sandboxing.
+
+If you do use WSL, two known traps:
+
+- WSL1 breaks Claude Code outright with `Exec format error` ([issue #38788](https://github.com/anthropics/claude-code/issues/38788)). Fix it by upgrading the distro, swapping in your distro's name:
+
+```powershell
+wsl --set-version Ubuntu 2
+```
+
+- Inside WSL, if `which node` prints a path starting with `/mnt/c/`, Windows programs are bleeding into your Linux environment, and installs will behave strangely.
+
+**The check:** `wsl -l -v` shows VERSION 2, and `claude --version` runs inside the distro.
+
+## Stuck in a login loop: "Login successful" then asked to log in again
+
+**What it means:** the install is fine; the saved login credential is broken, blocked, or being overridden.
+
+This is the maddening one. [Issue #63919](https://github.com/anthropics/claude-code/issues/63919) describes it exactly: "Login successful," then `Not logged in · Please run /login`. The clean reset, straight from the [troubleshooting docs](https://code.claude.com/docs/en/troubleshoot-install): type `/logout`, quit Claude Code completely, run `claude` again, and log in fresh. If the browser tab misbehaves, press `c` at the login prompt to copy the URL and paste it into the browser yourself; slow connections sometimes hit `OAuth error: timeout of 15000ms exceeded`, and the manual copy-paste route dodges it.
+
+Three sneakier causes:
+
+- **A leftover API key.** An old `ANTHROPIC_API_KEY` environment variable silently overrides your login and produces "organization disabled" or wrong-billing errors. Run `unset ANTHROPIC_API_KEY` and log in again.
+- **A locked Mac Keychain.** Run `security unlock-keychain ~/Library/Keychains/login.keychain-db`. I still don't know why macOS sometimes locks the login Keychain after an update, but the command fixes it.
+- **A wrong system clock**, which breaks the security handshake. Check your date and time settings.
+
+Run `/status` inside Claude Code to see which login method is actually active; my [commands lesson](/fundamentals/commands-navigation) covers the slash commands worth memorizing. And if a clean re-login still fails, it may be Anthropic's side: a 403 reading "OAuth authentication is currently not allowed for this organization" showed up during outages ([issue #45886](https://github.com/anthropics/claude-code/issues/45886)). Check status.claude.com, make coffee, retry.
+
+**How to know it worked:** `/status` shows your account, and the login prompt stays gone between sessions.
+
+## Claude Code not working after all that: the clean reinstall
+
+When errors contradict each other, you probably have **two copies of Claude Code fighting**, often an old npm install and a new native one. Different shells find different copies, versions mismatch, and chaos follows. Confirm with `which -a claude` (Mac/Linux) or `where.exe claude` (Windows): more than one path means it's time for the nuclear option.
+
+<StepFlow title="The clean reinstall, in order" steps={[{ title: "Remove every copy", desc: "Run npm uninstall -g @anthropic-ai/claude-code, then delete the native binary and any local build so only one claude can exist." }, { title: "Optional: wipe settings", desc: "Delete ~/.claude and ~/.claude.json. Skip this unless desperate; it erases your settings and session history." }, { title: "Reinstall the native way", desc: "Run the one-line installer for your platform. No Node, no sudo, no npm." }, { title: "Restart the terminal", desc: "Close every window and open a fresh one. PATH changes never reach windows that are already open." }, { title: "Verify", desc: "Run claude --version, then claude doctor. A clean bill of health means you are done." }]} />
+
+The commands, for Mac and Linux (PowerShell equivalents are in the [uninstall docs](https://code.claude.com/docs/en/setup#uninstall-claude-code)):
+
+```bash
+# 1. Remove every copy
+npm uninstall -g @anthropic-ai/claude-code
+rm -f ~/.local/bin/claude && rm -rf ~/.local/share/claude
+rm -rf ~/.claude/local
+
+# 2. Optional full reset. WARNING: deletes settings and session history
+rm -rf ~/.claude && rm ~/.claude.json
+
+# 3. Reinstall
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+Restart the terminal, run `claude doctor`, and you're rebuilt on the current recommended foundation. For the friendly walk-through version of this, my [15-minute install guide](/getting-started/installation) covers Mac and Windows step by step. And if the terminal has personally wronged you enough for one week, Anthropic's official **Claude Code Desktop app** for macOS and Windows skips it entirely.
+
+## Once it runs, learn it free
+
+I made a free course that runs inside Claude Code itself: you type `/start-1-1` and Claude teaches you, hands-on, no videos. If you just spent an hour fixing PATH errors, you've earned the part where the tool is actually fun. [Install in 15 minutes](/getting-started/installation), [download the course](/getting-started/start-and-clone), and keep the [cheat sheet of 10 commands](/guides/claude-code-cheat-sheet) nearby. If you're wondering whether this tool is even for you, the [non-developers guide](/guides/claude-code-for-non-developers) is the honest answer, and [Module 2](/vibe-coding) is where you build and ship a real app.
+
+## FAQ
+
+### Should I install Claude Code with npm or the native installer?
+
+Use the native installer. It needs no Node.js, updates itself automatically, and is what Anthropic recommends as of June 2026. The npm package still works and now installs the same native binary, but it adds Node version, PATH, and permission failures you do not need.
+
+### Why does it say command not found right after a successful install?
+
+Your terminal does not know which folder the claude program lives in, because the installer did not add that folder to your PATH. Close and reopen the terminal first, since PATH changes only reach new windows. If the error persists, add `~/.local/bin` to your PATH and restart the terminal again.
+
+### Do I need WSL to run Claude Code on Windows?
+
+No. Claude Code runs natively on Windows 10 version 1809 and later, so most people should skip WSL entirely. WSL2 is an option for people who need Linux tools, and WSL1 actively breaks Claude Code with an Exec format error.
+
+### Can I use Claude Code on the free Claude plan?
+
+No. Claude Code requires a Pro plan at $20 per month ($17 per month on annual billing), a Max, Team, or Enterprise plan, or a Console API account. If you are on the free plan and login keeps failing, the plan is the problem and the install is fine.
+
+### Is there a way to use Claude Code without the terminal at all?
+
+Yes. Anthropic ships an official Claude Code Desktop app for macOS and Windows, listed on the same setup page as the installers. If the terminal itself is the obstacle, the app skips it entirely.

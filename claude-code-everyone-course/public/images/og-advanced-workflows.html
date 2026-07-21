@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Claude Code Workflows - Interactive Lesson</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            width: 1200px;
+            height: 630px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://img.youtube.com/vi/LvLdNkgO-N0/maxresdefault.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 85%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                rgba(20, 20, 20, 1) 0%,
+                rgba(20, 20, 20, 1) 50%,
+                rgba(20, 20, 20, 0.97) 65%,
+                rgba(20, 20, 20, 0.5) 85%,
+                rgba(20, 20, 20, 0) 100%
+            );
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 50px 60px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #10b981;
+            color: #000;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 6px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            width: fit-content;
+        }
+
+        .title {
+            font-size: 56px;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            max-width: 600px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: auto;
+        }
+
+        .features li {
+            font-size: 20px;
+            color: #e0e0e0;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .features li::before {
+            content: ">";
+            color: #10b981;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #10b981;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 14px 24px;
+            border-radius: 8px;
+            width: fit-content;
+            margin-top: 20px;
+        }
+
+        .cta::before {
+            content: "→";
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="background"></div>
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="badge">Interactive Lesson</div>
+            <h1 class="title">Advanced Claude Code Workflows</h1>
+            <p class="subtitle">from Claire Vo's interview with John Lindquist on <span style="color: #f97316; font-weight: 700;">How I AI</span></p>
+            <ul class="features">
+                <li>Mermaid diagrams for context preloading</li>
+                <li>Terminal aliases for instant setup</li>
+                <li>Stop hooks that auto-fix errors</li>
+                <li>The "infinite junior engineer" mindset</li>
+            </ul>
+            <div class="cta">Download files to get started</div>
+        </div>
+    </div>
+</body>
+</html>

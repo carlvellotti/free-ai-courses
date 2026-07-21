@@ -1,0 +1,250 @@
+---
+title: "Claude Code for Researchers: Transcripts, PDFs, and Synthesis"
+description: "Claude Code for researchers who don't code: synthesize interview transcripts, build annotated bibliographies from PDFs, and verify every quote it gives you."
+keywords: "claude code for researchers, claude code academic research, claude code literature review, claude code interview analysis, ai research workflow, claude code qualitative analysis"
+schema:
+  "@context": "https://schema.org"
+  "@graph":
+    - "@type": "Article"
+      headline: "Claude Code for Researchers: Synthesis Across a Folder of Sources"
+      description: "Claude Code for researchers who don't code: synthesize interview transcripts, build annotated bibliographies from PDFs, and verify every quote it gives you."
+      author:
+        "@type": "Person"
+        name: "Carl Vellotti"
+        url: "https://fullstackpm.com"
+      datePublished: "2026-06-10"
+      dateModified: "2026-06-10"
+      publisher:
+        "@type": "Organization"
+        name: "Claude Code for Everyone"
+        url: "https://ccforeveryone.com"
+    - "@type": "FAQPage"
+      mainEntity:
+        - "@type": "Question"
+          name: "Will Claude make up quotes from my transcripts?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "It can. In one audit, 7.7% of quotes an LLM presented as verbatim could not be found in the source transcripts, usually because filler words were dropped or sentences were lightly reworded. Require a file name and location with every quote, then run a verification pass that searches each quoted string in its source file."
+        - "@type": "Question"
+          name: "Is my interview data used to train Claude?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "On Pro and Max plans, only if your model-improvement setting is turned on. With it off, conversations are retained for 30 days instead of five years, and Team, Enterprise, and API accounts are never trained on by default. Whatever the plan, the contents of files Claude reads are sent to the API, so de-identify sensitive transcripts before analysis."
+        - "@type": "Question"
+          name: "Can Claude Code read PDFs?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Yes. Short PDFs are read whole, and longer ones are read in ranges of up to 20 pages per request. Scanned PDFs need OCR first, and complex tables come out cleanest if you convert the page to an image and let Claude read it visually."
+        - "@type": "Question"
+          name: "Does Claude Code replace NVivo, ATLAS.ti, or MAXQDA?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "No. CAQDAS tools organize coding you do by hand, while Claude Code automates the mechanical reading and first-pass coding that feeds it. Many researchers use both: Claude Code for the fast first pass, their CAQDAS tool for the audit trail."
+        - "@type": "Question"
+          name: "Do I need to know how to code to use Claude Code for research?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "No. You work in plain English, and the official docs explicitly support folders of notes and documents rather than code. If you can name a folder and describe what you want, you already have the prerequisite skills."
+---
+
+import { BarChart, StatGrid, StepFlow } from '../../components/charts'
+
+# Claude Code for Researchers: Synthesis Across a Folder of Sources
+
+*Last updated: June 10, 2026*
+
+A PM asks "what did users say about checkout?" and the researcher spends the next hour Ctrl+F-ing through seventeen transcripts. That afternoon is common enough that [one UX researcher documented it almost word for word](https://medium.com/design-bootcamp/how-to-automate-your-ux-research-with-claude-cowork-with-prompts-249443c83723) before rebuilding her whole process. Claude Code replaces that hour with one typed question, answered with **verbatim quotes and file names**.
+
+This is a guide to Claude Code for researchers who work in words: interview transcripts, PDFs, field notes, and synthesis that has to survive peer review. No code required. I spent years as a PM doing transcript archaeology by hand, and this is the tool I wish someone had handed me.
+
+## Why Claude Code for Researchers Who Don't Write Code
+
+Claude Code is a chat that runs inside a folder on your computer, which turns out to be exactly the shape of qualitative analysis. Point it at a directory of transcripts and it reads every file, searches across them, and writes new ones: theme summaries, evidence tables, annotated bibliographies. The official docs have a whole section on [working in notes and non-code folders](https://code.claude.com/docs/en/common-workflows.md), so this is supported use, never a hack. It starts read-only and can only write inside the folder you launched it from, per the [security docs](https://code.claude.com/docs/en/security).
+
+Three things make it better than pasting transcripts into a chat window:
+
+1. **Your data stays put.** Transcripts live as files in one folder. No uploading ten attachments per conversation.
+2. **You can re-query.** UX researcher Else van der Berg, who runs [50-transcript studies this way](https://elsevanderberg.substack.com/p/claude-code-for-interview-synthesis), put it plainly: "When my 'listening for' changes, I can re-query the data in minutes."
+3. **Outputs are files too**, which means `themes.md` and `evidence-table.csv` exist tomorrow, survive a closed laptop, and can be emailed to a coauthor who has never heard of any of this.
+
+One scoping note. If you are an economist who writes R and wants scripted regressions, [Paul Goldsmith-Pinkham's researcher setup series](https://paulgp.substack.com) is the better guide. This page is for qualitative and mixed-methods researchers, UX researchers, and grad students whose raw data is language. You have company: [88% of UX researchers already use AI for analysis and synthesis](https://cms.greatquestion.co/blog/what-ux-researchers-get-wrong-about-ai), per an NN/g figure. The open problem is doing it without torching your integrity, which is why half this page is about verification.
+
+If you have never touched a terminal, start with the [complete guide for non-developers](/guides/claude-code-for-non-developers), then come back.
+
+## Claude Code Interview Analysis: Themes, Quotes, and Contradictions
+
+The setup that makes everything else work is boring: **one folder, one file per interview, consistent names** (`p01-maria.md`, `p02-devon.md`). Van der Berg's insight from her 50-transcript practice is that consistent structure is what makes a folder queryable. Inside a session, type `@` to point Claude at any specific file, a habit the course teaches in [working with files](/fundamentals/working-with-files).
+
+<StepFlow
+  title="The interview synthesis pipeline"
+  steps={[
+    { title: "Set up the folder", desc: "One file per interview, consistent names, plus a CLAUDE.md holding your research questions and the citation rule." },
+    { title: "Code in batches of 5 to 8", desc: "Ask for themes with a verbatim quote, file name, and location behind every claim." },
+    { title: "Hunt contradictions", desc: "Ask where participants disagree with each other, and with your own hypothesis." },
+    { title: "Run the verification pass", desc: "Claude searches each quoted string in its source file and flags anything it cannot find." },
+    { title: "Synthesize across batches", desc: "Merge batch summaries into themes.md and an evidence table a coauthor can audit." }
+  ]}
+/>
+
+A first-pass prompt that bakes in traceability:
+
+```text
+Read the transcripts in this folder. For each theme you find, give me:
+the theme, a one-paragraph summary, and 2 to 3 verbatim quotes with the
+file name and approximate location of each. Only quote text that appears
+word for word in the files.
+```
+
+Then go looking for trouble on purpose:
+
+```text
+Where do participants contradict each other about pricing? Show both
+sides with verbatim quotes and file names. Then list anything in these
+transcripts that contradicts the hypothesis in CLAUDE.md.
+```
+
+That second prompt matters because models drift toward agreeable summaries. One researcher [described the failure mode](https://survicate.com/blog/why-ai-is-bad-at-user-research/) precisely: "AI confidently told me the main barrier was pricing, but the real signal was buried in how people talked about trust." Claude does the mechanical reading. The interpretation, the part your name goes on, stays yours. Andrea Chiarelli, who [automated thematic coding for a real evidence review](https://andreachiarelli.substack.com/p/i-automated-the-most-time-consuming), draws the same line: the machine handles the mechanical part of coding, the researcher keeps the intellectual part. His output format is worth stealing wholesale: a coded evidence table as CSV, a codebook, and a processing log, with "every quote traceable back to its source document."
+
+## Ten Transcripts at Once: Parallel Agents for First-Pass Coding
+
+Do not dump 50 transcripts into one conversation. The context window fills, quality sags, and you cannot tell where. Practitioners converge on [batches of 5 to 8 transcripts per pass](https://www.claudecodehq.com/playbooks/ai-research-analysis), synthesized afterward across batches.
+
+For bigger studies, **subagents** are the supported way to parallelize. Each one runs in its own context window, works concurrently, and reports back a summary, per the [agent docs](https://code.claude.com/docs/en/agents). Since they run at the same time, a batch of independent subtasks effectively finishes in the time of the slowest one. The course covers them hands-on in the [agents lesson](/fundamentals/agents).
+
+```text
+Launch 5 parallel agents. Each takes two transcripts from this folder,
+codes them against the codebook in CLAUDE.md, and writes findings to
+/coded as one file per transcript, every quote verbatim with a file
+reference. When all agents finish, merge the results into themes.md.
+```
+
+<BarChart
+  title="First-pass coding, 10 transcripts (illustrative)"
+  data={[
+    { label: 'One conversation, one transcript at a time', value: 100, display: '~100 min' },
+    { label: 'Five parallel subagents, two transcripts each', value: 25, display: '~25 min' }
+  ]}
+  source="Illustrative timing, not a benchmark. Subagents run concurrently per the Claude Code agent docs, so a batch effectively finishes in the time of the slowest task. Verification takes the same time either way."
+/>
+
+My first parallel run, I skipped the codebook, and five agents handed back five incompatible theme lists with five different names for the same complaint. Pin the codebook before you launch; agents cannot compare notes mid-flight. The published anecdotes still point the right direction: Chiarelli describes several days of manual coding compressing into [an afternoon of review](https://andreachiarelli.substack.com/p/i-automated-the-most-time-consuming). If you run studies every week, define a reusable transcript-coder in `.claude/agents/` (the [custom subagents lesson](/fundamentals/custom-subagents) shows how) so the instructions stay identical across projects.
+
+The verification pass does not parallelize away. Budget for it.
+
+## Literature Review: PDFs In, Annotated Bibliography Out
+
+A Claude Code literature review is the same folder workflow with PDFs, and for grad students it is usually where Claude Code earns its keep in academic research first. Drop the papers into `/papers` and ask for structure:
+
+```text
+For each PDF in /papers, write an entry in bibliography.md with: full
+citation taken from the PDF itself, research question, method and
+sample, key findings, limitations, and relevance to the research
+questions in CLAUDE.md. Only include papers that exist in this folder.
+```
+
+That last sentence is the integrity rule making an early appearance. More on it below, because it is the difference between a tool and a liability.
+
+Mechanically, [the Read tool](https://code.claude.com/docs/en/tools-reference.md) takes short PDFs whole and reads anything over 10 pages in ranges, up to 20 pages per request. Claude handles the paging itself; you only notice on a 60-page paper, which takes several reads. Scanned PDFs are images of text, so run them through OCR first.
+
+### Getting Tables Out of PDFs
+
+Complex PDF tables garble when extracted as text. The fix, settled in a [long-running GitHub issue](https://github.com/anthropics/claude-code/issues/15525), is to treat table extraction as a vision problem: convert the page to an image and let Claude read it with its eyes.
+
+```bash
+pdftoppm -png -f 14 -l 14 -r 150 paper.pdf table
+```
+
+Then: "Read `@table-14.png` and rebuild Table 2 as a CSV." Claude Code can run that conversion command for you if you ask, which means in practice you just say "page 14 has a table, extract it." Once the numbers are in a CSV, the [data analysis guide](/guides/claude-code-for-data-analysts) covers everything you might do next.
+
+## Your Research Journal Lives in CLAUDE.md
+
+CLAUDE.md is a plain text file Claude reads at the start of every session, which makes it a research journal that reads itself. Run `/init` to generate one, keep it under [roughly 200 lines](https://code.claude.com/docs/en/memory.md), and fill it with the things you currently re-explain every session: the project in one line, your research questions, the codebook, a decisions log, and your integrity rules.
+
+The codebook entry earns its keep fastest. Remember the five incompatible theme lists from the parallel run? Same disease across sessions, and Chiarelli has a name for it: **codebook drift**, where an AI quietly redefines what "switching cost" means and your coded data stops being comparable. A pinned codebook that loads automatically every session is the cheap fix. Type `/memory` anytime to see what Claude has loaded, and note that recent versions also keep their own running notes between sessions. The [project memory lesson](/fundamentals/project-memory) covers the whole system in fifteen minutes.
+
+## Pointing Claude Code at an Obsidian Vault
+
+An Obsidian vault is already a folder of markdown files, so Claude Code works in it with zero conversion.
+
+```bash
+cd ~/Documents/MyVault
+claude
+```
+
+The single most useful step, per [community consensus](https://www.codewithseb.com/blog/claude-code-obsidian-second-brain-guide), is a CLAUDE.md at the vault root that says this is an Obsidian vault and that `[[wikilinks]]` are valid link syntax. With that in place, "summarize my reading notes on grounded theory and link the summary to the relevant source notes" produces a properly linked note instead of an orphan. If your vault is also where drafts happen, the [writers guide](/guides/claude-code-for-writers) covers that side. Above roughly 2,000 notes, add ignore patterns so Claude skips your daily-notes graveyard. A community MCP plugin adds backlink-aware and tag-aware operations, and you will not need it in week one.
+
+## The Integrity Rule: Claude Only Cites Files in the Folder
+
+The top-voted reply when r/UXResearch discussed AI analysis tools: "highly prone to hallucinations, faking data... [we used to call that a dry lab](https://cms.greatquestion.co/blog/what-ux-researchers-get-wrong-about-ai)." The skeptics are right about the failure mode, so build the workflow around it.
+
+Two distinct failures to defend against. First, **invented citations**: ask a model for sources from memory and fabrication rates run [14.23% to 94.93% across 13 models](https://arxiv.org/html/2602.06718v2), per the 2026 GhostCite study. An audit of 111 million references found [roughly 146,932 hallucinated citations in 2025 papers alone](https://arxiv.org/pdf/2605.07723), and even NeurIPS 2025 accepted [53 papers containing 100 fabricated citations](https://arxiv.org/html/2602.05930v1) past three to five expert reviewers each. Second, the subtler one, **regenerated quotes**: in one Learning Analytics audit, [7.7% of quotes presented as verbatim](https://www.uintent.com/case-studies-und-blog/the-hallucination-problem) could not be found in the source transcripts. Most were lightly smoothed, with filler words dropped and phrasing tidied, which is worse than fiction because it sails through a skim.
+
+<StatGrid
+  source="Sources: GhostCite 2026 (arXiv); audit of 111M references (arXiv); Learning Analytics quote audit via UIntent. All linked in the text above."
+  stats={[
+    { value: '14 to 95%', label: 'citation fabrication when models cite from memory', sub: '13 models, GhostCite 2026' },
+    { value: '~147,000', label: 'hallucinated citations found in 2025 papers', sub: 'audit of 111M references' },
+    { value: '7.7%', label: 'of AI-supplied verbatim quotes not found in source transcripts', sub: 'Learning Analytics audit' }
+  ]}
+/>
+
+The first time I asked Claude for "the strongest quote about onboarding," it handed me a beautiful sentence that did not exist: three real fragments, one tidy splice. That cured me of treating verification as polish.
+
+So the rule, stated once and enforced everywhere: **Claude may only cite files that exist in the folder.** Write it into your CLAUDE.md in the bluntest language you can manage; for literature work, that means a line like "NEVER generate a citation not present in references.bib." The full pattern:
+
+```text
+## Integrity rules
+- Only cite files that exist in this folder. Never cite from memory.
+- Every quote must be verbatim, with file name and location.
+- If unsure a quote is exact, say so instead of smoothing it.
+```
+
+Then end every analysis with the verification pass:
+
+```text
+For every quote in themes.md, search its source file for the exact
+string. Output a table: quote, file, found verbatim yes or no. Flag
+anything not found, including close paraphrases.
+```
+
+Spot-check the flags yourself against raw transcripts. When someone on Hacker News asked whether [AI tooling in a PhD literature review is dishonest](https://news.ycombinator.com/item?id=47495510), the consensus answer was that transparency converts the question into method: document the pipeline and the verification step in your methods section. My own unhedged version: an AI research workflow without a verification pass is a dry lab with better branding, and you should not publish from one.
+
+## IRB and Privacy: What Actually Leaves Your Laptop
+
+Your files live on your machine, and the contents of any file Claude reads are sent to Anthropic's servers. Both halves of that sentence are true, and the second one is what your consent forms care about. Claude Code [runs locally and transmits prompts, outputs, and file contents it reads over TLS](https://code.claude.com/docs/en/data-usage); anyone who tells you "everything stays local" is wrong in the way that matters.
+
+As of June 2026, the retention picture works like this, per the [data usage docs](https://code.claude.com/docs/en/data-usage) and Anthropic's [consumer terms update](https://www.anthropic.com/news/updates-to-our-consumer-terms). On Pro and Max, your data trains models only if the model-improvement setting is on: on means five-year retention, off means 30 days. Flip it at claude.ai under Settings, then Privacy. Team, Enterprise, and API accounts are never trained on by default, hold data 30 days, and qualified Enterprise accounts can request Zero Data Retention. One local detail people miss: your session transcripts sit in plaintext under `~/.claude/projects/` for 30 days by default, so a stolen unencrypted laptop is part of your threat model too.
+
+For sensitive transcripts, three practical rules:
+
+1. **De-identify before the folder.** Pseudonyms, stripped employers and place names, done before Claude ever reads a file.
+2. **Ask your IRB, because they are already asking about you.** Michigan added [mandatory AI-use questions](https://hrpp.umich.edu/aiinhumanresearch/) to applications in May 2026, Northeastern's September 2025 form [explicitly covers AI-assisted analysis of interview data](https://dhr.research.northeastern.edu/new-form-ai-systems-used-in-human-subjects-research-9-8-2025/), and Pitt [requires IT pre-approval of generative AI tools](https://www.hrpo.pitt.edu/artificial-intelligence-technologies) for research data.
+3. **Check your consent language.** If participants consented before AI analysis was in your protocol, do not assume it stretches to cover this. One qualitative researcher named the real stake in a [study of AI attitudes in the field](https://arxiv.org/pdf/2410.07362): "If people found out that I was feeding data into an LLM, I think that can cause a breakdown of trust." Participant trust is the whole asset. Protect it like data.
+
+If your lab is choosing a plan, the [limits and pricing guide](/guides/claude-code-limits-and-pricing) translates the [official pricing page](https://claude.com/pricing/) into plain English, including which tiers carry the no-training default.
+
+## Learn It Inside Claude Code, Free
+
+Everything above assumes you can start Claude Code, reference files, and run agents. My free course teaches exactly that, and the lessons run inside Claude Code itself: you type `/start-1-1` and Claude walks you through real exercises with real files. [Install takes about 15 minutes](/getting-started/installation), the [course download](/getting-started/start-and-clone) takes two, and Module 1 covers files, project memory, and the parallel agents from this guide. I built it for people who have never opened a terminal on purpose, and it stays free.
+
+## FAQ
+
+### Will Claude make up quotes from my transcripts?
+
+It can. In one audit, 7.7% of quotes an LLM presented as verbatim could not be found in the source transcripts, usually because filler words were dropped or sentences were lightly reworded. Require a file name and location with every quote, then run a verification pass that searches each quoted string in its source file.
+
+### Is my interview data used to train Claude?
+
+On Pro and Max plans, only if your model-improvement setting is turned on. With it off, conversations are retained for 30 days instead of five years, and Team, Enterprise, and API accounts are never trained on by default. Whatever the plan, the contents of files Claude reads are sent to the API, so de-identify sensitive transcripts before analysis.
+
+### Can Claude Code read PDFs?
+
+Yes. Short PDFs are read whole, and longer ones are read in ranges of up to 20 pages per request. Scanned PDFs need OCR first, and complex tables come out cleanest if you convert the page to an image and let Claude read it visually.
+
+### Does Claude Code replace NVivo, ATLAS.ti, or MAXQDA?
+
+No. CAQDAS tools organize coding you do by hand, while Claude Code automates the mechanical reading and first-pass coding that feeds it. Many researchers use both: Claude Code for the fast first pass, their CAQDAS tool for the audit trail.
+
+### Do I need to know how to code to use Claude Code for research?
+
+No. You work in plain English, and the official docs explicitly support folders of notes and documents rather than code. If you can name a folder and describe what you want, you already have the prerequisite skills.

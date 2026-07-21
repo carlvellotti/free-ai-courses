@@ -1,0 +1,295 @@
+---
+title: 'Claude Code Skills vs Agents, MCP, and Plugins, Explained'
+description: 'Claude Code skills vs agents, MCP, plugins, and hooks explained in plain English: one mental model, a glossary table, and a decision guide for non-coders.'
+keywords: 'claude code skills vs agents, what is mcp in claude code, claude code plugins explained, claude code skills explained, claude code subagents, claude code hooks, claude code glossary'
+schema:
+  "@context": "https://schema.org"
+  "@graph":
+    - "@type": "Article"
+      headline: "Claude Code Skills vs Agents, MCP, Plugins, and Hooks in Plain English"
+      description: "Claude Code skills vs agents, MCP, plugins, and hooks explained in plain English: one mental model, a glossary table, and a decision guide for non-coders."
+      author:
+        "@type": "Person"
+        name: "Carl Vellotti"
+        url: "https://fullstackpm.com"
+      datePublished: "2026-06-10"
+      dateModified: "2026-06-10"
+      publisher:
+        "@type": "Organization"
+        name: "Claude Code for Everyone"
+        url: "https://ccforeveryone.com"
+    - "@type": "FAQPage"
+      mainEntity:
+        - "@type": "Question"
+          name: "What is the difference between Claude Code skills and agents?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "A skill is a saved set of instructions Claude follows inside your current conversation, like a recipe card you hand it. A subagent is a separate worker with its own context window that does the task elsewhere and returns a summary. Reach for a skill when you repeat a procedure, and a subagent when a side task would clutter your main conversation."
+        - "@type": "Question"
+          name: "Are slash commands and skills the same thing in Claude Code?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Yes. Custom slash commands have been merged into skills, so every skill gets a /name you can type, and old command files in .claude/commands still work. If a command and a skill share a name, the skill wins."
+        - "@type": "Question"
+          name: "What is MCP in Claude Code, in plain English?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "MCP (Model Context Protocol) is an open standard that plugs Claude Code into outside apps such as Notion, Gmail, and your calendar. Each connection takes one claude mcp add command, and Anthropic counted more than 10,000 active public MCP servers as of December 2025."
+        - "@type": "Question"
+          name: "Does Claude Code remember anything between sessions?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Yes, three ways. CLAUDE.md holds notes you write, auto memory holds notes Claude writes for itself about each project, and /resume reopens past conversations. A brand-new session still starts with an empty conversation, which is by design."
+        - "@type": "Question"
+          name: "Do I need plugins to use Claude Code?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "No. A plugin is a shareable bundle of skills, agents, hooks, and MCP connections that someone else packaged. Start without any, then install one when it contains a setup you were about to build by hand."
+---
+
+import { BarChart, StepFlow, VersusTable } from '../../components/charts'
+
+# Claude Code Skills vs Agents, MCP, Plugins, and Hooks in Plain English
+
+*Last updated: June 10, 2026*
+
+Claude Code is an assistant sitting at your computer, one that reads your files, writes new ones, and runs programs. Everything else you have heard about (skills, agents, MCP, plugins, hooks) is a way to give that assistant one of four things: **instructions, memory, tools, or coworkers**. That is the whole mental model, and it is the one I wish someone had handed me before I read forty developer blog posts.
+
+If you searched **claude code skills vs agents** and every result assumed you write code for a living, this page is the other kind of answer. Each concept below gets a plain-English definition, an example with zero code in it, and an honest note on when you would actually care. Near the end: a glossary table, a decision guide, and the confusions that snag almost everyone.
+
+## The Whole System in One Mental Model
+
+Every confusing term bolts onto one plain idea: an assistant who can read your files, write new ones, and run programs, taking direction in conversation. The add-ons sort into four buckets.
+
+- **Instructions**: CLAUDE.md (standing notes about your project) and skills (recipes for specific jobs)
+- **Memory**: sessions, checkpoints, and auto memory
+- **Tools**: MCP connections, which reach apps beyond your computer
+- **Coworkers**: subagents and parallel agents
+
+Two leftovers. Hooks and permissions are the house rules, and plugins are gift baskets containing any mix of the above.
+
+The tightest compression I have found comes from [a developer named Moeed](https://moeed.app/posts/claude-code-skills-vs-mcp-vs-subagents-vs-hooks/): "Skills are knowledge. MCP servers are actions. Subagents are isolation. Hooks are guarantees." Keep that line in your pocket. One other writer joked that these concepts [overlap like a Venn diagram designed by someone who hates clarity](https://lakshminp.com/2025/12/claude-code-mental-model/), which is fair, and also fixable. Anthropic's own [feature overview](https://code.claude.com/docs/en/features-overview) uses the same skeleton I use here; their examples are all linting and pull requests, so mine will be newsletters, venues, and receipts.
+
+## Sessions and Context: Why Claude Forgets Between Conversations
+
+A session is one conversation, and context is everything Claude holds in mind during it: your messages, the files it has read, whatever instructions loaded at the start. End the session and that working memory empties, like an assistant clocking out for the day.
+
+You will care the first morning you come back and Claude has never heard of "the newsletter." Type `/resume` to reopen any past conversation, or run `claude --continue` in your terminal to pick up the most recent one. Claude Code also saves a checkpoint at every prompt and keeps them for 30 days, so `/rewind` (or tapping Escape twice) restores your files, your conversation, or both, per the [checkpointing docs](https://code.claude.com/docs/en/checkpointing). Two smaller friends worth knowing: `/compact` summarizes a long conversation to free up room, and `/context` shows exactly what is loaded right now.
+
+## CLAUDE.md Is the Notebook Claude Keeps About Your Project
+
+CLAUDE.md is a plain text file of standing instructions that loads at the start of every session in a folder. It is the notebook a good assistant keeps about you: this folder is my newsletter, the audience is retired teachers, never touch the archive folder, always write in first person.
+
+The notebook earns its keep the second time Claude gets the same thing wrong. The fix takes one sentence: say "add that to CLAUDE.md" and Claude updates its own notebook, or type `/init` and it drafts one from scratch; the [project memory lesson](/fundamentals/project-memory) in the course turns this into a reflex. [Official guidance](https://code.claude.com/docs/en/memory) is to keep the file under 200 lines and move step-by-step procedures into skills.
+
+One warning, straight from the docs: CLAUDE.md is "context, not enforced configuration." Claude follows it the way people follow sticky notes, which is to say usually. For something that must happen every time, you want a hook, covered below.
+
+There is also a second, newer memory system called auto memory: notes Claude writes for itself about each project, with the first 200 lines loading automatically every session. You do nothing; it just accumulates.
+
+## Claude Code Skills Explained: Saved Recipes With a Slash Name
+
+A skill is a folder holding a SKILL.md file: written instructions for one repeatable job, which you run by typing its `/name`, or which Claude can load on its own when the task matches its description. If you have pasted the same "here is how I like my weekly digest formatted" message three times, that message wants to be a skill.
+
+Say you save a `reading-digest` skill: open my clippings folder, group everything by theme, write 200 words per theme, save the result as a dated file. From then on the whole chore is `/reading-digest`. Claude Code ships with several built in, including `/code-review`, `/batch`, `/debug`, and `/loop`, and your own live in `~/.claude/skills/` (available everywhere) or `.claude/skills/` (one project), per the [skills docs](https://code.claude.com/docs/en/skills).
+
+Two facts clear up most of the arguing online. First, custom slash commands and skills are now one feature: Anthropic merged them, every skill answers to a `/name`, and old command files keep working. (Ignore anyone calling slash commands legacy; they were absorbed, and the slash lives on.) Second, skills [launched in October 2025](https://www.anthropic.com/news/skills) and became an [open standard that December](https://siliconangle.com/2025/12/18/anthropic-makes-agent-skills-open-standard/), with Canva, Notion, Figma, and Stripe publishing their own.
+
+Skeptics on [Hacker News](https://news.ycombinator.com/item?id=45786738) keep asking what skills add beyond a regular prompt, and honestly, the answer is almost nothing. A skill is a saved prompt with a folder and a trigger. The magic is boring, which is exactly why it works. One caution before you trust the auto-trigger: a [community evaluation](https://dev.to/edysilva/stop-putting-best-practices-in-skills-3pof) across 51 multi-turn tests saw skills fire on their own anywhere from 6% to 66% of the time. Those are unofficial numbers, but they match my experience, so when it matters, type the slash yourself. Slash basics take five minutes in [the course](/fundamentals/commands-navigation).
+
+## Claude Code Skills vs Agents: The Comparison Everyone Actually Means
+
+A skill is a recipe. A subagent is a coworker. When people search for skills vs agents, the "agents" they usually mean are Claude Code subagents: specialist assistants Claude delegates to, each with its own context window, its own instructions, and its own tool access, doing the work in a separate conversation and walking back with a summary ([subagents docs](https://code.claude.com/docs/en/sub-agents)).
+
+You will care about subagents when a side task would flood your main conversation. Suppose you are planning an event and want 60 venue pages read and ranked. A subagent does that reading at its own desk, burns through its own scratch paper, and hands you one tidy page of findings while your main chat stays clean. A few come built in (Explore and Plan), the `/agents` menu manages them, and custom ones are markdown files in `.claude/agents/`, which the course walks through in the [custom subagents lesson](/fundamentals/custom-subagents).
+
+Now the confession. In my first month I built six custom subagents, one per workflow, because subagents felt like the power-user move. I used two of them, twice each. Skills would have covered all six, and one [writeup of Anthropic's internal guidance](https://blog.vibecoder.me/skills-slash-commands-subagents-claude-code-primitives) explains why: subagents exist for parallel work and context isolation, full stop. Extra intelligence is nowhere on that list. The same model does the thinking either way; a subagent does it at a different desk.
+
+<VersusTable
+  title="Skills vs subagents at a glance"
+  left="Skill"
+  right="Subagent"
+  source="Based on the official Claude Code docs, June 2026"
+  rows={[
+    { label: "What it is", left: "A recipe Claude follows in your current conversation", right: "A coworker that works in a separate conversation" },
+    { label: "Where the work happens", left: "Right in front of you, in your chat", right: "Off to the side; you get back a summary" },
+    { label: "Best for", left: "Repeatable procedures: weekly digest, edit pass, invoice formatting", right: "Big, messy side jobs: read 60 venue pages while you keep working" },
+    { label: "How you trigger it", left: "Type its /name, or let Claude match it", right: "Ask for it, mention the agent by name, or use /agents" },
+    { label: "Cost", left: "Cheap; the recipe loads only when used", right: "Heavier; a whole separate context gets spun up" }
+  ]}
+/>
+
+My rule now: when in doubt, make a skill. Promote a job to a subagent only when its mess keeps shoving your real conversation out of view.
+
+## Parallel Agents: Clones for Batch Work, in Four Flavors
+
+When one task repeats 30 times, you want clones, and as of June 2026 Claude Code offers [four official flavors](https://code.claude.com/docs/en/agents). Subagents run inside your current session. Agent view (run `claude agents` in your terminal) is a dashboard for dispatching and watching multiple background sessions, currently a research preview. Agent teams are separate full sessions that message each other and share a task list, experimental and off by default behind a `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` setting. Dynamic workflows have Claude write a coordination plan that runs a whole fleet of subagents for one big job.
+
+A naming landmine the docs themselves flag: `/agents` typed inside a conversation and `claude agents` typed in your terminal are different features. The first manages subagents; the second opens the dashboard.
+
+The 60-second chooser, borrowed from a [comparison I like](https://medium.com/data-science-collective/sub-agent-vs-agent-team-in-claude-code-pick-the-right-pattern-in-60-seconds-e856e5b4e5cc) and practiced for real in the [agents lesson](/fundamentals/agents): subagents are freelancers, agent teams are a war room, and one question decides it, whether your workers need to talk to each other. For summarizing 30 podcast transcripts they do not, so freelancers win and cost far less, since each teammate in a team is a separate Claude instance running its own meter.
+
+## What Is MCP in Claude Code? The Power Strip Explanation
+
+MCP (Model Context Protocol) is an open standard that plugs Claude Code into apps beyond your computer: Notion, Gmail, your calendar, and roughly ten thousand others. Out of the box, Claude works only with what is on your machine; each MCP connection is one more appliance plugged into the power strip.
+
+You will care the first time you catch yourself copy-pasting between a browser tab and Claude. One terminal command makes a connection. This one is the [official example](https://code.claude.com/docs/en/mcp) and links Notion:
+
+```bash
+claude mcp add --transport http notion https://mcp.notion.com/mcp
+```
+
+I keep step-by-step recipes for the common connections in the [Notion guide](/guides/connect-claude-code-to-notion) and the [Gmail guide](/guides/connect-claude-code-to-gmail).
+
+Now the vocabulary trap. Each connection is called an "MCP server," a word that makes people picture a machine in the cloud, a confusion [Hacker News relitigates regularly](https://news.ycombinator.com/item?id=43972334). Often the "server" is a small program running quietly on your own laptop. Same name, much less drama.
+
+The size of the ecosystem genuinely surprised me.
+
+<BarChart
+  title="Public MCP servers, late 2024 to mid 2026"
+  source="Sources: Presenc MCP ecosystem research; DigitalApplied registry count, May 24, 2026"
+  data={[
+    { label: 'Nov 2024', value: 50, display: '~50' },
+    { label: 'Q1 2025', value: 400, display: '~400' },
+    { label: 'Q3 2025', value: 2500, display: '~2,500' },
+    { label: 'Q1 2026', value: 7000, display: '~7,000' },
+    { label: 'May 2026', value: 9652, display: '9,652 in the official registry' }
+  ]}
+/>
+
+Anthropic counted [more than 10,000 active public MCP servers and 97 million monthly SDK downloads](https://www.digitalapplied.com/blog/mcp-adoption-statistics-2026-model-context-protocol) in December 2025, up from [around 50 servers in November 2024](https://presenc.ai/research/mcp-server-ecosystem-statistics-2026). You need almost none of them: a [Zuplo survey](https://zuplo.com/mcp-report/) found 70% of MCP users run between two and seven. Stick to reviewed connectors from the Anthropic Directory, because the [docs warn](https://code.claude.com/docs/en/mcp) that untrusted servers can smuggle malicious instructions into your session. And one stale complaint to ignore: connected tools no longer eat your context while idle, since tool search now loads them only when needed.
+
+## Claude Code Plugins Explained: Gift Baskets You Install From a Menu
+
+A plugin bundles skills, subagents, hooks, and MCP connections into one installable package. Anthropic [launched plugins in October 2025](https://www.anthropic.com/news/claude-code-plugins); type `/plugin` to browse, the official marketplace is built in, and the community catalog adds with one line:
+
+```text
+/plugin marketplace add anthropics/claude-plugins-community
+```
+
+Plugins start to matter when someone has already packaged a setup you were about to assemble by hand, say a podcast kit with a transcript skill, a summary skill, and the right connections, installed in one shot. Plugin skills arrive namespaced, like `/kit-name:summarize`, so they never collide with yours.
+
+My honest advice is to skip plugins for your first month. Writing one CLAUDE.md and two small skills teaches you more about how the pieces fit than installing ten strangers' bundles ever will.
+
+## Claude Code Hooks: If-This-Then-That Rules That Always Run
+
+A hook is an automatic rule attached to a specific moment in Claude's work: after a file edit, when Claude needs your attention, when a session starts. The [hooks docs](https://code.claude.com/docs/en/hooks-guide) state the point plainly: hooks give you "deterministic control," ensuring certain actions always happen "rather than relying on the LLM to choose."
+
+Remember the sticky-note problem from the CLAUDE.md section. Instructions are requests; hooks are guarantees. "Copy every edited draft to my backups folder" written in CLAUDE.md happens most of the time. Written as a hook, it happens every time.
+
+No code required on your end. Tell Claude "write me a hook that backs up any file you edit in my drafts folder" and it configures the rule itself; the `/hooks` menu then shows what is in place. The case for hooks makes itself the first time "most of the time" costs you a document.
+
+## Permissions and Settings: Deciding What Claude May Touch
+
+Permissions control what Claude can do without asking first: which files, which commands, which connections. Rules are checked in a fixed order (deny first, then ask, then allow), and the `/permissions` menu edits them without any config-file spelunking ([permissions docs](https://code.claude.com/docs/en/permissions)).
+
+Day to day you will mostly use modes, cycled with Shift+Tab. Default mode asks before changes. Plan mode proposes and touches nothing, which is where I tell every nervous beginner to live for week one. There is also acceptEdits, which stops asking about file edits, and an [auto mode in research preview](https://code.claude.com/docs/en/permission-modes), available on every plan (Team and Enterprise admins must switch it on first). Reading files inside your project folder never needs permission; Claude only asks before looking elsewhere.
+
+## The Claude Code Glossary: Every Term in One Table
+
+Anthropic maintains an [official glossary](https://code.claude.com/docs/en/glossary) written for developers. This one trades completeness for plain English.
+
+| Term | Plain English | Where to poke |
+| --- | --- | --- |
+| Session | One conversation with Claude Code | `/resume` reopens past ones |
+| Context | Everything Claude is holding in mind right now | `/context` shows it |
+| Compact | Summarizing a long conversation to free up room | `/compact` |
+| Checkpoint | Automatic save point at every prompt, kept 30 days | `/rewind` restores |
+| CLAUDE.md | Your standing-instructions notebook, loads every session | `/init` drafts one |
+| Auto memory | Notes Claude writes for itself about each project | Automatic |
+| Slash command | A typed `/name` shortcut, today the front door to a skill | `/help` lists them |
+| Skill | A saved recipe for one repeatable job | Type its `/name` |
+| Subagent | A coworker with its own context that returns a summary | `/agents` |
+| Agent view | Dashboard for many background sessions (research preview) | `claude agents` in the terminal |
+| Agent team | Separate sessions that message each other (experimental) | Off by default |
+| Dynamic workflow | Claude scripts a fleet of subagents for one big job | Ask for it |
+| MCP | The standard that plugs Claude into outside apps | `/mcp` shows connections |
+| MCP server | One such connection, often a small program on your own machine | `claude mcp add` |
+| Plugin | An installable bundle of skills, agents, hooks, and connections | `/plugin` |
+| Marketplace | A catalog you install plugins from | `/plugin marketplace add` |
+| Hook | An automatic rule that always runs at a set moment | Ask Claude to write one |
+| Permission mode | How much Claude may do without asking | Shift+Tab cycles modes |
+| Output style | The voice and depth Claude replies with | `/config`, then Output style |
+
+Bookmark whichever row you keep forgetting. For the ten commands worth memorizing out of the dozens that exist, the [cheat sheet](/guides/claude-code-cheat-sheet) is the companion page.
+
+## The Decision Guide: Match the Want to the Feature
+
+The escalation ladder below is adapted from [Anthropic's own triggers](https://code.claude.com/docs/en/features-overview), translated out of developer-speak.
+
+<StepFlow
+  title="When to reach for which feature"
+  steps={[
+    { title: "Just ask", desc: "Most jobs need no feature at all. Plain English is the whole interface." },
+    { title: "Claude gets the same fact wrong twice", desc: "Write it into CLAUDE.md, the notebook that loads every session." },
+    { title: "You paste the same playbook a third time", desc: "Save it as a skill and give it a /name." },
+    { title: "You keep copying data out of a browser tab", desc: "Add an MCP connection to that app." },
+    { title: "A side task is flooding your conversation", desc: "Hand it to a subagent and keep working." },
+    { title: "Something must happen every single time", desc: "Have Claude write a hook. Rules beat reminders." },
+    { title: "A second project needs the same setup", desc: "Package the pieces as a plugin." }
+  ]}
+/>
+
+| I want... | Reach for | First move |
+| --- | --- | --- |
+| Claude to stop forgetting my preferences | CLAUDE.md | Say "add that to CLAUDE.md" |
+| One command for a chore I repeat | A skill | Ask Claude to save the steps as a skill |
+| A messy side job out of my main chat | A subagent | Say "use a subagent for this" |
+| The same task done 30 times at once | Parallel agents | Say "do these in parallel" or use `/batch` |
+| Claude inside Notion, Gmail, or my calendar | MCP | `claude mcp add` |
+| A ready-made setup someone else built | A plugin | `/plugin` |
+| Something to happen every single time | A hook | Say "write me a hook that..." |
+| To limit what Claude can touch | Permissions | `/permissions`, or Shift+Tab to plan mode |
+| To undo the last ten minutes | Checkpoints | `/rewind` |
+
+If a row leaves you torn between two features, pick the lighter one. A skill beats a subagent, CLAUDE.md beats a skill, and plain asking beats everything.
+
+## Skills vs Subagents vs MCP vs Plugins, Side by Side
+
+Four features cause most of the confusion online, so here they are in one table.
+
+|  | Skill | Subagent | MCP connection | Plugin |
+| --- | --- | --- | --- | --- |
+| What it is | A saved recipe with a `/name` | A coworker with its own context window | A plug into an outside app | A bundle of the other three |
+| When you care | You repeat the same playbook | A side task floods your chat | You keep copy-pasting from a browser | Someone packaged a setup you want |
+| Example | `/reading-digest` builds your weekly summary | Reads 60 venue pages, reports back one | Claude files Gmail receipts into Notion | A podcast kit: two skills plus two connections |
+| Difficulty | Easy; it is a text file | Medium; a text file plus a menu | Easy; one command per app | Easiest; pick from a catalog |
+
+Here is my one unhedged opinion for the whole page: most people reading this need exactly three things, a CLAUDE.md, one or two skills, and a single MCP connection. Everything else can wait until month two, and plenty of happy users never get past those three.
+
+## The Confusions That Snag Almost Everyone
+
+**"Subagents are the stronger option."** People assume the isolated worker must be smarter. Same model, separate desk, summary on return; choose subagents for tidiness and parallel work, never for brainpower.
+
+**"An MCP server lives in the cloud."** Often it is a small program on your own laptop. The name is the only intimidating part.
+
+**"CLAUDE.md rules are enforced."** The docs call the file "context, not enforced configuration." When a rule has to hold every time, use a hook or a permission rule instead.
+
+**"Slash commands are obsolete."** They were merged into skills, and typing the slash remains the main way to invoke one. Anyone telling you to ignore commands is reading old posts.
+
+**"Skills fire reliably on their own."** Auto-invocation landed anywhere between 6% and 66% of the time in the community eval mentioned earlier. I cannot tell you why the range is that wide; nobody outside Anthropic seems to know, and the docs are silent on it. Type the slash.
+
+## Learn These by Using Them (the Course Is Free)
+
+You will forget half this glossary by Friday, and that is fine, because the terms stick once your hands are on them. My free course runs inside Claude Code itself: [install it in about 15 minutes](/getting-started/installation), [download the course materials](/getting-started/start-and-clone), type `/start-1-1`, and Claude teaches you in conversation, with real files. Memory, subagents, and parallel agents each get their own lesson, and by [Module 2](/vibe-coding) you are building an app that actually ships. If you want a broader orientation first, start with [Claude Code for Non-Developers](/guides/claude-code-for-non-developers).
+
+## FAQ
+
+### What is the difference between Claude Code skills and agents?
+
+A skill is a saved set of instructions Claude follows inside your current conversation, like a recipe card you hand it. A subagent is a separate worker with its own context window that does the task elsewhere and returns a summary. Reach for a skill when you repeat a procedure, and a subagent when a side task would clutter your main conversation.
+
+### Are slash commands and skills the same thing in Claude Code?
+
+Yes. Custom slash commands have been merged into skills, so every skill gets a /name you can type, and old command files in .claude/commands still work. If a command and a skill share a name, the skill wins.
+
+### What is MCP in Claude Code, in plain English?
+
+MCP (Model Context Protocol) is an open standard that plugs Claude Code into outside apps such as Notion, Gmail, and your calendar. Each connection takes one claude mcp add command, and Anthropic counted more than 10,000 active public MCP servers as of December 2025.
+
+### Does Claude Code remember anything between sessions?
+
+Yes, three ways. CLAUDE.md holds notes you write, auto memory holds notes Claude writes for itself about each project, and /resume reopens past conversations. A brand-new session still starts with an empty conversation, which is by design.
+
+### Do I need plugins to use Claude Code?
+
+No. A plugin is a shareable bundle of skills, agents, hooks, and MCP connections that someone else packaged. Start without any, then install one when it contains a setup you were about to build by hand.

@@ -1,0 +1,126 @@
+---
+title: 'Claude Code Agents Tutorial | Parallel Processing'
+description: 'Claude Code agents tutorial: process 10 files simultaneously with parallel instances. Learn orchestration patterns for batch work.'
+keywords: 'claude code agents tutorial, claude code parallel processing, claude code agents, claude code batch processing, ai agents tutorial'
+---
+
+## 1.5: Agents
+
+- **Time to Complete:** 20 minutes
+
+> **Interactive lesson:** Run `/start-1-5` in Claude Code
+
+## What Are Agents?
+
+**Independent instances of Claude running in parallel.**
+
+Like cloning yourself to work on multiple tasks simultaneously. Each agent works on its own task, results get combined at the end.
+
+## Sequential vs Parallel
+
+| Approach | Time for 10 Tasks |
+|----------|-------------------|
+| **Sequential** (without agents) | Task 1 → Task 2 → ... → Task 10 = **50 minutes** |
+| **Parallel** (with agents) | All 10 simultaneously = **5 minutes** |
+
+## When to Use Agents
+
+**Good for:**
+- Many similar files to process (10 meeting notes, 20 interviews)
+- Parallel research (5 competitors, 3 markets)
+- Multi-source analysis (interviews + surveys + tickets)
+- Batch document generation (20 user stories from one PRD)
+- Time-sensitive work (need results in hours, not days)
+
+**Not good for:**
+- Single tasks (just use regular Claude)
+- Sequential work (tasks depend on each other)
+- Quick tasks (takes seconds anyway)
+- Context-dependent work (needs to build on previous)
+
+## How to Prompt for Agents
+
+| Style | Example |
+|-------|---------|
+| **Explicit** | "Create 10 agents to process these files" |
+| **Implicit** | "Work in parallel to analyze these competitors" |
+| **Specialized** | "Launch 3 agents: one for interviews, one for surveys, one for tickets" |
+| **Let Claude decide** | "Process all files in /meetings/" |
+
+## Agent Orchestration Patterns
+
+### Pattern 1: Fan Out
+Same task on many files.
+
+```
+Process all 15 files with 15 agents, extract action items, combine into single list
+```
+
+### Pattern 2: Specialized Roles
+Different analysis on different sources.
+
+```
+Agent 1 analyzes interviews, Agent 2 processes survey data, Agent 3 reviews tickets
+```
+
+### Pattern 3: Parallel Research
+Research multiple entities independently.
+
+```
+Research these 5 competitors in parallel, create comparison matrix
+```
+
+### Pattern 4: Batch Generation
+Create multiple similar documents.
+
+```
+Generate 20 user stories from this PRD using agents
+```
+
+### Pattern 5: Validation Pipeline
+Review multiple documents for quality.
+
+```
+Review all documents in /docs/ against the quality checklist
+```
+
+## The Synthesis Step
+
+**ALWAYS include synthesis in your prompt:**
+
+```
+After all agents complete, synthesize results into @summary.md
+```
+
+Raw agent outputs need combining - synthesis is where patterns emerge.
+
+## Agent Capabilities & Limits
+
+| Each agent HAS | Each agent does NOT have |
+|----------------|--------------------------|
+| Full file system access | Communication with other agents |
+| All Claude's capabilities | Shared state |
+| Independent context | Knowledge of other agents' results (until synthesis) |
+
+## Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| Agents not working in parallel | Say explicitly "work simultaneously" |
+| Results inconsistent | Provide clear output template |
+| Too many agents | Specify exact count |
+| No synthesis | Always end with "synthesize into..." |
+
+## Real-World Applications
+
+- **Job postings** - analyze 10 roles at once
+- **Vendor evaluation** - research 5 vendors in parallel
+- **Article summaries** - process 20 saved articles
+- **Apartment hunting** - analyze 8 listings simultaneously
+- **Trip planning** - flights, hotels, activities, restaurants all at once
+
+---
+
+## What's Next
+
+**[1.6: Custom Sub-agents →](/fundamentals/custom-subagents)** - Create permanent specialized advisors

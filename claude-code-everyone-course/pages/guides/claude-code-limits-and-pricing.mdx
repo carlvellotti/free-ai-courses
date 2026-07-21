@@ -1,0 +1,238 @@
+---
+title: 'Claude Code Usage Limits and Pricing, Explained (June 2026)'
+description: 'Claude Code usage limits and pricing as of June 10, 2026: what each plan costs, how the 5-hour and weekly caps really work, and how to stretch them.'
+keywords: 'claude code usage limits, claude code pricing, claude code weekly limit, claude code pro plan limits, claude code max plan, how much does claude code cost, claude code rate limits'
+schema:
+  "@context": "https://schema.org"
+  "@graph":
+    - "@type": "Article"
+      headline: "Claude Code Usage Limits and Pricing, Explained in Plain English"
+      description: "Claude Code usage limits and pricing as of June 10, 2026: what each plan costs, how the 5-hour and weekly caps really work, and how to stretch them."
+      author:
+        "@type": "Person"
+        name: "Carl Vellotti"
+        url: "https://fullstackpm.com"
+      datePublished: "2026-06-10"
+      dateModified: "2026-06-10"
+      publisher:
+        "@type": "Organization"
+        name: "Claude Code for Everyone"
+        url: "https://ccforeveryone.com"
+    - "@type": "FAQPage"
+      mainEntity:
+        - "@type": "Question"
+          name: "Does the $20 Pro plan still include Claude Code?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Yes. As of June 10, 2026, Anthropic's pricing page lists Claude Code as included in the $20 Pro plan. The April 2026 removal was a test shown to about 2% of new signups, and Anthropic reversed it within a day. Existing subscribers were never affected."
+        - "@type": "Question"
+          name: "When does the Claude Code weekly limit reset?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "At a fixed time each week that Anthropic assigns to your account, per its support docs. The reset day and time stay the same regardless of when you start using Claude or when your subscription began. It does not reset on Mondays, despite what older guides claim. Check Settings, then Usage on claude.ai to see your exact reset time."
+        - "@type": "Question"
+          name: "Do Claude chat and Claude Code share the same usage limit?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Yes. Anthropic's support docs confirm that usage on claude.ai, the Claude desktop app, and Claude Code all draws from one shared pool. A long morning of chatting reduces what is left for your afternoon Claude Code session."
+        - "@type": "Question"
+          name: "What happens when I hit a Claude Code usage limit?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "You see a warning, then a message with the reset time. Nothing is deleted and nothing is charged. You can wait (session limits reset within five hours), switch to a lighter model with /model, or enable usage credits to continue at API rates under a spending cap you set."
+        - "@type": "Question"
+          name: "Can I pay to keep working without upgrading my plan?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Yes. Usage credits let you continue past your plan limit at standard API rates, with a monthly spending cap you control. Turn them on with the /usage-credits command inside Claude Code."
+---
+
+import { BarChart, StatGrid, VersusTable } from '../../components/charts'
+
+# Claude Code Usage Limits and Pricing, Explained in Plain English
+
+*Last updated: June 10, 2026*
+
+Somewhere right now, a Reddit thread is telling someone that Claude Code locks you out for a week and nobody knows why. That thread is probably from March. **Claude Code usage limits changed twice this spring, both times in your favor**, and most of what Google serves up has not caught up.
+
+This page is the calm, current version. Every number comes from Anthropic's pricing page and support docs, checked on **June 10, 2026**, and the few that come from secondary writeups are labeled that way. I cover what each plan costs, how the two limit clocks work, what burns usage fastest, and what actually happens when you hit the wall. The short answer to that last one: you wait, usually under five hours, and nothing gets charged or deleted.
+
+I teach a free course that runs inside Claude Code, so I field limit questions every week, often from someone convinced they broke something. They almost never did.
+
+## How Much Does Claude Code Cost? Plans and Prices Right Now
+
+Claude Code pricing is simpler than the forums make it look: it comes bundled with a regular Claude subscription, so there is no separate product to buy. Here is the lineup from [Anthropic's pricing page](https://claude.com/pricing), checked June 10, 2026.
+
+<StatGrid
+  source="Source: claude.com/pricing, checked June 10, 2026"
+  stats={[
+    { value: '$0', label: 'Free', sub: 'No Claude Code access' },
+    { value: '$20/mo', label: 'Pro', sub: '$17/mo with annual billing' },
+    { value: '$100/mo', label: 'Max 5x', sub: '5x Pro usage' },
+    { value: '$200/mo', label: 'Max 20x', sub: '20x Pro usage' }
+  ]}
+/>
+
+A few details the grid cannot hold:
+
+- **Free ($0)** includes Claude chat on the web but no Claude Code, per the pricing page and [Engadget's June 3 breakdown](https://www.engadget.com/2185772/claude-ai-free-2026-limits-workarounds/) of the free tier.
+- **Pro ($20 per month, or $17 per month when you pay $200 annually)** includes Claude Code and Claude Cowork. Anthropic's [product page](https://claude.com/product/claude-code) pitches Pro as "perfect for short coding sprints in small codebases," which in plain English means a few focused sessions a day.
+- **The Claude Code Max plan comes in two sizes:** $100 per month for 5x Pro usage, $200 for 20x, plus higher output limits, early access to new features, and priority during busy hours.
+- **Team** runs $20 per seat per month on annual billing ($25 monthly) for Standard seats. Premium seats cost $100 per seat annual ($125 monthly) and carry 5x Standard usage; one independent guide [reports that works out to roughly 6.25x Pro](https://bestagent.dev/claude-code-usage-limits/), a figure Anthropic does not publish, so treat it as reported.
+- **Enterprise** is custom-priced. Anthropic does not publish a per-seat figure on the pricing page; you talk to sales.
+
+My advice has not changed in a year: **start on Pro.** Upgrade to Max the second time you hit a weekly cap with real work waiting, and not a day sooner. Most people in my course never hit it at all.
+
+## How Claude Code Usage Limits Actually Work
+
+Everything draws from one pool. Anthropic's [support docs](https://support.claude.com/en/articles/11647753) say usage on "all different Claude product surfaces" counts toward the same limit, so claude.ai chat, the desktop app, and Claude Code share a single budget. A long morning of chatting shrinks your afternoon Claude Code session.
+
+Two clocks run against that pool.
+
+**The 5-hour session clock.** Your usage window resets every five hours, per [Anthropic's plan documentation](https://support.claude.com/en/articles/11049741-what-is-the-max-plan). Hit this one and you are looking at a coffee break or an early lunch, never more.
+
+**The weekly clock.** Weekly limits reset at a fixed time each week that Anthropic assigns to your account, and [that day and time stay the same](https://support.claude.com/en/articles/11049741-what-is-the-max-plan) regardless of when you start working or when your subscription began. The Claude Code weekly limit does not reset on Mondays, whatever older guides claim, and it does not roll from your first session either. Settings, then Usage on claude.ai shows your exact reset time. Pro shows one weekly bar covering all models; Max and Team Premium dashboards show two, one for all models and one for Sonnet only.
+
+You will also see these called Claude Code rate limits. Same rules, scarier name.
+
+One thing Anthropic does not publish: exact token quotas for any plan. The official material gives multipliers only (Pro 1x, Max 5x or 20x) and says burn rate depends on conversation length, complexity, model choice, and the features you use. Any guide quoting a precise figure like "44,000 tokens per window" invented it.
+
+Both clocks loosened this spring. On May 6, Anthropic [permanently doubled the 5-hour limits](https://www.anthropic.com/news/higher-limits-spacex) for Pro, Max, Team, and seat-based Enterprise, and removed peak-hour throttling for Pro and Max. On May 13 it [raised weekly limits by 50% through July 13, 2026](https://freeainews.com/news/claude-code-limits-jump-50-paid-vs-free-2026/), a promotion still active as I write this.
+
+## What Actually Happens When You Hit a Limit
+
+A warning appears first, then a message naming the limit and its reset time. That is the entire consequence. Your files stay on your machine, the conversation is saved, and your card is never charged without your say-so.
+
+From there you have three moves.
+
+**Wait.** Session limits reset within five hours, often sooner.
+
+**Switch to a lighter model** and keep working:
+
+```bash
+/model
+```
+
+**Turn on usage credits.** Anthropic renamed these from "extra usage." They let you continue past your plan limit at standard API rates, under a monthly spending cap you set, per the [costs documentation](https://code.claude.com/docs/en/costs):
+
+```bash
+/usage-credits
+```
+
+Set that cap. A runaway automation hook can loop against the API all day while you are out at lunch, and the cap is the only thing standing between a misfire and a bill you will remember. It takes one command to set and zero willpower to honor.
+
+Two false alarms cause most of the panic I see. First, people misread which limit they hit: a dashboard showing the session bar at 100% and the weekly bar at 22% means a two-hour break, yet GitHub bug reports describe users reading the reset date and assuming a week of lockout. The reset time in the message is literal; believe it. Second, the message "Server is temporarily limiting requests (not your usage limit)" is a capacity problem on Anthropic's end. It costs you nothing and clears on its own.
+
+## What Burns Through Usage Fastest, in Plain English
+
+You do not need to think in tokens; you need about five habits. Anthropic published its own list in an April 15, 2026 support article, ["Models, usage, and limits in Claude Code"](https://support.claude.com/en/articles/14552983), and it matches what I see in students exactly.
+
+<BarChart
+  title="What burns usage fastest (directional, bigger bar = faster burn)"
+  source="The 7x figure is official (code.claude.com/docs/en/costs) and applies when teammates run in plan mode. The other bars are directional rankings drawn from Anthropic guidance, never measurements."
+  data={[
+    { label: 'Parallel agent teams', value: 7, display: '~7x (official, plan mode)' },
+    { label: 'One long conversation, never cleared', value: 5, display: 'directional' },
+    { label: 'Opus on every task', value: 4, display: 'directional' },
+    { label: 'Pasting whole files into the chat', value: 3, display: 'directional' },
+    { label: 'Short, scoped, cleared sessions', value: 1, display: 'baseline', muted: true }
+  ]}
+/>
+
+**Long conversations you never clear.** Claude resends your entire conversation with every turn, so message 80 costs far more than message 8. Anthropic calls clearing between tasks "the single most effective lever" for stretching usage; mid-task, `/compact` summarizes the conversation and frees room. My [cheat sheet for non-coders](/guides/claude-code-cheat-sheet) puts both on the short list of ten commands that matter.
+
+```bash
+/clear
+```
+
+**The wrong model.** Opus "costs several times more per turn than Sonnet," per the same article. Anthropic's recommended pattern is plan with Opus, execute with Sonnet, and there is a built-in setting for exactly that: `/model opusplan`. Run `/model` for the current model lineup rather than memorizing names.
+
+**Pasting huge files into the chat box.** Point Claude at file paths and let it read what it needs instead. The `@` shortcut (covered in the course's [working with files lesson](/fundamentals/working-with-files)) injects the entire file into context, so aim it at the one file you mean.
+
+**A bloated CLAUDE.md.** That project memory file loads with every single session. Anthropic suggests keeping it under roughly 200 lines, and the [project memory lesson](/fundamentals/project-memory) shows what belongs in there.
+
+**Skipping plan mode.** Press Shift+Tab before big changes. Reviewing a plan costs a fraction of redoing the work.
+
+The heavyweight sits outside the list: **agent teams use about 7x the tokens of a normal session** when teammates run in plan mode, per [Anthropic's costs docs](https://code.claude.com/docs/en/costs). [Parallel agents](/fundamentals/agents) are genuinely great, and they are also the fastest route to your weekly cap. Two smaller notes from the same docs: extended thinking is billed as output tokens, and background tasks typically cost under $0.04 a session. If subagent and MCP are new words, my [plain-English concepts guide](/guides/claude-code-concepts-explained) defines every one of them.
+
+## How to Check How Much You Have Used
+
+Inside Claude Code, type:
+
+```bash
+/usage
+```
+
+You get your plan's usage bars plus a breakdown attributing usage to skills, subagents, plugins, and MCP servers. Press `d` for a 24-hour view or `w` for seven days. The [docs note](https://code.claude.com/docs/en/costs) that the breakdown covers your current machine only.
+
+The authoritative cross-device number lives on claude.ai under Settings, then Usage. That view includes chat, desktop, and every computer you run Claude Code on.
+
+One more spot check: `/context` shows what is loaded into the conversation right now, which is usually the culprit when usage feels mysteriously fast.
+
+One sneaky trap from [Anthropic's billing article](https://support.claude.com/en/articles/11145838): if an `ANTHROPIC_API_KEY` environment variable is set on your machine (an old tutorial, a developer housemate), Claude Code quietly bills the API instead of your subscription. Run `/login` to switch back to your plan.
+
+## Stretching Pro Plan Limits Without Thinking About Tokens
+
+The Pro plan's limits comfortably cover the way I teach people to work: one task per session, scoped small. "Fix the header on my landing page" finishes long before "redesign my whole site" and leaves usage to spare. Clear between tasks, default to Sonnet, save Opus for planning, and the 5-hour clock turns nearly invisible: a morning burst, lunch, an afternoon burst.
+
+Limits become background noise most weeks.
+
+The students who do hit walls are usually deep in marathon builds from [Module 2 of the course](/vibe-coding), running parallel agents, or feeding Claude entire folders at once. They know what they did. And sometimes, honestly, the wall is worth it.
+
+## Subscription vs API Pricing in One Minute
+
+<VersusTable
+  title="Subscription vs API: which billing path fits you"
+  left="Subscription (Pro or Max)"
+  right="API (pay per token)"
+  source="Source: claude.com/pricing and code.claude.com/docs/en/costs, June 10, 2026"
+  rows={[
+    { label: 'Billing', left: 'Flat monthly fee, $20 to $200', right: 'Per million tokens used' },
+    { label: 'Best for', left: 'Regular interactive use in the terminal', right: 'Automation, scripts, CI pipelines' },
+    { label: 'Predictability', left: 'Fixed cost, capped by plan limits', right: 'Varies with every run' },
+    { label: 'Heavy use', left: 'Max 20x tops out at $200/mo', right: 'Scales without limit unless you set caps' }
+  ]}
+/>
+
+API pricing as of June 10, 2026, per million tokens in and out: Haiku 4.5 at $1/$5, Sonnet 4.6 at $3/$15, Opus 4.8 at $5/$25, and Fable 5 at $10/$50, with batch processing at half price ([pricing page](https://claude.com/pricing)). Anthropic's [enterprise data](https://code.claude.com/docs/en/costs) shows teams averaging about $13 per developer per active day, with 90% of users under $30 a day.
+
+For regular interactive use, the subscription wins by a mile. One widely cited power user reportedly pushed about 10 billion tokens through Claude Code over eight months, which would top $15,000 at Opus API rates but cost roughly $800 on a Max subscription, per [one independent pricing guide](https://www.ksred.com/claude-code-pricing-guide-which-plan-actually-saves-you-money/). Those figures come from secondary writeups rather than Anthropic, so hold them loosely; the direction is right even if the decimals wobble.
+
+## Recent Changes: A Running Log
+
+Most limit anxiety traces back to how often the rules moved in 2026, so here is the record, newest first.
+
+- **June 15, 2026 (upcoming):** Programmatic usage (the Agent SDK, `claude -p` scripts, GitHub Actions, third-party agent apps) splits into its own monthly credit pool: $20 on Pro, $100 on Max 5x, $200 on Max 20x, billed at API list rates, per a May Help Center notice [covered by secondary outlets](https://aicodex.to/articles/claude-subscription-credit-changes). **Typing into Claude Code in your terminal is unaffected.** If you only use it interactively, this change does not touch you.
+- **May 13:** Weekly limits raised 50% through July 13 as a promotion, [still active](https://freeainews.com/news/claude-code-limits-jump-50-paid-vs-free-2026/) as of this update.
+- **May 6:** 5-hour limits [permanently doubled](https://www.anthropic.com/news/higher-limits-spacex) for Pro, Max, Team, and seat-based Enterprise, and peak-hour throttling removed for Pro and Max, on the back of a 300-megawatt compute deal with SpaceX.
+- **April 23:** Anthropic published a [postmortem](https://www.anthropic.com/engineering/april-23-postmortem) fixing the caching bug behind that spring's "usage drain" complaints and reset limits for all subscribers. I owe a student an apology on this one: she showed me her usage bar draining in about 70 minutes, I blamed her long sessions, and the postmortem later proved it was Anthropic's bug. I now check the changelog before blaming the student.
+- **April 21 to 22:** The Pro plan scare. Claude Code briefly vanished from Pro on the pricing page; Anthropic called it a test shown to about 2% of new signups and [reverted it within a day](https://www.theregister.com/2026/04/22/anthropic_removes_claude_code_pro/). [Simon Willison's writeup](https://simonwillison.net/2026/apr/22/claude-code-confusion/) is the clearest account. Existing subscribers were never affected.
+- **Earlier in the spring:** Peak-hour throttling was in effect for Pro and Max during busy periods. Anthropic never published a start date or a count of affected users, and it [removed the throttling on May 6](https://www.anthropic.com/news/higher-limits-spacex).
+
+Notice the pattern: since April, every single change has made limits looser, clearer, or both.
+
+## Learn to Work Inside the Limits, Free
+
+The cheapest way to stretch any plan is to get good with it, and that is a learnable skill. My free course runs inside Claude Code itself: [install Claude Code in about 15 minutes](/getting-started/installation), [download the course](/getting-started/start-and-clone), type `/start-1-1`, and Claude teaches you directly, efficient habits included. If you can have a conversation, you can use Claude Code. And if installation puts up a fight, the [installation problems guide](/guides/claude-code-installation-problems) covers the eight most common errors.
+
+## FAQ
+
+### Does the $20 Pro plan still include Claude Code?
+
+Yes. As of June 10, 2026, [Anthropic's pricing page](https://claude.com/pricing) lists Claude Code as included in the $20 Pro plan. The April 2026 removal was a test shown to about 2% of new signups, and Anthropic reversed it within a day. Existing subscribers were never affected.
+
+### When does the Claude Code weekly limit reset?
+
+At a fixed time each week that Anthropic assigns to your account, per [its support docs](https://support.claude.com/en/articles/11049741-what-is-the-max-plan). The reset day and time stay the same regardless of when you start using Claude or when your subscription began. It does not reset on Mondays, despite what older guides claim. Check Settings, then Usage on claude.ai to see your exact reset time.
+
+### Do Claude chat and Claude Code share the same usage limit?
+
+Yes. Anthropic's [support docs](https://support.claude.com/en/articles/11647753) confirm that usage on claude.ai, the Claude desktop app, and Claude Code all draws from one shared pool. A long morning of chatting reduces what is left for your afternoon Claude Code session.
+
+### What happens when I hit a Claude Code usage limit?
+
+You see a warning, then a message with the reset time. Nothing is deleted and nothing is charged. You can wait (session limits reset within five hours), switch to a lighter model with `/model`, or enable usage credits to continue at API rates under a spending cap you set.
+
+### Can I pay to keep working without upgrading my plan?
+
+Yes. Usage credits let you continue past your plan limit at standard API rates, with a monthly spending cap you control. Turn them on with the `/usage-credits` command inside Claude Code.

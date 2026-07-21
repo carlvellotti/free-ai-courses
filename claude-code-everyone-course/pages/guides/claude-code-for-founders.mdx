@@ -1,0 +1,209 @@
+---
+title: 'Claude Code for Founders: MVPs, Ops, and Investor Updates'
+description: 'Claude Code for founders, minus the hype: what a non-technical founder can really build, where vibe coding breaks, and the ops work nobody talks about.'
+keywords: 'claude code for founders, claude code non technical founder, build mvp without developer, claude code startup, vibe coding mvp, claude code for entrepreneurs'
+schema:
+  "@context": "https://schema.org"
+  "@graph":
+    - "@type": "Article"
+      headline: "Claude Code for Founders: MVPs, Ops, and Investor Updates"
+      description: "Claude Code for founders, minus the hype: what a non-technical founder can really build, where vibe coding breaks, and the ops work nobody talks about."
+      author:
+        "@type": "Person"
+        name: "Carl Vellotti"
+        url: "https://fullstackpm.com"
+      datePublished: "2026-06-10"
+      dateModified: "2026-06-10"
+      publisher:
+        "@type": "Organization"
+        name: "Claude Code for Everyone"
+        url: "https://ccforeveryone.com"
+    - "@type": "FAQPage"
+      mainEntity:
+        - "@type": "Question"
+          name: "Can I really build an MVP without a developer?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Yes, with the right definition of MVP: a working prototype, a real landing page, or an internal tool, typically inside a week of part-time effort. The hard line is charging money and storing strangers' personal data, which you can still build yourself but should not launch without a security review. A Q1 2026 assessment found 91.5% of vibe-coded apps had at least one vulnerability, so that review is the difference between a launch and a breach disclosure."
+        - "@type": "Question"
+          name: "Do I still need a technical co-founder?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Not to validate an idea, and plenty of founders get a paying v1 live solo. Hire an engineer when at least two of these are true: custom auth, real users' personal data, a regulated domain, or your feature velocity has collapsed. Waiting past that point is what the cleanup economy charges $15,000 to $80,000 to fix."
+        - "@type": "Question"
+          name: "Will my vibe-coded app get hacked?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "It is a live risk if you skip review: Moltbook exposed 1.5 million auth tokens three days after launch because row-level security was never enabled, and Baudr was hacked within hours through an open admin panel. AI optimizes for working code, and safe is a separate request you have to make. The minimum bar before launch: row-level security on, no secrets in browser code, auth on every admin route, and one dedicated security pass."
+        - "@type": "Question"
+          name: "What does Claude Code cost a founder per month?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Start at $20 per month on the Pro plan, which includes both Claude Code and Claude Cowork. Move to Max at $100 per month if a heavy build week keeps hitting limits; Anthropic's own data shows 90% of users stay under $30 per active day. Infrastructure can be nearly free while you validate, since Vercel's Hobby tier costs nothing and a domain runs about $12 a year."
+        - "@type": "Question"
+          name: "Should I use Claude Code or Lovable for my MVP?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Browser builders like Lovable and Bolt reach a first screen faster, and that speed is real. Claude Code gives you code you own on your own machine, plus the ops half: investor updates, inbox triage, and scheduled competitor monitoring. If the product should outlive the demo, owning the code wins."
+---
+
+import { StepFlow, VersusTable } from '../../components/charts'
+
+# Claude Code for Founders: MVPs, Ops, and Investor Updates
+
+*Last updated: June 10, 2026*
+
+X tells you to vibe code your startup in a weekend. Everyone with an engineering degree tells you to find a CTO before you touch anything. Both camps are selling something, and neither is being straight with you. This guide to Claude Code for founders is the honest middle: what a non-technical founder can genuinely build and run alone, where it breaks (with named failures and dollar amounts), and the operations work, investor updates, support triage, competitor monitoring, that almost nobody writes about.
+
+I'm Carl, an ex-PM who runs a free course teaching Claude Code to people who don't code. Founders are a steady chunk of my inbox. This page is what I tell them.
+
+## What Claude Code for Founders Actually Gets You
+
+Claude Code is Anthropic's agent app (terminal, desktop, and web) where Claude reads your files, writes new ones, and runs real code on your machine, all from plain English instructions. For a founder, it is two products wearing one trench coat: a build tool that turns descriptions into working software, and an ops desk that grinds through the unglamorous weekly work.
+
+The build side is real. In June 2026, Anthropic [published the story of one of its own salespeople](https://claude.com/blog/how-anthropic-uses-claude-gtm-engineering), a person with no coding experience, who built a roughly 4,300-line Gmail drafting tool with Claude Code that saves him two to three hours a day. That is the realistic shape of what a beginner ships: working prototypes, real landing pages, and internal tools that kill one specific pain.
+
+What you do not get on day one is a scalable production app with auth and payments that is safe to put in front of strangers.
+
+The 2026 cautionary tales have names. Moltbook's founder launched bragging he "didn't write a single line of code"; three days later, researchers found [1.5 million auth tokens and 35,000 user emails sitting exposed](https://ubserve.com/blog/vibe-coded-apps-getting-hacked) because the database's row-level security had never been switched on. A streamer built the social network Baudr for [about 40 euros, and it was hacked within hours](https://dev.to/solobillions/a-streamer-built-a-social-network-with-ai-for-40-it-was-hacked-in-hours-1hng) through an open admin panel. The base rate backs the anecdotes: a Q1 2026 GuardMint assessment found [91.5% of 200-plus vibe-coded apps had at least one vulnerability](https://www.secure.com/blog/appsec/vibe-coding-security-risks).
+
+You will also see the stat that [25% of Y Combinator's Winter 2025 batch had codebases that were roughly 95% AI-generated](https://techcrunch.com/2025/03/06/a-quarter-of-startups-in-ycs-current-cohort-have-codebases-that-are-almost-entirely-ai-generated/). True, and routinely misused, because those founders were technical and could read what the AI wrote. The gap between "works in my demo" and "safe with strangers' data" is exactly the gap an experienced review covers.
+
+So here is my stake in the ground: anyone promising you production-ready, secure code from a single prompt is lying to you, to themselves, or both. You can still build the MVP. You build it with the gap in view.
+
+## The Honest MVP Path: Idea to Deployed in About a Week
+
+You can build an MVP without a developer; the useful question is which MVP. The consensus in founder communities is a weekend for a prototype and five to seven part-time days for a standard web app: auth, one core feature, Stripe. Treat that as a median, not a promise. The founders I hear from who stall out tend to stall in the same predictable place: account setup and scope creep, rather than anything the AI did.
+
+This is the path I teach in [Module 2 of the course](/vibe-coding), compressed:
+
+<StepFlow
+  title="From idea to deployed MVP, the non-technical founder version"
+  steps={[
+    { title: "Write a one-page spec", desc: "Plain English: who it is for, the single core action, and what is out of scope for v1. Scope creep kills more builds than bugs do." },
+    { title: "Start project memory", desc: "Run /init so Claude creates CLAUDE.md, then add your product decisions. Every future session starts already briefed." },
+    { title: "Build in plan-approve-execute loops", desc: "Ask Claude to plan each feature before touching code, approve the plan, let it build, and commit after every working change so you can roll back." },
+    { title: "Test like a hostile stranger", desc: "Wrong passwords, empty forms, an emoji in the email field. Everything that breaks becomes the next prompt." },
+    { title: "Run one security pass", desc: "Ask Claude to verify: row-level security on the database, no secrets in browser code, auth on every admin route." },
+    { title: "Deploy with the Vercel plugin", desc: "Install the official plugin and run /deploy. Hobby tier is free; the domain is your only bill." }
+  ]}
+/>
+
+The step founders skip is number five. Skip it and you are speedrunning the Moltbook story with your own logo on it.
+
+Two specifics worth knowing before you start. First, `/init` creates a `CLAUDE.md` file, the [project memory](/fundamentals/project-memory) that keeps your product decisions loaded in every session; it is the single highest-return habit in the whole tool. Second, deployment got genuinely easy in 2026. Claude Code has an [official Vercel plugin](https://claude.com/plugins/vercel), and Vercel's [Hobby tier is free](https://vercel.com/docs/getting-started-with-vercel) and can provision a free database with the connection details synced for you.
+
+```text
+/plugin install vercel@claude-plugins-official
+/deploy
+```
+
+Budget an annoying afternoon for the signup gauntlet regardless: GitHub, Vercel, Stripe, a domain registrar. It is the most common place I see founders quit, before a single feature exists. And when the build grows past toy size, [GSD](/gsd) is my free system for planning vibe-coded projects so they survive their own ambition.
+
+## Where Vibe Coding an MVP Breaks
+
+The failure mode has a name in every founder forum: you don't know what you don't know. One boilerplate vendor [makes the same point](https://goilerplate.com/blog/do-i-need-a-boilerplate-or-vibe-code): the bug you ship is the one you never knew to type the word for. You cannot prompt for a safeguard you have never heard of. A Hacker News commenter, reacting to the Base44 auth vulnerability, [went further](https://news.ycombinator.com/item?id=44736101): "vibing auth should seriously count as legal gross negligence."
+
+The tool adds failure modes of its own. In March 2026, multiple founders [reported Claude Code claiming tasks were complete when they were not](https://blog.mean.ceo/claude-code-for-non-technical-entrepreneurs/), which is why the testing step above says to act like a hostile stranger instead of trusting the cheerful summary. Treat every "Done!" as a claim, never a fact.
+
+The market has already priced your deferred developer, too. "Cleanup economy" firms charge [$7,500 to $15,000 for a three-to-six-week rescue and $25,000 and up for a full rewrite](https://www.afterbuildlabs.com/resources/rewrite-or-rescue-vibe-coded-app), with [typical engagements running $15,000 to $80,000](https://blog.vibecoder.me/cleanup-economy-ai-code-needs-professional-help) as of April 2026. That is what fixing a skipped security pass costs after launch.
+
+## When to Hire a Developer, Said Plainly
+
+The engineers who do those rescues have [converged on a usable threshold](https://rohitraj.tech/en/notes/vibe-coding-vs-hiring-developer-when-lovable-breaks). Keep building solo while all four of these hold: under 500 active users, standard Stripe checkout, no custom auth, and you are still shipping roughly a feature a day. When any two break, hire. A contractor doing a two-week review-and-hardening pass is often enough; "developer" does not have to mean a co-founder holding a third of your company.
+
+<VersusTable
+  title="Vibe code it yourself vs. hire a developer"
+  left="Vibe code it yourself"
+  right="Hire a developer"
+  source="Vulnerability figure: GuardMint Q1 2026 assessment of 200+ vibe-coded apps. Hiring costs vary widely; treat the contrast as directional."
+  rows={[
+    { label: "Speed to something real", left: "Prototype in a weekend; working app in about a week part-time", right: "Weeks of scoping, hiring, and onboarding before code exists" },
+    { label: "Cash outlay", left: "Claude plan at $20 to $200 per month, plus mostly free infrastructure", right: "Thousands per month in contract rates, salary, or equity" },
+    { label: "What you learn", left: "Everything; you end up understanding your own product's plumbing", right: "Less; the codebase becomes a black box you pay to open" },
+    { label: "Security", left: "Your blind spot: 91.5% of audited vibe-coded apps had at least one vulnerability", right: "Their day job: a good developer designs for failure before launch" },
+    { label: "When it breaks at 2 a.m.", left: "You and Claude, guessing together", right: "Someone who has seen this exact bug before" },
+    { label: "Best for", left: "Validation, landing pages, internal tools, a low-stakes v1", right: "Payments at scale, personal data, regulated domains, collapsed velocity" }
+  ]}
+/>
+
+My honest read of that table: vibe code the validation, and pay a professional before you store a stranger's password. The X crowd and the hire-a-CTO crowd are each right about half the problem.
+
+## The Underrated Half: Running Startup Ops in Claude Code
+
+I assumed the app building would be why founders took my course. I was wrong, and it took my own inbox to show me: the questions that keep arriving are about drafting the June update, clearing a support backlog, and watching competitor pricing pages, because you build the MVP once and ops eats every week after. Most Claude Code for entrepreneurs advice covers only the build half. This half is the one you will use daily.
+
+Claude Code treats a folder as a workspace, so the whole startup can live in one: metrics exports, past investor updates, call notes, saved competitor pages. The course module on [working with files](/fundamentals/working-with-files) covers the mechanics. Here is what founders actually run.
+
+### Investor updates drafted from your metrics CSV
+
+One founder documented [running his entire reporting stack this way](https://www.iwoszapar.com/resources/claude-code-founder-guide): a custom slash command that compiles his week in about 45 seconds, and investor updates drafted to match the tone of his last eight, using real Stripe and GA4 numbers. The prompt shape:
+
+```text
+Read @metrics/may.csv and the three updates in @investor-updates/.
+Draft june-update.md in the same structure and tone: three headline
+metrics with month-over-month change, one lowlight stated plainly,
+one specific ask. Compute every number with a script, then show me
+the script.
+```
+
+That last line is load-bearing. A model that merely reads your CSV can state a wrong number with total confidence; a script computes it. Never send an investor a number Claude eyeballed.
+
+### Support and founder inbox triage
+
+One user [closed out more than 1,600 backlogged emails across two Claude Code sessions](https://anchor.host/1600-emails-in-one-conversation-how-i-triage-my-inbox-with-claude-code/), using a command-line connection to his email tool to categorize the noise and fix the issues underneath it. The Gmail equivalent takes a few minutes with my [Gmail setup guide](/guides/connect-claude-code-to-gmail), and a [custom subagent](/fundamentals/custom-subagents) that knows your support tone keeps the triage consistent.
+
+### Market research folders
+
+Drop competitor pages, analyst PDFs, and call transcripts into one folder and ask for a synthesis with quotes and file citations. It is the same workflow academics use, covered in depth in my [researchers guide](/guides/claude-code-for-researchers); founders mostly point it at competitors and lost-deal notes.
+
+### Competitor monitoring on a schedule
+
+Routines quietly killed the "you need Zapier skills" objection. A Routine is a saved prompt that [runs on Anthropic's managed cloud on a schedule, with your laptop closed](https://code.claude.com/docs/en/routines): type `/schedule` in Claude Code and describe the job, such as "every weekday morning, check these three competitor pricing pages and append any changes to changes.md." The minimum interval is one hour, and Routines, still in research preview as of June 2026, are included from the Pro plan up.
+
+### Financial model sanity checks
+
+Paste your model's assumptions and ask Claude to attack them: which numbers are doing the most work, where the model breaks at half the conversion rate. For actual spreadsheets, [Claude Cowork](/cowork), the desktop sibling included on all paid plans, works on the files themselves, and [Claude for Excel](https://claude.com/claude-for-excel) builds workbooks with real formulas rather than handing you a wall of text.
+
+One warning label on all of this. A solo founder wrote about [replacing his $1,800-a-month VA with Claude Code agents at $147 a month](https://500k.io/journal/how-agents-replaced-my-va), tripling his output, and then admitted the human relationships in his business got worse. That is one anecdote, but it points at a real tradeoff: automation buys back hours, and some of those hours were doing invisible relationship work.
+
+## What Claude Code Costs a Founder
+
+Two budgets, money and time, and founders consistently misjudge the second one.
+
+Money is simpler than the horror stories suggest. The [$20-per-month Pro plan includes Claude Code and Claude Cowork](https://claude.com/pricing/), and on May 6, 2026, Anthropic [doubled the five-hour rate limits and removed peak-hour reductions](https://www.anthropic.com/news/higher-limits-spacex). If a heavy build week keeps hitting walls, Max is $100 per month for 5x Pro usage or $200 for 20x. One honest caveat: weekly caps are real even at $200, and [a Max customer publicly hit one after about a week](https://github.com/anthropics/claude-code/issues/48732) of what he described as moderate solo building in April 2026. For calibration, Anthropic's own data shows [the average is about $13 per active day, and 90% of users stay under $30](https://code.claude.com/docs/en/costs). Type `/usage` inside Claude Code to see your own meter, and remember that chat and Claude Code share the same limits, so heavy chatting eats build capacity.
+
+Infrastructure can sit near zero while you validate: Vercel Hobby is free, free database tiers exist, and a domain is around $12 a year at typical registrar pricing. The deeper mechanics, including what those limit bars actually mean, are in my [limits and pricing guide](/guides/claude-code-limits-and-pricing).
+
+Time is where plans die. Budget a real afternoon for accounts, an evening or two to learn the tool, a week of build-test loops, and a standing hour each week for the ops habits above. The founders who get the most from Claude Code treat it like a hire they have to onboard, with `CLAUDE.md` playing the onboarding doc.
+
+## Learn the Whole Thing Free, Inside Claude Code
+
+My course costs nothing and runs inside Claude Code itself: you type `/start-1-1` and Claude teaches you, hands on, in the same tool you will build with. If you can have a conversation, you can use Claude Code.
+
+1. [Install Claude Code](/getting-started/installation). About 15 minutes, no terminal experience assumed.
+2. [Download the course](/getting-started/start-and-clone) and type the first command.
+
+Founders usually sprint straight to [Module 2](/vibe-coding), where you build and deploy a real app. If you want a gentler on-ramp first, [Claude Code for Non-Developers](/guides/claude-code-for-non-developers) is the wider door.
+
+## FAQ
+
+### Can I really build an MVP without a developer?
+
+Yes, with the right definition of MVP: a working prototype, a real landing page, or an internal tool, typically inside a week of part-time effort. The hard line is charging money and storing strangers' personal data, which you can still build yourself but should not launch without a security review. A Q1 2026 assessment found 91.5% of vibe-coded apps had at least one vulnerability, so that review is the difference between a launch and a breach disclosure.
+
+### Do I still need a technical co-founder?
+
+Not to validate an idea, and plenty of founders get a paying v1 live solo. Hire an engineer when at least two of these are true: custom auth, real users' personal data, a regulated domain, or your feature velocity has collapsed. Waiting past that point is what the cleanup economy charges $15,000 to $80,000 to fix.
+
+### Will my vibe-coded app get hacked?
+
+It is a live risk if you skip review: Moltbook exposed 1.5 million auth tokens three days after launch because row-level security was never enabled, and Baudr was hacked within hours through an open admin panel. AI optimizes for working code, and safe is a separate request you have to make. The minimum bar before launch: row-level security on, no secrets in browser code, auth on every admin route, and one dedicated security pass.
+
+### What does Claude Code cost a founder per month?
+
+Start at $20 per month on the Pro plan, which includes both Claude Code and Claude Cowork. Move to Max at $100 per month if a heavy build week keeps hitting limits; Anthropic's own data shows 90% of users stay under $30 per active day. Infrastructure can be nearly free while you validate, since Vercel's Hobby tier costs nothing and a domain runs about $12 a year.
+
+### Should I use Claude Code or Lovable for my MVP?
+
+Browser builders like Lovable and Bolt reach a first screen faster, and that speed is real. Claude Code gives you code you own on your own machine, plus the ops half: investor updates, inbox triage, and scheduled competitor monitoring. If the product should outlive the demo, owning the code wins.

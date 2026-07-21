@@ -1,0 +1,198 @@
+---
+title: 'Claude Code Notion Setup: One Command and 3 Real Recipes'
+description: 'The exact Claude Code Notion setup for June 2026: OAuth only, no API keys, plus three copy-paste recipes and fixes for the three most common failures.'
+keywords: 'claude code notion, claude code notion mcp, connect claude to notion, notion mcp setup, claude code notion integration, notion mcp claude code'
+schema:
+  "@context": "https://schema.org"
+  "@graph":
+    - "@type": "Article"
+      headline: "Claude Code Notion: The Setup That Actually Works, Plus 3 Recipes"
+      description: "The exact Claude Code Notion setup for June 2026: OAuth only, no API keys, plus three copy-paste recipes and fixes for the three most common failures."
+      author:
+        "@type": "Person"
+        name: "Carl Vellotti"
+        url: "https://fullstackpm.com"
+      datePublished: "2026-06-10"
+      dateModified: "2026-06-10"
+      publisher:
+        "@type": "Organization"
+        name: "Claude Code for Everyone"
+        url: "https://ccforeveryone.com"
+    - "@type": "FAQPage"
+      mainEntity:
+        - "@type": "Question"
+          name: "Do I need a paid Notion plan to connect Claude Code?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "No. The base connection works on a free Notion account. Searching connected apps like Slack or Google Drive through Notion requires Notion AI, and querying saved database views requires a Business plan or higher with Notion AI, but creating, fetching, and updating pages all work on free."
+        - "@type": "Question"
+          name: "Do I need a Notion API key or integration token?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "No. The current setup is OAuth only: you log in through your browser when Claude Code prompts you. If a guide tells you to create an integration and copy a token starting with ntn_, it is outdated, and Notion's hosted server rejects those tokens with a 401 error."
+        - "@type": "Question"
+          name: "Can Claude Code delete my Notion pages?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Notion's official MCP tool list includes create, update, move, and duplicate, with no dedicated delete tool. Claude Code also asks for your permission before write actions by default. Keep those confirmations on and nothing changes in your workspace without your approval."
+        - "@type": "Question"
+          name: "Why does Notion ask me to log in again every session?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Notion's access tokens expire after one hour by design, and older Claude Code versions sometimes failed to refresh them silently. The fix largely shipped in Claude Code v2.1.136. Run claude update in your terminal, then authenticate once more through the /mcp menu, and the connection should hold."
+        - "@type": "Question"
+          name: "Can Claude Code upload images or files to Notion?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Not yet. File and image uploads are on Notion's MCP roadmap but unsupported today, so Claude fills pages with text, properties, and structure only. If a recipe needs an image, add it by hand in Notion afterward."
+---
+
+import { StepFlow } from '../../components/charts'
+
+# Claude Code Notion: The Setup That Actually Works, Plus 3 Recipes
+
+*Last updated: June 10, 2026*
+
+Your notes live in files on your computer and your team lives in Notion, so part of every week disappears into copy-paste. The **Claude Code Notion** connection ends that: one terminal command, one browser login, and Claude can read a folder on your machine and build properly structured Notion pages from it. My own setup took four minutes. Many guides ranking for this search still teach an API-token method Notion's hosted server now rejects, so below are the commands that work as of June 2026, plus three copy-paste recipes and a plain answer on what it can and cannot touch.
+
+## What the Claude Code Notion Connection Actually Gets You
+
+Once connected, Claude Code can search your workspace, open any page you can open, and create or update pages complete with database properties, per [Notion's official tool list](https://developers.notion.com/guides/mcp/mcp-supported-tools). The tools have plain names: `notion-search`, `notion-fetch`, `notion-create-pages`, `notion-update-page`, `notion-move-pages`. In practice, the chores where you finish work in one app and re-type it into the other collapse into a single prompt.
+
+The base connection works on a free Notion account, which matters for a product that [passed 100 million users in 2024](https://www.notion.com/blog/100-million-of-you). Two features sit behind paid tiers: searching connected apps like Slack or Google Drive through Notion requires Notion AI, and querying saved database views requires a Business plan or higher with Notion AI, per [the same tools page](https://developers.notion.com/guides/mcp/mcp-supported-tools). (Querying data sources directly is gated further, to Enterprise with Notion AI.) Everything in this guide runs on free.
+
+Two things it cannot do yet: upload files or images (on Notion's roadmap), and run unattended, since the login is a human-in-the-browser flow. If MCP is a new word for you, my [plain-English glossary](/guides/claude-code-concepts-explained) explains it in five minutes; the short version is that MCP is the plug standard that lets Claude operate other apps.
+
+## Notion MCP Setup: One Command, Then a Browser Login
+
+The entire Notion MCP setup is one command and a login, and you never open a config file. The command goes in your regular terminal, the same window where you would type `claude` to start a session. Keep the two windows straight, because mixing them up is the classic stumble: `claude mcp add` runs in the terminal before Claude starts, and `/mcp` is typed inside a running Claude session.
+
+```bash
+claude mcp add --transport http --scope user notion https://mcp.notion.com/mcp
+```
+
+In plain words: register a server named notion, found at Notion's official address, reachable over the web. Both [Notion's docs](https://developers.notion.com/guides/mcp/get-started-with-mcp) and [Anthropic's docs](https://code.claude.com/docs/en/mcp) use this exact command, minus one flag I added. `--transport http` is required; leave it out and Claude Code treats the URL as a local program, which fails without a useful error. `--scope user` makes the connection available in every folder on your computer instead of only the one you ran the command in. Anthropic should make that the default. The folder-only default, called local scope in [the quickstart](https://code.claude.com/docs/en/mcp-quickstart), is the most common reason people think this setup silently broke.
+
+Then comes the login.
+
+<StepFlow title="Connect Claude Code to Notion in five steps" steps={[{ title: 'Run the add command in your terminal', desc: 'Before starting Claude, in your normal terminal window.' }, { title: 'Start Claude Code and type /mcp', desc: 'Run claude, then type /mcp and select notion from the list.' }, { title: 'Choose Authenticate', desc: 'Your browser opens to a Notion login page.' }, { title: 'Approve access in the browser', desc: 'Pick the workspace you want Claude to reach and click Allow.' }, { title: 'Run a test search', desc: 'Ask Claude to find a Notion page you know exists.' }]} />
+
+To confirm it stuck, run `claude mcp list` in the terminal and look for a check mark next to notion. Then the real test, typed inside Claude:
+
+```text
+Search my Notion for the page called "Team Wiki" and give me a one-line summary.
+```
+
+Two shortcuts worth knowing. If you already connected Notion at claude.ai under Settings, then Connectors, you may be done: those connectors [load into Claude Code automatically](https://code.claude.com/docs/en/mcp-quickstart) when you sign in with the same account. Notion also ships an [official Claude Code plugin](https://github.com/makenotion/claude-code-notion-plugin) with skills and slash commands like `/Notion:search`; type `/plugin` inside Claude Code, open Discover, and search for Notion. For everything on this page, the plain connection is enough.
+
+One warning. Plenty of pages explaining how to connect Claude to Notion still open with "create an integration and copy the secret." Close those tabs. That token flow belongs to an open-source server Notion has deprecated and no longer actively supports, and the hosted server [answers `ntn_` tokens with a 401 error](https://github.com/makenotion/notion-mcp-server/issues/106).
+
+## Recipe 1: Turn a Folder of Meeting Notes Into a Notion Database
+
+Here is the pattern that sells the whole connection: Claude [reads your local files](/fundamentals/working-with-files), fetches your database's schema so it knows the exact properties, then creates one structured row per note. Asking for the schema first is the trick most people miss; `notion-fetch` returns the properties and templates that make rows come out properly filled instead of dumped as a wall of text.
+
+```text
+Read every file in my meeting-notes folder. Then fetch my Notion database
+called "Meetings" and study its exact properties. For each note, create one
+page in that database: set Date from the note, set Attendees from the names
+in the first few lines, and put decisions and action items in the page body
+under their own headings. Show me your plan for the first note before
+creating anything, then do the rest.
+```
+
+Claude Code asks permission before each write by default, so you watch the first page land in Notion and correct course before the other nineteen follow. Once it works, save the database name in [CLAUDE.md, your project memory](/fundamentals/project-memory), so future prompts can just say "the meetings database."
+
+## Recipe 2: Assemble a Weekly Status Page From Local Files
+
+This is the push half of the pattern Hannah Stulberg calls [draft in Claude Code, collaborate in Notion](https://hannahstulberg.substack.com/p/claude-code-for-everything-draft-in-claude-code-collaborate-in-notion): the writing happens on your machine, where Claude can see everything you touched, and only the finished page goes up.
+
+```text
+Look through this folder for files modified in the last 7 days. Write a
+weekly status update with three short sections: Shipped, In Progress, and
+Blocked, in plain language a teammate could skim in one minute. Show me the
+draft. Once I approve it, create it as a new Notion page under "Status
+Updates" titled "Week of June 8, 2026".
+```
+
+On Friday afternoons this takes about two minutes of review instead of a memory-dredging session. If part of your week lives in email instead of files, the [Gmail connection](/guides/connect-claude-code-to-gmail) feeds this same recipe.
+
+## Recipe 3: Pull a Notion Database Out for Analysis or Backup
+
+Going the other direction, Claude can pull an entire database out and write it to a CSV on your disk, which gives you two things Notion's interface makes awkward: real analysis, and a dated backup you control.
+
+```text
+Fetch my Notion database called "Content Calendar" with all rows and their
+properties. Save everything to content-calendar-2026-06-10.csv in this
+folder. Then tell me which items are past due and which owner has the most
+open items. Work through the rows one batch at a time instead of running
+parallel searches.
+```
+
+That last line exists because Notion's hosted server allows [180 requests per minute, with searches capped at 30](https://developers.notion.com/guides/mcp/mcp-supported-tools), and a patient sequential pull stays well inside both. One thing to expect on a free plan: the single-call tool for querying saved views sits behind Business with Notion AI, so Claude assembles the rows through repeated `notion-fetch` and `notion-search` calls instead, which is slower but gets there. Once the CSV lands, it is an ordinary local file, and everything in my [data analysis guide](/guides/claude-code-for-data-analysts) applies to it.
+
+## The 3 Most Common Setup Failures, and the Fix for Each
+
+### The browser shows "Invalid redirect_uri in OAuth request"
+
+This was a real outage. From April 24 to May 22, 2026, a change on Notion's side [broke the OAuth handshake](https://github.com/makenotion/notion-mcp-server/issues/277), and GitHub threads about the Claude Code Notion MCP connection from those weeks are full of workarounds that no longer apply. The bug is fixed. If you still see this error, the cause is almost always a stale Claude Code version:
+
+```bash
+claude update
+```
+
+Then retry the authentication from `/mcp`. Ignore the April-era advice to downgrade Claude Code; you would be downgrading into the broken window.
+
+### Notion asks you to authenticate every single session
+
+Notion's access tokens [expire after one hour](https://developers.notion.com/guides/mcp/build-mcp-client) by design, and the refresh is supposed to happen silently. Older Claude Code versions sometimes dropped that refresh, which is why the status kept flipping to "needs authentication" in [issue 28256](https://github.com/anthropics/claude-code/issues/28256). It is largely fixed as of v2.1.136: update, authenticate once more through `/mcp`, and it should hold.
+
+One oddity I cannot explain: `claude mcp get notion` sometimes reports "needs authentication" while `/mcp` inside a session shows connected, and [the GitHub thread on it](https://github.com/anthropics/claude-code/issues/23294) never reaches a clean answer either. When the test search works, trust the test search.
+
+### It worked yesterday, and now the connection is gone
+
+You ran the add command without `--scope user`, so the server was registered to one folder only. I did exactly this the first time: connected Notion, ran a triumphant demo, then started Claude Code from a different folder the next morning and stared at an empty `/mcp` list for twenty confused minutes. Remove and re-add at user scope:
+
+```bash
+claude mcp remove notion
+claude mcp add --transport http --scope user notion https://mcp.notion.com/mcp
+```
+
+## What the Connection Can Touch, and How to Revoke It
+
+The security model fits in one sentence from [Notion's help docs](https://www.notion.com/help/notion-mcp): the Claude Code Notion integration acts with your full Notion permissions, no more and no less. Claude sees every page you can see, and your coworkers' private pages stay invisible to it, because they are invisible to you. Worth pausing on before you connect a workspace where you happen to have access to sensitive material.
+
+On the write side, the [official tool list](https://developers.notion.com/guides/mcp/mcp-supported-tools) includes create, update, move, and duplicate, with no dedicated delete tool, and Claude Code asks for confirmation before write actions by default. Keep those confirmations on. [Notion's security guidance](https://developers.notion.com/guides/mcp/mcp-security-best-practices) describes the one attack worth understanding, prompt injection: a page someone shared with you could contain text instructing Claude to copy private content somewhere else, and an assistant running without confirmations might comply. The confirmation prompt is your backstop, which is why I never run Notion recipes with write permissions set to auto-approve.
+
+Revoking takes a minute and works from either side. From Claude's side:
+
+```bash
+claude mcp remove notion
+```
+
+From Notion's side, open Settings, then Connections, find the Claude entry, and choose Disconnect from its menu, per [Notion's connection docs](https://www.notion.com/help/add-and-manage-connections-with-the-api). Doing both leaves nothing behind. The same connect-and-revoke thinking applies when [Google Drive](/guides/connect-claude-code-to-google-drive) is the next thing you wire up.
+
+## The Free Course, If You Are New to Claude Code
+
+If you read an MCP guide before installing the tool itself, start with the [15-minute install guide](/getting-started/installation), then [download the free course](/getting-started/start-and-clone). The format is the part people remember: lessons run inside Claude Code, so you type `/start-1-1` and Claude teaches you at your own keyboard, including the [slash commands](/fundamentals/commands-navigation) this page kept leaning on. It costs nothing, and there is no upsell waiting at the end. I built it because guides like this one get much easier once the basics are muscle memory.
+
+## FAQ
+
+### Do I need a paid Notion plan to connect Claude Code?
+
+No. The base connection works on a free Notion account. Searching connected apps like Slack or Google Drive through Notion requires Notion AI, and querying saved database views requires a Business plan or higher with Notion AI, but creating, fetching, and updating pages all work on free.
+
+### Do I need a Notion API key or integration token?
+
+No. The current setup is OAuth only: you log in through your browser when Claude Code prompts you. If a guide tells you to create an integration and copy a token starting with ntn_, it is outdated, and Notion's hosted server rejects those tokens with a 401 error.
+
+### Can Claude Code delete my Notion pages?
+
+Notion's official MCP tool list includes create, update, move, and duplicate, with no dedicated delete tool. Claude Code also asks for your permission before write actions by default. Keep those confirmations on and nothing changes in your workspace without your approval.
+
+### Why does Notion ask me to log in again every session?
+
+Notion's access tokens expire after one hour by design, and older Claude Code versions sometimes failed to refresh them silently. The fix largely shipped in Claude Code v2.1.136. Run claude update in your terminal, then authenticate once more through the /mcp menu, and the connection should hold.
+
+### Can Claude Code upload images or files to Notion?
+
+Not yet. File and image uploads are on Notion's MCP roadmap but unsupported today, so Claude fills pages with text, properties, and structure only. If a recipe needs an image, add it by hand in Notion afterward.

@@ -1,0 +1,159 @@
+---
+title: 'CLAUDE.md Best Practices: Template & Examples That Work'
+description: 'What to put in CLAUDE.md (and what to leave out): a copy-paste template, real examples, and best practices so Claude Code remembers your project every session.'
+keywords: 'claude.md best practices, claude.md template, claude.md examples, claude code memory, claude.md tutorial, claude code project memory, claude code context, what is claude.md'
+---
+
+## 1.7: Project Memory (CLAUDE.md)
+
+- **Time to Complete:** 15 minutes
+
+> **Interactive lesson:** Run `/start-1-7` in Claude Code
+
+## Additional Resources
+
+- [Official Docs: Memory](https://docs.anthropic.com/en/docs/claude-code/memory) - Anthropic documentation
+- [Awesome CLAUDE.md Files](https://github.com/jimmc414/awesome_claude_md) - Community examples
+- [CLAUDE.md Generator](https://claude-md.com/) - Tool for generating CLAUDE.md files
+- [Every Claude Code Concept in Plain English](/guides/claude-code-concepts-explained) - How CLAUDE.md fits alongside skills, agents, and MCP
+
+## The Re-Explanation Problem
+
+Every new ChatGPT conversation starts from zero. You have to re-explain:
+- Project context
+- Your preferences
+- Key terminology
+
+This wastes time and breaks flow.
+
+## What is CLAUDE.md?
+
+A special file Claude reads automatically every session:
+- **Lives at the root** of your project folder
+- **Persistent memory** that survives sessions
+- **Write it once**, Claude knows it forever
+
+## The Constitution Metaphor
+
+| Aspect | CLAUDE.md (Constitution) | Your Prompts (Legislation) |
+|--------|--------------------------|----------------------------|
+| **Priority** | Higher authority | Day-to-day decisions |
+| **Permanence** | Stays forever | Temporary per request |
+| **Conflicts** | CLAUDE.md wins | Must comply with CLAUDE.md |
+
+CLAUDE.md sets the foundation, prompts handle specifics.
+
+## What to Put in CLAUDE.md
+
+- Project overview and goals
+- Key metrics and targets
+- Stakeholder information
+- Brand voice and constraints
+- User personas
+- Terminology rules (ALWAYS use X not Y)
+- Writing style preferences
+- Immutable rules (things that should ALWAYS or NEVER happen)
+
+## What NOT to Put in CLAUDE.md
+
+- Temporary information (today's meeting notes)
+- Frequently changing requirements (this sprint's goal)
+- Sensitive information (API keys, private data)
+
+**The test:** Would you want Claude to know this in 6 months?
+
+## CLAUDE.md Structure Template
+
+```markdown
+## Project Overview
+What it is, who it's for, your role
+
+## User Personas
+Key personas with pain points
+
+## Writing Style
+Voice, tone, formatting preferences
+
+## Terminology
+ALWAYS use X not Y
+
+## Immutable Rules
+Things that should always/never happen
+
+## Team Reference
+Key people and roles
+```
+
+## The # Symbol for Dynamic Rules
+
+Add temporary rules during a session:
+
+```
+# always use bullet points in this session
+```
+
+Applies only to current conversation. Good for experimenting before adding to CLAUDE.md.
+
+## CLAUDE.md Hierarchy
+
+| Level | Location | Scope |
+|-------|----------|-------|
+| **Global** | `~/.claude/CLAUDE.md` | Your preferences everywhere |
+| **Project** | `/project-root/CLAUDE.md` | This project's context |
+| **Directory** | `/project-root/subfolder/CLAUDE.md` | Specific area |
+| **Local** | `/project-root/CLAUDE.local.md` | Personal, gitignored |
+
+More specific wins on conflicts. All levels combine (don't replace).
+
+## Using Hierarchy Effectively
+
+| Level | Example Content |
+|-------|-----------------|
+| **Global** | "I prefer concise responses, use bullet points" |
+| **Project** | Product overview, personas, terminology |
+| **Directory** | Specific rules for different areas |
+| **Local** | Personal preferences not shared with team |
+
+## Best Practices
+
+### Be Specific, Not Vague
+- ❌ Bad: "Users like simple interfaces"
+- ✅ Good: "User research showed users abandon features with 3+ required fields"
+
+### Use Imperative Language
+- ❌ Bad: "It would be nice if..."
+- ✅ Good: "ALWAYS include..."
+
+### Provide Context for Rules
+- ❌ Bad: "Use Workspace not Project"
+- ✅ Good: "Use Workspace not Project - we differentiate from traditional PM tools"
+
+### Keep It Scannable
+- Bullet points
+- Short paragraphs
+- Bold key terms
+
+### Review Quarterly
+Your project evolves - so should CLAUDE.md.
+
+## Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| Rules being ignored | Make them explicit with ALWAYS/NEVER |
+| CLAUDE.md not loading | Check file name is exactly `CLAUDE.md` |
+| Too long | Aim for 50-200 lines, link to detailed docs |
+
+## Real-World Applications
+
+- **Personal "life OS"** - goals, values, how you like to work
+- **Client projects** - each client's brand voice and history
+- **Writing a book** - characters, plot, style guide
+- **Side business** - offerings, pricing, personas
+- **Job search** - target roles, companies, your story
+
+---
+
+## What's Next
+
+**[1.8: What's Next →](/fundamentals/whats-next)** - Preview of advanced features and Module 2

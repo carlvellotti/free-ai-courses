@@ -1,0 +1,109 @@
+---
+title: 'Install Claude Code in 15 Minutes (Mac, Windows, Linux)'
+description: 'Copy-paste commands to install Claude Code on Mac, Windows, or Linux, written for non-coders: prerequisites, the exact steps, and how to know it worked.'
+keywords: 'install claude code, claude code install, claude code download, how to install claude code, claude code install mac, claude code install windows, claude code install linux, claude code setup'
+---
+
+## 0.1: Installation
+
+- **Time to Complete:** 15 minutes
+
+## Prerequisites
+
+- **Claude Pro or Max subscription** (NOT free tier)
+  - Sign up at [claude.ai](https://claude.ai) if you don't have one
+  - $20/month for Pro
+- Mac (macOS 10.15+), Windows 10+, or Linux (Ubuntu 20.04+)
+- 4 GB+ RAM
+- Internet connection
+- **No coding tools required!**
+
+## How to Open Your Terminal
+
+**Mac:**
+1. Press `Cmd + Space` to open Spotlight
+2. Type "Terminal"
+3. Press Enter
+
+**Windows:**
+1. Press the Windows key
+2. Type "PowerShell"
+3. Press Enter
+
+You'll see a window with a blinking cursor - this is where you type commands.
+
+## Install Claude Code
+
+Copy the command below, paste it into your terminal, and press Enter.
+
+**Mac/Linux:**
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+**Mac with Homebrew:**
+```bash
+brew install --cask claude-code
+```
+
+**Windows PowerShell:**
+```powershell
+irm https://claude.ai/install.ps1 | iex
+```
+
+After running, close and reopen your terminal.
+
+## Verify Installation
+
+```bash
+claude --version
+```
+
+You should see a version number. If you see "command not found", close the terminal, reopen it, and try again.
+
+## Authenticate
+
+1. Type: `claude`
+2. Choose **"Claude account with subscription"** (NOT Anthropic Console)
+3. Complete browser authentication
+4. Select your preferred text style
+5. You should see the Claude Code welcome screen
+
+## Troubleshooting
+
+### command not found: claude
+- Close terminal completely and reopen
+- Mac: Run `source ~/.zshrc` or `source ~/.bashrc`
+- Windows: Restart PowerShell
+
+### Subscription required
+- Verify active subscription at [claude.ai](https://claude.ai)
+- Log out and log back in
+
+### Permission denied
+- Mac: The install script handles permissions automatically
+- Windows: Run PowerShell as Administrator
+
+### Run `/doctor` for diagnostics
+Once inside Claude Code, type `/doctor` - it shows what's working and what's not.
+
+### Still stuck?
+See the full guide: [Claude Code Installation Problems: Fixes for the 8 Most Common Errors](/guides/claude-code-installation-problems) - covers PATH errors, npm vs native installer, Node versions, proxies, and more.
+
+## Command Reference
+
+| Command | Description |
+|---------|-------------|
+| `claude` | Launch Claude Code |
+| `claude --version` | Check Claude Code version |
+| `claude doctor` | Run system diagnostics (from terminal) |
+| `/doctor` | Run health check (inside Claude Code) |
+| `/help` | View available commands (inside Claude Code) |
+
+---
+
+**Sources:** [Official Claude Code Setup Docs](https://docs.anthropic.com/en/docs/claude-code)
+
+## What's Next
+
+**[0.2: Download & Start →](/getting-started/start-and-clone)** - Download course materials and begin learning

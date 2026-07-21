@@ -1,0 +1,100 @@
+---
+title: '1.3: Working with Files'
+description: 'Master file operations with the @ symbol. Learn the 5 patterns: Extract, Synthesize, Template, Image, and Web.'
+keywords: 'claude code files, claude code @ symbol, claude code file operations, claude code patterns'
+---
+
+## 1.3: Working with Files
+
+- **Time to Complete:** 25 minutes
+
+> **Interactive lesson:** Run `/start-1-3` in Claude Code
+
+## The @ Symbol
+
+`@` is how you reference files and folders for Claude:
+
+| Syntax | What it does |
+|--------|-------------|
+| `@filename.md` | Reference a specific file |
+| `@folder/` | Reference an entire folder |
+| `@folder/file.md` | Reference a file in a subfolder |
+
+Claude reads what you reference and uses it in the response.
+
+## Pattern 1: Single File → Extract
+
+Point Claude at one messy file, extract structured information.
+
+**Example:**
+```
+Read @meeting-notes.md and extract action items into a new file
+```
+
+**Use cases:** Meeting notes, handoff documents, research papers, interview transcripts
+
+## Pattern 2: Folder → Synthesize
+
+Point Claude at a whole folder, find patterns across all files.
+
+**Example:**
+```
+Look at @feedback/ and synthesize themes across all files
+```
+
+**Use cases:** Customer feedback, support tickets, survey responses, research notes
+
+## Pattern 3: Apply Template
+
+Reference a template file along with content.
+
+**Example:**
+```
+Create a report from @research.md following format in @templates/report.md
+```
+
+**Use cases:** Weekly reports, proposals, status updates, any recurring document type
+
+## Pattern 4: Image → Analyze
+
+Paste images directly into Claude Code.
+
+> **Important:** Use `Ctrl+V` (not `Cmd+V` on Mac!)
+
+**Use cases:** UI screenshots, competitor designs, charts, photos, mockups, flyers
+
+## Pattern 5: Web → Research
+
+Ask Claude to search the web.
+
+**Example:**
+```
+Search for best practices in loyalty program design
+```
+
+Claude finds, reads, and synthesizes information. No more 97 browser tabs.
+
+**Use cases:** Competitive research, best practices, industry trends, current events
+
+## Combining Patterns
+
+The real power is in combination:
+
+```
+Read @notes.md, search for best practices, and create a report following @templates/report.md
+```
+
+Mix and match based on what you need.
+
+## Best Practices
+
+- **Be specific** about what you want extracted
+- **Tell Claude where** to put output files
+- **Use templates** for consistent formatting
+- **Reference multiple files** when you need synthesis
+
+---
+
+## What's Next
+
+**[1.4: Commands & Navigation →](/fundamentals/commands-navigation)** - Slash commands, shortcuts, and power user features

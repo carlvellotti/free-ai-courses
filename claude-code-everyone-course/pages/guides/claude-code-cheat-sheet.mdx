@@ -1,0 +1,244 @@
+---
+title: 'The Claude Code Cheat Sheet: 10 Commands That Matter (2026)'
+description: 'A Claude Code cheat sheet for non-coders: the 10 commands that actually matter, the 88 you can ignore, and a printable shortcut table. Checked June 2026.'
+keywords: 'claude code cheat sheet, claude code commands list, claude code shortcuts, claude code slash commands, claude code keyboard shortcuts, claude code commands for beginners'
+schema:
+  "@context": "https://schema.org"
+  "@graph":
+    - "@type": "Article"
+      headline: "The Claude Code Cheat Sheet: 10 Commands That Matter (2026)"
+      description: "A Claude Code cheat sheet for non-coders: the 10 commands that actually matter, the 88 you can ignore, and a printable shortcut table. Checked June 2026."
+      author:
+        "@type": "Person"
+        name: "Carl Vellotti"
+        url: "https://fullstackpm.com"
+      datePublished: "2026-06-10"
+      dateModified: "2026-06-10"
+      publisher:
+        "@type": "Organization"
+        name: "Claude Code for Everyone"
+        url: "https://ccforeveryone.com"
+    - "@type": "FAQPage"
+      mainEntity:
+        - "@type": "Question"
+          name: "What is the difference between /clear and /compact?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "/compact summarizes the current conversation so you can keep working on the same task with more room. /clear ends the conversation and starts a blank one for a new task, and the old conversation stays available through /resume. Neither command touches your files."
+        - "@type": "Question"
+          name: "How do I paste a screenshot into Claude Code?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Press Ctrl+V, even on a Mac. The official docs are explicit that Cmd+V does not work in most terminals, with iTerm2 as the main exception. Dragging the image file into the window also works, and so does telling Claude to look at the image by its file path."
+        - "@type": "Question"
+          name: "Can I undo something Claude Code did to my files?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Yes. Type /rewind and pick a checkpoint, and Claude Code restores your files, your conversation, or both to that point. Pressing Esc twice on an empty prompt opens the same rewind menu."
+        - "@type": "Question"
+          name: "Do I need to memorize Claude Code commands?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "No. Type / and a menu of every command appears, and typing a few letters filters it. You can also just ask Claude in plain English how to do something in Claude Code, and it will tell you. The 10 on this page are worth knowing by reflex; the rest are one slash away."
+        - "@type": "Question"
+          name: "How do I get yesterday's Claude Code conversation back?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Type /resume inside Claude Code and pick the conversation from the list, or launch from the terminal with claude --continue to jump straight back into the most recent one. Past sessions are not lost when you close the window or run /clear."
+---
+
+import { StatGrid } from '../../components/charts'
+
+# The Claude Code Cheat Sheet for Non-Coders: 10 Commands That Matter
+
+*Last updated: June 10, 2026*
+
+The official Claude Code commands reference lists **98 commands**. I counted the table myself on June 10, 2026, row by row, at [code.claude.com/docs/en/commands](https://code.claude.com/docs/en/commands). This is a different kind of **Claude Code cheat sheet**: ten commands and keyboard moves, each explained in one plain-English sentence, plus the honest answer about the other 88.
+
+Anthropic's own [official cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet) is thorough: a glossary, a commands table with more than 30 rows, and a dozen keyboard shortcuts. It is also a lot to hold in your head. When a community-built sheet hit the Hacker News front page in March, the [top reactions](https://news.ycombinator.com/item?id=47495527) included "this is a bit intense" and "the fact this needs to exist seems like a UX red flag." Print this one instead, or keep it in a tab. You will stop needing it within a week, which is the point.
+
+One developer reference [estimates that about 20 commands cover roughly 90% of real day-to-day use](https://blog.vibecoder.me/claude-code-slash-commands-complete-reference). For someone using Claude Code to write, research, organize files, or build a small app, I'd put the number lower. Ten.
+
+<StatGrid source="Sources: code.claude.com/docs/en/commands, counted June 10, 2026; 90% figure is a third-party estimate from blog.vibecoder.me, May 2026" stats={[
+  { value: '98', label: 'Commands in the official reference', sub: 'Counted by hand, June 2026' },
+  { value: '10', label: 'Commands on this page', sub: 'Everything a non-coder needs' },
+  { value: '~90%', label: 'Of daily use covered by 20', sub: 'Third-party estimate, May 2026' }
+]} />
+
+## Why This Claude Code Cheat Sheet Stops at 10
+
+Search for Claude Code commands for beginners and you'll get lists with 50-plus entries, written by developers for developers, and the people drowning in them say so out loud. One writer who catalogued the hidden commands [admitted](https://dev.to/akari_iku/ive-organised-the-claude-code-commands-including-some-hidden-ones-op0) that even `/help` "really hits you with a wall of text." That overwhelm is the entire reason this page exists.
+
+Here's my position, stated plainly: **you should never memorize Claude Code slash commands.** Type `/` and a menu appears. Type a few letters and it filters. The 10 below are the ones worth knowing by reflex because you reach for them mid-thought, usually while Claude is doing something you want to redirect.
+
+Everything else can stay in the menu where it belongs.
+
+## The 10 Claude Code Commands and Shortcuts You Actually Need
+
+These are current as of June 10, 2026, checked against the [official docs](https://code.claude.com/docs/en/commands). Old cheat sheets get several of these wrong, and I'll flag the traps as we go.
+
+### 1. `@` points Claude at a file
+
+Typing `@` opens a file autocomplete, and mentioning `@somefile` puts that file's full contents into the conversation, per the [common workflows docs](https://code.claude.com/docs/en/common-workflows). Reach for it whenever "the file" could mean three different files.
+
+```text
+Summarize @notes/interview-3.md in five bullet points
+```
+
+One catch: `@somefolder` gives Claude a directory listing only, without the contents of the files inside. The course covers this distinction in [Working with Files](/fundamentals/working-with-files), because it trips up nearly everyone at first.
+
+### 2. `/clear` starts a fresh conversation for a new task
+
+`/clear` wipes the conversation so your next task starts with a clean slate, and the old conversation stays retrievable through `/resume`. The beginner failure mode has a name on Reddit: the kitchen-sink session, where your newsletter draft, your budget spreadsheet, and your travel plans all bleed into one confused context.
+
+```text
+/clear newsletter-draft
+```
+
+That optional name labels the conversation you're leaving, which makes it easy to find later. The rule I teach in the course: **`/clear` between unrelated tasks, every time.** Your files are never touched.
+
+### 3. `Esc` stops Claude mid-action
+
+Press `Esc` once and Claude stops what it's doing while keeping the work done so far. Use it the moment you see Claude heading somewhere wrong, the same way you'd interrupt a colleague before they redo the whole deck.
+
+```text
+Esc
+```
+
+Honest caveat: users have [filed GitHub issues](https://github.com/anthropics/claude-code/issues/17466) where `Esc` failed to interrupt long-running operations, and that thread closed without an explanation I can repeat to you. If `Esc` doesn't bite, press `Ctrl+C`.
+
+### 4. `Shift+Tab` switches modes, and plan mode is the prize
+
+The [interactive mode docs](https://code.claude.com/docs/en/interactive-mode) list four permission modes (default, accept edits, plan, and auto), and `Shift+Tab` cycles through them. Plan mode makes Claude propose an approach and wait for your approval before touching anything, and you can also jump straight there:
+
+```text
+/plan reorganize my research folder by theme
+```
+
+Even if you can't read code, you can rule on "should this step happen." That's the whole trick. If you learn one thing from this entire page, make it plan mode for anything bigger than a quick question. (Auto mode, the most permissive setting, [came to the Pro plan in May 2026](https://code.claude.com/docs/en/whats-new/2026-w21), so guides from April claiming Pro lacks it are stale.)
+
+### 5. `/resume` brings back yesterday's conversation
+
+`/resume` opens a picker of your past sessions, or resumes one by name, per the [CLI reference](https://code.claude.com/docs/en/cli-reference). Reach for it the morning after, when you want to continue exactly where you stopped.
+
+```bash
+claude --continue
+```
+
+That terminal version skips the picker and reopens your most recent session directly. Small naming trap: `/continue` inside Claude Code is just an alias of `/resume`, while `--continue` is the launch flag you type before Claude Code opens.
+
+### 6. `/compact` frees up room mid-task
+
+`/compact` summarizes the conversation so far to free working memory while you keep going on the same task. Claude Code's default context window is 200,000 tokens, [per Builder.io's guide](https://www.builder.io/blog/how-to-use-claude-code), which sounds infinite until hour two of a long project.
+
+```text
+/compact focus on the landing page copy
+```
+
+Those trailing instructions tell Claude what to preserve in the summary. Auto-compact also fires on its own near the limit, so don't compact compulsively; the best moments are natural boundaries, like finishing one section before starting the next.
+
+### 7. `/init` gives your project a memory
+
+`/init` generates a starter CLAUDE.md file, the notes document Claude reads at the start of every session in that folder (the [memory docs](https://code.claude.com/docs/en/memory) cover the whole system). Run it once per project, then forget about it.
+
+```text
+/init
+```
+
+You can also just type "remember that I write in American English" and auto memory saves it. The [Project Memory lesson](/fundamentals/project-memory) shows how a good CLAUDE.md turns Claude from a stranger into a colleague who's read your onboarding doc.
+
+### 8. `Ctrl+V` pastes a screenshot, yes, even on Mac
+
+`Ctrl+V` pastes an image from your clipboard into the conversation as an `[Image #1]` chip. I spent my first week pressing `Cmd+V`, getting nothing, and quietly concluding that image support was broken. It wasn't. The [common workflows page](https://code.claude.com/docs/en/common-workflows) is blunt: do not use `Cmd+V`. The [interactive mode reference](https://code.claude.com/docs/en/interactive-mode) adds the fine print: iTerm2 is the lone Mac exception, and Windows or WSL uses `Alt+V`.
+
+```text
+Ctrl+V, then: What is this error message telling me?
+```
+
+Dragging the image file into the window works too. So does "look at ~/Desktop/screenshot.png."
+
+### 9. `/rewind` is the undo button
+
+The [commands reference](https://code.claude.com/docs/en/commands) describes `/rewind` as restoring your files, your conversation, or both to an earlier checkpoint. It exists so you can say yes to experiments without fear, which matters more for non-coders than any other audience.
+
+```text
+/rewind
+```
+
+Pressing `Esc` twice on an empty prompt opens the same menu. Trap warning: a few popular guides claim double-`Esc` enters plan mode. It doesn't, and it never did; with text in the box it clears your draft, and on an empty prompt it opens rewind.
+
+### 10. `/usage` shows how much runway you have left
+
+`/usage` displays your plan limits and session stats. Check it when you're mid-project and wondering whether to start something ambitious before your limits reset.
+
+```text
+/usage
+```
+
+Older sheets list `/cost` and `/stats` as separate commands; both are now aliases of `/usage`, and on a subscription plan you'll see plan-limit usage rather than a dollar bill. For what the plans cost and how the caps behave, I keep [a separate plain-English guide on limits and pricing](/guides/claude-code-limits-and-pricing) updated.
+
+## The 88 Commands You Can Safely Ignore (and Why)
+
+The gap between 98 and 10 looks scarier than it is. Here's where those 88 go.
+
+**Several are the same command wearing different names.** Only a couple of the 98 rows are pure aliases (`/cost` and `/stats` are both `/usage`), but more alias names hide inside other rows: `/reset` and `/new` are `/clear` in costume, and `/continue` is `/resume`. Learn three real commands and you've covered eight names.
+
+**A couple are ghosts.** `/vim` and `/pr-comments` were removed in April 2026, in v2.1.91 and v2.1.92, and the [official table](https://code.claude.com/docs/en/commands) marks them that way, yet they still haunt most cheat sheets ranking on Google today.
+
+**Most of the rest are developer plumbing.** Git and pull-request commands, hook configuration, status-line styling, MCP server management, sandbox settings. If you don't know what those words mean, that is exactly my point, and the [plain-English concepts guide](/guides/claude-code-concepts-explained) explains skills, agents, MCP, and plugins for the day you get curious.
+
+A handful are worth growing into once the 10 feel boring. `/help` lists everything. `/btw` asks a quick side question without cluttering your session. `/powerup` runs interactive lessons inside Claude Code. And new ones keep arriving: `/cd`, for switching folders mid-session, [shipped on June 8, 2026](https://code.claude.com/docs/en/changelog). None of them are day-one material.
+
+## Claude Code Keyboard Shortcuts: One Printable Table
+
+The official interactive-mode reference documents [around 40 keyboard shortcuts](https://code.claude.com/docs/en/interactive-mode). These are the Claude Code shortcuts I'd put on an index card.
+
+| Shortcut | What it does |
+|---|---|
+| `Esc` | Stop Claude mid-action, keeping work done so far |
+| `Esc` `Esc` (empty prompt) | Open the rewind menu |
+| `Ctrl+C` | Hard stop; press twice to exit |
+| `Shift+Tab` | Cycle modes: default, accept edits, plan, auto |
+| `Ctrl+V` | Paste an image, even on Mac |
+| `Ctrl+R` | Search your prompt history |
+| `Ctrl+D` | Quit Claude Code (same as `/exit`) |
+| `Shift+Enter` | New line without sending |
+| `@` | Mention a file, with autocomplete |
+| `/` | Open the command menu |
+| `!` | Run a terminal command directly |
+
+Two opinions about this table. `Shift+Enter` needs one-time setup in VS Code and Cursor (run `/terminal-setup` once, or type `\` then Enter anywhere), and the fact that this requires setup at all is the closest thing Claude Code has to a hazing ritual. And if your card has more than these 11 rows, you've made documentation, which you already had.
+
+## Where the Full Claude Code Commands List Lives
+
+Completists have two good destinations. The full Claude Code commands list is at [code.claude.com/docs/en/commands](https://code.claude.com/docs/en/commands), and the [official cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet) is at support.claude.com. Note that the docs moved to code.claude.com; older articles still point at docs.anthropic.com.
+
+The course's [Commands and Navigation lesson](/fundamentals/commands-navigation) covers this same ground interactively, with Claude itself quizzing you, which beats any static page including this one.
+
+## Practice These in 20 Minutes, Free
+
+I built a free course that teaches all of this inside Claude Code itself. You type `/start-1-1` and Claude becomes your instructor, walking you through `@`, `/clear`, plan mode, and the rest with your own files. No videos, no signup wall for the lessons.
+
+[Installing Claude Code](/getting-started/installation) takes about 15 minutes, [downloading the course](/getting-started/start-and-clone) takes two more, and if you want the bigger picture first, start with the [complete guide for non-developers](/guides/claude-code-for-non-developers). If you can have a conversation, you can use Claude Code.
+
+## FAQ
+
+### What is the difference between /clear and /compact?
+
+`/compact` summarizes the current conversation so you can keep working on the same task with more room. `/clear` ends the conversation and starts a blank one for a new task, and the old conversation stays available through `/resume`. Neither command touches your files.
+
+### How do I paste a screenshot into Claude Code?
+
+Press `Ctrl+V`, even on a Mac. The official docs are explicit that `Cmd+V` does not work in most terminals, with iTerm2 as the main exception. Dragging the image file into the window also works, and so does telling Claude to look at the image by its file path.
+
+### Can I undo something Claude Code did to my files?
+
+Yes. Type `/rewind` and pick a checkpoint, and Claude Code restores your files, your conversation, or both to that point. Pressing `Esc` twice on an empty prompt opens the same rewind menu.
+
+### Do I need to memorize Claude Code commands?
+
+No. Type `/` and a menu of every command appears, and typing a few letters filters it. You can also just ask Claude in plain English how to do something in Claude Code, and it will tell you. The 10 on this page are worth knowing by reflex; the rest are one slash away.
+
+### How do I get yesterday's Claude Code conversation back?
+
+Type `/resume` inside Claude Code and pick the conversation from the list, or launch from the terminal with `claude --continue` to jump straight back into the most recent one. Past sessions are not lost when you close the window or run `/clear`.

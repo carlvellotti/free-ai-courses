@@ -1,0 +1,187 @@
+---
+title: 'Claude Code Google Drive Setup: Connect in 10 Minutes'
+description: 'Claude Code Google Drive setup that works in June 2026: connect the official Drive connector, plus three recipes for summaries, cleanup audits, and Sheets.'
+keywords: 'claude code google drive, claude code google drive mcp, connect claude to google drive, claude code google docs, drive mcp setup, google drive mcp server'
+schema:
+  "@context": "https://schema.org"
+  "@graph":
+    - "@type": "Article"
+      headline: "Claude Code Google Drive: Setup, Three Recipes, and the Local Shortcut"
+      description: "Claude Code Google Drive setup that works in June 2026: connect the official Drive connector, plus three recipes for summaries, cleanup audits, and Sheets."
+      author:
+        "@type": "Person"
+        name: "Carl Vellotti"
+        url: "https://fullstackpm.com"
+      datePublished: "2026-06-10"
+      dateModified: "2026-06-10"
+      publisher:
+        "@type": "Organization"
+        name: "Claude Code for Everyone"
+        url: "https://ccforeveryone.com"
+    - "@type": "FAQPage"
+      mainEntity:
+        - "@type": "Question"
+          name: "Do I need a paid Claude plan to connect Google Drive?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "For the connector route, yes. Google's own documentation lists Claude connectors as requiring a Pro, Max, Team, or Enterprise plan. The local-folder route with Google Drive for desktop works on any plan that runs Claude Code."
+        - "@type": "Question"
+          name: "Can Claude Code move, rename, or delete my Drive files?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Not through the official connector, which can search, read, download, and create files but has no move, rename, trash, or copy tools. Sync the folder locally with Google Drive for desktop and let Claude work on the real files, or make the moves yourself from the plan it writes."
+        - "@type": "Question"
+          name: "Why does Drive show Connected but Claude Code has no Drive tools?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Run /status first: if you are signed in with an API key, claude.ai connectors never load. Unset ANTHROPIC_API_KEY, run /login, and restart. If your auth checks out, disconnect and reconnect Drive at claude.ai under Settings, then Connectors, and update Claude Code, because this is also a recurring known bug."
+        - "@type": "Question"
+          name: "Can Claude Code read Google Docs in my synced Drive folder?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "No. Synced Google Docs, Sheets, and Slides exist locally as tiny pointer files (.gdoc, .gsheet), so Claude reads a stub instead of your words. Use the connector, which extracts the actual text, or download the file as .docx or PDF first."
+        - "@type": "Question"
+          name: "Why can't Claude see my company's Shared Drive?"
+          acceptedAnswer:
+            "@type": "Answer"
+            text: "Known gap as of June 2026: Shared Drive content often comes back empty, with reports against both Anthropic's Cowork Google connector and Google's own MCP server. It looks like a permission error but is not one. Copy the files into My Drive, or stream the Shared Drive locally with Google Drive for desktop."
+---
+
+import { StepFlow, StatGrid } from '../../components/charts'
+
+# Claude Code Google Drive: Setup, Three Recipes, and the Local Shortcut
+
+*Last updated: June 10, 2026*
+
+Somewhere in your Google Drive sits a folder named Final containing nine files named final. The Claude Code Google Drive connection can read that folder, tell you which six files are duplicates, summarize the other three into one brief, and pull the budget Sheet into a CSV you can analyze. Setup takes about ten minutes as of June 2026, with a method most tutorials skip.
+
+I'm Carl. I run [a free course](/getting-started/start-and-clone) that teaches Claude Code to people who do not code, and Drive comes up constantly, because it is where everyone who is not a developer keeps their actual work.
+
+<StatGrid source="Sources: AboutChromebooks (citing Patronum and Google), Feb 2026; anthropics/claude-code issue #50062, Apr 2026" stats={[{ value: '2B', label: 'monthly Google Drive users', sub: 'plus 1B on Docs alone' }, { value: '47%', label: 'of the cloud-storage market', sub: 'Drive, 2025 estimate' }, { value: '90K', label: 'tokens burned by 12 idle connectors', sub: 'one measured Claude Code session' }]} />
+
+The first two numbers come from [AboutChromebooks, which credits Patronum and Google](https://www.aboutchromebooks.com/google-workspace-integration-usage-rates/), and a [2025 market estimate](https://xtendedview.com/google-drive-vs-dropbox-statistics/). The third is the surprise, and we will come back to it.
+
+## How Claude Code Google Drive Access Works in June 2026
+
+The right path for almost everyone is the **official Anthropic-hosted Google Drive connector**, which you turn on in your browser, never in the terminal. Per [Anthropic's MCP docs](https://code.claude.com/docs/en/mcp), any connector you enable at claude.ai under Settings, then Connectors, loads automatically in Claude Code on launch, with tools like `mcp__claude_ai_Google_Drive__search_files`. Nothing to install, no config file to edit.
+
+Most guides blend three different features together. claude.ai has an older "add from Google Drive" doc-sync feature (small files, no Sheets). Google now ships [its own remote Google Drive MCP server](https://developers.google.com/workspace/drive/api/guides/configure-mcp-server), in Developer Preview as of this writing, which demands a personal Google Cloud project, two enabled APIs, and an OAuth consent screen before it says hello. The connector is the third thing, and the one you want.
+
+The tool surface is seven tools: search, list recent files, get metadata, get permissions, read content, download content (Anthropic publishes no size limit, though a [community clone of the connector](https://github.com/adampaulwalker/claude-gdrive-mcp) defaults to a 25MB cap), and create new files. **There is no move, rename, trash, delete, or copy**, confirmed in [claude-code issue #51040](https://github.com/anthropics/claude-code/issues/51040). That one fact shapes recipe 2 below.
+
+Two more things. The connector [requires a paid Claude plan](https://developers.google.com/workspace/drive/api/guides/configure-mcp-server), per Google's own docs: Pro, Max, Team, or Enterprise. And connectors eat context: one user [measured a dozen claude.ai connectors at roughly 240 tools and about 90,000 tokens](https://github.com/anthropics/claude-code/issues/50062) before typing a word. Connect Drive, keep what you use, and disconnect the rest. If words like MCP and connector are still fuzzy, my [plain-English glossary](/guides/claude-code-concepts-explained) sorts them out in five minutes.
+
+## Drive MCP Setup, Step by Step
+
+To connect Claude to Google Drive you need a browser, a paid plan, and ten minutes. The one mistake to avoid: authenticating from inside Claude Code. Anthropic-hosted Google connectors do not support local OAuth, and since version 2.1.162 the `/mcp` command stops pretending and [points you to claude.ai instead](https://code.claude.com/docs/en/mcp).
+
+<StepFlow title="Connect Claude Code to Google Drive (official connector)" steps={[{ title: 'Check how you are signed in', desc: 'Run /status inside Claude Code. Connectors only load on a Claude.ai subscription login. If you see an API key, unset ANTHROPIC_API_KEY and run /login.' }, { title: 'Open claude.ai connector settings', desc: 'Log in at claude.ai, open Settings, then Connectors.' }, { title: 'Connect Google Drive', desc: 'Find Google Drive in the list and click Connect.' }, { title: 'Approve the Google consent screen', desc: 'Pick the Google account that owns the files and approve access.' }, { title: 'Restart Claude Code and verify', desc: 'Launch claude in any folder, run claude mcp list, then test with a real prompt.' }]} />
+
+Then verify, because Connected on claude.ai and working in Claude Code are two different claims:
+
+```bash
+claude mcp list
+```
+
+Look for Drive with a `✓ Connected` status, then run a quick test prompt:
+
+```text
+List my 5 most recent Google Drive files.
+```
+
+Real filenames back means you are connected. `/mcp` shows auth status anytime, one of the few [slash commands worth memorizing](/fundamentals/commands-navigation).
+
+## The Honest Shortcut: A Synced Local Folder Often Beats the Connector
+
+Here is my unhedged position: if your Drive is mostly PDFs, Office files, CSVs, and images, skip the connector and install [Google Drive for desktop](https://support.google.com/drive/answer/12178485) instead. Claude Code is built to work on local files. Point it at the synced folder and you get full read and write with zero token-hungry tool definitions. No paid plan required, either.
+
+Drive for desktop has [two modes](https://support.google.com/drive/answer/13401938): Streaming, the default, keeps files in the cloud and fetches them when opened; Mirroring keeps full local copies. On a Mac the streamed files live at a fixed path you cannot change, `~/Library/CloudStorage/GoogleDrive-<your email>/My Drive`. On Windows they appear as a `G:` virtual drive. Shared drives can only be streamed, never mirrored.
+
+One gotcha will bite you exactly once. Google-native files (Docs, Sheets, Slides) exist locally only as tiny [pointer files](https://tidbits.com/2023/03/10/apples-file-provider-forces-mac-cloud-storage-changes/), `.gdoc` and `.gsheet` stubs with nothing inside, so Claude Code reading your synced folder gets the stub, never the words. For Google Docs, use the connector, which extracts the text, or download as `.docx` first. Everything else reads fine with a plain [`@` file reference](/fundamentals/working-with-files).
+
+## Recipe 1: One Brief From a Folder of Docs
+
+Start here, because it pays for the setup on day one. The connector reads Google Docs directly, so a folder of meeting notes or interview transcripts becomes one document you can actually use.
+
+```text
+Search my Google Drive for the folder "Q2 customer interviews". Read every
+doc inside it. Write a one-page brief to brief.md in this folder: the five
+themes that came up most often, two direct quotes per theme with the doc
+each quote came from, and the three most surprising findings at the end.
+```
+
+Claude saves `brief.md` to your local working folder as a real file you own. If synthesis across sources is most of your job, the [researchers guide](/guides/claude-code-for-researchers) builds an entire workflow around this move.
+
+## Recipe 2: The Drive Cleanup Audit (and Why Claude Cannot Click Move)
+
+I assumed the connector could finish this job, and I was wrong. The user in [issue #51040](https://github.com/anthropics/claude-code/issues/51040) watched Claude enumerate the junk, read file contents, and create fresh folders, then fail to move a single existing file. The task ended as a list of twenty links to drag yourself in the web UI. Another report describes a rename workaround that [burned an estimated 40,000 to 60,000 tokens](https://www.stepcodex.com/en/issue/bug-claude-code-should-assess-tool) accomplishing nothing. So promise yourself an audit and a plan, never an automatic cleanup:
+
+```text
+List everything in my Drive folder "Team workspace". For each file, note
+the last-modified date and flag likely duplicates: same name plus v2,
+final, or copy, or near-identical titles. Then give me a cleanup plan
+with a proposed folder structure, which files belong where, and which
+look safe to archive. Do not create anything yet. I will approve first.
+```
+
+Executing the plan has three options, in my order of preference. Sync the folder with Drive for desktop and let Claude move and rename the real local files, which sync back up. Take the list and do ten minutes of dragging yourself. Or, for power users, [`gws`, the Google Workspace CLI](https://github.com/googleworkspace/cli) (26.9k stars, though by its own README not an officially supported Google product) adds the write operations the connector lacks, at the price of a Google Cloud project. For a genuinely huge Drive, split the audit across [parallel agents](/fundamentals/agents) by folder.
+
+## Recipe 3: Pull a Google Sheet Into a Local CSV
+
+Sheets analysis is where the connector earns its keep, because a `.gsheet` pointer on disk is useless and copy-pasting cells is worse. The connector's download tool takes an export format, and CSV is the reliable one:
+
+```text
+Find the Google Sheet named "2026 marketing budget" in my Drive. Download
+it as CSV into this folder as budget.csv. Then tell me the three biggest
+line items and how spend changed month over month.
+```
+
+One thing I have not been able to confirm: whether the export reliably includes tabs beyond the first. The underlying API usually exports only the first tab, so I treat one tab per export as the rule (File, then Download, then CSV in Sheets is the manual fallback). Once the CSV is local, the [data analysis guide](/guides/claude-code-for-data-analysts) takes it from here: pivots and charts without ever opening Excel.
+
+## Troubleshooting: When Drive Says Connected but Nothing Works
+
+**Connected with no tools is the most-reported failure.** Drive shows authorized on claude.ai, yet the Drive tools never appear in Claude Code while Gmail works fine ([issue #39422](https://github.com/anthropics/claude-code/issues/39422) plus four siblings). Work the list in order: run `/status` (an API key login blocks all claude.ai connectors), disconnect and reconnect Drive at claude.ai, update Claude Code. On the claude.ai website, also check the per-chat tools toggle under the plus button, where Drive sits off by default.
+
+**Shared Drives come back empty.** Users have reported blank results for Shared Drive content against both Anthropic's Cowork Google connector and Google's own MCP server, which [looks exactly like a permission problem](https://github.com/anthropics/claude-code/issues/53442) and is not one. Copy what you need to My Drive, or stream the Shared Drive locally.
+
+**Search silently skips PDFs and Office files.** Connector search [only returns Google-native files](https://github.com/anthropics/claude-code/issues/38467), even though Drive itself indexes the rest. Ask for files by exact name, or use the local folder, where everything is visible.
+
+**A self-hosted server demands login every week.** Your Google Cloud project is in Testing mode, which [expires tokens after 7 days](https://claudeblattman.com/toolkit/mcp-setup/); switch the consent screen to Production. Also skip the archived `@modelcontextprotocol/server-gdrive` that older guides still recommend; `~/.claude/mcp.json` is a config path Claude Code has never read (the real files are `~/.claude.json` and a project's `.mcp.json`). The most-used community server is [@isaacphi/mcp-gdrive](https://mcphow.com/google-drive-mcp) (last updated mid-2025), for the rare case where neither the connector nor a synced folder fits.
+
+## Security: What Claude Can Touch and How to Cut It Off
+
+The connector's read-and-create design limits the blast radius by construction: Claude cannot delete or overwrite a Drive file through it, period. The grant still covers reading your whole Drive, so if yours holds genuinely sensitive material, connect a secondary account.
+
+Revocation takes two steps, and you want both. Disconnect Drive at claude.ai under Settings, then Connectors, and remove the Claude grant at [myaccount.google.com/connections](https://myaccount.google.com/connections). [Anthropic's connector doc](https://claude.com/docs/connectors/google/drive) walks through both steps if you want screenshots. For a self-added server, run `claude mcp remove <name>` and clear its authentication in `/mcp`. To keep claude.ai connectors out of a session entirely (remember those 90,000 idle tokens), use the kill switch:
+
+```bash
+ENABLE_CLAUDEAI_MCP_SERVERS=false claude
+```
+
+The connect-and-revoke flow is identical for the [Gmail connector](/guides/connect-claude-code-to-gmail), if your inbox is next.
+
+## New to Claude Code? The Course Is Free
+
+If you got this far without Claude Code installed, the [15-minute install guide](/getting-started/installation) fixes that, and [the full course is free](/getting-started/start-and-clone). The format is the unusual part: lessons run inside Claude Code itself, so you type `/start-1-1` and Claude teaches you at your own keyboard. By [Module 2](/vibe-coding) you are building real things, and your Drive will feel less like a junk drawer and more like a database you can talk to.
+
+## FAQ
+
+### Do I need a paid Claude plan to connect Google Drive?
+
+For the connector route, yes. Google's own documentation lists Claude connectors as requiring a Pro, Max, Team, or Enterprise plan. The local-folder route with Google Drive for desktop works on any plan that runs Claude Code.
+
+### Can Claude Code move, rename, or delete my Drive files?
+
+Not through the official connector, which can search, read, download, and create files but has no move, rename, trash, or copy tools. Sync the folder locally with Google Drive for desktop and let Claude work on the real files, or make the moves yourself from the plan it writes.
+
+### Why does Drive show Connected but Claude Code has no Drive tools?
+
+Run /status first: if you are signed in with an API key, claude.ai connectors never load. Unset ANTHROPIC_API_KEY, run /login, and restart. If your auth checks out, disconnect and reconnect Drive at claude.ai under Settings, then Connectors, and update Claude Code, because this is also a recurring known bug.
+
+### Can Claude Code read Google Docs in my synced Drive folder?
+
+No. Synced Google Docs, Sheets, and Slides exist locally as tiny pointer files (.gdoc, .gsheet), so Claude reads a stub instead of your words. Use the connector, which extracts the actual text, or download the file as .docx or PDF first.
+
+### Why can't Claude see my company's Shared Drive?
+
+Known gap as of June 2026: Shared Drive content often comes back empty, with reports against both Anthropic's Cowork Google connector and Google's own MCP server. It looks like a permission error but is not one. Copy the files into My Drive, or stream the Shared Drive locally with Google Drive for desktop.
