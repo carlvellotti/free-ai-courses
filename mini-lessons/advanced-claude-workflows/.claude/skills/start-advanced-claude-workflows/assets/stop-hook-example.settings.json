@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ ! -f \"$CLAUDE_PROJECT_DIR/advanced-claude-workflows/advanced-hook-demo.js\" ] || grep -q '// COMPLETE' \"$CLAUDE_PROJECT_DIR/advanced-claude-workflows/advanced-hook-demo.js\" || echo '{\"decision\":\"block\",\"reason\":\"advanced-hook-demo.js is missing the COMPLETE comment. Add it to mark the file as done.\"}'"
+          }
+        ]
+      }
+    ]
+  }
+}

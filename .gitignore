@@ -20,6 +20,7 @@ node_modules/
 !tsconfig.json
 !course-materials/course-structure.json
 !website/vercel.json
+!mini-lessons/advanced-claude-workflows/.claude/skills/start-advanced-claude-workflows/assets/stop-hook-example.settings.json
 *.png
 !website/public/**/*.png
 
