@@ -1,10 +1,10 @@
 ---
-title: "0.3: Opening the Course Folder"
-description: "Download course materials and open them as a project in Cursor"
-keywords: 'cursor, download, setup, folder, project, course files'
+title: "0.3: Starting the Course"
+description: "Set up the course in Cursor with one pasted prompt and start your first module"
+keywords: 'cursor, setup, fspm, project, course files, agents view'
 ---
 
-# Module 0.3: Opening the Course Folder
+# Module 0.3: Starting the Course
 ## Reference Guide
 
 - **Time to Complete:** 5 minutes
@@ -12,78 +12,51 @@ keywords: 'cursor, download, setup, folder, project, course files'
 
 ## 📖 Overview
 
-Download the course files and open them in Cursor to unlock interactive lessons with slash commands.
+Set up the course inside Cursor with a single pasted prompt. The AI installs the FSPM CLI, downloads the course materials into your project, and tells you how to begin.
 
-**Key takeaway:** Download ZIP from website, unzip to Documents, open folder in Cursor, and verify file structure.
+**Key takeaway:** Open Cursor, start a new project, open the Agents view, paste one prompt, and follow the AI's instructions.
 
-## Download Course Files
+## Set Up the Course
 
-**[📥 Download Course Files](https://github.com/carlvellotti/cursor-pm-course/releases/latest/download/complete-course.zip)**
+This course uses Cursor's Agents view.
 
-The ZIP file (`complete-course.zip`) downloads automatically to your Downloads folder.
-
-## Unzip Course Files
-
-**Mac:**
-1. Open Downloads folder
-2. Double-click the ZIP file
-3. A new folder appears: `complete-course`
-4. Drag this folder to your Documents folder (or preferred location)
-
-**Windows:**
-1. Open Downloads folder
-2. Right-click the ZIP file
-3. Select **Extract All**
-4. Choose destination (Documents folder recommended)
-5. Click **Extract**
-
-> ⚠️ **Important:** Remember where you put this folder. You'll open it in Cursor next.
-
-## Open Folder in Cursor
-
-You have three ways to open the course folder in Cursor:
-
-### Method 1: File Menu
+### Step 1: Start a New Project
 
 1. Launch Cursor
-2. Click **File → Open Folder** (Mac) or **File → Open Folder** (Windows)
-3. Navigate to where you unzipped the files (e.g., Documents)
-4. Select the `complete-course` folder
-5. Click **Open**
+2. Click **File → Open Folder**
+3. Create a new empty folder (Documents is a good spot - name it something like `cursor-course`)
+4. Select it and click **Open**
 
-### Method 2: Drag and Drop
+### Step 2: Open the Agents View
 
-1. Launch Cursor
-2. Open Finder (Mac) or File Explorer (Windows)
-3. Navigate to the `complete-course` folder
-4. Drag the entire folder onto Cursor's window
-5. Cursor opens the folder as a project
+Press `Cmd+I` (Mac) or `Ctrl+I` (Windows) to open the Agents view. This is where you talk to the AI.
 
-### Method 3: Welcome Screen
+### Step 3: Paste This Prompt
 
-1. Launch Cursor
-2. On the welcome screen, click **Open Folder**
-3. Navigate to `complete-course`
-4. Click **Open**
+Copy this into the Agents view and press Enter:
+
+> Install the FSPM CLI from fullstackpm.com/cli and get cursor-for-pms, then tell me how to begin.
+
+The AI installs the FSPM CLI, pulls the course materials into your project, and walks you through starting Module 1.1.
 
 ## Trust the Folder
 
-When you open the folder, Cursor may ask:
+When you open a folder, Cursor may ask:
 
 > **"Do you trust the authors of files in this folder?"**
 
 Click **Yes, I trust the authors**.
 
-**Why this appears:** Cursor protects you from potentially malicious code. Since you downloaded these course files from the official website, they're safe to trust.
+**Why this appears:** Cursor protects you from potentially malicious code. This is your own project folder, so it's safe to trust.
 
 ## Verify Setup
 
 ### Check File Explorer
 
-After opening the folder, you should see a **File Explorer** on the left side showing:
+After the AI finishes setup, you should see a **File Explorer** on the left side showing course files like:
 
 ```
-complete-course/
+cursor-course/
 ├── .cursor/
 │   ├── commands/
 │   └── rules/
@@ -96,23 +69,33 @@ complete-course/
 
 ### Test Slash Commands
 
-1. Open **Composer** by pressing `Cmd+I` (Mac) or `Ctrl+I` (Windows)
+1. Open the Agents view by pressing `Cmd+I` (Mac) or `Ctrl+I` (Windows)
 2. Type `/` in the input box
 3. You should see a dropdown with commands like `/start-1-1`, `/start-1-2`, etc.
 
 **If you see the slash commands, you're ready!** These commands trigger the interactive lessons.
 
+## Prefer the Terminal? (CLI Path)
+
+If you're comfortable in a terminal, you can set up the course yourself instead of asking the AI:
+
+1. Install the FSPM CLI - instructions at [fullstackpm.com/cli](https://fullstackpm.com/cli)
+2. Run `fspm get cursor-for-pms` in the folder where you want the course
+3. Open that folder in Cursor (**File → Open Folder**)
+
+You end up in the same place: course files in your project, slash commands ready.
+
 ## Quick Navigation
 
-Now that your folder is open, here's what you need to know:
+Now that your course is set up, here's what you need to know:
 
 **File Explorer (Left sidebar):**
 - Browse all course files
 - Click files to open them
 - Expand/collapse folders with arrows
 
-**Composer (Cmd+I or Ctrl+I):**
-- Where you'll interact with Claude
+**Agents view (Cmd+I or Ctrl+I):**
+- Where you'll interact with the AI
 - Type slash commands to start lessons
 - Type questions or requests
 
@@ -124,10 +107,10 @@ Now that your folder is open, here's what you need to know:
 **Fix:** Press `Cmd+B` (Mac) or `Ctrl+B` (Windows) to toggle the sidebar. Or click View → Sidebar.
 
 ### "Slash commands don't appear when I type /"
-**Fix:** Make sure you opened the folder (not individual files). Close Cursor, then use File → Open Folder and select the entire `complete-course` folder.
+**Fix:** Make sure the setup finished and you're in the folder the AI set up (the one containing `.cursor`, `company-context`, and `lesson-modules`). If you just added the files, close and reopen the folder so Cursor picks up the commands.
 
-### "The folder structure looks different"
-**Fix:** You may have opened a subfolder by mistake. Close Cursor and open the top-level folder (the one containing `.cursor`, `company-context`, and `lesson-modules`).
+### "The AI says it can't install the CLI"
+**Fix:** Ask it to show you the error. If it's blocked from running commands, check that you approved the command when Cursor asked. You can also use the CLI path above and install it yourself.
 
 ### "Cursor asks me to trust the folder every time"
 **Fix:** Make sure you clicked "Yes, I trust the authors" and checked "Trust all files in parent folder" (if that option appears).
@@ -138,22 +121,19 @@ Now that your folder is open, here's what you need to know:
 - [Cursor Docs - Projects](https://docs.cursor.com/get-started/projects) - Understanding project folders
 - [Cursor Docs - File Navigation](https://docs.cursor.com/features/file-explorer) - File Explorer guide
 
-**Video Tutorials:**
-- [Opening Projects in Cursor](https://www.youtube.com/cursor) - Official video tutorial
-
 **Community:**
 - [Cursor Forum - Setup Help](https://forum.cursor.com/c/setup) - Community support
 - [Cursor Discord](https://discord.gg/cursor) - Real-time help
 
 **Course Resources:**
-- Course website download page - Re-download if needed
-- GitHub repository - Advanced users can clone directly
+- [FSPM CLI](https://fullstackpm.com/cli) - Install instructions and docs
+- [GitHub repository](https://github.com/carlvellotti/cursor-pm-course) - Advanced users can clone directly
 
 ## 🚀 What's Next?
 
 **Module 0.3 complete:**
-- ✅ Course files downloaded
-- ✅ Folder opened in Cursor
+- ✅ Project created in Cursor
+- ✅ Course materials installed
 - ✅ File structure verified
 - ✅ Slash commands ready
 
@@ -162,8 +142,8 @@ Now that your folder is open, here's what you need to know:
 You're ready to start the real course! Module 1.1 introduces you to TaskFlow (the fictional company you'll work for) and teaches you the basics of Cursor's interface.
 
 **To start Module 1.1:**
-1. Make sure Composer is open (`Cmd+I` or `Ctrl+I`)
+1. Make sure the Agents view is open (`Cmd+I` or `Ctrl+I`)
 2. Type `/start-1-1` and press Enter
-3. Follow Claude's instructions
+3. Follow the AI's instructions
 
-**[Go to Module 1.1 →](../fundamentals/welcome-to-taskflow)**
+**[Go to Module 1.1 →](/fundamentals/welcome)**

@@ -5,6 +5,9 @@ keywords: 'internet vin, greg isenberg, obsidian, obsidian cli, claude code obsi
 ogImage: 'https://ccforeveryone.com/images/og-vin-obsidian.png'
 ---
 
+import CopyPromptBlock from '../../components/CopyPromptBlock'
+
+
 # Mini Lessons
 
 ---
@@ -39,11 +42,13 @@ An interactive version of Greg Isenberg's interview with Internet Vin, where Vin
 
 ### Get Started
 
-1. **Download the lesson folder:** [DOWNLOAD](/downloads/vin-obsidian-workflows.zip)
-2. **Open terminal in that folder**
-3. **Run `claude` then type `/start-lesson`**
+This lesson runs in the Claude Desktop app. Open Claude, start a new project, and paste this prompt:
 
-> **New to the terminal?** See [Getting Started: Installation](/getting-started/installation) for setup help.
+<CopyPromptBlock prompt="Install the FSPM CLI from fullstackpm.com/cli and get vin-obsidian-workflows, then tell me how to begin." />
+
+Claude installs the lesson into your project; type `/start-vin-obsidian-workflows` to begin.
+
+> **Prefer the terminal?** The same prompt works in Claude Code in your terminal, or run `fspm get vin-obsidian-workflows` yourself after installing the CLI from [fullstackpm.com/cli](https://fullstackpm.com/cli).
 
 ---
 
@@ -121,4 +126,4 @@ You'll have:
 - A thinking tool (/challenge, /emerge, or /connect) you've run on real notes
 - The "agents read, humans write" principle for keeping your vault authentic
 
-**Download the lesson folder:** [DOWNLOAD](/downloads/vin-obsidian-workflows.zip)
+**Get the lesson:** paste the prompt above into the Claude Desktop app.

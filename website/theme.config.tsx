@@ -5,9 +5,9 @@ import { useRouter } from 'next/router'
 export default {
   logo: <span style={{ fontWeight: 600 }}>Claude Code for Product Managers</span>,
   project: {
-    link: 'https://github.com/carlvellotti/claude-code-pm-course'
+    link: 'https://github.com/carlvellotti/free-ai-courses'
   },
-  docsRepositoryBase: 'https://github.com/carlvellotti/claude-code-pm-course/blob/main/website',
+  docsRepositoryBase: 'https://github.com/carlvellotti/free-ai-courses/blob/main/website',
   feedback: {
     content: 'Give Carl feedback →',
     labels: 'feedback'

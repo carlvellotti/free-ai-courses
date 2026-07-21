@@ -8,7 +8,7 @@ export default {
     description: 'Download, install, and configure Cursor for PM work'
   },
   'opening-course-folder': {
-    title: '0.3: Opening Course Folder',
-    description: 'Download course materials and open your first project'
+    title: '0.3: Starting the Course',
+    description: 'Set up the course with one pasted prompt and begin'
   }
 }

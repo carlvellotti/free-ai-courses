@@ -9,6 +9,6 @@ export default {
   },
   'opening-course-folder': {
     title: '0.3: Opening the Course',
-    description: 'Download the course files and run your first lesson in the Codex app'
+    description: 'Start a course project and run your first lesson in the Codex app'
   }
 }

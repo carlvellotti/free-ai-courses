@@ -24,26 +24,93 @@ const trackEvent = (eventName, params = {}) => {
   }
 }
 
-const DOWNLOAD_PATTERN = /github\.com\/carlvellotti\/claude-code-pm-course\/releases\/.*\/complete-course\.zip/
+// Legacy ZIP links (kept as a safety net until the release flow is fully retired)
+const DOWNLOAD_PATTERN = /github\.com\/carlvellotti\/(claude-code-pm-course|free-ai-courses)\/releases\/.*\/complete-course\.zip/
 const EMAIL_SUBMITTED_KEY = 'ccpm-download-email-submitted'
+
+const copyText = async (text) => {
+  try {
+    await navigator.clipboard.writeText(text)
+    return true
+  } catch (err) {
+    try {
+      const textarea = document.createElement('textarea')
+      textarea.value = text
+      textarea.style.position = 'fixed'
+      textarea.style.opacity = '0'
+      document.body.appendChild(textarea)
+      textarea.select()
+      const ok = document.execCommand('copy')
+      document.body.removeChild(textarea)
+      return ok
+    } catch (err2) {
+      return false
+    }
+  }
+}
+
+const announceCopied = (prompt) => {
+  window.dispatchEvent(new CustomEvent('fspm:prompt-copied', { detail: { prompt } }))
+}
 
 export default function DownloadGate() {
   const [isVisible, setIsVisible] = useState(false)
   const [pendingUrl, setPendingUrl] = useState(null)
+  const [pendingPrompt, setPendingPrompt] = useState(null)
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const [successCopied, setSuccessCopied] = useState(false)
   const inputRef = useRef(null)
 
   useEffect(() => {
     const handleClick = (e) => {
-      let target = e.target
-      while (target && target !== document && target.tagName !== 'A') {
-        target = target.parentElement
+      // Find the nearest element that is either a copy-prompt button or a link
+      let node = e.target
+      let promptEl = null
+      let anchorEl = null
+      while (node && node !== document) {
+        if (!promptEl && node.getAttribute && node.getAttribute('data-fspm-prompt')) {
+          promptEl = node
+          break
+        }
+        if (!anchorEl && node.tagName === 'A') {
+          anchorEl = node
+          break
+        }
+        node = node.parentElement
       }
-      if (!target || target.tagName !== 'A') return
 
-      const href = target.getAttribute('href') || ''
+      // Primary target: the "copy this prompt" click
+      if (promptEl) {
+        e.preventDefault()
+        const prompt = promptEl.getAttribute('data-fspm-prompt')
+        const emailAlreadySubmitted = localStorage.getItem(EMAIL_SUBMITTED_KEY)
+
+        trackEvent('copy_prompt_click', { prompt_page: window.location.pathname })
+
+        if (emailAlreadySubmitted) {
+          copyText(prompt).then(() => {
+            announceCopied(prompt)
+            trackEvent('prompt_copied', { prompt_page: window.location.pathname })
+          })
+          return
+        }
+
+        setPendingPrompt(prompt)
+        setPendingUrl(null)
+        setIsVisible(true)
+        setStatus('idle')
+        setEmail('')
+        setErrorMessage('')
+        setSuccessCopied(false)
+        trackEvent('email_gate_shown', { gate_type: 'copy_prompt' })
+        return
+      }
+
+      // Legacy target: direct ZIP download links
+      if (!anchorEl) return
+      const href = anchorEl.getAttribute('href') || ''
       if (!DOWNLOAD_PATTERN.test(href)) return
 
       e.preventDefault()
@@ -59,6 +126,7 @@ export default function DownloadGate() {
       }
 
       setPendingUrl(href)
+      setPendingPrompt(null)
       setIsVisible(true)
       setStatus('idle')
       setEmail('')
@@ -78,7 +146,19 @@ export default function DownloadGate() {
 
   const handleClose = () => {
     setIsVisible(false)
-    trackEvent('email_gate_dismissed', { download_url: pendingUrl })
+    trackEvent('email_gate_dismissed', {
+      gate_type: pendingPrompt ? 'copy_prompt' : 'download',
+    })
+  }
+
+  const handleCopyFromSuccess = async () => {
+    if (!pendingPrompt) return
+    const ok = await copyText(pendingPrompt)
+    if (ok) {
+      setSuccessCopied(true)
+      announceCopied(pendingPrompt)
+      trackEvent('prompt_copied', { prompt_page: window.location.pathname })
+    }
   }
 
   const handleSubmit = async (e) => {
@@ -98,7 +178,7 @@ export default function DownloadGate() {
           publication: 'cc4pm',
           utm_source: 'ccforpms',
           utm_medium: 'download-gate',
-          utm_campaign: 'download-ab-test',
+          utm_campaign: pendingPrompt ? 'copy-prompt-gate' : 'download-ab-test',
           landing_page: window.location.pathname,
           referrer: document.referrer || 'direct',
         }),
@@ -109,11 +189,23 @@ export default function DownloadGate() {
       if (response.ok && data.success) {
         setStatus('success')
         localStorage.setItem(EMAIL_SUBMITTED_KEY, 'true')
-        trackEvent('email_gate_completed', { download_url: pendingUrl })
-        trackEvent('download_started', { download_url: pendingUrl })
+        trackEvent('email_gate_completed', {
+          gate_type: pendingPrompt ? 'copy_prompt' : 'download',
+        })
 
-        window.location.href = pendingUrl
-        setTimeout(() => setIsVisible(false), 500)
+        if (pendingPrompt) {
+          const ok = await copyText(pendingPrompt)
+          if (ok) {
+            setSuccessCopied(true)
+            announceCopied(pendingPrompt)
+            trackEvent('prompt_copied', { prompt_page: window.location.pathname })
+          }
+          // Stay open so the student can copy manually if the auto-copy failed
+        } else {
+          trackEvent('download_started', { download_url: pendingUrl })
+          window.location.href = pendingUrl
+          setTimeout(() => setIsVisible(false), 500)
+        }
       } else {
         setStatus('error')
         setErrorMessage(data.error || 'Something went wrong. Please try again.')
@@ -136,13 +228,28 @@ export default function DownloadGate() {
           <div className="gate-content">
             <div className="gate-success">
               <span className="gate-success-icon">&#x1F95E;</span>
-              <h3>Your download is starting!</h3>
+              {pendingPrompt ? (
+                <>
+                  <h3>{successCopied ? 'Prompt copied!' : "You're in!"}</h3>
+                  <p className="gate-prompt-text">{pendingPrompt}</p>
+                  <button type="button" className="gate-copy-again" onClick={handleCopyFromSuccess}>
+                    {successCopied ? 'Copy again' : 'Copy the prompt'}
+                  </button>
+                  <p className="gate-success-note">Paste it into Claude to start the course.</p>
+                </>
+              ) : (
+                <h3>Your download is starting!</h3>
+              )}
             </div>
           </div>
         ) : (
           <div className="gate-content">
             <div className="gate-header">
-              <h2>Enter your email for an instant download! (100% free)</h2>
+              <h2>
+                {pendingPrompt
+                  ? 'Enter your email to copy the start prompt! (100% free)'
+                  : 'Enter your email for an instant download! (100% free)'}
+              </h2>
               <p className="gate-subhead">Join <span className="highlight">The Full Stack PM</span> — a community and newsletter of <strong>30,000+ PM builders</strong> learning to do amazing things with AI.</p>
             </div>
 
@@ -160,7 +267,7 @@ export default function DownloadGate() {
                 {status === 'loading' ? (
                   <><Spinner /> Sending...</>
                 ) : (
-                  'Download'
+                  pendingPrompt ? 'Copy the prompt' : 'Download'
                 )}
               </button>
             </form>
@@ -334,6 +441,41 @@ export default function DownloadGate() {
           font-weight: 700;
           color: ${colors.ink};
           margin: 0;
+        }
+
+        .gate-prompt-text {
+          margin: 16px auto 0;
+          max-width: 440px;
+          padding: 12px 16px;
+          font-size: 13px;
+          line-height: 1.5;
+          color: ${colors.ink};
+          background: ${colors.stone200};
+          border-radius: 8px;
+          text-align: left;
+        }
+
+        .gate-copy-again {
+          margin-top: 12px;
+          padding: 12px 24px;
+          font-size: 14px;
+          font-weight: 600;
+          font-family: inherit;
+          color: ${colors.stone50};
+          background: ${colors.maple};
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+        .gate-copy-again:hover {
+          background: ${colors.mapleDark};
+        }
+
+        .gate-success-note {
+          margin: 12px 0 0;
+          font-size: 13px;
+          color: ${colors.stone700};
         }
 
         .gate-disclaimer {

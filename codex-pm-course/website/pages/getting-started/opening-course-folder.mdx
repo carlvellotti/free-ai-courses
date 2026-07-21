@@ -1,7 +1,7 @@
 ---
 title: '0.3: Opening the Course in Codex'
-description: 'Download the Codex for PMs course files, open them as a project in the Codex app, and run your first interactive lesson.'
-keywords: 'codex course, codex skills, codex app open folder, codex projects, run codex lesson, codex agents.md, codex pm course setup'
+description: 'Start a course project in the Codex app, paste one setup prompt, and run your first interactive lesson.'
+keywords: 'codex course, codex skills, codex projects, fspm cli, run codex lesson, codex agents.md, codex pm course setup'
 ---
 
 # Module 0.3: Opening the Course in Codex
@@ -12,17 +12,11 @@ keywords: 'codex course, codex skills, codex app open folder, codex projects, ru
 
 ## 📖 Overview
 
-You'll download the course files, open them as a project in the Codex app, and start your first lesson. The lessons are packaged as **Codex skills** that the app discovers automatically when you open the course folder.
+This course uses the Codex app. You'll start a new project, paste one setup prompt, and Codex sets up the whole course for you. The lessons are packaged as **Codex skills** that get installed right into your project.
 
-**Key takeaway:** Download the files → add the folder as a project in Codex → type `/start 1 1`.
+**Key takeaway:** Start a project in Codex → paste the setup prompt → type `/start 1 1`.
 
-## Step 1: Download the Course Files
-
-<a href="https://github.com/carlvellotti/codex-pm-course/releases/latest/download/complete-course.zip" style={{display:'inline-block', background:'#339CFF', color:'#1A1C1F', fontWeight:700, fontSize:'1.15rem', padding:'14px 32px', borderRadius:'10px', textDecoration:'none', marginTop:'12px', marginBottom:'4px'}}>📥 Download the Course Files</a>
-
-The ZIP lands in your Downloads folder. **Double-click it to unzip** — you'll get a folder called `complete-course`. Move it somewhere easy to find, like your Documents folder.
-
-## Step 2: Open the Folder in Codex
+## Step 1: Start a New Project
 
 In the Codex app:
 
@@ -31,12 +25,21 @@ In the Codex app:
 
 ![The new chat screen with Work in a project below the message box](/images/codex-app-work-in-project.png)
 
-3. Click **Add new project**.
-4. Click **Use an existing folder**, and select your `complete-course` folder.
+3. Click **Add new project** and create a new, empty project for the course. Name it whatever you like (`codex-course` works fine).
 
-![Work in a project menu — Add new project, then Use an existing folder](/images/codex-app-add-project.png)
+{/* SCREENSHOT-REFRESH: codex-app-add-project.png showed "Use an existing folder" for the unzipped ZIP flow — re-capture the create-new-project step for the FSPM flow. */}
 
-The course is now a project in Codex, and your chat is connected to it.
+Your chat is now connected to the project.
+
+## Step 2: Paste the Setup Prompt
+
+Copy this into the message box and hit Enter:
+
+```
+Install the FSPM CLI from fullstackpm.com/cli and get codex-for-pms, then tell me how to begin.
+```
+
+Codex installs the FSPM CLI, downloads the course into your project, and tells you how to start. The lessons install directly into the project, so Codex discovers them automatically. No downloads to unzip, no folders to hunt for.
 
 ## Step 3: Start Your First Lesson
 
@@ -48,6 +51,16 @@ Codex loads the lesson and becomes your instructor from there. Just follow along
 
 Each lesson ends by telling you the command for the next one (`/start 1 2`, `/start 1 3`, and so on).
 
+## Prefer the Terminal? The CLI Path
+
+If you use Codex CLI instead of the app, the same course works there:
+
+1. Install the FSPM CLI (instructions at [fullstackpm.com/cli](https://fullstackpm.com/cli)).
+2. In a new, empty folder, run `fspm get codex-for-pms`.
+3. Launch Codex CLI in that folder and type `/start 1 1`.
+
+Everything else in these reference pages applies to both paths.
+
 ## About AGENTS.md
 
 Codex can keep "project memory" in a file called **`AGENTS.md`** — it tells Codex about your project so it behaves consistently across sessions. You'll create and use your own `AGENTS.md` in **Module 1.6: Project Memory**.
@@ -55,11 +68,12 @@ Codex can keep "project memory" in a file called **`AGENTS.md`** — it tells Co
 ## 🐛 Troubleshooting
 
 **The lessons don't show up when I type `/`**
-- Make sure you added the **unzipped** `complete-course` folder (not the ZIP file itself). Click **Work in a project** → **Add new project** → **Use an existing folder** and pick the unzipped folder.
-- The lessons live in a hidden `.agents` folder inside the course — it may not be visible in Finder/Explorer, but Codex finds it automatically.
+- Make sure the setup prompt finished. Codex confirms when the course is installed.
+- Start a fresh conversation in the same project and try `/` again.
+- The lessons live in a hidden `.agents` folder inside your project — it may not be visible in Finder/Explorer, but Codex finds it automatically.
 
-**I picked the wrong folder**
-- No problem — click **Work in a project** → **Add new project** → **Use an existing folder** again and select the right one.
+**I set up the course in the wrong project**
+- No problem — start a new chat, click **Work in a project**, create the project you want, and paste the setup prompt again.
 
 **The lesson starts in the wrong language or acts strangely**
 - Start a fresh conversation in the project and type `/start 1 1` again.

@@ -26,12 +26,26 @@ const trackEvent = (eventName, params = {}) => {
   }
 }
 
-const DOWNLOAD_PATTERN = /github\.com\/carlvellotti\/claude-code-everyone-course\/releases\/download\/v[^/]+\/complete-course\.zip/
 const EMAIL_SUBMITTED_KEY = 'cc4e-download-email-submitted'
+
+const copyToClipboard = async (text) => {
+  try {
+    await navigator.clipboard.writeText(text)
+  } catch (err) {
+    const textarea = document.createElement('textarea')
+    textarea.value = text
+    textarea.style.position = 'fixed'
+    textarea.style.opacity = '0'
+    document.body.appendChild(textarea)
+    textarea.select()
+    document.execCommand('copy')
+    document.body.removeChild(textarea)
+  }
+}
 
 export default function DownloadGate() {
   const [isVisible, setIsVisible] = useState(false)
-  const [pendingUrl, setPendingUrl] = useState(null)
+  const [pendingPrompt, setPendingPrompt] = useState(null)
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle')
   const [errorMessage, setErrorMessage] = useState('')
@@ -39,33 +53,34 @@ export default function DownloadGate() {
 
   useEffect(() => {
     const handleClick = (e) => {
-      let target = e.target
-      while (target && target !== document && target.tagName !== 'A') {
-        target = target.parentElement
-      }
-      if (!target || target.tagName !== 'A') return
+      const target = e.target.closest ? e.target.closest('[data-copy-prompt]') : null
+      if (!target) return
 
-      const href = target.getAttribute('href') || ''
-      if (!DOWNLOAD_PATTERN.test(href)) return
+      const prompt = target.getAttribute('data-copy-prompt')
+      if (!prompt) return
 
       e.preventDefault()
 
       const emailAlreadySubmitted = localStorage.getItem(EMAIL_SUBMITTED_KEY)
 
-      trackEvent('download_click', { download_url: href })
+      trackEvent('copy_prompt_click', { page: window.location.pathname })
 
       if (emailAlreadySubmitted) {
-        trackEvent('download_started', { download_url: href })
-        window.location.href = href
+        copyToClipboard(prompt)
+        trackEvent('prompt_copied', { page: window.location.pathname })
+        setPendingPrompt(prompt)
+        setStatus('success')
+        setIsVisible(true)
+        setTimeout(() => setIsVisible(false), 2000)
         return
       }
 
-      setPendingUrl(href)
+      setPendingPrompt(prompt)
       setIsVisible(true)
       setStatus('idle')
       setEmail('')
       setErrorMessage('')
-      trackEvent('email_gate_shown', { download_url: href })
+      trackEvent('email_gate_shown', { page: window.location.pathname })
     }
 
     document.addEventListener('click', handleClick, true)
@@ -80,7 +95,7 @@ export default function DownloadGate() {
 
   const handleClose = () => {
     setIsVisible(false)
-    trackEvent('email_gate_dismissed', { download_url: pendingUrl })
+    trackEvent('email_gate_dismissed', { page: typeof window !== 'undefined' ? window.location.pathname : '' })
   }
 
   const handleSubmit = async (e) => {
@@ -111,12 +126,12 @@ export default function DownloadGate() {
       if (response.ok && data.success) {
         setStatus('success')
         localStorage.setItem(EMAIL_SUBMITTED_KEY, 'true')
-        trackEvent('email_gate_completed', { download_url: pendingUrl })
-        trackEvent('download_started', { download_url: pendingUrl })
+        trackEvent('email_gate_completed', { page: window.location.pathname })
+        trackEvent('prompt_copied', { page: window.location.pathname })
 
-        // Trigger download then close modal
-        window.location.href = pendingUrl
-        setTimeout(() => setIsVisible(false), 500)
+        // Copy the prompt then close modal
+        copyToClipboard(pendingPrompt)
+        setTimeout(() => setIsVisible(false), 2000)
       } else {
         setStatus('error')
         setErrorMessage(data.error || 'Something went wrong. Please try again.')
@@ -139,13 +154,14 @@ export default function DownloadGate() {
           <div className="gate-content">
             <div className="gate-success">
               <span className="gate-success-icon">&#10003;</span>
-              <h3>Your download is starting!</h3>
+              <h3>Prompt copied!</h3>
+              <p className="gate-success-sub">Paste it into Claude to begin.</p>
             </div>
           </div>
         ) : (
           <div className="gate-content">
             <div className="gate-header">
-              <h2>Enter your email for an instant download! (100% free)</h2>
+              <h2>Enter your email to copy the prompt! (100% free)</h2>
               <p className="gate-subhead">Join a community and newsletter of <strong>30,000+ non-technical people</strong> learning to do amazing things with AI.</p>
             </div>
 
@@ -163,7 +179,7 @@ export default function DownloadGate() {
                 {status === 'loading' ? (
                   <><Spinner /> Sending...</>
                 ) : (
-                  'Download'
+                  'Copy Prompt'
                 )}
               </button>
             </form>
@@ -333,6 +349,11 @@ export default function DownloadGate() {
           font-weight: 700;
           color: ${colors.ink};
           margin: 0;
+        }
+        .gate-success-sub {
+          font-size: 14px;
+          color: ${colors.textBody};
+          margin: 8px 0 0;
         }
 
         .gate-disclaimer {

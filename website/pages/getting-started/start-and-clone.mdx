@@ -1,53 +1,33 @@
 ---
-title: "0.2: Download Course & Get Started"
-description: "Download course materials and launch your first interactive lesson with Claude Code."
-keywords: 'claude code course, download claude code course, start claude code lesson'
+title: "0.2: Get the Course & Start"
+description: "Get the course materials with one prompt and launch your first interactive lesson with Claude."
+keywords: 'claude code course, get claude code course, start claude code lesson'
 ---
 
-## 0.2: Download & Start
+import CopyPrompt from '../../components/CopyPrompt'
+
+## 0.2: Get the Course & Start
 
 - **Time to Complete:** 5 minutes
-- **Prerequisites:** Claude Code installed ([0.1](/getting-started/installation))
+- **Prerequisites:** Claude installed ([0.1](/getting-started/installation))
 
-## Download the Course Materials
+## Get the Course Materials
 
-<a href="https://github.com/carlvellotti/claude-code-pm-course/releases/latest/download/complete-course.zip" download style={{ display: 'inline-block', padding: '12px 24px', backgroundColor: '#1DD3B0', color: '#1C1C1C', fontWeight: 'bold', borderRadius: '8px', textDecoration: 'none', marginTop: '16px', marginBottom: '16px' }}>
-  Download Course Materials
-</a>
+This course uses the Claude Desktop app. Open Claude, start a new project, and paste this prompt:
 
-1. Click the button above to download `complete-course.zip`
-2. Extract the zip to your Documents folder
-3. Follow the instructions below to open Claude Code from the course folder
+<CopyPrompt />
 
-## Open Claude Code from the Course Folder
+Claude installs the FSPM CLI, downloads the course into your project, and tells you how to begin. You never touch a zip file or a terminal.
 
-After downloading and extracting, you need to open a terminal in the course folder:
+> **Important:** Use a new project, not a plain chat. The course files live in the project, so every lesson starts from there.
 
-### Find it in the File Explorer
-
-Navigate to your Documents folder and find the `complete-course` folder. Then right-click and select "New Terminal at Folder"
-
-It will look something like this:
-
-![Opening folder from file explorer](/images/folder-location.png)
-
-Then type `claude` and hit Enter
-
-### Or Open it from the Terminal
-
-Type these commands into your terminal:
-```bash
-cd ~/Documents/complete-course
-claude
-```
-
-This navigates to your course folder and opens Claude Code directly inside it.
-
-> **Important:** Claude only sees files in the folder where you launch it. Always start Claude Code from the course folder.
+{/* SCREENSHOT-REFRESH: folder-location.png showed the old "New Terminal at Folder" zip flow.
+    Needs a new screenshot of creating a project in the Claude Desktop app.
+![Opening folder from file explorer](/images/folder-location.png) */}
 
 ## Start Your First Lesson
 
-Once Claude Code is running from the course folder:
+Once Claude confirms the course is installed, type:
 
 ```
 /start-1-1
@@ -55,22 +35,40 @@ Once Claude Code is running from the course folder:
 
 Claude will begin teaching you interactively. Follow along and respond when prompted.
 
+## Prefer the Terminal? (Claude Code CLI)
+
+The same prompt works in the Claude Code CLI. Open your terminal, make a folder for the course, and start Claude Code there:
+
+```bash
+mkdir -p ~/Documents/claude-code-pm-course
+cd ~/Documents/claude-code-pm-course
+claude
+```
+
+Then paste the same prompt:
+
+```
+Install the FSPM CLI from fullstackpm.com/cli and get claude-code-for-pms, then tell me how to begin.
+```
+
+> **Important:** Claude only sees files in the folder where you launch it. Always start Claude Code from the course folder.
+
 ## Common Questions
 
-### "Can I change the download location?"
-Yes, just remember the path for the `cd` command.
+### "What if the install fails?"
+Ask Claude to try again. If it still fails, check [fullstackpm.com/cli](https://fullstackpm.com/cli) for install help.
 
-### "What if the download fails?"
-Try manual download from [GitHub Releases](https://github.com/carlvellotti/claude-code-pm-course/releases/latest).
+### "I already downloaded the old zip version. Do I need to switch?"
+No. Your existing course folder keeps working. The prompt above is just the current way to get the materials.
 
 ### "Can I pause and come back later?"
-Yes! Use `/resume` to pick up where you left off, or just run the lesson's `/start` command again.
+Yes! Open the same project (or folder) and run the lesson's `/start` command again to pick up where you left off.
 
 ---
 
 ## What's Next
 
-Type `/start-1-1` inside Claude Code to begin Module 1!
+Type `/start-1-1` to begin Module 1!
 
 Or continue reading the reference guides:
 **[1.1: Welcome →](/fundamentals/welcome)**
@@ -82,4 +80,4 @@ Or continue reading the reference guides:
 
 Created by [Carl Vellotti](https://www.linkedin.com/in/carlvellotti/). If you have any feedback about this module or the course overall, message me! I'm building a newsletter and community for PM builders, check out [The Full Stack PM](https://fullstackpm.com/subscribe?utm_source=ccforpms&utm_medium=course&utm_campaign=start-and-clone).
 
-**Source Repository:** [github.com/carlvellotti/claude-code-pm-course](https://github.com/carlvellotti/claude-code-pm-course)
+**Source Repository:** [github.com/carlvellotti/free-ai-courses](https://github.com/carlvellotti/free-ai-courses)
