@@ -57,7 +57,7 @@ These topics all deserve their own modules, so we won't go in-depth, but here's 
 
 **Skills** - reusable project instructions installed under `.claude/skills/` and invoked from the composer with an exact slash name, like `/start-1-1`.
 
-**MCP and connectors** - Cloud connectors for tools like Notion or your calendar are configured through the account menu, then Settings, then Connectors. Project `.mcp.json` changes require an app restart, and `/context` shows connected tools.
+**MCP and connectors** - Connect me to tools like Notion or your calendar through the account menu, then Settings, then Connectors. Type `/context` anytime to see what's connected.
 
 **Web and browser boundary** - Built-in web search and URL fetch need no MCP. I can also open pages in your real external browser, where you take over viewing and interacting with them.
 

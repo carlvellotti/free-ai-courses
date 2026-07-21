@@ -107,7 +107,7 @@ USER: Yes / Suggests additions
 
 ## How Project Instructions Load
 
-One more thing: project instructions can live in three verified locations.
+One more thing: project instructions can live in three places.
 
 Here's how it works:
 
