@@ -10,7 +10,7 @@ allowed-tools:
 
 ## Setup
 
-Read `.claude/rules/teaching-rules.md` and follow it for everything below.
+Read `.claude/skills/_shared/teaching-rules.md` and follow it for everything below.
 
 # 2.3 Build & Iterate
 

@@ -13,7 +13,7 @@ allowed-tools:
 
 ## Setup
 
-Read `.claude/rules/teaching-rules.md` and follow it for everything below.
+Read `.claude/skills/_shared/teaching-rules.md` and follow it for everything below.
 
 cp -rn .claude/skills/start-1-4/assets/* . 2>/dev/null || true
 

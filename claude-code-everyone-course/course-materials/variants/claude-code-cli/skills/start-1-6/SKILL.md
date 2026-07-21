@@ -11,9 +11,10 @@ allowed-tools:
 
 ## Setup
 
-Read `.claude/rules/teaching-rules.md` and follow it for everything below.
+Read `.claude/skills/_shared/teaching-rules.md` and follow it for everything below.
 
 cp -rn .claude/skills/start-1-2/assets/scenario/* . 2>/dev/null || true
+cp -rn .claude/skills/start-1-6/assets/. . 2>/dev/null || true
 
 # Lesson 1.6: Custom Sub-agents
 
