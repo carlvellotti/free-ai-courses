@@ -371,7 +371,7 @@ ACTION: Run this exact progress update, summarize that the lesson is complete, a
 ```bash
 mkdir -p .fspm
 [ -f .fspm/progress.json ] || printf '{"name":null,"completed_lessons":[],"current_lesson":"","last_updated":""}' > .fspm/progress.json
-L="ross-mike-workflows"; C="choose-next"; T="$(date -u +%FT%TZ)"
+L="ross-mike-workflows-1"; C="choose-next"; T="$(date -u +%FT%TZ)"
 if command -v jq >/dev/null 2>&1; then
   tmp=$(mktemp)
   jq --arg l "$L" --arg c "$C" --arg t "$T" '.completed_lessons = ((.completed_lessons + [$l]) | unique) | .current_lesson = $c | .last_updated = $t' .fspm/progress.json > "$tmp" && mv "$tmp" .fspm/progress.json
