@@ -1,0 +1,88 @@
+/* Whimsical Template — elegant serif, airy spacing, soft palette */
+
+body {
+  font-family: Georgia, "Times New Roman", "Palatino Linotype", serif;
+  max-width: 680px;
+  margin: 48px auto;
+  padding: 0 28px;
+  line-height: 1.8;
+  color: #3d3d3d;
+  font-size: 16px;
+  background: #fdfcfa;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 400;
+  font-style: italic;
+  color: #5b4a3f;
+  border-bottom: 1px solid #d4c5b9;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+h2 {
+  font-size: 21px;
+  font-weight: 400;
+  font-style: italic;
+  color: #7a6855;
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #5b4a3f;
+  margin-top: 24px;
+}
+
+p { margin: 0 0 16px 0; }
+
+ul, ol {
+  margin: 0 0 16px 0;
+  padding-left: 28px;
+}
+
+li {
+  margin-bottom: 6px;
+  list-style-type: "— ";
+}
+
+code {
+  background: #f0ebe4;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-family: "Courier New", monospace;
+}
+
+pre {
+  background: #f0ebe4;
+  padding: 20px;
+  border-radius: 4px;
+  border-left: 3px solid #d4c5b9;
+}
+
+blockquote {
+  border-left: 2px solid #c4a882;
+  margin: 0 0 16px 0;
+  padding: 8px 20px;
+  font-style: italic;
+  color: #7a6855;
+}
+
+table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+th, td { border: 1px solid #d4c5b9; padding: 10px 14px; }
+th { background: #f5f0ea; font-weight: 600; font-style: italic; }
+
+hr {
+  border: none;
+  border-top: 1px solid #d4c5b9;
+  margin: 32px 0;
+}
+
+@media print {
+  body { max-width: none; margin: 0; padding: 0; font-size: 12pt; background: white; }
+}

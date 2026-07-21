@@ -1,0 +1,9 @@
+.DS_Store
+*.log
+node_modules/
+
+# Deployed into the workspace by lesson setup during playthroughs
+/meetings/
+
+# Created by the student during Lesson 1
+.agents/skills/process-meetings/

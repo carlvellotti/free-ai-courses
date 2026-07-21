@@ -1,0 +1,73 @@
+/* Fun Template — bright, playful, rounded corners */
+
+body {
+  font-family: "Comic Sans MS", "Chalkboard SE", "Marker Felt", sans-serif;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 24px;
+  line-height: 1.7;
+  color: #2d2d2d;
+  font-size: 15px;
+  background: #fffef5;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #e85d04;
+  border-bottom: 3px dashed #e85d04;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #6a4c93;
+  margin-top: 32px;
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1982c4;
+}
+
+p { margin: 0 0 14px 0; }
+
+ul, ol {
+  margin: 0 0 14px 0;
+  padding-left: 24px;
+}
+
+li { margin-bottom: 6px; }
+
+code {
+  background: #fff3cd;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+pre {
+  background: #fff3cd;
+  padding: 16px;
+  border-radius: 12px;
+  border: 2px solid #e85d04;
+}
+
+blockquote {
+  border-left: 4px solid #6a4c93;
+  background: #f3f0ff;
+  margin: 0 0 14px 0;
+  padding: 8px 16px;
+  border-radius: 0 8px 8px 0;
+}
+
+table { border-collapse: collapse; width: 100%; margin: 14px 0; }
+th, td { border: 2px solid #e85d04; padding: 8px 12px; }
+th { background: #fff3cd; font-weight: 600; }
+
+@media print {
+  body { max-width: none; margin: 0; padding: 0; font-size: 12pt; background: white; }
+}
