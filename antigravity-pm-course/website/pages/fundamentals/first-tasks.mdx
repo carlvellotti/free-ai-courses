@@ -1,0 +1,196 @@
+---
+title: "1.3: First PM Tasks"
+description: "Learn essential file operations: reading files with @ mentions, creating new files, editing existing files, and analyzing multiple files"
+keywords: 'file operations, @ mentions, editing files, creating files, multi-file analysis'
+---
+
+# Module 1.3: First PM Tasks
+## Reference Guide
+
+- **Time to Complete:** 15-20 minutes
+- **Prerequisites:** Module 1.2 (Antigravity interface, @ mentions)
+
+> **Start this module in Antigravity:** Run `/start-1-3` to begin the interactive lesson.
+
+## 📖 Overview
+
+Learn the three core file operations PMs use daily: editing existing files, creating new formatted files, and analyzing multiple files simultaneously.
+
+**Key takeaway:** Combine @ mentions with clear instructions to read, edit, create, or synthesize PM documents.
+
+## 🎯 The Three Core Operations
+
+### 1. Edit Existing File (Append/Update)
+
+**Use when:** Adding to meeting notes, updating specs, appending summaries
+
+**Pattern:**
+```
+Read @filename.md and append a summary section to the bottom
+```
+
+**What happens:**
+1. Antigravity reads the file
+2. Proposes changes in Apply/Reject workflow
+3. You review and accept changes
+4. Original file gets updated
+
+**Example:**
+```
+Read @meeting-notes-raw.md and append a clean summary section to the bottom of the file
+```
+
+### 2. Create New File (Transform)
+
+**Use when:** Converting notes to emails, creating PRDs from meetings, formatting deliverables
+
+**Pattern:**
+```
+Read @source-file.md and create a new file called output-file.md formatted as [format]
+```
+
+**What happens:**
+1. Antigravity reads source file
+2. Creates new file with transformed content
+3. Shows new file in Apply/Reject workflow
+4. Original file stays unchanged
+
+**Example:**
+```
+Read @product-sync-notes.md and create a new file called product-sync-email.md formatted as an executive email summary
+```
+
+### 3. Analyze Multiple Files (Synthesize)
+
+**Use when:** Synthesizing user interviews, analyzing meeting notes, combining research
+
+**Pattern:**
+```
+Analyze all files in @folder-name and create a new file called output.md with [specific analysis]
+```
+
+**What happens:**
+1. Antigravity reads entire folder contents
+2. Synthesizes information across all files
+3. Creates new document with insights
+4. All source files stay unchanged
+
+**Example:**
+```
+Analyze all files in @user-interviews and create a new file called user-research-insights.md with the top 3 pain points and supporting quotes
+```
+
+## 🔄 Apply/Reject Workflow
+
+Every file operation shows proposed changes before applying them.
+
+### How It Works
+
+1. **Antigravity proposes changes** - Shows diff of what will change
+2. **You review** - Check if changes look correct
+3. **Accept or reject** - Click "Accept All" or review individually
+4. **Changes apply** - File gets updated or created
+
+### When to Use Each Option
+
+| Action | When to Use |
+|--------|-------------|
+| **Accept All** | Most PM tasks - clean summaries, formatted outputs |
+| **Review Individual** | Editing sensitive content, changing specs with approvals |
+| **Reject** | Output doesn't match requirements, needs refinement |
+
+## 📋 Quick Reference: PM Use Cases
+
+| Task | Operation | Example Command |
+|------|-----------|----------------|
+| Clean up meeting notes | Edit existing | "Append summary to @notes.md" |
+| Create exec summary email | Create new | "Read @notes.md and create executive-email.md" |
+| Synthesize user research | Analyze folder | "Analyze @interviews and create insights.md" |
+| Update PRD with decisions | Edit existing | "Read @decisions.md and update @prd.md with new requirements" |
+| Format research findings | Create new | "Read @raw-research.md and create polished-research-report.md" |
+| Combine multiple sources | Analyze folder | "Analyze @competitive-research and create comparison-matrix.md" |
+
+## 🎯 TaskFlow Examples
+
+### Scenario 1: Clean Meeting Notes
+You took rough notes in `product-strategy-meeting.md` during a call. Add a polished summary:
+
+```
+Read @product-strategy-meeting.md and append a clean summary section with key decisions and action items
+```
+
+### Scenario 2: Create Executive Update
+Transform your weekly team sync notes into an email for your VP:
+
+```
+Read @weekly-sync-notes.md and create vp-update-email.md formatted as an executive summary email
+```
+
+## 💡 Best Practices
+
+### Be Specific with Instructions
+
+**❌ Vague:**
+```
+Make this better
+```
+
+**✅ Specific:**
+```
+Read @notes.md and create summary.md with 3 key takeaways and action items
+```
+
+### Use @ Mentions for Context
+
+**❌ No context:**
+```
+Create a PRD
+```
+
+**✅ With context:**
+```
+Read @meeting-notes.md and @user-research.md and create feature-prd.md
+```
+
+### Choose the Right Operation
+
+- **Append to existing** - When you want to keep context/history
+- **Create new file** - When you need different format or audience
+- **Analyze folder** - When patterns span multiple documents
+
+## 🐛 Troubleshooting
+
+### "Antigravity created a file but I don't see it"
+**Fix:** Check the file explorer - new files appear where you specified. Use full path like `lesson-modules/1.3-first-tasks/newfile.md` if needed.
+
+### "Changes aren't applying when I click Accept"
+**Fix:** Make sure you clicked "Accept All" or accepted each individual change. Check the file in editor to confirm changes applied.
+
+### "Antigravity edited the wrong file"
+**Fix:** Be specific with @ mentions. Use `@folder/filename.md` if multiple files have similar names.
+
+### "Folder analysis only read some files"
+**Fix:** Ensure all files are saved. Try mentioning the folder directly: `@folder-name/` (with trailing slash).
+
+## 📚 Resources
+
+**Official:**
+- [Antigravity Documentation](https://antigravity.google/docs) - Official feature docs
+- [Antigravity Guide](https://antigravity.google/docs/guide) - Using the interface effectively
+
+**Community:**
+- [Antigravity support](https://forum.antigravity.google) - Community support and tips
+
+## 🚀 What's Next?
+
+**Module 1.3 complete:**
+- ✅ Edit existing files in place
+- ✅ Create new formatted files from sources
+- ✅ Analyze multiple files simultaneously
+- ✅ Use Apply/Reject workflow
+
+**Next: Module 1.4 - Templates & Consistency**
+
+Learn how to use templates for consistent document formatting and create reusable patterns for common PM tasks.
+
+**[Go to Module 1.4 →](./templates)**

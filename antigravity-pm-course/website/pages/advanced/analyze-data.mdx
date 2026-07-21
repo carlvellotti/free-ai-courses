@@ -1,0 +1,214 @@
+---
+title: "2.2: Analyze Data"
+description: "Use Antigravity for complete data-driven PM workflow: Discovery, Impact Estimation, and Experiment Analysis"
+keywords: 'data analysis, csv, metrics, experiments, roi, pm analytics'
+---
+
+# Module 2.2: Analyze Data
+## Reference Guide
+
+- **Time to Complete:** 30-40 minutes
+- **Prerequisites:** Completed Module 2.1 or familiar with @ mentions and Editor view
+
+> **Start this module in Antigravity:** Run `/start-2-2` to begin the interactive lesson.
+
+## 📖 Overview
+
+Learn how to use Antigravity for the complete data-driven PM workflow: discovering problems with funnel and survey data, estimating impact with ROI models, and analyzing A/B test results.
+
+**Key takeaway:** What takes 4-6 hours in spreadsheets takes 30 minutes with Antigravity. Iteration is free - keep asking questions until you find the insight.
+
+## Data-Driven PM Workflow
+
+Antigravity handles the full cycle:
+
+**Phase 1: Discovery**
+1. Analyze funnel data to find drop-off points
+2. Extract themes from survey responses
+3. Synthesize findings into problem analysis
+
+**Phase 2: Impact Estimation**
+1. Use framework to build ROI model
+2. Create three scenarios (pessimistic, realistic, optimistic)
+3. Calculate expected lift and revenue impact
+
+**Phase 3: Experiment Analysis**
+1. Compare control vs treatment topline
+2. Segment by key dimensions (company size, user type)
+3. Check quality metrics (retention, engagement)
+4. Review leading indicators (template usage, invites)
+5. Create executive readout with recommendation
+
+## Working with CSV Files
+
+### The Antigravity Advantage
+
+**CSVs won't preview visually in Antigravity**, but that's actually fine:
+
+- Antigravity reads CSV files and presents data in formatted tables
+- No formulas, no pivot tables needed
+- Just @ mention the file and ask for analysis
+
+**Want to see raw data?** Open in Excel, Google Sheets, or VS Code. But for analysis, stay in Antigravity.
+
+### Basic Pattern
+
+```
+@ mention your-data.csv and analyze it to find [what you're looking for]
+```
+
+Antigravity will:
+- Read all rows
+- Calculate metrics
+- Format results as tables
+- Identify patterns
+- Present insights
+
+## Common PM Analytics Tasks
+
+| Task | Example Command |
+|------|----------------|
+| **Funnel analysis** | "@ mention funnel-data.csv and find where users drop off" |
+| **Survey themes** | "@ mention survey.csv and extract top 5 themes from responses" |
+| **Cohort analysis** | "Segment by company_size and compare activation rates" |
+| **Quality metrics** | "Filter to activated users and compare Week 1 retention" |
+| **Leading indicators** | "Calculate template usage and invite rates by cohort" |
+| **ROI modeling** | "@ mention usage-data.csv and framework.md and build three ROI scenarios" |
+
+## The Power of Segmentation
+
+When topline results look disappointing, **dig deeper**:
+
+### Iteration is Free
+
+**With spreadsheets:**
+- Each new segment = rebuild pivot tables (20-30 min)
+- Filters require formula updates
+- One view at a time
+
+**With Antigravity:**
+- Each new segment = one more command (instant)
+- "Not satisfied? Try another view"
+- Keep iterating until you find the insight
+
+### Example: Revealing Hidden Wins
+
+**Topline:** 45% → 48% activation (+2.6pp)
+- Looks underwhelming
+- Barely significant (p=0.04)
+
+**One command:** "Segment by company size"
+
+**Result:**
+- Small teams (target market): 45% → 56% (+11.4pp, p < 0.001) ✓
+- Enterprise: 45% → 42% (-3.5pp) ✗
+
+**New strategy:** Ship to small teams only
+
+This is why Antigravity shines: effortless iteration reveals insights that spreadsheets hide.
+
+## Three-Scenario Impact Models
+
+### The Framework
+
+```
+Impact = Users Affected x Current Rate x Expected Lift x Value per Action
+```
+
+### Always Model Three Scenarios
+
+| Scenario | Adoption | Lift | Use Case |
+|----------|----------|------|----------|
+| **Pessimistic** | 20th percentile | Conservative | Worst case planning |
+| **Realistic** | 50th percentile | Moderate | Base case estimate |
+| **Optimistic** | 80th percentile | Strong | Best case potential |
+
+### Why Three?
+
+- Shows range of outcomes
+- Builds confidence with leadership
+- Accounts for uncertainty
+- Even pessimistic shows ROI → strong case
+
+## Quality Over Quantity
+
+**Don't stop at topline activation** - check if activated users are better quality:
+
+### Metrics to Check
+
+**Retention:**
+- Week 1 active days (3+ = retained)
+- 7-day return rate
+
+**Engagement:**
+- Tasks completed in Week 1
+- Feature usage depth
+
+**Leading indicators:**
+- Template/example usage (predicts stickiness)
+- Invite rate (predicts viral growth)
+- Time to first value
+
+### Pattern
+
+```
+Filter to activated users only and compare [quality metric] between control and treatment
+```
+
+## Quick Example: TaskFlow Activation
+
+**Scenario:** 45% activation stuck for 6 months
+
+**Discovery (5 min):**
+- Funnel data: 60% drop between task creation and completion
+- Survey themes: "Didn't know what to create" (35%), "needed examples" (28%)
+
+**Impact Estimation (10 min):**
+- Three ROI scenarios: 2.6x to 17.6x over 3 years
+- Solution: Guided onboarding with sample project
+
+**Experiment Analysis (15 min):**
+- Topline: +2.6pp (underwhelming)
+- Segmented: Small teams +11.4pp, enterprise -3.5pp
+- Quality: Retention +18pp, engagement 2.3x
+- Recommendation: Ship to small teams only
+
+**Total time:** 30 minutes vs 4-6 hours in spreadsheets
+
+## 🐛 Troubleshooting
+
+### "Antigravity won't open my CSV file"
+**Fix:** CSV files don't preview visually in Antigravity. That's expected. Use @ mention to analyze the data - Antigravity will read it and present results in tables.
+
+### "Results don't match my Excel calculations"
+**Fix:** Ask Antigravity to show its calculation logic. Likely counting/filtering differently. Specify exactly what to include/exclude.
+
+### "I need a different view of the data"
+**Fix:** Just ask! "Now segment by X" or "Filter to users who Y" or "Show me metric Z instead." Iteration is instant with Antigravity.
+
+### "How do I know if results are statistically significant?"
+**Fix:** Ask Antigravity to calculate significance. With 2,000+ users per cohort, lifts >3-5pp are usually significant. Request p-values for clarity.
+
+## 📚 Resources
+
+**Official:**
+- [Antigravity Documentation](https://docs.antigravity.google) - Official guides
+- [Antigravity support](https://forum.antigravity.google) - Community support
+
+**Related Modules:**
+- Module 2.1: Write a PRD - Learn @ mentions and Editor view
+- Module 2.3: Product Strategy - Apply frameworks with Antigravity
+
+## 🚀 What's Next?
+
+**Module 2.2 complete:**
+- ✅ Analyzed funnel, survey, and experiment data in minutes
+- ✅ Built three-scenario ROI models
+- ✅ Segmented data to reveal hidden insights
+- ✅ Created executive-ready documents
+
+**Next: Module 2.3 - Product Strategy**
+
+Develop a complete AI product strategy for TaskFlow using strategic frameworks, make hard choices with devil's advocate challenges, and create an executive presentation. Less about execution, more about WHERE to compete and HOW to win.
+
+**[Go to Module 2.3 →](./strategy)**

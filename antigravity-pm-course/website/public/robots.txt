@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/*
+Disallow: /_next/*
+
+# Host
+Host: https://antigravityforpms.com
+
+# Sitemaps
+Sitemap: https://antigravityforpms.com/sitemap.xml

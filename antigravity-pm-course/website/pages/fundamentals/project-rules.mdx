@@ -1,0 +1,248 @@
+---
+title: "1.6: Project Rules & Context"
+description: "Set up persistent context with .agent/rules to teach Antigravity about your product, terminology, personas, and output preferences"
+keywords: 'project rules, .agent/rules, project context, AI settings, persistent memory, terminology'
+---
+
+# Module 1.6: Project Rules & Context
+## Reference Guide
+
+- **Time to Complete:** 15-20 minutes
+- **Prerequisites:** Module 1.5 (Ask, Agent, Plan modes)
+
+> **Start this module in Antigravity:** Run `/start-1-6` to begin the interactive lesson.
+
+## 📖 Overview
+
+Create `.agent/rules` files that auto-apply context to every conversation. Set your product terminology, personas, and writing preferences once instead of repeating them in every chat.
+
+**Key takeaway:** Project rules give Antigravity persistent memory about your product without needing @ mentions each time.
+
+## 🎯 What Are Project Rules?
+
+Project rules are markdown files in `.agent/rules/` that Antigravity automatically loads into every chat session in that project.
+
+### How They Work
+
+1. **Create** `.agent/rules/yourfile.mdc` in your project
+2. **Add** context (terminology, personas, style guides)
+3. **Antigravity auto-loads** this context in every conversation
+4. **No @ mention needed** - it just knows
+
+### Project vs Global Rules
+
+| Type | Location | Applies To |
+|------|----------|------------|
+| **Project Rules** | `.agent/rules/` folder in project | This project only |
+| **Global Rules** | Antigravity Settings → Rules | Every project you open |
+
+**Use project rules for:** Company/product-specific context (TaskFlow terminology, personas)
+**Use global rules for:** Personal preferences across all work (PRD format, writing style)
+
+## 🔧 Creating a Rules File
+
+### Quick Steps
+
+1. **Create the folder:** `.agent/rules/` in your project root
+2. **Create a file:** `.agent/rules/yourname.mdc` (use `.mdc` extension)
+3. **Add context:** Write in markdown format
+4. **Save** - Antigravity auto-loads it immediately
+
+### Example Rules Structure
+
+```markdown
+# Product Terminology
+
+Use these terms consistently:
+- "Workspace" (not "Project")
+- "Task" (not "To-do" or "Item")
+- "Member" (not "User" or "Person")
+
+# User Personas
+
+- **Sarah Chen** - Enterprise Admin at Acme Corp
+- **Mike Rodriguez** - IC Engineer on Product team
+- **Alex Kim** - Engineering Team Lead
+
+# Writing Style
+
+- Active voice
+- Oxford commas
+- No emojis in product docs
+- Conversational but professional tone
+
+# Output Preferences
+
+- Always use persona names in examples (Sarah, Mike, Alex)
+- Include specific use cases, not abstract concepts
+- Format lists with markdown bullets
+```
+
+## 📝 What to Include in Rules
+
+### 1. Product Terminology
+
+Define your product's vocabulary to avoid inconsistent naming:
+
+```markdown
+# TaskFlow Terminology
+
+**Features:**
+- Workspace (not Project, Folder, or Space)
+- Task Board (not Kanban or Project Board)
+- Quick Actions (not Shortcuts or Commands)
+
+**Roles:**
+- Admin (full permissions)
+- Member (standard user)
+- Guest (view-only)
+```
+
+### 2. User Personas
+
+Include realistic personas Antigravity can reference:
+
+```markdown
+# User Personas
+
+**Sarah Chen - Enterprise Admin**
+- Role: Product lead at 500-person company
+- Needs: Team management, security, audit logs
+- Pain points: Onboarding new team members
+
+**Mike Rodriguez - Individual Contributor**
+- Role: Software engineer
+- Needs: Personal task tracking, quick entry
+- Pain points: Context switching between tools
+```
+
+### 3. Writing & Output Preferences
+
+Set your documentation standards:
+
+```markdown
+# Writing Guidelines
+
+- Use active voice ("Create a task" not "A task can be created")
+- Include Oxford commas in lists
+- Write in second person ("you" not "the user")
+- Keep paragraphs under 4 sentences
+- Use markdown formatting (bold for emphasis, code blocks for UI)
+```
+
+### 4. Product Context
+
+Help Antigravity understand your tech and features:
+
+```markdown
+# Product Context
+
+**Tech Stack:**
+- Frontend: React, TypeScript
+- Backend: Node.js, PostgreSQL
+- Infrastructure: AWS, Docker
+
+**Key Features:**
+- Real-time collaboration
+- Custom workflows
+- Third-party integrations (Slack, GitHub, Figma)
+```
+
+## 🎯 When Rules Help
+
+### Perfect For
+
+- **Consistent terminology** - Always use "Workspace" not "Project"
+- **Persona-driven examples** - Reference Sarah, Mike, Alex in outputs
+- **Brand voice** - Match your company's writing style automatically
+- **Team conventions** - PRD structure, meeting note format, doc standards
+- **Product knowledge** - Tech stack, features, competitive positioning
+
+### When to Skip
+
+- **One-off projects** - Not worth setup time for temporary work
+- **Highly variable context** - When every task needs different context
+- **Personal experimentation** - When you're just testing Antigravity features
+
+**Rule of thumb:** If you'd put it in a new teammate's onboarding doc, put it in project rules.
+
+## 💡 Best Practices
+
+### Keep Rules Focused
+
+**❌ Too broad:**
+```markdown
+Make everything good and professional
+```
+
+**✅ Specific:**
+```markdown
+Use active voice and Oxford commas in all product documentation
+```
+
+### Update as Product Evolves
+
+- Add new features to terminology section
+- Update personas when target users change
+- Refine writing style based on team feedback
+
+### Use Multiple Files for Organization
+
+```
+.agent/rules/
+├── terminology.mdc       # Product vocabulary
+├── personas.mdc          # User profiles
+├── writing-style.mdc     # Documentation standards
+└── tech-context.mdc      # Stack and architecture
+```
+
+### Test Your Rules
+
+Create the same document twice (before/after adding rules) to verify rules improve output quality.
+
+## 🐛 Troubleshooting
+
+### "Rules aren't applying to my chat"
+**Fix:** Rules load at session start. Close and reopen the chat panel (Cmd+L) to reload with new rules.
+
+### "Antigravity ignores specific rules"
+**Fix:** Rules guide behavior but don't guarantee it. Be explicit in prompts: "Following our terminology rules, write..." If consistently ignored, make the rule more specific.
+
+### "Too many rules - outputs feel constrained"
+**Fix:** Rules should guide, not restrict. Keep to 1-2 pages max. Remove overly prescriptive rules that limit Antigravity's helpfulness.
+
+### "Can't find .agent folder"
+**Fix:** The folder is hidden by default. In file explorer, show hidden files or create manually: Right-click project root → New Folder → `.agent/rules/`
+
+## 📚 Resources
+
+**Official:**
+- [Antigravity Documentation](https://antigravity.google/docs) - Official docs and features
+- [Antigravity support - Rules Discussion](https://forum.antigravity.google) - Community examples and tips
+
+**Community:**
+- [Antigravity Support Forum](https://forum.antigravity.google) - Get help from other users
+
+## 🚀 What's Next?
+
+**Module 1.6 complete - and all of Module 1!**
+- ✅ Create project rules files
+- ✅ Set product terminology and personas
+- ✅ Define writing and output preferences
+- ✅ Understand when rules help vs when to skip
+
+**You've completed Module 1: Antigravity Fundamentals**
+
+You now know how to use Antigravity's core features:
+- Interface and navigation
+- @ mentions for context
+- File operations
+- Templates and workflows
+- Ask, Agent, and Plan modes
+- Project rules for persistent context
+
+**Next: Module 2.1 - Writing PRDs**
+
+Now you'll apply everything you've learned to real PM work. Start with writing Product Requirements Documents using Antigravity's multi-file synthesis.
+
+**[Go to Module 2.1 →](../pm-work/writing-prds)**

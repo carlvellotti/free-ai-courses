@@ -1,0 +1,193 @@
+---
+title: "1.2: Using Antigravity's Interface"
+description: "Learn Antigravity's AI-powered editor with Fast mode and Planning mode, plus file referencing with @ mentions"
+keywords: 'antigravity interface, editor view, fast mode, planning mode, @ mentions, file referencing'
+---
+
+# Module 1.2: Using Antigravity's Interface
+## Reference Guide
+
+- **Time to Complete:** 20-25 minutes
+- **Prerequisites:** Antigravity installed (Module 0.1)
+
+> **Start this module in Antigravity:** Run `/start-1-2` to begin the interactive lesson.
+
+## Overview
+
+Antigravity provides an AI-powered **Editor view** as your main interface for working with files. Within the editor, you can switch between **Fast mode** (quick back-and-forth) and **Planning mode** (complex multi-step tasks with upfront planning). Learn when to use each mode and how to reference files with @ mentions.
+
+**Key takeaway:** Fast mode for quick tasks, Planning mode for complex work requiring coordination across multiple files.
+
+## The Interface Layout
+
+Antigravity's workspace has three main areas:
+
+- **Left:** File explorer (Cmd/Ctrl+B to toggle)
+- **Middle:** Editor view (AI-powered editing interface where you work with Gemini)
+- **Right:** Context panel (file references, suggestions, and planning)
+
+You can also open a terminal at the bottom with Ctrl+` (backtick).
+
+## Editor View: Fast Mode vs Planning Mode
+
+### Editor View
+
+**What it does:** The main AI-powered interface where you work with Gemini to edit files, write code, and create documentation.
+
+**How it works:**
+- Opens in the main editor area
+- Shows diffs before applying changes
+- Can work with single or multiple files
+- Switches between Fast and Planning modes based on task complexity
+
+### Fast Mode
+
+**What it does:** Quick back-and-forth conversation for simple, straightforward tasks. Think of it as rapid iteration with immediate feedback.
+
+**When to use:**
+- Quick edits to existing content
+- Simple questions about code or files
+- Fixing typos or rephrasing text
+- Single-file changes
+- Exploring ideas before committing
+
+**How it works:**
+- Immediate responses without upfront planning
+- Best for tasks that can be completed in 1-3 steps
+- Minimal overhead - just ask and get results
+- Can reference files with @ mentions
+
+**Example tasks:**
+- "Fix the typo in this paragraph"
+- "Explain what this function does"
+- "Rephrase this section to be more concise"
+
+### Planning Mode
+
+**What it does:** For complex tasks requiring multi-step coordination. Gemini creates an upfront plan before executing, ensuring all aspects are considered.
+
+**When to use:**
+- Writing PRDs, specs, or documentation from scratch
+- Creating new features across multiple files
+- Complex refactoring or restructuring
+- Tasks requiring coordination between related files
+- When you need to ensure nothing is missed
+
+**How it works:**
+- Gemini first creates a detailed plan
+- You review and approve the plan
+- Execution follows the approved plan
+- Can edit multiple files in sequence
+- Best for substantial, coordinated work
+
+**Example tasks:**
+- "Create a PRD for a new notifications feature"
+- "Refactor the authentication system across all files"
+- "Build a complete API specification with examples"
+
+## Quick Comparison Table
+
+| Mode | Speed | Scope | Best For | Planning Step? |
+|----------|----------|-------|----------|--------------|
+| **Fast mode** | Immediate | Single/simple tasks | Quick edits, questions, exploration | No |
+| **Planning mode** | Upfront planning | Complex/multi-file | Creating, refactoring, coordinated work | Yes |
+
+## Referencing Files with @ Mentions
+
+There are three ways to give Gemini context about files:
+
+### 1. @ Mentions (Most Common)
+
+Type `@` in the editor input to bring up context options:
+
+- `@Files` - Reference specific files (e.g., `@PRD.md`)
+- `@Folders` - Reference entire folders (e.g., `@company-context`)
+- `@Web` - Search the web for context
+- `@Code` - Reference code symbols
+- `@Git` - Reference Git commits or branches
+
+**Example:** "Tell me about @COMPANY.md"
+
+### 2. Drag Files
+
+Click and drag files from the file explorer directly into the editor input box. Creates the same file reference as @ mentions.
+
+**When to use:** When you're already browsing files and prefer a visual approach.
+
+### 3. "Add to Chat" (Specific Text)
+
+Highlight text in the editor, then click "Add to Chat" button that appears. Use this for quoting specific sections, not entire files.
+
+**When to use:** Referencing user feedback quotes, specific excerpts, or particular paragraphs.
+
+## Markdown Preview & Editing
+
+**Preview Mode:** Press Cmd/Ctrl+Shift+V to toggle between raw Markdown and formatted preview.
+
+**WYSIWYG Editor (Optional):**
+1. Press Cmd/Ctrl+Shift+P → "Extensions: Install Extensions"
+2. Search for "Markdown Editor" by zaaack
+3. Install it
+4. Use Cmd/Ctrl+Shift+Alt/Opt+M to edit Markdown like Google Docs
+
+**Note:** WYSIWYG editor is optional - preview mode works fine for most PM work.
+
+## AI Model Selector
+
+Located at the bottom of the Editor view. Click the dropdown to switch between Gemini models.
+
+**Recommendation:** Use Gemini 3 Pro (High) for PM work. It's the best balance of quality and speed. Since Antigravity is free, you'll rarely hit any limits doing PRDs and documentation.
+
+## Mode Selection
+
+Antigravity intelligently suggests which mode to use based on your request, but you can manually switch:
+
+- **Fast mode indicator:** Lightning bolt icon
+- **Planning mode indicator:** Checklist icon
+- **Switch modes:** Click the mode indicator or use the mode selector in the editor
+
+## Keyboard Shortcuts
+
+| Action | Mac | Windows |
+|--------|-----|---------|
+| Open Editor | Cmd+E | Ctrl+E |
+| Toggle Fast/Planning | Cmd+Shift+M | Ctrl+Shift+M |
+| Toggle File Explorer | Cmd+B | Ctrl+B |
+| Markdown Preview | Cmd+Shift+V | Ctrl+Shift+V |
+| Command Palette | Cmd+Shift+P | Ctrl+Shift+P |
+| Open Terminal | Ctrl+` | Ctrl+` |
+
+## Troubleshooting
+
+### "I can't see the Editor view"
+**Fix:** Press Cmd/Ctrl+E to open the AI-powered editor.
+
+### "@ mentions aren't showing up"
+**Fix:** Make sure you're typing in the editor input box (not a regular file). Type `@` and wait a moment for the menu to appear.
+
+### "Markdown preview isn't working"
+**Fix:** Make sure you have a `.md` file open in the editor, then press Cmd/Ctrl+Shift+V. Only works with Markdown files.
+
+### "How do I know which mode I'm in?"
+**Fix:** Look for the mode indicator at the top of the Editor view - lightning bolt for Fast mode, checklist for Planning mode.
+
+## Resources
+
+**Official:**
+- [Antigravity](https://antigravity.google) - Official website
+- [Antigravity Docs](https://antigravity.google/docs) - Official documentation
+- [Antigravity support](https://forum.antigravity.google) - Community support and discussions
+
+## What's Next?
+
+**Module 1.2 complete:**
+- ✅ Understand the interface layout
+- ✅ Know when to use Fast mode vs Planning mode
+- ✅ Can reference files with @ mentions
+- ✅ Understand Markdown preview and editing
+
+**Next: Module 1.3 - First PM Task**
+
+You'll use these interface skills to complete your first real PM task at TaskFlow.
+
+**Ready?** Type `/start-1-3` in a new Editor view.

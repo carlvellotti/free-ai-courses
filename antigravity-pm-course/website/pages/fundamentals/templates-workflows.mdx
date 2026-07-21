@@ -1,0 +1,187 @@
+---
+title: "1.4: Templates & Workflows"
+description: "Use communication style templates to format the same information for different audiences - Slack updates, executive emails, and comprehensive docs"
+keywords: 'templates, communication styles, slack, email, notion, formatting, reusable workflows'
+---
+
+# Module 1.4: Templates & Workflows
+## Reference Guide
+
+- **Time to Complete:** 15-20 minutes
+- **Prerequisites:** Module 1.3 (File operations, @ mentions)
+
+> **Start this module in Antigravity:** Run `/start-1-4` to begin the interactive lesson.
+
+## 📖 Overview
+
+Create reusable communication style templates that format information consistently for different audiences every time.
+
+**Key takeaway:** Reference both content AND template files with @ mentions to transform the same information into audience-specific formats.
+
+## 🎯 What Are Communication Style Templates?
+
+Templates are pre-written formatting instructions stored as files. Instead of describing format each time, you reference the template file and get consistent output.
+
+**Without templates:**
+```
+Summarize these notes in a casual 2-3 line format with emoji
+```
+Result: Inconsistent formatting, have to re-explain every time
+
+**With templates:**
+```
+Summarize @notes.md using @style-slack-update.md
+```
+Result: Consistent format every time, refineable over time
+
+## 📝 Three Common PM Communication Styles
+
+### Slack Update Style
+- **Audience:** Team members, quick updates
+- **Format:** 2-3 lines, emoji-friendly, scannable
+- **Use when:** Daily standups, quick wins, team announcements
+
+### Executive Email Style
+- **Audience:** Leadership, stakeholders
+- **Format:** 3 strategic paragraphs (context, impact, next steps)
+- **Use when:** Weekly updates, decision requests, launch announcements
+
+### Notion Doc Style
+- **Audience:** Documentation, knowledge sharing
+- **Format:** Comprehensive with headers, bullet points, detailed sections
+- **Use when:** Feature specs, research findings, process documentation
+
+## 🔧 How to Use Templates
+
+### Pattern 1: Single Template Application
+
+Reference both source content and template:
+
+```
+Append a summary to @meeting-notes.md using the format from @style-executive-email.md
+```
+
+**What happens:**
+1. Antigravity reads both files
+2. Applies template formatting to content
+3. Shows proposed changes in Apply/Reject workflow
+4. Updates original file with formatted summary
+
+### Pattern 2: Multi-Format Transformation
+
+Transform content into multiple formats simultaneously:
+
+```
+Transform @research-findings.md into three formats using the templates in @communication-styles/
+```
+
+**What happens:**
+1. Antigravity reads source file and all templates in folder
+2. Creates separate output files for each format
+3. Same content, three different audience-appropriate formats
+4. Original file stays unchanged
+
+## 📋 Quick Reference: Template Use Cases
+
+| Task | Command Pattern | Output |
+|------|----------------|--------|
+| Format meeting summary | `Append summary to @notes.md using @style-slack.md` | Slack-formatted summary appended |
+| Create exec update | `Transform @notes.md using @style-executive.md` | New executive email file created |
+| Multi-audience sharing | `Transform @research.md using @styles/` | 3 files (Slack, Email, Notion) |
+| Update template | Edit template file directly | All future uses get improved format |
+
+## 🎯 TaskFlow Examples
+
+### Scenario 1: User Research Distribution
+
+You completed 5 user interviews about TaskFlow's onboarding flow. Share findings with three audiences:
+
+```
+Transform @user-research-findings.md into three formats using the templates in @communication-styles/
+```
+
+**Result:**
+- `slack-update.md` - Quick 3-line summary for #product-team channel
+- `executive-email.md` - Strategic brief for VP Product
+- `notion-doc.md` - Detailed findings for product wiki
+
+### Scenario 2: Feature Launch Update
+
+Dark mode shipped. Update the team with consistent formatting:
+
+```
+Append launch summary to @dark-mode-launch-notes.md using @style-slack-update.md
+```
+
+**Result:** Professional, consistent team update every time
+
+## 💡 When to Use Templates
+
+### Use Templates For:
+
+- **Repeated formats** - Weekly updates, standup notes, research summaries
+- **Multi-audience sharing** - Same content, different formats
+- **Consistency** - Want exact same structure every time
+- **Iterative refinement** - Improve template once, all future uses improve
+
+### Use Custom Prompts For:
+
+- **One-off requests** - Unusual format, specific context
+- **Exploratory work** - Not sure what format you need yet
+- **Highly variable content** - Content too different to template
+
+## 🔄 Building Your Template Library
+
+### Creating a New Template
+
+1. Write the format instructions once in a `.md` file
+2. Save in a templates folder (e.g., `communication-styles/`)
+3. Test with sample content using @ mention
+4. Refine template based on output
+5. Reuse forever
+
+### Refining Templates Over Time
+
+Every time you use a template:
+- Notice what works and what doesn't
+- Update template file with improvements
+- All future uses automatically get better formatting
+
+This is the PM superpower: build it once, improve it over time, reuse forever.
+
+## 🐛 Troubleshooting
+
+### "Antigravity didn't follow the template format"
+**Fix:** Check that your template file has clear, specific formatting instructions. Be explicit about structure (headers, bullet points, paragraph count).
+
+### "Multiple output files created in wrong location"
+**Fix:** Specify output location in your command: `Create files in @outputs/ folder using templates from @styles/`
+
+### "Template format is too rigid"
+**Fix:** Templates work best for consistent formats. For one-off variations, use custom prompts instead of forcing template flexibility.
+
+### "Can't find template file when using @ mention"
+**Fix:** Ensure template file is saved and in your workspace. Check file path - use `@folder/template.md` for nested files.
+
+## 📚 Resources
+
+**Official:**
+- [Antigravity Documentation](https://antigravity.google/docs) - Official feature docs
+- [Antigravity Guide](https://antigravity.google/docs/guide) - File references and @ mentions
+
+**Community:**
+- [Antigravity support](https://forum.antigravity.google) - Template strategies and examples
+
+## 🚀 What's Next?
+
+**Module 1.4 complete:**
+- ✅ Use templates for consistent formatting
+- ✅ Reference multiple files with @ mentions
+- ✅ Transform content into audience-specific formats
+- ✅ Build reusable communication workflows
+
+**Next: Module 1.5 - Ask, Agent, and Plan Modes**
+
+Learn Antigravity's three AI modes: when to use Ask for questions, Agent for file operations, and Plan for multi-step workflows.
+
+**[Go to Module 1.5 →](./modes)**

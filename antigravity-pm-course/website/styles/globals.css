@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800;900&display=swap');
+
+/* Google Sans - self-hosted */
+@font-face {
+  font-family: 'Google Sans';
+  src: url('/fonts/GoogleSans-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-sans: 'Google Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Google Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Google Blue #1a73e8 */
+  --nextra-primary-hue: 217deg;
+  --nextra-primary-saturation: 89%;
+  --nextra-primary-lightness: 51%;
+}
+
+/* Apply fonts */
+body {
+  font-family: var(--font-sans);
+}
+
+/* Make images span full width */
+.nextra-content img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* On mobile - break out of content padding to go edge-to-edge */
+@media (max-width: 768px) {
+  .nextra-content img {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+  }
+
+  /* Hide H1 on mobile - image already shows title */
+  .nextra-content h1 {
+    display: none !important;
+  }
+}
+
+/* Nextra headings */
+.nextra-content h1 {
+  font-family: var(--font-heading) !important;
+  font-weight: 900 !important;
+  line-height: 1.2 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+h1 {
+  line-height: 1.1;
+}
+
+h2 {
+  line-height: 1.2;
+}
+
+h3 {
+  line-height: 1.3;
+}
+
+/* Logo styling */
+.nx-logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+/* Sidebar titles */
+.nx-sidebar h2 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+/* Sidebar text */
+.nx-sidebar {
+  font-family: var(--font-heading);
+}
+
+/* Increase sidebar width */
+aside.nextra-sidebar-container {
+  width: 320px !important;
+  max-width: 320px !important;
+}
+
+nav.nextra-sidebar {
+  width: 320px !important;
+}
+
+/* Code blocks stay monospace */
+code, pre {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* Make inline code bold */
+code {
+  font-weight: 800;
+}
+
+/* Make bold text extra bold */
+strong {
+  font-weight: 900;
+}
+
+/* Dark mode - use Nextra defaults */
+
+/* Tighten list spacing - reduce space above lists */
+.nextra-content ul,
+.nextra-content ol {
+  margin-top: 0.5rem !important;
+}
+
+/* Reduce space between paragraph and following list */
+.nextra-content p:has(+ ul),
+.nextra-content p:has(+ ol) {
+  margin-bottom: 0.5rem !important;
+}
+
+.nextra-content ul > li,
+.nextra-content ol > li {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Color scheme - Google Blue (#1a73e8) + Google Green (#34a853) */
+
+/* Light mode - slightly darker blue for contrast */
+.nextra-content code:not(pre code) {
+  background-color: rgba(26, 115, 232, 0.1);
+  border: 1px solid rgba(26, 115, 232, 0.3);
+  color: #1557b0;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+.nextra-content ul > li::marker {
+  color: #1e8e3e;
+}
+
+.nextra-content ol > li::marker {
+  color: #1e8e3e;
+}
+
+.nextra-content a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.nextra-content a:hover {
+  color: #1e8e3e;
+}
+
+/* Sidebar and breadcrumb links - light mode (need !important to override Tailwind) */
+.nextra-sidebar a,
+aside a,
+.nextra-breadcrumb a {
+  color: #1557b0 !important;
+}
+
+.nextra-sidebar a:hover,
+aside a:hover,
+.nextra-breadcrumb a:hover {
+  color: #1e8e3e !important;
+}
+
+/* Active sidebar item box - light mode (exact class match only) */
+aside a._bg-primary-100 {
+  background-color: rgba(26, 115, 232, 0.15) !important;
+}
+
+/* Hover must be more specific to override */
+aside a._bg-primary-100:hover {
+  color: #1e8e3e !important;
+}
+
+/* Light mode copy button */
+button[title="Copy code"] {
+  background-color: #1e8e3e !important;
+  color: white !important;
+  border-radius: 6px !important;
+  padding: 6px 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+button[title="Copy code"]:hover {
+  background-color: #188038 !important;
+  transform: scale(1.05) !important;
+}
+
+button[title="Copied"] {
+  background-color: #1a73e8 !important;
+}
+
+/* Dark mode overrides */
+.dark {
+  --nextra-primary-hue: 217deg;
+  --nextra-primary-saturation: 89%;
+  --nextra-primary-lightness: 51%;
+}
+
+/* Dark mode background - Antigravity Woodsmoke #121317 */
+.dark body,
+.dark .nextra-nav-container,
+.dark aside,
+.dark .nextra-sidebar-footer {
+  background-color: #121317 !important;
+}
+
+.dark .nextra-sidebar-footer {
+  box-shadow: none !important;
+}
+
+/* Remove shadow on TOC (right side) footer */
+.dark .nextra-toc-footer {
+  box-shadow: none !important;
+  border-top: none !important;
+  background-color: #121317 !important;
+}
+
+.dark main {
+  background-color: #121317 !important;
+}
+
+.dark .nextra-content code:not(pre code) {
+  background-color: rgba(26, 115, 232, 0.1);
+  border: 1px solid rgba(26, 115, 232, 0.3);
+  color: #1a73e8;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+.dark .nextra-content ul > li::marker {
+  color: #34a853;
+}
+
+.dark .nextra-content ol > li::marker {
+  color: #34a853;
+}
+
+.dark .nextra-content a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.dark .nextra-content a:hover {
+  color: #34a853;
+}
+
+/* Sidebar and breadcrumb links - dark mode */
+.dark .nextra-sidebar a,
+.dark aside a,
+.dark .nextra-breadcrumb a {
+  color: #1a73e8 !important;
+}
+
+.dark .nextra-sidebar a:hover,
+.dark aside a:hover,
+.dark .nextra-breadcrumb a:hover {
+  color: #34a853 !important;
+}
+
+/* Active sidebar item box - dark mode (exact class match only) */
+.dark aside a._bg-primary-100 {
+  background-color: rgba(26, 115, 232, 0.2) !important;
+}
+
+/* Hover must be more specific to override */
+.dark aside a._bg-primary-100:hover {
+  color: #34a853 !important;
+}
+
+/* Code block improvements */
+/* Always show copy button container (not just on hover) */
+.nextra-code > div {
+  opacity: 1 !important;
+}
+
+/* Style copy button with Google Green */
+.dark button[title="Copy code"] {
+  background-color: #34a853 !important;
+  color: white !important;
+  border-radius: 6px !important;
+  padding: 6px 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.dark button[title="Copy code"]:hover {
+  background-color: #2d9248 !important;
+  transform: scale(1.05) !important;
+}
+
+/* Copied state */
+.dark button[title="Copied"] {
+  background-color: #1a73e8 !important;
+}
+
+/* Enable word-wrap for long lines in code blocks */
+pre code {
+  white-space: pre-wrap !important;
+  word-break: break-all !important;
+}
