@@ -217,7 +217,7 @@ In the next lesson, you'll run `/gsd:new-project`. Here's what to expect:
 - GSD clarifies features, tech preferences, scope
 
 **The Research Phase (~5-10 minutes)**
-- GSD spawns up to 3 research subagents in parallel:
+- GSD spawns a team of research subagents in parallel:
   - **Stack researcher** - best tech choices
   - **Features researcher** - common patterns and must-haves
   - **Architecture researcher** - how to structure the code
