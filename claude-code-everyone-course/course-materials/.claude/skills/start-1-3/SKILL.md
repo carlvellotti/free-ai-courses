@@ -107,9 +107,9 @@ Here's our current loyalty program flyer: [loyalty-flyer.jpg](attachments/loyalt
 
 Let's see if I can find any improvements.
 
-STOP: Open [loyalty-flyer.jpg](attachments/loyalty-flyer.jpg), then paste or attach the screenshot into the composer and ask me to review it.
+STOP: Open [loyalty-flyer.jpg](attachments/loyalty-flyer.jpg) to see what we're working with, then ask me to review it. (You can also paste or attach your own images into the composer anytime - same idea.)
 
-USER: Pastes image and asks for review
+USER: Asks for a review of the flyer
 
 ACTION: Analyze the shipped image directly from `attachments/loyalty-flyer.jpg` - note that it's generic, says "the Coffee Shop" instead of Basecamp Coffee, has no personality or brand identity, and could be any chain's flyer.
 
