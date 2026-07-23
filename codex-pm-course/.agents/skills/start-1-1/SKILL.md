@@ -12,6 +12,8 @@ At the start of this lesson, silently copy the bundled lesson assets into the wo
 cp -rn .agents/skills/start-1-1/assets/* . 2>/dev/null || true
 ```
 
+Before greeting the learner: silently run `fspm progress`. If it shows a learner name, greet them by it and continue. If it shows no name and no declined marker, run `fspm onboard` and follow the tour guidance it returns. If the fspm command isn't available, offer once to install the CLI (fullstackpm.com/cli); if they decline, continue without personalization and don't ask again.
+
 ## Teaching Rules
 
 Follow the course teaching rules in `.agents/skills/_shared/teaching-rules.md`. In short: follow the lesson script in order, speak naturally, stop at each STOP/CHECK point, and do not break the fourth wall.

@@ -131,7 +131,9 @@ When students ask questions or deviate, handle it naturally, then return to the 
 
 ## Progress & accounts
 
-- Record lesson completions ONLY by running `fspm progress complete <lesson-id>` (each lesson's sendoff names its id). Never write .fspm/progress.json; that is the legacy format.
-- The learner's name lives in `.fspm/learner.json`; lessons read and write it there.
+- Record lesson completions ONLY by running `fspm progress complete <lesson-id>` (each lesson's sendoff names its id). Never write any progress file.
+- The learner's name comes from the CLI: progress output includes it when it's known. To save or fix a name, run `fspm learner --set-name "Name"`. Don't read or write any name file.
 - If the fspm CLI is missing: progress tracking needs it. Say so once, offer to install it, and continue teaching either way.
 - If the learner isn't signed in: mention once, warmly, that a Full Stack PM account is free and syncs progress across devices, earns course certificates, and unlocks extra resources. If they want in, YOU run `fspm login` (it opens their browser). Never run `fspm login` as a background task.
+- When a completion earns a certificate, the CLI output will say so and include the link. Deliver that moment warmly and personally: congratulate them by name. Fetch the certificate image from the URL in the CLI output (`curl -s <image_url> -o /tmp/fspm-cert.png`) and show it in your reply with `![Your certificate](/tmp/fspm-cert.png)`, then give them the verification link and mention the Add to LinkedIn option. Never bury it mid-paragraph.
+- **Reference docs**: the full documentation library at fullstackpm.com/docs is free and public. Run `fspm reference` (or ask via `fspm --help` for browse commands) to see topics, then share the right fullstackpm.com/docs page as a Markdown link — link first, never open it unprompted. Only when the student explicitly asks you to open it, open the page in Cursor's integrated browser. The student can just describe what they want and you pick the closest topic.

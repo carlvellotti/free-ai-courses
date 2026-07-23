@@ -21,6 +21,8 @@ cp -rn ".claude/skills/start-ross-mike-workflows/assets/." "ross-mike-workflows/
 printf '[ross-mike-workflows/my-plan.md](ross-mike-workflows/my-plan.md)\n'
 ```
 
+ACTION: Before greeting the learner: silently run `fspm progress`. If it shows a learner name, greet them by it and continue. If it shows no name and no declined marker, run `fspm onboard` and follow the tour guidance it returns. If the fspm command isn't available, offer once to install the CLI (fullstackpm.com/cli); if they decline, continue without personalization and don't ask again.
+
 This lesson teaches the planning techniques from Ross Mike's "Claude Code Clearly Explained" video with Greg Isenberg.
 
 ---

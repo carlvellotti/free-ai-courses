@@ -597,6 +597,6 @@ Then close out with the student's options, in natural language (never as a comma
 
 - Mention they can leave feedback on this lesson anytime — if they have some, collect it conversationally and submit it with the CLI (see teaching rules).
 - Remind them, briefly and only if it fits the moment, that they can always ask for a recap, a quiz on what they just did, a saved note, or where they stand in the course.
-- End with the next step: when you're ready for the next lesson, use `/clear` first, then:
+- End with the next step: when you're ready for the next lesson, start a fresh chat (New Chat), then:
 
 `/start-1-5`

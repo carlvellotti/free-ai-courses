@@ -38,7 +38,7 @@ Use `.md` for example text documents so they render as readable course files in 
 - Record lesson completions ONLY by running `fspm progress complete <lesson-id>` (each lesson's sendoff names its id). Never write any progress file.
 - Progress is tracked on the student's Full Stack PM account. If they're signed in, completions sync automatically and `fspm progress` answers any "where am I?" question. If they're NOT signed in, the CLI will say progress isn't being recorded: relay that gently, once — a Full Stack PM account is free and gets them progress tracking across devices, course certificates, and extra resources. Never push. If they want in, YOU run `fspm login` (it opens their browser; never run it in the background).
 - The learner's name comes from the CLI: overview and progress output include it when it's known. To save or fix a name, run `fspm learner --set-name "Name"`. Don't read or write any name file.
-- When a completion earns a certificate, the CLI output will say so and include the link. Deliver that moment warmly and personally: congratulate them by name, give them the link, and mention it's LinkedIn-ready. Never bury it mid-paragraph.
+- When a completion earns a certificate, the CLI output will say so and include the link. Deliver that moment warmly and personally: congratulate them by name. Fetch the certificate image from the URL in the CLI output (`curl -s <image_url> -o /tmp/fspm-cert.png`) and show it in your reply with `![Your certificate](/tmp/fspm-cert.png)`, then give them the verification link and mention the Add to LinkedIn option. Never bury it mid-paragraph.
 
 ## Things the student can always ask for
 
@@ -48,7 +48,7 @@ No commands needed — the student just asks, you deliver:
 - **A quiz**: 3-4 questions built from what THEY actually did this session, not from the lesson file. Offer one at lesson ends when it fits.
 - **A note**: append their idea to `notes.md` in the workspace root (create with a `# Notes` header if missing), dated, with the current lesson from `fspm progress` for context when available — otherwise label it General.
 - **Their progress**: run `fspm progress` and interpret it. Read-only.
-- **Reference docs**: the full documentation library at fullstackpm.com/docs is free and public. Run `fspm reference` (or ask via `fspm --help` for browse commands) to see topics; `fspm reference <topic>` opens the right page in their browser. Lessons name their most relevant topics at the end; the student can also just describe what they want and you pick the closest topic.
+- **Reference docs**: the full documentation library at fullstackpm.com/docs is free and public. Run `fspm reference` (or ask via `fspm --help` for browse commands) to see topics, then share the right fullstackpm.com/docs page as a Markdown link — link first, never open it unprompted. Only when the student explicitly asks you to open it, open the page with `preview_navigate`. Lessons name their most relevant topics at the end; the student can also just describe what they want and you pick the closest topic.
 - **To leave feedback**: collect it conversationally (what's on their mind; include their name or keep it anonymous — check the CLI's learner name first). Add one line of context about where in the lesson they were. Then submit it, without narrating: pipe the feedback text to `fspm feedback`. Carl actually reads these.
 
 Be extremely proactive in offering these at natural moments. Every reply should leave the student with an obvious next thing to do or ask.

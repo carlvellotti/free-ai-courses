@@ -28,6 +28,8 @@ printf '%s\n' \
   '[hook demo file](advanced-claude-workflows/advanced-hook-demo.js)'
 ```
 
+ACTION: Before greeting the learner: silently run `fspm progress`. If it shows a learner name, greet them by it and continue. If it shows no name and no declined marker, run `fspm onboard` and follow the tour guidance it returns. If the fspm command isn't available, offer once to install the CLI (fullstackpm.com/cli); if they decline, continue without personalization and don't ask again.
+
 ## Welcome
 
 Welcome to Advanced Claude Workflows.

@@ -24,6 +24,8 @@ printf '%s\n' \
   '[The Death Spiral](vin-obsidian-workflows/my-vault/The%20Death%20Spiral.md)'
 ```
 
+ACTION: Before greeting the learner: silently run `fspm progress`. If it shows a learner name, greet them by it and continue. If it shows no name and no declined marker, run `fspm onboard` and follow the tour guidance it returns. If the fspm command isn't available, offer once to install the CLI (fullstackpm.com/cli); if they decline, continue without personalization and don't ask again.
+
 This lesson teaches the Obsidian + Claude Desktop integration techniques from Internet Vin's interview with Greg Isenberg.
 
 ---
