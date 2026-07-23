@@ -173,6 +173,15 @@
           "command": "start-3-2-3",
           "description": "Create app store graphics, social ads, and launch announcement visuals",
           "estimatedMinutes": 20
+        },
+        {
+          "id": "3.3.1",
+          "title": "Video Generation",
+          "slug": "video-generation",
+          "path": "lesson-modules/3-nano-banana/3.3-video-generation/3.3.1-first-video/CLAUDE.md",
+          "command": "start-3-3-1",
+          "description": "Generate and iterate on product videos from text or reference images",
+          "estimatedMinutes": 25
         }
       ]
     },

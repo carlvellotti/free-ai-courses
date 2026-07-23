@@ -1,0 +1,125 @@
+---
+title: "3.3.1: Video Generation"
+description: "Create and iterate on product videos from text prompts or reference images with Claude Code"
+keywords: "video generation, text to video, image to video, product video, claude code"
+---
+
+## 3.3.1: Video Generation
+
+- **Time to Complete:** 25 minutes
+- **Prerequisites:** Nano Banana setup and a configured video API key
+
+> **Start this module in Claude Code:** Run `/start-3-3-1` to begin the interactive experience.
+
+## Overview
+
+This module adds a practical video workflow to the visual generation toolkit. You will create a short product clip from text, optionally animate a reference image, and iterate on the result.
+
+**Key takeaway:** Video generation is asynchronous. A reliable workflow creates a task, polls its status, retrieves the completed file, and saves the result so you can review it before deciding what to change.
+
+## Configure the Helper
+
+The course includes `video_gen.py` in the Nano Banana module folder. Copy the example environment file to `.env` and fill in the values for your account:
+
+```bash
+MINIMAX_API_KEY=your_api_key_here
+MINIMAX_REGION=global_en
+MINIMAX_VIDEO_MODEL=your_video_model_here
+```
+
+The helper supports both configured regions:
+
+| Region | OpenAI-compatible base | Anthropic-compatible base |
+|---|---|---|
+| `global_en` | `https://api.minimax.io/v1` | `https://api.minimax.io/anthropic` |
+| `cn_zh` | `https://api.minimaxi.com/v1` | `https://api.minimaxi.com/anthropic` |
+
+The native video requests use the selected OpenAI-compatible base as their root and append the documented paths. The Anthropic-compatible values remain available for compatible text clients and are kept with the same region configuration.
+
+## Text-to-Video
+
+Ask Claude Code for a concise product moment rather than a full production. Include:
+
+- The subject and starting state
+- The action that should happen
+- Camera movement or framing
+- Lighting and mood
+- Duration and resolution
+
+The helper sends a task to `/v1/video_generation`, polls `/v1/query/video_generation`, retrieves the file through `/v1/files/retrieve`, and saves the resulting `.mp4` in `outputs/`.
+
+Example call:
+
+```python
+from video_gen import generate
+
+output_path = generate(
+    prompt="A product manager opens a clear mobile task board and assigns the next task to the team, gentle push-in camera movement, bright office light",
+    model="your_video_model_here",
+    duration=6,
+    resolution="768P",
+    region="global_en",
+)
+print(output_path)
+```
+
+The function waits for completion and returns the local path. Open that file in a video player before requesting changes.
+
+## Image-to-Video
+
+Use `first_frame_image` when you already have a product visual or storyboard frame:
+
+```python
+output_path = generate(
+    prompt="The interface gently animates as the user completes the highlighted task, steady camera, preserve the original layout",
+    model="your_video_model_here",
+    first_frame_image="outputs/taskflow_dashboard.png",
+    duration=6,
+    region="global_en",
+)
+```
+
+Reference images must be JPG, JPEG, PNG, or WebP files smaller than 20 MB. A public image URL or a supported data URL can also be passed directly.
+
+## Iteration Checklist
+
+Review each draft for:
+
+1. **Continuity:** Does the subject remain recognizable from start to finish?
+2. **Motion:** Does the camera or subject movement support the product message?
+3. **Framing:** Is the important interface or action visible throughout the clip?
+4. **Ending:** Does the final frame leave enough room for a caption or call to action?
+
+Change one variable at a time. Short drafts are easier to compare than a single long generation that tries to cover every scene.
+
+## Product Manager Use Cases
+
+- Prototype a feature walkthrough before engineering work begins
+- Animate a launch visual for a stakeholder review
+- Turn a persona or storyboard frame into a lightweight concept clip
+- Test different camera directions for a marketing brief
+- Create a short before-and-after concept for a product pitch
+
+## Troubleshooting
+
+### The helper cannot find an API key
+
+Confirm that the `.env` file is in the Nano Banana module folder and contains `MINIMAX_API_KEY`.
+
+### The region configuration is rejected
+
+Use `global_en` or `cn_zh` for `MINIMAX_REGION`. Make sure the selected OpenAI-compatible base ends in `/v1` and the selected Anthropic-compatible base ends in `/anthropic`.
+
+### The task keeps processing
+
+Video generation is asynchronous and can take longer than an image request. The helper waits up to its configured timeout and raises an error instead of returning an incomplete file.
+
+### The reference image is rejected
+
+Use a JPG, JPEG, PNG, or WebP image smaller than 20 MB with a suitable aspect ratio and a short edge above 300 pixels.
+
+## Resources
+
+- [MiniMax global documentation](https://platform.minimax.io/docs)
+- [MiniMax China documentation](https://platform.minimaxi.com/docs)
+- [Course materials](https://github.com/carlvellotti/claude-code-pm-course)
