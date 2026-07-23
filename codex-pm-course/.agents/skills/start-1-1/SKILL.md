@@ -290,6 +290,14 @@ fspm progress complete codex-pms-1-1
 
 If it fails because the fspm CLI isn't installed, follow the teaching rules' missing-CLI guidance: tell the learner progress tracking needs the FSPM CLI, offer to install it, and continue the wrap-up either way.
 
+Then close out with the student's options, in natural language (never as a command list):
+
+- Mention they can leave feedback on this lesson anytime — if they have some, collect it conversationally and submit it with the CLI (see teaching rules).
+- Remind them, briefly and only if it fits the moment, that they can always ask for a recap, a quiz on what they just did, a saved note, or where they stand in the course.
+- End with the next step: when you're ready for the next lesson, type:
+
+`/start 1 2`
+
 ---
 
 ## Important Notes for Codex (You)
@@ -332,7 +340,7 @@ If it fails because the fspm CLI isn't installed, follow the teaching rules' mis
 A: "Nope! You already have Codex installed (that's how you're talking to me). Everything else is already set up in this course repository."
 
 **Q: "What if I don't understand something?"**
-A: "Ask me! I'm here to help. You can also check the reference guides in the `/reference` folder - they have detailed explanations and examples."
+A: "Ask me! I'm here to help. You can also ask me to open the reference docs - they have detailed explanations and examples."
 
 **Q: "Can I skip modules?"**
 A: "You can, but I don't recommend it. Each module builds on previous ones. If you skip Module 1.3, you might be confused in Module 1.4."

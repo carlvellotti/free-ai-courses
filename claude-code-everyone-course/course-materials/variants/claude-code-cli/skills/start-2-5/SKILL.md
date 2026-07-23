@@ -274,4 +274,8 @@ fspm progress complete cc-everyone-2-5
 
 If it fails because the fspm CLI isn't installed, follow the teaching rules' missing-CLI guidance: tell the learner progress tracking needs the FSPM CLI, offer to install it, and continue the wrap-up either way.
 
-**Next:** Choose your next course or project.
+Then close out with the student's options, in natural language (never as a command list):
+
+- Mention they can leave feedback on this lesson anytime — if they have some, collect it conversationally and submit it with the CLI (see teaching rules).
+- Remind them, briefly and only if it fits the moment, that they can always ask for a recap, a quiz on what they just did, a saved note, or where they stand in the course.
+- End with the next step: this wraps the module. Ask me what to take on next and I'll lay out what's open to you.
