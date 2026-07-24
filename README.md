@@ -13,12 +13,12 @@ All of it is free.
 Open your AI app, start a new project, and paste this:
 
 ```
-Help me install fullstackpm.com/cli and start Claude Code for Product Managers
+Help me install fullstackpm.com/cli and help me get started
 ```
 
-(Swap in any course name from the list below.)
+(Already know which course you want? Say `and start Cursor for Product Managers` instead — any name from the list below works.)
 
-Your AI installs the Full Stack PM app, pulls in the course, and starts teaching. In Claude Desktop, paste it into the **Code** tab. In Cursor or Codex, paste it into the chat.
+Your AI installs the Full Stack PM app, shows you what's available, and starts teaching. In Claude Desktop, paste it into the **Code** tab. In Cursor or Codex, paste it into the chat.
 
 ## The courses
 
