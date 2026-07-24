@@ -1,6 +1,6 @@
 # GitHub Releases Distribution Plan
 
-> **Superseded (2026-07):** Course delivery moved to the FSPM CLI (`fspm get claude-code-for-pms` from the fullstackpm.com catalog). GitHub Releases are no longer the distribution mechanism. This document is kept for historical reference only - do not implement from it.
+> **Superseded (2026-07):** Course delivery moved to the FSPM CLI (fullstackpm.com catalog). GitHub Releases are no longer the distribution mechanism. This document is kept for historical reference only - do not implement from it.
 
 ## Executive Summary
 

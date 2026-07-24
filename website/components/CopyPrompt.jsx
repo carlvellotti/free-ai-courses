@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 export const COURSE_PROMPT =
-  'Install the FSPM CLI from fullstackpm.com/cli and get claude-code-for-pms, then tell me how to begin.'
+  'Help me install fullstackpm.com/cli and start Claude Code for Product Managers'
 
 // Renders the one-prompt start block. The copy button carries a data attribute
 // that DownloadGate intercepts (email gate before the prompt is copied).

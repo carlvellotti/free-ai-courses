@@ -1,20 +1,20 @@
 # Test Commands
 
-> **Superseded (2026-07):** The course is now delivered by the FSPM CLI (`fspm get claude-code-for-pms`), not GitHub release zips. Test the current flow below. The old zip flow is kept at the bottom until the release assets are retired.
+> **Superseded (2026-07):** The course is now delivered by the FSPM CLI, not GitHub release zips. Test the current flow below. The old zip flow is kept at the bottom until the release assets are retired.
 
 ## Test the FSPM Flow
 
-**Claude Desktop app:** start a new project and paste:
+The student paste prompt lives in one place: the `COURSE_PROMPT` constant in `website/components/CopyPrompt.jsx`. Use that exact string below.
 
-```
-Install the FSPM CLI from fullstackpm.com/cli and get claude-code-for-pms, then tell me how to begin.
-```
+**Claude Desktop app:** start a new project and paste the student prompt.
 
-**Claude Code CLI:**
+**Claude Code CLI:** run the same prompt from a scratch folder:
 
 ```bash
-mkdir -p ~/Documents/fspm-test && cd ~/Documents/fspm-test && claude "Install the FSPM CLI from fullstackpm.com/cli and get claude-code-for-pms, then tell me how to begin."
+mkdir -p ~/Documents/fspm-test && cd ~/Documents/fspm-test && claude
 ```
+
+(then paste the student prompt)
 
 ## Test Slash Commands
 
