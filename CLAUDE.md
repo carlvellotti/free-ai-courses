@@ -84,6 +84,8 @@ This is an interactive course repository. The user (or students) will guide what
 
 ### Release Management Workflow
 
+> **Superseded (2026-07):** Course delivery moved to the FSPM CLI (fullstackpm.com catalog). GitHub release zips are no longer how students get the course - do not create new releases from this workflow. Content updates ship through FSPM packaging instead. The steps below are kept for historical reference until the release assets are retired.
+
 **When You Update Course Content:**
 
 1. **Make your changes** to files in course-materials/
