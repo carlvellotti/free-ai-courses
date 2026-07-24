@@ -13,10 +13,10 @@ All of it is free.
 Open your AI app, start a new project, and paste this:
 
 ```
-Help me install fullstackpm.com/cli and help me get started
+Fetch fullstackpm.com/cli and help me get started
 ```
 
-(Already know which course you want? Say `and start Cursor for Product Managers` instead — any name from the list below works.)
+(Already know which course you want? Say `and help me start Cursor for Product Managers` instead — any name from the list below works.)
 
 Your AI installs the Full Stack PM app, shows you what's available, and starts teaching. In Claude Desktop, paste it into the **Code** tab. In Cursor or Codex, paste it into the chat.
 
@@ -39,7 +39,7 @@ Plus the **Short Stacks** — free mini-courses you can finish in a sitting:
 - **Ross & Mike Workflows** — real PM workflows from the field
 - **Vin's Obsidian Workflows** — Claude + Obsidian for notes and knowledge
 
-Same pattern for any of them: `Help me install fullstackpm.com/cli and start GSD Framework`
+Same pattern for any of them: `Fetch fullstackpm.com/cli and help me start GSD Framework`
 
 ## For AI agents
 
