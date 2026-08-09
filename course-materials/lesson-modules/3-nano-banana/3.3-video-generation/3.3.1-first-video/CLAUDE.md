@@ -19,7 +19,7 @@ Before the first generation, make sure the `.env` file in this module's parent f
 ```bash
 MINIMAX_API_KEY=your_api_key_here
 MINIMAX_REGION=global_en
-MINIMAX_VIDEO_MODEL=your_video_model_here
+MINIMAX_VIDEO_MODEL=MiniMax-H3
 ```
 
 Use `MINIMAX_REGION=cn_zh` when the domestic endpoint is the right choice for your account. The helper keeps both region configurations available and uses the selected region for task creation, status polling, and file retrieval.
@@ -42,7 +42,8 @@ ACTION: Use `video_gen.py` to call `generate()` with:
 - The user's prompt
 - The configured `MINIMAX_VIDEO_MODEL`
 - `duration=6`
-- `resolution="768P"` unless the user requests another supported value
+- `resolution="2K"`
+- A concrete aspect ratio such as `ratio="16:9"` for text-to-video
 - The configured `MINIMAX_REGION`
 - An output path inside the `outputs/` folder
 
@@ -73,7 +74,7 @@ ACTION: Call `generate()` with:
 - A prompt describing the motion and camera behavior
 - The configured model, region, duration, and resolution
 
-ACTION: If the image is not available or does not meet the API's image requirements, explain the problem and ask for a supported JPG, JPEG, PNG, or WebP image smaller than 20 MB.
+ACTION: If the image is not available or does not meet the API's image requirements, explain the problem and ask for a supported JPG, JPEG, PNG, WebP, HEIC, or HEIF image no larger than 30 MB.
 
 ACTION: Provide the absolute path to the generated video.
 
@@ -90,7 +91,7 @@ ACTION: If changes are requested, revise only the motion, timing, or camera dire
 For real product work, use this sequence:
 
 1. **Storyboard:** Write the start state, key action, and end state before generating.
-2. **Draft:** Use a short duration and a lower resolution to test the idea quickly.
+2. **Draft:** Use a short duration to test the idea quickly.
 3. **Review:** Check continuity, motion, framing, and whether the product value is obvious without narration.
 4. **Iterate:** Change one creative variable at a time.
 5. **Share:** Keep the strongest `.mp4` with a descriptive filename in `outputs/`.

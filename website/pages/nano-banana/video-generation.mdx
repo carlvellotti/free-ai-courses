@@ -24,17 +24,17 @@ The course includes `video_gen.py` in the Nano Banana module folder. Copy the ex
 ```bash
 MINIMAX_API_KEY=your_api_key_here
 MINIMAX_REGION=global_en
-MINIMAX_VIDEO_MODEL=your_video_model_here
+MINIMAX_VIDEO_MODEL=MiniMax-H3
 ```
 
 The helper supports both configured regions:
 
-| Region | OpenAI-compatible base | Anthropic-compatible base |
-|---|---|---|
-| `global_en` | `https://api.minimax.io/v1` | `https://api.minimax.io/anthropic` |
-| `cn_zh` | `https://api.minimaxi.com/v1` | `https://api.minimaxi.com/anthropic` |
+| Region | Video API base |
+|---|---|
+| `global_en` | `https://api.minimax.io` |
+| `cn_zh` | `https://api.minimaxi.com` |
 
-The native video requests use the selected OpenAI-compatible base as their root and append the documented paths. The Anthropic-compatible values remain available for compatible text clients and are kept with the same region configuration.
+The helper uses the selected regional base for task creation, status polling, and video downloads.
 
 ## Text-to-Video
 
@@ -46,7 +46,7 @@ Ask Claude Code for a concise product moment rather than a full production. Incl
 - Lighting and mood
 - Duration and resolution
 
-The helper sends a task to `/v1/video_generation`, polls `/v1/query/video_generation`, retrieves the file through `/v1/files/retrieve`, and saves the resulting `.mp4` in `outputs/`.
+With the default `MiniMax-H3` model, the helper sends a task to `/v2/video_generation`, polls `/v2/query/video_generation/{task_id}`, downloads the returned video URL, and saves the resulting `.mp4` in `outputs/`.
 
 Example call:
 
@@ -55,9 +55,10 @@ from video_gen import generate
 
 output_path = generate(
     prompt="A product manager opens a clear mobile task board and assigns the next task to the team, gentle push-in camera movement, bright office light",
-    model="your_video_model_here",
+    model="MiniMax-H3",
     duration=6,
-    resolution="768P",
+    resolution="2K",
+    ratio="16:9",
     region="global_en",
 )
 print(output_path)
@@ -72,14 +73,14 @@ Use `first_frame_image` when you already have a product visual or storyboard fra
 ```python
 output_path = generate(
     prompt="The interface gently animates as the user completes the highlighted task, steady camera, preserve the original layout",
-    model="your_video_model_here",
+    model="MiniMax-H3",
     first_frame_image="outputs/taskflow_dashboard.png",
     duration=6,
     region="global_en",
 )
 ```
 
-Reference images must be JPG, JPEG, PNG, or WebP files smaller than 20 MB. A public image URL or a supported data URL can also be passed directly.
+Reference images must be JPG, JPEG, PNG, WebP, HEIC, or HEIF files no larger than 30 MB. A public image URL or a supported data URL can also be passed directly.
 
 ## Iteration Checklist
 
@@ -108,7 +109,7 @@ Confirm that the `.env` file is in the Nano Banana module folder and contains `M
 
 ### The region configuration is rejected
 
-Use `global_en` or `cn_zh` for `MINIMAX_REGION`. Make sure the selected OpenAI-compatible base ends in `/v1` and the selected Anthropic-compatible base ends in `/anthropic`.
+Use `global_en` or `cn_zh` for `MINIMAX_REGION`. Make sure the selected video API base is configured for that region.
 
 ### The task keeps processing
 
@@ -116,7 +117,7 @@ Video generation is asynchronous and can take longer than an image request. The 
 
 ### The reference image is rejected
 
-Use a JPG, JPEG, PNG, or WebP image smaller than 20 MB with a suitable aspect ratio and a short edge above 300 pixels.
+Use a JPG, JPEG, PNG, WebP, HEIC, or HEIF image no larger than 30 MB with a supported aspect ratio and dimensions.
 
 ## Resources
 

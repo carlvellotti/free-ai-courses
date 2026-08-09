@@ -34,7 +34,18 @@ class CaptureHandler(BaseHTTPRequestHandler):
         parsed = urlparse(self.path)
         self.requests.append((self.command, self.path, None))
         query = parse_qs(parsed.query)
-        if parsed.path == "/v1/query/video_generation":
+        if parsed.path == "/v2/query/video_generation/task-123":
+            host, port = self.server.server_address
+            self._write_json(
+                {
+                    "task": {
+                        "id": "task-123",
+                        "status": "succeeded",
+                        "content": {"url": f"http://{host}:{port}/video.mp4"},
+                    }
+                }
+            )
+        elif parsed.path == "/v1/query/video_generation":
             self._write_json({"task_id": query["task_id"][0], "status": "Success", "file_id": "file-123"})
         elif parsed.path == "/v1/files/retrieve":
             host, port = self.server.server_address
@@ -68,15 +79,13 @@ class VideoGenerationTest(unittest.TestCase):
                 {
                     "MINIMAX_API_KEY": "test-key",
                     "MINIMAX_REGION": "global_en",
-                    "MINIMAX_VIDEO_MODEL": "test-video-model",
-                    "MINIMAX_GLOBAL_OPENAI_BASE_URL": f"{base_url}/v1",
-                    "MINIMAX_GLOBAL_ANTHROPIC_BASE_URL": f"{base_url}/anthropic",
-                    "MINIMAX_CN_OPENAI_BASE_URL": f"{base_url}/v1",
-                    "MINIMAX_CN_ANTHROPIC_BASE_URL": f"{base_url}/anthropic",
+                    "MINIMAX_VIDEO_MODEL": "MiniMax-H3",
+                    "MINIMAX_GLOBAL_VIDEO_BASE_URL": base_url,
+                    "MINIMAX_CN_VIDEO_BASE_URL": base_url,
                 },
             ):
                 cn_endpoints = video_gen._region_endpoints("cn_zh")
-                self.assertEqual(cn_endpoints.anthropic_base_url, f"{base_url}/anthropic")
+                self.assertEqual(cn_endpoints.video_base_url, base_url)
                 output_path = Path(temp_dir) / "result.mp4"
                 result = video_gen.generate("A product demo", poll_interval=0, timeout=2, output_path=str(output_path))
                 result_bytes = output_path.read_bytes()
@@ -87,10 +96,46 @@ class VideoGenerationTest(unittest.TestCase):
 
         self.assertEqual(result, str(output_path))
         self.assertEqual(result_bytes, b"video-bytes")
-        paths = [request[1] for request in CaptureHandler.requests]
-        self.assertEqual(paths[0], "/v1/video_generation")
-        self.assertTrue(paths[1].startswith("/v1/query/video_generation?task_id=task-123"))
-        self.assertTrue(paths[2].startswith("/v1/files/retrieve?file_id=file-123"))
+        self.assertEqual(CaptureHandler.requests[0][1], "/v2/video_generation")
+        self.assertEqual(
+            CaptureHandler.requests[0][2],
+            {
+                "model": "MiniMax-H3",
+                "content": [{"type": "text", "text": "A product demo"}],
+                "resolution": "2K",
+                "duration": 6,
+                "ratio": "16:9",
+            },
+        )
+        self.assertEqual(CaptureHandler.requests[1][1], "/v2/query/video_generation/task-123")
+        self.assertEqual(CaptureHandler.requests[2][1], "/video.mp4")
+
+    def test_legacy_model_uses_v1_payload(self):
+        CaptureHandler.requests = []
+        server = ThreadingHTTPServer(("127.0.0.1", 0), CaptureHandler)
+        thread = threading.Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+        host, port = server.server_address
+        base_url = f"http://{host}:{port}"
+
+        try:
+            with patch.dict(
+                os.environ,
+                {
+                    "MINIMAX_API_KEY": "test-key",
+                    "MINIMAX_GLOBAL_VIDEO_BASE_URL": base_url,
+                    "MINIMAX_CN_VIDEO_BASE_URL": base_url,
+                },
+            ):
+                response = video_gen.create_task("A product demo", model="T2V-01", resolution="768P")
+        finally:
+            server.shutdown()
+            server.server_close()
+            thread.join(timeout=2)
+
+        self.assertEqual(response, {"task_id": "task-123"})
+        self.assertEqual(CaptureHandler.requests[0][1], "/v1/video_generation")
+        self.assertEqual(CaptureHandler.requests[0][2]["prompt"], "A product demo")
 
 
 if __name__ == "__main__":

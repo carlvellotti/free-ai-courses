@@ -22,31 +22,29 @@ load_dotenv()
 
 OUTPUT_DIR = "outputs"
 DEFAULT_REGION = "global_en"
+DEFAULT_MODEL = "MiniMax-H3"
 DEFAULT_DURATION = 6
+DEFAULT_RESOLUTION = "2K"
+DEFAULT_RATIO = "16:9"
 DEFAULT_POLL_INTERVAL = 10
 DEFAULT_TIMEOUT = 600
-VIDEO_GENERATION_PATH = "/v1/video_generation"
-VIDEO_QUERY_PATH = "/v1/query/video_generation"
-FILE_RETRIEVE_PATH = "/v1/files/retrieve"
+V2_MODEL = "MiniMax-H3"
+V2_VIDEO_GENERATION_PATH = "/v2/video_generation"
+V2_VIDEO_QUERY_PATH = "/v2/query/video_generation"
+V1_VIDEO_GENERATION_PATH = "/v1/video_generation"
+V1_VIDEO_QUERY_PATH = "/v1/query/video_generation"
+V1_FILE_RETRIEVE_PATH = "/v1/files/retrieve"
 
 
 @dataclass(frozen=True)
 class RegionEndpoints:
     region: str
-    openai_base_url: str
-    anthropic_base_url: str
     video_base_url: str
 
 
 _REGION_ENV = {
-    "global_en": (
-        "MINIMAX_GLOBAL_OPENAI_BASE_URL",
-        "MINIMAX_GLOBAL_ANTHROPIC_BASE_URL",
-    ),
-    "cn_zh": (
-        "MINIMAX_CN_OPENAI_BASE_URL",
-        "MINIMAX_CN_ANTHROPIC_BASE_URL",
-    ),
+    "global_en": "MINIMAX_GLOBAL_VIDEO_BASE_URL",
+    "cn_zh": "MINIMAX_CN_VIDEO_BASE_URL",
 }
 
 
@@ -57,30 +55,17 @@ def _required_env(name: str) -> str:
     return value
 
 
-def _native_video_base(openai_base_url: str) -> str:
-    base_url = openai_base_url.rstrip("/")
-    if not base_url.endswith("/v1"):
-        raise ValueError("The OpenAI-compatible base URL must end with /v1.")
-    return base_url[:-3]
-
-
 def _region_endpoints(region: str = None) -> RegionEndpoints:
     selected_region = (region or os.environ.get("MINIMAX_REGION", DEFAULT_REGION)).strip()
     if selected_region not in _REGION_ENV:
         supported = ", ".join(_REGION_ENV)
         raise ValueError(f"MINIMAX_REGION must be one of: {supported}")
 
-    openai_env, anthropic_env = _REGION_ENV[selected_region]
-    openai_base_url = _required_env(openai_env).rstrip("/")
-    anthropic_base_url = _required_env(anthropic_env).rstrip("/")
-    if not anthropic_base_url.endswith("/anthropic"):
-        raise ValueError("The Anthropic-compatible base URL must end with /anthropic.")
+    video_env = _REGION_ENV[selected_region]
 
     return RegionEndpoints(
         region=selected_region,
-        openai_base_url=openai_base_url,
-        anthropic_base_url=anthropic_base_url,
-        video_base_url=_native_video_base(openai_base_url),
+        video_base_url=_required_env(video_env).rstrip("/"),
     )
 
 
@@ -129,12 +114,12 @@ def _image_reference(value: str) -> str:
     image_path = Path(value)
     if not image_path.is_file():
         raise FileNotFoundError(f"Reference image not found: {value}")
-    if image_path.stat().st_size >= 20 * 1024 * 1024:
-        raise ValueError("Reference images must be smaller than 20 MB.")
+    if image_path.stat().st_size > 30 * 1024 * 1024:
+        raise ValueError("Reference images must be 30 MB or smaller.")
 
     mime_type = mimetypes.guess_type(image_path.name)[0] or "image/jpeg"
-    if mime_type not in {"image/jpeg", "image/png", "image/webp"}:
-        raise ValueError("Reference images must be JPG, JPEG, PNG, or WebP files.")
+    if mime_type not in {"image/jpeg", "image/png", "image/webp", "image/heic", "image/heif"}:
+        raise ValueError("Reference images must be JPG, JPEG, PNG, WebP, HEIC, or HEIF files.")
 
     encoded = base64.b64encode(image_path.read_bytes()).decode("ascii")
     return f"data:{mime_type};base64,{encoded}"
@@ -146,6 +131,7 @@ def create_task(
     first_frame_image: str = None,
     duration: int = DEFAULT_DURATION,
     resolution: str = None,
+    ratio: str = DEFAULT_RATIO,
     prompt_optimizer: bool = True,
     fast_pretreatment: bool = False,
     callback_url: str = None,
@@ -155,9 +141,37 @@ def create_task(
     if not prompt.strip():
         raise ValueError("prompt must not be empty.")
 
-    selected_model = (model or os.environ.get("MINIMAX_VIDEO_MODEL", "")).strip()
-    if not selected_model:
-        raise ValueError("Pass model or set MINIMAX_VIDEO_MODEL in your .env file.")
+    selected_model = (model or os.environ.get("MINIMAX_VIDEO_MODEL", DEFAULT_MODEL)).strip()
+
+    if selected_model == V2_MODEL:
+        selected_resolution = resolution or DEFAULT_RESOLUTION
+        if not isinstance(duration, int) or not 4 <= duration <= 15:
+            raise ValueError("MiniMax-H3 duration must be an integer from 4 to 15 seconds.")
+        if selected_resolution != DEFAULT_RESOLUTION:
+            raise ValueError("MiniMax-H3 resolution must be 2K.")
+
+        content = [{"type": "text", "text": prompt}]
+        selected_ratio = ratio
+        if first_frame_image:
+            content.append(
+                {
+                    "type": "image_url",
+                    "image_url": {"url": _image_reference(first_frame_image)},
+                    "role": "first_frame",
+                }
+            )
+            selected_ratio = "adaptive"
+
+        payload = {
+            "model": selected_model,
+            "content": content,
+            "resolution": selected_resolution,
+            "duration": duration,
+            "ratio": selected_ratio,
+        }
+        if callback_url:
+            payload["callback_url"] = callback_url
+        return _request_json("POST", V2_VIDEO_GENERATION_PATH, payload, region=region)
 
     payload = {
         "model": selected_model,
@@ -174,28 +188,25 @@ def create_task(
     if callback_url:
         payload["callback_url"] = callback_url
 
-    return _request_json("POST", VIDEO_GENERATION_PATH, payload, region=region)
+    return _request_json("POST", V1_VIDEO_GENERATION_PATH, payload, region=region)
 
 
-def query_task(task_id: str, region: str = None) -> dict:
+def query_task(task_id: str, model: str, region: str = None) -> dict:
     """Return the current status for a video generation task."""
+    if model == V2_MODEL:
+        return _request_json("GET", f"{V2_VIDEO_QUERY_PATH}/{task_id}", region=region)
     query = urlencode({"task_id": task_id})
-    return _request_json("GET", f"{VIDEO_QUERY_PATH}?{query}", region=region)
+    return _request_json("GET", f"{V1_VIDEO_QUERY_PATH}?{query}", region=region)
 
 
 def retrieve_file(file_id: str, region: str = None) -> dict:
     """Retrieve metadata and a temporary download URL for a generated file."""
     query = urlencode({"file_id": file_id})
-    return _request_json("GET", f"{FILE_RETRIEVE_PATH}?{query}", region=region)
+    return _request_json("GET", f"{V1_FILE_RETRIEVE_PATH}?{query}", region=region)
 
 
-def download_video(file_id: str, output_path: str = None, region: str = None) -> str:
-    """Download a generated video and return its local path."""
-    file_response = retrieve_file(file_id, region=region)
-    download_url = file_response.get("file", {}).get("download_url")
-    if not download_url:
-        raise RuntimeError("MiniMax did not return a download URL for the generated video.")
-
+def download_video_url(download_url: str, output_path: str = None, file_id: str = "result") -> str:
+    """Download a generated video URL and return its local path."""
     if output_path:
         destination = Path(output_path)
     else:
@@ -214,12 +225,22 @@ def download_video(file_id: str, output_path: str = None, region: str = None) ->
     return str(destination)
 
 
+def download_video(file_id: str, output_path: str = None, region: str = None) -> str:
+    """Retrieve and download a v1 generated video."""
+    file_response = retrieve_file(file_id, region=region)
+    download_url = file_response.get("file", {}).get("download_url")
+    if not download_url:
+        raise RuntimeError("MiniMax did not return a download URL for the generated video.")
+    return download_video_url(download_url, output_path=output_path, file_id=file_id)
+
+
 def generate(
     prompt: str,
     model: str = None,
     first_frame_image: str = None,
     duration: int = DEFAULT_DURATION,
     resolution: str = None,
+    ratio: str = DEFAULT_RATIO,
     prompt_optimizer: bool = True,
     fast_pretreatment: bool = False,
     callback_url: str = None,
@@ -229,12 +250,14 @@ def generate(
     output_path: str = None,
 ) -> str:
     """Create, wait for, and download a video generation task."""
+    selected_model = (model or os.environ.get("MINIMAX_VIDEO_MODEL", DEFAULT_MODEL)).strip()
     task_response = create_task(
         prompt=prompt,
-        model=model,
+        model=selected_model,
         first_frame_image=first_frame_image,
         duration=duration,
         resolution=resolution,
+        ratio=ratio,
         prompt_optimizer=prompt_optimizer,
         fast_pretreatment=fast_pretreatment,
         callback_url=callback_url,
@@ -247,16 +270,28 @@ def generate(
     print(f"Created video task: {task_id}")
     deadline = time.monotonic() + timeout
     while time.monotonic() < deadline:
-        status_response = query_task(task_id, region=region)
-        status = (status_response.get("status") or "").lower()
-        if status == "success":
-            file_id = status_response.get("file_id")
-            if not file_id:
-                raise RuntimeError("MiniMax marked the task successful without a file_id.")
-            return download_video(file_id, output_path=output_path, region=region)
-        if status in {"fail", "failed"}:
-            message = status_response.get("base_resp", {}).get("status_msg", "unknown error")
-            raise RuntimeError(f"MiniMax video generation failed: {message}")
+        status_response = query_task(task_id, model=selected_model, region=region)
+        if selected_model == V2_MODEL:
+            task = status_response.get("task", {})
+            status = (task.get("status") or "").lower()
+            if status == "succeeded":
+                download_url = task.get("content", {}).get("url")
+                if not download_url:
+                    raise RuntimeError("MiniMax marked the task successful without a video URL.")
+                return download_video_url(download_url, output_path=output_path, file_id=task_id)
+            if status == "failed":
+                message = task.get("error", {}).get("message", "unknown error")
+                raise RuntimeError(f"MiniMax video generation failed: {message}")
+        else:
+            status = (status_response.get("status") or "").lower()
+            if status == "success":
+                file_id = status_response.get("file_id")
+                if not file_id:
+                    raise RuntimeError("MiniMax marked the task successful without a file_id.")
+                return download_video(file_id, output_path=output_path, region=region)
+            if status in {"fail", "failed"}:
+                message = status_response.get("base_resp", {}).get("status_msg", "unknown error")
+                raise RuntimeError(f"MiniMax video generation failed: {message}")
 
         print(f"Task status: {status or 'processing'}")
         time.sleep(poll_interval)
@@ -273,6 +308,7 @@ if __name__ == "__main__":
     parser.add_argument("--first-frame-image")
     parser.add_argument("--duration", type=int, default=DEFAULT_DURATION)
     parser.add_argument("--resolution")
+    parser.add_argument("--ratio", default=DEFAULT_RATIO)
     parser.add_argument("--region", choices=tuple(_REGION_ENV))
     parser.add_argument("--output-path")
     args = parser.parse_args()
@@ -284,6 +320,7 @@ if __name__ == "__main__":
             first_frame_image=args.first_frame_image,
             duration=args.duration,
             resolution=args.resolution,
+            ratio=args.ratio,
             region=args.region,
             output_path=args.output_path,
         )
