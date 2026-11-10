@@ -27,19 +27,24 @@ const trackEvent = (eventName, params = {}) => {
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', eventName, params)
   }
-  // PostHog mirror: same name and properties as GA, plus the site
-  if (typeof window !== 'undefined' && window.posthog) {
-    window.posthog.capture(eventName, { ...params, site: 'ccforpms.com' })
-  }
+  // PostHog mirror: same name and properties as GA, plus the site.
+  // Guarded so a missing, blocked or broken PostHog never breaks the caller.
+  try {
+    if (typeof window !== 'undefined' && window.posthog && typeof window.posthog.capture === 'function') {
+      window.posthog.capture(eventName, { ...params, site: 'ccforpms.com' })
+    }
+  } catch (e) {}
 }
 
 // PostHog identity: the distinct ID is the lowercased, trimmed email.
 // Called only after a successful subscribe.
 const identifyEmail = (rawEmail) => {
-  const email = (rawEmail || '').trim().toLowerCase()
-  if (email && typeof window !== 'undefined' && window.posthog) {
-    window.posthog.identify(email, { email })
-  }
+  try {
+    const email = (rawEmail || '').trim().toLowerCase()
+    if (email && typeof window !== 'undefined' && window.posthog && typeof window.posthog.identify === 'function') {
+      window.posthog.identify(email, { email })
+    }
+  } catch (e) {}
 }
 
 export default function EmailPopup() {
