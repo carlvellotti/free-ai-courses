@@ -22,6 +22,19 @@ const trackEvent = (eventName, params = {}) => {
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', eventName, params)
   }
+  // PostHog mirror: same name and properties as GA, plus the site
+  if (typeof window !== 'undefined' && window.posthog) {
+    window.posthog.capture(eventName, { ...params, site: 'ccforpms.com' })
+  }
+}
+
+// PostHog identity: the distinct ID is the lowercased, trimmed email.
+// Called only after a successful subscribe.
+const identifyEmail = (rawEmail) => {
+  const email = (rawEmail || '').trim().toLowerCase()
+  if (email && typeof window !== 'undefined' && window.posthog) {
+    window.posthog.identify(email, { email })
+  }
 }
 
 // Legacy ZIP links (kept as a safety net until the release flow is fully retired)
@@ -188,6 +201,7 @@ export default function DownloadGate() {
 
       if (response.ok && data.success) {
         setStatus('success')
+        identifyEmail(email)
         localStorage.setItem(EMAIL_SUBMITTED_KEY, 'true')
         trackEvent('email_gate_completed', {
           gate_type: pendingPrompt ? 'copy_prompt' : 'download',
